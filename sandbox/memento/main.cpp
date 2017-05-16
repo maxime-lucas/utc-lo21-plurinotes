@@ -1,34 +1,29 @@
-#include "memento.h"
+#include "Notes.h"
 
-Command *Command::commandList[];
-Memento *Command::mementoList[];
-int Command::numCommands = 0;
-int Command::highWater = 0;
+int main(void) {
+	Article a1("01", "Article 1", "Hello les amis !");	
+	Tache t1("02", "Tache 1", "Faire à manger", 5);
+	
+	Version *va1 = a1.creerVersion(1);
 
-int main()
-{
-	unsigned int i;
-	std::cout << "Integer : ";
-	std::cin >> i;
-	Number *object = new Number(i);
+	a1.afficher();
+	std::cout << std::endl;
 
-	Command *commands[3];
-	commands[1] = new Command(object, &Number::dubble);
-	commands[2] = new Command(object, &Number::half);
+	a1.setTitre("Article 2");
 
-	std::cout << "Exit[0], Double[1], Half[2], Undo[3], Redo[4]: ";
-	std::cin >> i;
+	Version *va2 = a1.creerVersion(2);
 
-	while(i) {
-		if(i == 3)
-			Command::undo();
-		else if(i == 4)
-			Command::redo();
-		else
-			commands[i]->execute();
-		std::cout << "    " << object->getValue() << std::endl;
-		std::cout << "Exit[0], Double[1], Half[2], Undo[3], Redo[4]: ";
-		std::cin >> i;
-	}
+	a1.afficher();
+	std::cout << std::endl;
+
+	a1.restaurerVersion(va1);
+
+	a1.afficher();
+	std::cout << std::endl;
+
+	a1.restaurerVersion(va2);
+
+	a1.afficher();
+	std::cout << std::endl;
 	return 0;
 }

@@ -2,6 +2,11 @@
 
 class Number;
 
+class Note {
+	private:
+	
+};
+
 class Memento {
 	private:
 	friend class Number;
