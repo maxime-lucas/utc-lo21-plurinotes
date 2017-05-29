@@ -9,11 +9,11 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <ctime>
 #include <string>
 
-#include "datetime.h"
-#include "notesexception.h"
-#include "p_notes.h"
-#include "p_relations.h"
-#include "p_versions.h"
+#include "models/datetime.h"
+#include "models/notesexception.h"
+#include "models/p_notes.h"
+#include "models/p_relations.h"
+#include "models/p_versions.h"
 
 #endif // MAIN
 
