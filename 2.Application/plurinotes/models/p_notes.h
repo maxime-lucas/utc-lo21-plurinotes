@@ -48,9 +48,22 @@ class Multimedia : public Note {
         enum TypeMultimedia type;
 
     public :
-        Multimedia(std::string i = "", std::string t = "", Datetime co = 0, Datetime lmo = 0, std::string desc, std::string ptf, TypeMultimedia t) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(t) {}
+        Multimedia(std::string i = "", std::string t = "", Datetime co = 0, Datetime lmo = 0, std::string desc = "", std::string ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(tm) {}
 
         ~Multimedia();
+};
+
+class Task : public Note {
+    private :
+        std::string action;
+        unsigned int priority;
+        Datetime toBeDoneOn;
+        enum TaskStatus status;
+
+    public :
+        Task(std::string i = "", std::string t = "", Datetime co = 0, Datetime lmo = 0, std::string a ="", unsigned int p = 0, Datetime tbdo = 0, TaskStatus s = PENDING) : Note(i,t,co,lmo), action(a), priority(p), toBeDoneOn(tbdo), status(s)  {}
+
+        ~Task();
 };
 
 #endif // P_NOTES

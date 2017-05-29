@@ -1,6 +1,6 @@
 #include "main.h"
 
-void Relation::addCouple(string lab, Note *a, Note *b){
+void Relation::addCouple(std::string lab, Note *a, Note *b){
     if(nbCouple == nbMaxCouple)
     {
     //Augmente taille Couple**
@@ -20,7 +20,7 @@ void Relation::addCouple(string lab, Note *a, Note *b){
     nbCouple ++;
 }
 
-void Relation::RemoveCouple(string lab)
+void Relation::RemoveCouple(std::string lab)
 {
     for(unsigned int i=0; i<nbCouple; i++){
             if (couples[i]->getLabel()==lab)
