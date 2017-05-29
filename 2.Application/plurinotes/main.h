@@ -10,6 +10,7 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <string>
 
 #include "datetime.h"
+#include "notesexception.h"
 #include "p_notes.h"
 #include "p_relations.h"
 #include "p_versions.h"
