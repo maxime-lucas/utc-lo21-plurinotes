@@ -2,6 +2,50 @@
 #define P_NOTES
 
 #include "main.h"
+#include "datetime.h"
+
+class Note;
+class Article;
+class Multimedia;
+class Task;
+
+class NotesManager {
+
+    private:
+        Note** tab;
+        unsigned int nb;
+        unsigned int max;
+
+    public:
+        NotesManager();
+        virtual ~NotesManager() = 0;
+
+        Note** getTab() const { return tab; }
+        unsigned int getNb() const { return nb; }
+        unsigned int getMax() const { return max; }
+
+        void setTab(Note** t) { tab = t; }
+        void setNb(unsigned int n) { nb = n; }
+        void setMax(unsigned int m) { max = m; }
+};
+
+class ActiveNotesManager : public NotesManager {
+    public:
+        ActiveNotesManager();
+        ~ActiveNotesManager();
+};
+
+class ArchivedNotesManager : public NotesManager {
+    public:
+        ArchivedNotesManager();
+        ~ArchivedNotesManager();
+};
+
+class DeletedNotesManager : public NotesManager {
+    public:
+        DeletedNotesManager();
+        ~DeletedNotesManager();
+};
 
 class Note {
 

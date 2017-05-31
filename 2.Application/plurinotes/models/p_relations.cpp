@@ -1,4 +1,6 @@
 #include "main.h"
+#include "models/p_relations.h"
+#include "notesexception.h"
 
 void Relation::addCouple(std::string lab, Note *a, Note *b){
     if(nbCouple == nbMaxCouple)
