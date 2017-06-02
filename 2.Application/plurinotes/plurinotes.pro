@@ -19,6 +19,3 @@ SOURCES += \
     models/p_core.cpp \
     models/operatorsoverloading.cpp \
     views/mainwindow.cpp
-
-FORMS += \
-    views/mainwindow.ui

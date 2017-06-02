@@ -10,8 +10,18 @@ class MainWindow : public QMainWindow {
     public:
         MainWindow();
 
+        QListWidget* getActiveNotes() const { return activeNotes; }
+
     private:
+        QHBoxLayout* mainLayout;
+        QVBoxLayout* leftLayout;
+
         QMenu* fileMenu;
+
+        QListWidget* activeNotes;
+        QListWidget* task;
+        QListWidget* archivedNotes;
+
         QAction* exitAct;
 
         void createActions();

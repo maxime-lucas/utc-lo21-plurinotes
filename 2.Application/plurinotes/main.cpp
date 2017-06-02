@@ -10,5 +10,11 @@ int main(int argc, char *argv[]) {
     MainWindow mainWindow;
     mainWindow.show();
 
+    mainWindow.getActiveNotes()->addItem(new QListWidgetItem("Hello 1",mainWindow.getActiveNotes()));
+    mainWindow.getActiveNotes()->addItem(new QListWidgetItem("Hello 2",mainWindow.getActiveNotes()));
+    mainWindow.getActiveNotes()->addItem(new QListWidgetItem("Hello 3",mainWindow.getActiveNotes()));
+    mainWindow.getActiveNotes()->addItem(new QListWidgetItem("Hello 4",mainWindow.getActiveNotes()));
+
+
     return app.exec();
 }
