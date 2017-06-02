@@ -2,6 +2,7 @@
 #define P_RELATIONS
 
 #include "main.h"
+#include "models/p_notes.h"
 
 class Couple
 {
