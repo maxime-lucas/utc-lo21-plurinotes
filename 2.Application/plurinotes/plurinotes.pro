@@ -24,4 +24,5 @@ SOURCES += \
     models/operatorsoverloading.cpp \
     views/v_mainwindow.cpp \
     controllers/c_mainwindow.cpp \
-    models/p_xml.cpp
+    models/p_xml.cpp \
+    models/datetime.cpp

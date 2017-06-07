@@ -16,6 +16,28 @@ XMLManager::XMLManager(const QString &path ) : QWidget() {
     }
 }
 
+std::vector<Article*> XMLManager::getAllActiveArticles() {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement articles = activeNotes.firstChildElement("articles");
+    QDomElement article = articles.firstChildElement("article");
+
+    std::vector<Article*> tab;
+
+    for(;!article.isNull(); article = article.nextSiblingElement("article")) {
+        Article *a = new Article(
+            article.firstChildElement("id").text(),
+            article.firstChildElement("title").text(),
+            article.firstChildElement("createdOn").text(),
+            article.firstChildElement("lastModifOn").text()
+        );
+
+        tab.push_back(a);
+    }
+
+    return tab;
+}
+
 XMLManager::~XMLManager() {
     doc.close();
 }

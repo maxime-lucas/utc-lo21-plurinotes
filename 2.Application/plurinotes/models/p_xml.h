@@ -2,6 +2,7 @@
 #define P_XML
 
 #include "main.h"
+#include "p_notes.h"
 
 class XMLManager : public QWidget {
     private:
@@ -10,7 +11,7 @@ class XMLManager : public QWidget {
 
     public:
     XMLManager(const QString &);
-
+    std::vector<Article*> getAllActiveArticles();
     ~XMLManager();
 };
 

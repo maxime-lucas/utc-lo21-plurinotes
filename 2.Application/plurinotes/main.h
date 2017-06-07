@@ -9,6 +9,8 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <ctime>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <vector>
 
 #include <QApplication>
 #include <QString>
