@@ -1,0 +1,12 @@
+INPUT(
+./release\p_notes.o
+./release\p_versions.o
+./release\p_relations.o
+./release\main.o
+./release\p_core.o
+./release\operatorsoverloading.o
+./release\mainwindow.o
+./release\v_article.o
+./release\moc_mainwindow.o
+./release\moc_v_article.o
+);
