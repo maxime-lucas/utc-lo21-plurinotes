@@ -7,30 +7,30 @@
 class Couple
 {
     private:
-        std::string label;
+        QString label;
         Note* x;
         Note* y;
     public:
-        Couple(std::string s,Note* a, Note* b): label(s) {
+        Couple(QString s,Note* a, Note* b): label(s) {
             x = a;
             y = b;
         }
-        const std::string getLabel() const { return label; }
+        const QString getLabel() const { return label; }
 };
 
 class Relation
 {
     private:
-        std::string title;
-        std::string description;
+        QString title;
+        QString description;
         bool isOriented;
         Couple** couples;
         unsigned int nbCouple;
         unsigned int nbMaxCouple;
     public:
-        Relation(std::string t,std::string d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
-        void addCouple(std::string lab,Note* a,Note* b);
-        void RemoveCouple(std::string lab);
+        Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
+        void addCouple(QString lab,Note* a,Note* b);
+        void RemoveCouple(QString lab);
         ~Relation() { if (couples) delete[] couples;}
 };
 

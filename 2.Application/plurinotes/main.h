@@ -18,6 +18,10 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <QMainWindow>
 #include <QWidget>
 #include <QListWidget>
+#include <QtXml>
+#include <QMessageBox>
+#include <QFile>
+#include <QDomDocument>
 
 #include "models/datetime.h"
 #include "models/operatorsoverloading.h"

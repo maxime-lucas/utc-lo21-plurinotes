@@ -2,7 +2,7 @@
 #include "models/p_relations.h"
 #include "notesexception.h"
 
-void Relation::addCouple(std::string lab, Note *a, Note *b){
+void Relation::addCouple(QString lab, Note *a, Note *b){
     if(nbCouple == nbMaxCouple)
     {
     //Augmente taille Couple**
@@ -22,7 +22,7 @@ void Relation::addCouple(std::string lab, Note *a, Note *b){
     nbCouple ++;
 }
 
-void Relation::RemoveCouple(std::string lab)
+void Relation::RemoveCouple(QString lab)
 {
     for(unsigned int i=0; i<nbCouple; i++){
             if (couples[i]->getLabel()==lab)
