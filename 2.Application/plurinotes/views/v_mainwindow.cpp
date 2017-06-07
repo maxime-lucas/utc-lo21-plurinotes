@@ -1,7 +1,7 @@
 #include "main.h"
-#include "mainwindow.h"
+#include "v_mainwindow.h"
 
-MainWindow::MainWindow() : QMainWindow() {
+V_Mainwindow::V_Mainwindow() : QMainWindow() {
     // Création et initialisation de la fenêtre
     setFixedSize(1366,768);
     setWindowTitle("PluriNotes - FAYA / YAYA / MAX");
@@ -9,8 +9,16 @@ MainWindow::MainWindow() : QMainWindow() {
     // Mise en place du widget principal pour contenir le layout principal (obligatoire pour une QMainWindow)
     QWidget *centralWidget = new QWidget();
     setCentralWidget(centralWidget);
+
+    // Mise en place des ongles
+    tab = new QTabWidget(centralWidget);
+    mainView = new QWidget;
+    secondaryView = new QWidget;
+    tab->addTab(mainView,"Vue principale");
+    tab->addTab(secondaryView,"Vue secondaire");
+
     mainLayout = new QHBoxLayout;
-    centralWidget->setLayout(mainLayout);
+    mainView->setLayout(mainLayout);
 
     // Mise en place du widget gauche qui contiendra les trois listwidgets
     QWidget *leftPart = new QWidget();
@@ -38,19 +46,6 @@ MainWindow::MainWindow() : QMainWindow() {
     rightPart->setFixedSize(455,768);
     mainLayout->addWidget(rightPart);
 
-    createActions();
-    createMenus();
-}
-
-void MainWindow::createActions()
-{
-    exitAct = new QAction(tr("&Quit"), this);
-    exitAct->setStatusTip(tr("Quit the app"));
-    connect(exitAct, SIGNAL(triggered()), this, SLOT(close()) );
-}
-
-void MainWindow::createMenus()
-{
-    fileMenu = menuBar()->addMenu(tr("&File"));
-    fileMenu->addAction(exitAct);
+    // Création du menu tout en haut
+    fileMenu = this->menuBar()->addMenu(tr("&File"));
 }

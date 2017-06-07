@@ -1,18 +1,24 @@
-#ifndef MAINWINDOW
-#define MAINWINDOW
+#ifndef V_MAINWINDOW
+#define V_MAINWINDOW
 
 #include "main.h"
 
-class MainWindow : public QMainWindow {
+class V_Mainwindow : public QMainWindow {
 
     Q_OBJECT
 
     public:
-        MainWindow();
+        V_Mainwindow();
 
         QListWidget* getActiveNotes() const { return activeNotes; }
+        QMenu* getFileMenu() const { return fileMenu; }
 
     private:
+        QTabWidget* tab;
+
+        QWidget* mainView;
+        QWidget* secondaryView;
+
         QHBoxLayout* mainLayout;
         QVBoxLayout* leftLayout;
 
@@ -22,11 +28,9 @@ class MainWindow : public QMainWindow {
         QListWidget* task;
         QListWidget* archivedNotes;
 
-        QAction* exitAct;
-
         void createActions();
         void createMenus();
 };
 
-#endif // MAINWINDOW
+#endif // V_MAINWINDOW
 

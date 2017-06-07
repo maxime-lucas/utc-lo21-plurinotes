@@ -9,7 +9,8 @@ HEADERS += \
     main.h \
     models/p_core.h \
     models/operatorsoverloading.h \
-    views/mainwindow.h
+    views/v_mainwindow.h \
+    controllers/c_mainwindow.h
 
 SOURCES += \
     models/p_notes.cpp \
@@ -18,4 +19,5 @@ SOURCES += \
     main.cpp \
     models/p_core.cpp \
     models/operatorsoverloading.cpp \
-    views/mainwindow.cpp
+    views/v_mainwindow.cpp \
+    controllers/c_mainwindow.cpp
