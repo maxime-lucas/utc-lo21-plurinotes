@@ -16,6 +16,13 @@
 				<lastModifOn>2017-06-08 00:05:00</lastModifOn>
 				<text>Voici le texte du deuxième article. J'ai plus d'inspi.</text>
 			</article>
+			<article>
+				<id>3</id>
+				<title>Article 3</title>
+				<createdOn>2017-06-08 23:49:00</createdOn>
+				<lastModifOn>2017-06-08 23:49:00</lastModifOn>
+				<text>Voici le texte du troisieme article. Fuck.</text>
+			</article>
 		</articles>
 		<multimedia>
 		</multimedia>

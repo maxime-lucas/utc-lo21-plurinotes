@@ -1,57 +1,47 @@
 #include "main.h"
 #include "v_mainwindow.h"
+#include "ui_v_mainwindow.h"
+#include "ui_v_multiplenotes.h"
 
-V_Mainwindow::V_Mainwindow() : QMainWindow() {
-    // Création et initialisation de la fenêtre
-    setFixedSize(800,600);
-    setWindowTitle("PluriNotes - FAYA / YAYA / MAX");
+V_Mainwindow::V_Mainwindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::V_Mainwindow)
+{
+    ui->setupUi(this);
 
-    // Mise en place du widget principal pour contenir le layout principal (obligatoire pour une QMainWindow)
-    QWidget *centralWidget = new QWidget();
-    setCentralWidget(centralWidget);
+    labelActiveNotes = new QLabel("Active Notes");
+    labelActiveNotes->setFixedSize(200,20);
+    labelActiveNotes->setAlignment(Qt::AlignCenter);
 
-    // Mise en place des ongles
-    tab = new QTabWidget(centralWidget);
-    mainView = new QWidget;
-    secondaryView = new QWidget;
-    tab->addTab(mainView,"Vue principale");
-    tab->addTab(secondaryView,"Vue secondaire");
+    labelArchivedNotes = new QLabel("Archived Notes");
+    labelArchivedNotes->setFixedSize(200,20);
+    labelArchivedNotes->setAlignment(Qt::AlignCenter);
 
-    mainLayout = new QHBoxLayout;
-    mainView->setLayout(mainLayout);
+    labelTasks = new QLabel("Tasks");
+    labelTasks->setFixedSize(200,20);
+    labelTasks->setAlignment(Qt::AlignCenter);
 
-    // Mise en place du widget gauche qui contiendra les trois listwidgets
-    QWidget *leftPart = new QWidget();
-    leftPart->setFixedSize(455,768);
+    activeNotes = new V_Multiplenotes;
+    tasks = new V_Multiplenotes;
+    archivedNotes = new V_Multiplenotes;
+
+    centralLayout = new QHBoxLayout;
+    leftWidget = new QWidget;
     leftLayout = new QVBoxLayout;
-    leftPart->setLayout(leftLayout);
-    mainLayout->addWidget(leftPart);
 
-    // Initialisation et Ajout des listwidgets au widget de gauche
-    activeNotes = new QListWidget();
-    activeNotesLabel = new QLabel(QString::fromUtf8("Notes actives"));
-    task = new QListWidget();
-    taskLabel = new QLabel(QString::fromUtf8("Tâches"));
-    archivedNotes = new QListWidget();
-    archivedNotesLabel = new QLabel(QString::fromUtf8("Notes archivées"));
-
-    leftLayout->addWidget(activeNotesLabel);
+    leftLayout->addWidget(labelActiveNotes);
     leftLayout->addWidget(activeNotes);
-    leftLayout->addWidget(taskLabel);
-    leftLayout->addWidget(task);
-    leftLayout->addWidget(archivedNotesLabel);
+    leftLayout->addWidget(labelTasks);
+    leftLayout->addWidget(tasks);
+    leftLayout->addWidget(labelArchivedNotes);
     leftLayout->addWidget(archivedNotes);
 
-    // Mise en place du widget central qui contiendra la vue principale
-    QWidget *mainPart = new QWidget();
-    mainPart->setFixedSize(455,768);
-    mainLayout->addWidget(mainPart);
+    leftWidget->setLayout(leftLayout);
+    centralLayout->addWidget(leftWidget);
+    centralWidget()->setLayout(centralLayout);
+}
 
-    // Mise en place du widget droite qui contiendra les arborescences
-    QWidget *rightPart = new QWidget();
-    rightPart->setFixedSize(455,768);
-    mainLayout->addWidget(rightPart);
-
-    // Création du menu tout en haut
-    fileMenu = this->menuBar()->addMenu(tr("&File"));
+V_Mainwindow::~V_Mainwindow()
+{
+    delete ui;
 }

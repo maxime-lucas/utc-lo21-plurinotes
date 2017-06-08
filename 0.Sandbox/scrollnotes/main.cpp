@@ -34,7 +34,6 @@ int main(int argc, char* argv[]) {
     // soient ajoutés, rien ne s'affiche
     // (voir doc de QScrollArea::setWidget)
     frame->setWidget(contenu);
-    frame->setWidget(contenu);
 
     frame->show();
 

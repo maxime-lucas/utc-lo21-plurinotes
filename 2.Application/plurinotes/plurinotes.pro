@@ -11,9 +11,12 @@ HEADERS += \
     main.h \
     models/p_core.h \
     models/operatorsoverloading.h \
-    views/v_mainwindow.h \
     controllers/c_mainwindow.h \
-    models/p_xml.h
+    models/p_xml.h \
+    mainwindow.h \
+    views/v_mainwindow.h \
+    views/v_multiplenotes.h \
+    views/v_littlenote.h
 
 SOURCES += \
     models/p_notes.cpp \
@@ -22,7 +25,13 @@ SOURCES += \
     main.cpp \
     models/p_core.cpp \
     models/operatorsoverloading.cpp \
-    views/v_mainwindow.cpp \
     controllers/c_mainwindow.cpp \
     models/p_xml.cpp \
-    models/datetime.cpp
+    models/datetime.cpp \
+    views/v_mainwindow.cpp \
+    views/v_multiplenotes.cpp \
+    views/v_littlenote.cpp
+
+FORMS += \
+    views/v_mainwindow.ui \
+    views/v_multiplenotes.ui

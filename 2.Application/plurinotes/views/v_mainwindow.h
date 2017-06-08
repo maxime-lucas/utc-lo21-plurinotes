@@ -1,44 +1,40 @@
-#ifndef V_MAINWINDOW
-#define V_MAINWINDOW
+#ifndef V_MAINWINDOW_H
+#define V_MAINWINDOW_H
 
 #include "main.h"
+#include "v_multiplenotes.h"
 
-class V_Mainwindow : public QMainWindow {
+namespace Ui {
+class V_Mainwindow;
+}
 
+class V_Mainwindow : public QMainWindow
+{
     Q_OBJECT
 
-    public:
-        V_Mainwindow();
+public:
+    explicit V_Mainwindow(QWidget *parent = 0);
+    ~V_Mainwindow();
+    Ui::V_Mainwindow* getUi() const { return ui; }
 
-        QListWidget* getActiveNotes() const { return activeNotes; }
-        QMenu* getFileMenu() const { return fileMenu; }
+    V_Multiplenotes *getActiveNotes() const { return activeNotes; }
+    V_Multiplenotes *getTasks() const { return tasks; }
+    V_Multiplenotes *getArchivedNotes() const { return archivedNotes; }
 
-    private:
-        // Widget onglet
-        QTabWidget* tab;
+private:
+    Ui::V_Mainwindow *ui;
+    QHBoxLayout* centralLayout;
+    QVBoxLayout* leftLayout;
 
-        // Widget pour faire les onglets
-        QWidget* mainView;
-        QWidget* secondaryView;
+    QLabel* labelActiveNotes;
+    QLabel* labelTasks;
+    QLabel* labelArchivedNotes;
 
-        // Layout
-        QHBoxLayout* mainLayout;
-        QVBoxLayout* leftLayout;
+    V_Multiplenotes *activeNotes;
+    V_Multiplenotes *tasks;
+    V_Multiplenotes *archivedNotes;
 
-        // Menu tout en haut
-        QMenu* fileMenu;
-
-        // Partie Gauche
-        QLabel* activeNotesLabel;
-        QListWidget* activeNotes;
-        QLabel* taskLabel;
-        QListWidget* task;
-        QLabel* archivedNotesLabel;
-        QListWidget* archivedNotes;
-
-        void createActions();
-        void createMenus();
+    QWidget* leftWidget;
 };
 
-#endif // V_MAINWINDOW
-
+#endif // V_MAINWINDOW_H

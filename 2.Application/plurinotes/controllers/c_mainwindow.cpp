@@ -1,32 +1,39 @@
 #include "main.h"
+#include "../models/p_core.h"
 #include "c_mainwindow.h"
 #include "../views/v_mainwindow.h"
+#include "../views/v_littlenote.h"
+#include "ui_v_mainwindow.h"
+#include "ui_v_multiplenotes.h"
 
 C_Mainwindow::C_Mainwindow(QApplication *q) {
+
     // Initialisation des models et de la view
     qapp = q;
     view = new V_Mainwindow;
     app = new PluriNotes;
 
-    // Création des actions
-    createActions();
-
-    // Connexions des éléments à leurs actions
-    view->getFileMenu()->addAction(newAct);
-    view->getFileMenu()->addAction(exitAct);
-
-    // Ajout des notes actives dans le listwidget de la view
-    for(unsigned int i; i < app->getActiveNotesManage()->getTab()->size() ; i++ ) {
-        Note *n = app->getActiveNotesManage()->getTab()->at(i);
-
-        view->getActiveNotes()->addItem(n->getTitle()   );
-    }
+    refreshActiveNotes();
 }
 
-void C_Mainwindow::createActions()
-{
-    newAct = new QAction(QString::fromStdString("New..."), view);
+void C_Mainwindow::refreshActiveNotes() {
 
-    exitAct = new QAction(QString::fromStdString("Quit"), view);
-    view->connect(exitAct, SIGNAL(triggered()), view, SLOT(close()) );
+    std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
+    QGridLayout *gridLayout = new QGridLayout;
+    unsigned int row = 0;
+    unsigned int column = 0;
+    for(unsigned int i = 0; i < notes->size(); i++) {
+        Note* note = notes->at(i);
+
+        if( typeid(*note) == typeid(Article) ) {
+            Article* a = new Article( dynamic_cast<Article&>(*note) );
+            gridLayout->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article),row,column);
+        }
+
+        if( column != 0 && column % 1 == 0 )
+        {
+            row++;
+            column=0;
+        } else column++;
+    }
 }

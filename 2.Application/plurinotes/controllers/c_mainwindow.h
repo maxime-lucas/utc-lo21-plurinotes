@@ -23,6 +23,7 @@ class C_Mainwindow {
 
         void createActions();
         void createMenus();
+        void refreshActiveNotes();
 };
 
 #endif // C_MAINWINDOW
