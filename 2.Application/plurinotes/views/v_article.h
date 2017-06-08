@@ -8,6 +8,8 @@
 #include <QTextEdit>
 #include <QLayout>
 #include <QFileDialog>
+#include <QVBoxLayout>
+#include <QFormLayout>
 
 #include "models/p_notes.h"
 
@@ -18,10 +20,12 @@ private:
     QLineEdit *id, *titre;
     QTextEdit *text;
     QPushButton *save;
-    QGridLayout *layout;
+    QFormLayout *layout;
+    QVBoxLayout *Vlayout;
     Article *article;
 public:
-    explicit v_article(Article &article, QWidget *parent = 0);
+    v_article();
+    //explicit v_article(Article &article, QWidget *parent = 0);
 public slots:
     void saveArticle();
 private slots:

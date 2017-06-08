@@ -16,6 +16,7 @@ class Datetime {
 
     public:
         Datetime(unsigned int d = 0, unsigned int mo = 0, unsigned int y = 0, unsigned int h = 0, unsigned int mn = 0, unsigned int s = 0) : hour(h), min(mn), sec(s), year(y), month(mo), day(d) {}
+        Datetime(QString);
 
         unsigned int getHour() const { return hour; }
         unsigned int getMin() const { return min; }

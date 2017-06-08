@@ -11,19 +11,19 @@ std::ostream& operator << (std::ostream& f, const Datetime& d) {
 
     if( d.getDay() < 10 )
         f << "0" ;
-    f << d.getDay() << "-";
+    f << d.getDay() << " ";
 
     if( d.getHour() < 10 )
-        f << "0";
-    f << d.getHour() << "-";
+        f << "0" ;
+    f << d.getHour() << ":";
 
     if( d.getMin() < 10 )
-        f << "0";
-    f << d.getMin() << "-";
+        f << "0" ;
+    f << d.getMin() << ":";
 
     if( d.getSec() < 10 )
-            f << "0";
-    f << d.getSec() << "-";
+        f << "0" ;
+    f << d.getSec();
 
     return f;
 }

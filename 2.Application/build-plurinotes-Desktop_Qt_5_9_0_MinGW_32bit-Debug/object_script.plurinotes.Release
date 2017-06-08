@@ -5,8 +5,11 @@ INPUT(
 ./release\main.o
 ./release\p_core.o
 ./release\operatorsoverloading.o
-./release\mainwindow.o
 ./release\v_article.o
-./release\moc_mainwindow.o
+./release\v_mainwindow.o
+./release\c_mainwindow.o
+./release\p_xml.o
+./release\datetime.o
 ./release\moc_v_article.o
+./release\moc_v_mainwindow.o
 );

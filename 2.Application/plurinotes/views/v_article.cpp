@@ -1,39 +1,41 @@
 #include "views/v_article.h"
+
 #include <QMessageBox>
 
-v_article::v_article(Article &article, QWidget *parent)
+v_article::v_article()
 {
-    id1 = new QLabel("Id",this);
-    titre1 = new QLabel("Titre",this);
-    text1 = new QLabel("Text",this);
+    //setFixedSize(300, 150);
+
 
     id = new QLineEdit(this);
     titre = new QLineEdit(this);
 
     text = new QTextEdit(this);
 
-    save = new QPushButton("Save",this);
 
-    layout = new QGridLayout(this);
-    layout->addWidget(id1,0,0);
-    layout->addWidget(id,0,1);
-    layout->addWidget(text1,2,0);
-    layout->addWidget(titre,1,1);
-    layout->addWidget(titre1,1,0);
-    layout->addWidget(text,2,1);
-    layout->addWidget(save,3,0,1,2);
+    layout = new QFormLayout(this);
+    layout->addRow("id", id);
+    layout->addRow("Titre", titre);
+    layout->addRow("Text", text);
+
+    setLayout(layout);
+    Vlayout = new QVBoxLayout(this);
+    Vlayout->addLayout(layout);
+
+    save = new QPushButton("Save", this);
 
     id->setReadOnly(true);
 
-    id->setText(article.getId());
-    titre->setText(article.getTitle());
-    text->setText(article.getText());
+    //id->setText(article.getId());
+    //titre->setText(article.getTitle());
+    //text->setText(article.getText());
 
-    this->article = &article;
-    save->setEnabled(false);
+    //this->article = &article;
+    //save->setEnabled(false);
     QObject::connect(save,SIGNAL(clicked(bool)),this,SLOT(saveArticle()));
-    QObject::connect(titre,SIGNAL(textChanged(QString)),this,SLOT(enableSave()));
-    QObject::connect(text,SIGNAL(textChanged()),this,SLOT(enableSave()));
+    //QObject::connect(titre,SIGNAL(textChanged(QString)),this,SLOT(enableSave()));
+    //QObject::connect(text,SIGNAL(textChanged()),this,SLOT(enableSave()));
+    Vlayout->addWidget(save);
 }
 
 void v_article::saveArticle()

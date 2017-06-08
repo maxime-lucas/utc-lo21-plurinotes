@@ -29,6 +29,8 @@ class NotesManager {
         void setTab(Note** t) { tab = t; }
         void setNb(unsigned int n) { nb = n; }
         void setMax(unsigned int m) { max = m; }
+
+        void addElement(Note*);
 };
 
 class ActiveNotesManager : public NotesManager {
@@ -83,6 +85,7 @@ class Article : public Note {
 
     public :
         Article(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0, QString txt = "" ) : Note(i,t,co,lmo), text(txt) {}
+
         ~Article();
 
         QString getText() const { return text; }

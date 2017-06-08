@@ -1,4 +1,6 @@
 QT += widgets
+QT += xml
+QT += core
 
 HEADERS += \
     models/datetime.h \
@@ -9,8 +11,11 @@ HEADERS += \
     main.h \
     models/p_core.h \
     models/operatorsoverloading.h \
-    views/mainwindow.h \
-    views/v_article.h
+    views/v_article.h \
+    views/v_mainwindow.h \
+    controllers/c_mainwindow.h \
+    models/p_xml.h
+
 
 SOURCES += \
     models/p_notes.cpp \
@@ -19,5 +24,8 @@ SOURCES += \
     main.cpp \
     models/p_core.cpp \
     models/operatorsoverloading.cpp \
-    views/mainwindow.cpp \
-    views/v_article.cpp
+    views/v_article.cpp \
+    views/v_mainwindow.cpp \
+    controllers/c_mainwindow.cpp \
+    models/p_xml.cpp \
+    models/datetime.cpp

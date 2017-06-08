@@ -5,10 +5,10 @@
 
 class NotesException{
     public:
-        NotesException(const std::string& message):info(message){}
-        std::string getInfo() const { return info; }
+        NotesException(const QString& message):info(message){}
+        QString getInfo() const { return info; }
     private:
-        std::string info;
+        QString info;
 };
 
 #endif // NOTESEXCEPTION

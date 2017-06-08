@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "p_notes.h"
+#include "p_xml.h"
 
 class PluriNotes {
 
@@ -10,6 +11,7 @@ class PluriNotes {
         ActiveNotesManager* activeNotesManager;
         ArchivedNotesManager* archivedNotesManager;
         DeletedNotesManager* deletedNotesManager;
+        XMLManager* xmlManager;
 
     public:
         PluriNotes();
