@@ -7,12 +7,26 @@ PluriNotes::PluriNotes() {
     archivedNotesManager = new ArchivedNotesManager();
     xmlManager = new XMLManager("../plurinotes/ressources/data.xml");
 
+    // Récupération des articles actifs
     std::vector<Article*> activeArticle = xmlManager->getAllActiveArticles();
     for(unsigned int i = 0; i < activeArticle.size() ; i++ ) {
         Article *a = activeArticle[i];
-        activeNotesManager->addElement(a);
+        activeNotesManager->getTab()->push_back(a);
     }
-    std::cout << activeNotesManager->getNb() << std::endl;
+
+    // Récupération des multimedia actifs
+    std::vector<Multimedia*> activeMultimedia = xmlManager->getAllActiveMultimedia();
+    for(unsigned int i = 0; i < activeMultimedia.size() ; i++ ) {
+        Multimedia *m = activeMultimedia[i];
+        activeNotesManager->getTab()->push_back(m);
+    }
+
+    // Récupération des tasks actives
+    std::vector<Task*> activeTasks = xmlManager->getAllActiveTasks();
+    for(unsigned int i = 0; i < activeTasks.size() ; i++ ) {
+        Task *t = activeTasks[i];
+        activeNotesManager->getTab()->push_back(t);
+    }
 }
 
 PluriNotes::~PluriNotes() {

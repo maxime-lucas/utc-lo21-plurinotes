@@ -3,7 +3,7 @@
 
 V_Mainwindow::V_Mainwindow() : QMainWindow() {
     // Création et initialisation de la fenêtre
-    setFixedSize(1366,768);
+    setFixedSize(800,600);
     setWindowTitle("PluriNotes - FAYA / YAYA / MAX");
 
     // Mise en place du widget principal pour contenir le layout principal (obligatoire pour une QMainWindow)
@@ -29,11 +29,17 @@ V_Mainwindow::V_Mainwindow() : QMainWindow() {
 
     // Initialisation et Ajout des listwidgets au widget de gauche
     activeNotes = new QListWidget();
+    activeNotesLabel = new QLabel(QString::fromUtf8("Notes actives"));
     task = new QListWidget();
+    taskLabel = new QLabel(QString::fromUtf8("Tâches"));
     archivedNotes = new QListWidget();
+    archivedNotesLabel = new QLabel(QString::fromUtf8("Notes archivées"));
 
+    leftLayout->addWidget(activeNotesLabel);
     leftLayout->addWidget(activeNotes);
+    leftLayout->addWidget(taskLabel);
     leftLayout->addWidget(task);
+    leftLayout->addWidget(archivedNotesLabel);
     leftLayout->addWidget(archivedNotes);
 
     // Mise en place du widget central qui contiendra la vue principale

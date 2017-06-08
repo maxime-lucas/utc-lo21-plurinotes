@@ -14,18 +14,26 @@ class V_Mainwindow : public QMainWindow {
         QMenu* getFileMenu() const { return fileMenu; }
 
     private:
+        // Widget onglet
         QTabWidget* tab;
 
+        // Widget pour faire les onglets
         QWidget* mainView;
         QWidget* secondaryView;
 
+        // Layout
         QHBoxLayout* mainLayout;
         QVBoxLayout* leftLayout;
 
+        // Menu tout en haut
         QMenu* fileMenu;
 
+        // Partie Gauche
+        QLabel* activeNotesLabel;
         QListWidget* activeNotes;
+        QLabel* taskLabel;
         QListWidget* task;
+        QLabel* archivedNotesLabel;
         QListWidget* archivedNotes;
 
         void createActions();

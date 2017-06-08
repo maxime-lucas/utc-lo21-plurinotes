@@ -12,23 +12,13 @@ class Task;
 class NotesManager {
 
     private:
-        Note** tab;
-        unsigned int nb;
-        unsigned int max;
+        std::vector<Note*>* tab;
 
     public:
         NotesManager();
         virtual ~NotesManager() = 0;
 
-        Note** getTab() const { return tab; }
-        unsigned int getNb() const { return nb; }
-        unsigned int getMax() const { return max; }
-
-        void setTab(Note** t) { tab = t; }
-        void setNb(unsigned int n) { nb = n; }
-        void setMax(unsigned int m) { max = m; }
-
-        void addElement(Note*);
+        std::vector<Note*>* getTab() const { return tab; }
 };
 
 class ActiveNotesManager : public NotesManager {
@@ -83,8 +73,11 @@ class Article : public Note {
 
     public :
         Article(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0, QString txt = "" ) : Note(i,t,co,lmo), text(txt) {}
-
         ~Article();
+
+        QString getText() const { return text; }
+
+        void setText(QString t) { text = t; }
 };
 
 class Multimedia : public Note {

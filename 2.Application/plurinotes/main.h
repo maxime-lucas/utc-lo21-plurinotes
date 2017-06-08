@@ -11,6 +11,7 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <typeinfo>
 
 #include <QApplication>
 #include <QString>
@@ -19,6 +20,7 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <QMenuBar>
 #include <QMainWindow>
 #include <QWidget>
+#include <QLabel>
 #include <QListWidget>
 #include <QtXml>
 #include <QMessageBox>
