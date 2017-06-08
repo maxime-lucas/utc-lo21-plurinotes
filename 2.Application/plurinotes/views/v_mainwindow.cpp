@@ -50,13 +50,13 @@ V_Mainwindow::V_Mainwindow() : QMainWindow() {
     fileMenu = this->menuBar()->addMenu(tr("&File"));
 
     //ajout bouton ajouter article
-    NewArticle = new QPushButton("Nouvel Article", this);
-    NewArticle->setCursor(Qt::PointingHandCursor);
-    NewArticle->move(30, 20);
-    QObject::connect(NewArticle, SIGNAL(clicked()), this, SLOT(AfficherFormArticle()));
+    /*NewArticle = new QPushButton("Nouvel Article", this);
+    QObject::connect(NewArticle, SIGNAL(clicked()), this, SLOT(AfficherFormArticle()));*/
 }
 
 void V_Mainwindow::AfficherFormArticle(){
-    v_article *fenetre = new v_article;
+    Article a;
+    Article& b = a;
+    v_article *fenetre = new v_article(b);
     fenetre->show();
 }

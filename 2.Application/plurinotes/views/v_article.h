@@ -24,12 +24,9 @@ private:
     QVBoxLayout *Vlayout;
     Article *article;
 public:
-    v_article();
-    //explicit v_article(Article &article, QWidget *parent = 0);
+    explicit v_article(Article &article, QWidget *parent = 0);
 public slots:
     void saveArticle();
-private slots:
-    void enabledSave();
 };
 
 #endif // V_ARTICLE_H

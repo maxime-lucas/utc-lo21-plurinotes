@@ -18,8 +18,8 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 
 void C_Mainwindow::createActions()
 {
-    newAct = new QAction(QString::fromStdString("New..."), view);
-    //view->connect(exitAct, SIGNAL(triggered()), view, SLOT(close()) );
+    newAct = new QAction(QString::fromStdString("New Article"), view);
+    view->connect(newAct, SIGNAL(triggered()), view, SLOT(AfficherFormArticle()) );
 
     exitAct = new QAction(QString::fromStdString("Quit"), view);
     view->connect(exitAct, SIGNAL(triggered()), view, SLOT(close()) );
