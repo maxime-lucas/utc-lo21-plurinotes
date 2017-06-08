@@ -19,7 +19,6 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 void C_Mainwindow::refreshActiveNotes() {
 
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
-    QGridLayout *gridLayout = new QGridLayout;
     unsigned int row = 0;
     unsigned int column = 0;
     for(unsigned int i = 0; i < notes->size(); i++) {
@@ -27,10 +26,10 @@ void C_Mainwindow::refreshActiveNotes() {
 
         if( typeid(*note) == typeid(Article) ) {
             Article* a = new Article( dynamic_cast<Article&>(*note) );
-            gridLayout->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article),row,column);
+            view->getActiveNotes()->getGridLayout()->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article),row,column);
         }
 
-        if( column != 0 && column % 1 == 0 )
+        if( column != 0 && column % 2 == 0 )
         {
             row++;
             column=0;

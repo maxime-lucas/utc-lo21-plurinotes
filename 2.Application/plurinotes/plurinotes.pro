@@ -13,7 +13,6 @@ HEADERS += \
     models/operatorsoverloading.h \
     controllers/c_mainwindow.h \
     models/p_xml.h \
-    mainwindow.h \
     views/v_mainwindow.h \
     views/v_multiplenotes.h \
     views/v_littlenote.h
