@@ -3,11 +3,12 @@
 #include "ui_v_mainwindow.h"
 #include "ui_v_multiplenotes.h"
 
-V_Mainwindow::V_Mainwindow(QWidget *parent) :
+V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     QMainWindow(parent),
     ui(new Ui::V_Mainwindow)
 {
     ui->setupUi(this);
+    controller = c;
 
     labelActiveNotes = new QLabel("Active Notes");
     labelActiveNotes->setFixedSize(200,20);
@@ -41,11 +42,9 @@ V_Mainwindow::V_Mainwindow(QWidget *parent) :
     centralWidget()->setLayout(centralLayout);
 }
 
-void V_Mainwindow::AfficherFormArticle(){
-    Article a;
-    Article& b = a;
-    v_article *fenetre = new v_article(b);
-    fenetre->show();
+void V_Mainwindow::openNewArticle() {
+    articleForm = new V_ArticleForm(0,this);
+    articleForm->show();
 }
 
 V_Mainwindow::~V_Mainwindow()

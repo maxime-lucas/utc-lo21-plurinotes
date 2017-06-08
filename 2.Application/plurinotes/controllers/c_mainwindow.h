@@ -4,6 +4,8 @@
 #include "views/v_mainwindow.h"
 #include "models/p_core.h"
 
+class V_Mainwindow;
+
 class C_Mainwindow {
 
     private:
@@ -18,12 +20,15 @@ class C_Mainwindow {
         C_Mainwindow(QApplication*);
 
         V_Mainwindow* getView() const { return view; }
-
         PluriNotes* getApp() const { return app; }
+        QApplication* getQApp() const { return qapp; }
 
         void createActions();
         void createMenus();
         void refreshActiveNotes();
+
+    public slots:
+        void saveNewArticle(Article*);
 };
 
 #endif // C_MAINWINDOW

@@ -8,16 +8,15 @@ HEADERS += \
     models/p_versions.h \
     models/p_relations.h \
     models/notesexception.h \
-    main.h \
     models/p_core.h \
     models/operatorsoverloading.h \
-    views/v_article.h \
-    views/v_mainwindow.h \
-    controllers/c_mainwindow.h \
     models/p_xml.h \
     views/v_mainwindow.h \
     views/v_multiplenotes.h \
-    views/v_littlenote.h
+    views/v_littlenote.h\
+    main.h \
+    controllers/c_mainwindow.h \
+    views/v_articleform.h
 
 
 SOURCES += \
@@ -27,15 +26,15 @@ SOURCES += \
     main.cpp \
     models/p_core.cpp \
     models/operatorsoverloading.cpp \
-    views/v_article.cpp \
     views/v_mainwindow.cpp \
     controllers/c_mainwindow.cpp \
     models/p_xml.cpp \
     models/datetime.cpp \
-    views/v_mainwindow.cpp \
     views/v_multiplenotes.cpp \
-    views/v_littlenote.cpp
+    views/v_littlenote.cpp \
+    views/v_articleform.cpp
 
 FORMS += \
     views/v_mainwindow.ui \
-    views/v_multiplenotes.ui
+    views/v_multiplenotes.ui \
+    views/v_articleform.ui
