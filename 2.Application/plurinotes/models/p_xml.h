@@ -12,6 +12,8 @@ class XMLManager : public QWidget {
     public:
     XMLManager(const QString &);
     std::vector<Article*> getAllActiveArticles();
+    std::vector<Multimedia*> getAllActiveMultimedia();
+    std::vector<Task*> getAllActiveTasks();
     ~XMLManager();
 };
 

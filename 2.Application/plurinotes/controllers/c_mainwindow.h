@@ -19,8 +19,11 @@ class C_Mainwindow {
 
         V_Mainwindow* getView() const { return view; }
 
+        PluriNotes* getApp() const { return app; }
+
         void createActions();
         void createMenus();
+        void refreshActiveNotes();
 };
 
 #endif // C_MAINWINDOW

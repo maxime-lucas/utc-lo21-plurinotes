@@ -10,7 +10,11 @@ int main(int argc, char* argv[]) {
     QApplication app(argc, argv);
 
     QScrollArea *frame = new QScrollArea();
+<<<<<<< HEAD
     frame->setFixedSize(500, 200);
+=======
+    frame->setFixedSize(290, 110);
+>>>>>>> max
     QWidget *contenu = new QWidget;
     QVBoxLayout *mLayout = new QVBoxLayout();
     contenu->setLayout(mLayout);
@@ -34,7 +38,10 @@ int main(int argc, char* argv[]) {
     // soient ajoutés, rien ne s'affiche
     // (voir doc de QScrollArea::setWidget)
     frame->setWidget(contenu);
+<<<<<<< HEAD
     frame->setWidget(contenu);
+=======
+>>>>>>> max
 
     frame->show();
 

@@ -29,7 +29,52 @@ std::vector<Article*> XMLManager::getAllActiveArticles() {
             article.firstChildElement("id").text(),
             article.firstChildElement("title").text(),
             article.firstChildElement("createdOn").text(),
-            article.firstChildElement("lastModifOn").text()
+            article.firstChildElement("lastModifOn").text(),
+            article.firstChildElement("text").text()
+        );
+
+        tab.push_back(a);
+    }
+
+    return tab;
+}
+
+std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement multimedias = activeNotes.firstChildElement("multimedias");
+    QDomElement multimedia = multimedias.firstChildElement("multimedia");
+
+    std::vector<Multimedia*> tab;
+
+    for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
+        Multimedia *a = new Multimedia(
+            multimedia.firstChildElement("id").text(),
+            multimedia.firstChildElement("title").text(),
+            multimedia.firstChildElement("createdOn").text(),
+            multimedia.firstChildElement("lastModifOn").text()
+        );
+
+        tab.push_back(a);
+    }
+
+    return tab;
+}
+
+std::vector<Task*> XMLManager::getAllActiveTasks() {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement tasks = activeNotes.firstChildElement("tasks");
+    QDomElement task = tasks.firstChildElement("task");
+
+    std::vector<Task*> tab;
+
+    for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+        Task *a = new Task(
+            task.firstChildElement("id").text(),
+            task.firstChildElement("title").text(),
+            task.firstChildElement("createdOn").text(),
+            task.firstChildElement("lastModifOn").text()
         );
 
         tab.push_back(a);

@@ -1,41 +1,46 @@
-#ifndef V_MAINWINDOW
-#define V_MAINWINDOW
+#ifndef V_MAINWINDOW_H
+#define V_MAINWINDOW_H
 
 #include "v_article.h"
 #include "main.h"
+#include "v_multiplenotes.h"
 
-class V_Mainwindow : public QMainWindow {
+namespace Ui {
+class V_Mainwindow;
+}
 
+class V_Mainwindow : public QMainWindow
+{
     Q_OBJECT
 
-    public:
-        V_Mainwindow();
+public:
+    explicit V_Mainwindow(QWidget *parent = 0);
+    ~V_Mainwindow();
+    Ui::V_Mainwindow* getUi() const { return ui; }
 
-        QListWidget* getActiveNotes() const { return activeNotes; }
-        QMenu* getFileMenu() const { return fileMenu; }
+    V_Multiplenotes *getActiveNotes() const { return activeNotes; }
+    V_Multiplenotes *getTasks() const { return tasks; }
+    V_Multiplenotes *getArchivedNotes() const { return archivedNotes; }
 
-    private:
-        QTabWidget* tab;
-        QWidget* mainView;
-        QWidget* secondaryView;
+private:
+    Ui::V_Mainwindow *ui;
+    QHBoxLayout* centralLayout;
+    QVBoxLayout* leftLayout;
+    QWidget* leftWidget;
 
-        QHBoxLayout* mainLayout;
-        QVBoxLayout* leftLayout;
+    QLabel* labelActiveNotes;
+    QLabel* labelTasks;
+    QLabel* labelArchivedNotes;
 
-        QMenu* fileMenu;
+    V_Multiplenotes *activeNotes;
+    V_Multiplenotes *tasks;
+    V_Multiplenotes *archivedNotes;
 
-        QListWidget* activeNotes;
-        QListWidget* task;
-        QListWidget* archivedNotes;
-
-        QPushButton *NewArticle;
-
-        void createActions();
-        void createMenus();
+    void createActions();
 
 public slots:
     void AfficherFormArticle();
+
 };
 
-#endif // V_MAINWINDOW
-
+#endif // V_MAINWINDOW_H
