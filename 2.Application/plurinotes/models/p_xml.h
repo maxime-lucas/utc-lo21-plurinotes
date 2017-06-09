@@ -11,9 +11,11 @@ class XMLManager : public QWidget {
 
     public:
     XMLManager(const QString &);
-    std::vector<Article*> getAllActiveArticles();
-    std::vector<Multimedia*> getAllActiveMultimedia();
-    std::vector<Task*> getAllActiveTasks();
+    std::vector<Article*> getAllActiveArticles() const;
+    std::vector<Multimedia*> getAllActiveMultimedia() const;
+    std::vector<Task*> getAllActiveTasks() const;
+    unsigned int getLastId() const;
+    void insertIntoArticle(Article*);
     ~XMLManager();
 };
 

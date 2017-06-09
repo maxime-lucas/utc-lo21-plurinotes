@@ -26,8 +26,6 @@ class C_Mainwindow {
         void createActions();
         void createMenus();
         void refreshActiveNotes();
-
-    public slots:
         void saveNewArticle(Article*);
 };
 

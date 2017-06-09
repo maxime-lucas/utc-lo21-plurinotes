@@ -1,6 +1,6 @@
 #include "p_xml.h"
 
-XMLManager::XMLManager(const QString &path ) : QWidget() {
+XMLManager::XMLManager(const QString &path ) : QWidget()  {
     dom = new QDomDocument("XMLManagerDom");
     QFile doc(path);
 
@@ -16,7 +16,7 @@ XMLManager::XMLManager(const QString &path ) : QWidget() {
     }
 }
 
-std::vector<Article*> XMLManager::getAllActiveArticles() {
+std::vector<Article*> XMLManager::getAllActiveArticles() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement articles = activeNotes.firstChildElement("articles");
@@ -39,7 +39,7 @@ std::vector<Article*> XMLManager::getAllActiveArticles() {
     return tab;
 }
 
-std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() {
+std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement multimedias = activeNotes.firstChildElement("multimedias");
@@ -61,7 +61,7 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() {
     return tab;
 }
 
-std::vector<Task*> XMLManager::getAllActiveTasks() {
+std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement tasks = activeNotes.firstChildElement("tasks");
@@ -81,6 +81,72 @@ std::vector<Task*> XMLManager::getAllActiveTasks() {
     }
 
     return tab;
+}
+
+void XMLManager::insertIntoArticle(Article*a) {
+
+}
+
+unsigned int XMLManager::getLastId() const {
+    unsigned int lastID = 0;
+    unsigned int foundID = 0;
+
+    // On cherche dans les notes actives
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+
+        // Articles
+        QDomElement articles = activeNotes.firstChildElement("articles");
+        QDomElement article = articles.firstChildElement("article");
+        for(;!article.isNull(); article = article.nextSiblingElement("article")) {
+            foundID = article.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+        // Multimedia
+        QDomElement multimedias = activeNotes.firstChildElement("multimedias");
+        QDomElement multimedia = multimedias.firstChildElement("multimedia");
+        for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
+            foundID = multimedia.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+        // Tasks
+        QDomElement tasks = activeNotes.firstChildElement("tasks");
+        QDomElement task = tasks.firstChildElement("task");
+        for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+            foundID = task.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+    // On cherche dans les notes archivées
+    QDomElement archivedNotes = root.firstChildElement("archivedNotes");
+
+        // Articles
+        articles = archivedNotes.firstChildElement("articles");
+        article = articles.firstChildElement("article");
+        for(;!article.isNull(); article = article.nextSiblingElement("article")) {
+            foundID = article.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+        // Multimedia
+        multimedias = archivedNotes.firstChildElement("multimedias");
+        multimedia = multimedias.firstChildElement("multimedia");
+        for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
+            foundID = multimedia.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+        // Tasks
+        tasks = archivedNotes.firstChildElement("tasks");
+        task = tasks.firstChildElement("task");
+        for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+            foundID = task.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+    return lastID;
 }
 
 XMLManager::~XMLManager() {
