@@ -30,6 +30,8 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftWidget = new QWidget;
     leftLayout = new QVBoxLayout;
 
+    centralNote = new V_CentralNote;
+
     leftLayout->addWidget(labelActiveNotes);
     leftLayout->addWidget(activeNotes);
     leftLayout->addWidget(labelTasks);
@@ -38,7 +40,10 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftLayout->addWidget(archivedNotes);
 
     leftWidget->setLayout(leftLayout);
+    leftWidget->setFixedWidth(210);
+
     centralLayout->addWidget(leftWidget);
+    centralLayout->addWidget(centralNote);
     centralWidget()->setLayout(centralLayout);
 }
 

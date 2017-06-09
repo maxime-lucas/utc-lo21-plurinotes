@@ -4,6 +4,7 @@
 #include "v_articleform.h"
 #include "main.h"
 #include "v_multiplenotes.h"
+#include "v_centralnote.h"
 #include "../controllers/c_mainwindow.h"
 
 namespace Ui {
@@ -43,6 +44,8 @@ private:
     V_Multiplenotes *archivedNotes;
 
     V_ArticleForm* articleForm;
+    V_CentralNote *centralNote;
+
     C_Mainwindow *controller;
 
     void createActions();

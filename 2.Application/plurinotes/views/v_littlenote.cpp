@@ -7,7 +7,12 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     setLayout(layout);
 
     labelID = new QLabel(s);
-    labelID->setAlignment(Qt::AlignCenter);
+    labelID->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+
+    QFont font;
+    font.setPixelSize(36);
+    font.setItalic(true);
+    labelID->setFont(font);
 
     if( t == article ) {
         labelType = new QLabel("Article");
@@ -18,8 +23,8 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     }
     labelType->setAlignment(Qt::AlignCenter);
 
-    QFont font = labelType->font();
-    font.setPointSize(8);
+    font.setPixelSize(9);
+    font.setItalic(true);
     labelType->setFont(font);
 
     layout->addWidget(labelType);

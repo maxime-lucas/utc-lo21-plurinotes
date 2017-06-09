@@ -31,13 +31,14 @@ class Ui_V_ArticleForm
 public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QLabel *labelWindowTitle;
+    QLabel *Title;
     QFormLayout *formLayout;
     QLabel *labelID;
     QTextEdit *textID;
     QLabel *labelTitle;
     QTextEdit *textTitle;
     QLabel *labelText;
+    QLabel *labelWindowTitle;
     QPlainTextEdit *textText;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnCancel;
@@ -57,7 +58,7 @@ public:
         labelWindowTitle = new QLabel(verticalLayoutWidget);
         labelWindowTitle->setObjectName(QString::fromUtf8("labelWindowTitle"));
         QFont font;
-        font.setPointSize(14);
+        font.setPointSize(36);
         font.setBold(true);
         font.setWeight(75);
         labelWindowTitle->setFont(font);
