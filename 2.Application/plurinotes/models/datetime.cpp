@@ -9,3 +9,30 @@ Datetime::Datetime(QString s) {
     min = atoi(s.toStdString().substr(14,2).c_str());
     sec = atoi(s.toStdString().substr(17,2).c_str());
 }
+
+QString Datetime::toString() const {
+    std::stringstream str;
+    str << getYear() << "-";
+
+    if ( getMonth() < 10 )
+        str << "0";
+    str << getMonth() << "-";
+
+    if ( getDay() < 10 )
+        str << "0";
+    str << getDay() << " ";
+
+    if ( getHour() < 10 )
+        str << "0";
+    str << getHour() << ":";
+
+    if ( getMin() < 10 )
+        str << "0";
+    str << getMin() << ":";
+
+    if ( getSec() < 10 )
+        str << "0";
+    str << getSec();
+
+    return QString::fromStdString(str.str());
+}

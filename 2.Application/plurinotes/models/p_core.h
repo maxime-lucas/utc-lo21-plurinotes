@@ -17,9 +17,10 @@ class PluriNotes {
         PluriNotes();
         ~PluriNotes();
 
-        ActiveNotesManager* getActiveNotesManage() const { return activeNotesManager; }
+        ActiveNotesManager* getActiveNotesManager() const { return activeNotesManager; }
         ArchivedNotesManager* getArchivedNotesManager() const { return archivedNotesManager; }
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
+        XMLManager* getXMLManager() const { return xmlManager; }
 };
 
 #endif // P_CORE

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>V_Mainwindow</class>
+ <widget class="QMainWindow" name="V_Mainwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PluriNotes - FAYAX</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	font-family: Amiko;
+	font-weight:bold;
+	font-size:10pt;
+}</string>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New...</string>
+     </property>
+     <addaction name="actionArticle"/>
+     <addaction name="actionMultimedia"/>
+     <addaction name="actionTask"/>
+     <addaction name="separator"/>
+    </widget>
+    <addaction name="menuNew"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menu_File"/>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionArticle">
+   <property name="text">
+    <string>Article</string>
+   </property>
+  </action>
+  <action name="actionMultimedia">
+   <property name="text">
+    <string>Multimedia</string>
+   </property>
+  </action>
+  <action name="actionTask">
+   <property name="text">
+    <string>Task</string>
+   </property>
+  </action>
+  <action name="actionRelation">
+   <property name="text">
+    <string>Relation</string>
+   </property>
+  </action>
+  <action name="actionDefault_view">
+   <property name="text">
+    <string>Default view</string>
+   </property>
+  </action>
+  <action name="actionRelations_view">
+   <property name="text">
+    <string>Relations view</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

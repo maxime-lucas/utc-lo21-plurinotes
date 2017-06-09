@@ -11,6 +11,5 @@ int main(int argc, char *argv[]) {
 
     controller->getView()->show();
 
-
     return app.exec();
 }
