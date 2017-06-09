@@ -60,5 +60,6 @@ void V_ArticleForm::checkFields() {
         );
 
         this->parent->getController()->saveNewArticle(a);
+        this->close();
     }
 }
