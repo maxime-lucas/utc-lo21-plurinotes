@@ -47,6 +47,11 @@ void V_Mainwindow::openNewArticle() {
     articleForm->show();
 }
 
+void V_Mainwindow::openNewMultimedia(){
+    multimediaForm = new V_MultimediaForm(0,this);
+    multimediaForm->show();
+}
+
 V_Mainwindow::~V_Mainwindow()
 {
     delete ui;

@@ -27,6 +27,7 @@ class C_Mainwindow {
         void createMenus();
         void refreshActiveNotes();
         void saveNewArticle(Article*);
+        void saveNewMultimedia(Multimedia*);
 };
 
 #endif // C_MAINWINDOW

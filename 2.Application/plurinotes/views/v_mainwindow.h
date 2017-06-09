@@ -2,6 +2,7 @@
 #define V_MAINWINDOW_H
 
 #include "v_articleform.h"
+#include "v_multimediaform.h"
 #include "main.h"
 #include "v_multiplenotes.h"
 #include "../controllers/c_mainwindow.h"
@@ -12,6 +13,7 @@ class V_Mainwindow;
 
 class C_Mainwindow;
 class V_ArticleForm;
+class V_MultimediaForm;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -26,6 +28,7 @@ public:
     V_Multiplenotes *getTasks() const { return tasks; }
     V_Multiplenotes *getArchivedNotes() const { return archivedNotes; }
     V_ArticleForm* getFormArticle() const { return articleForm; }
+    V_MultimediaForm* getFormMultimedia() const{ return multimediaForm; }
     C_Mainwindow* getController() const { return controller; }
 
 private:
@@ -43,12 +46,14 @@ private:
     V_Multiplenotes *archivedNotes;
 
     V_ArticleForm* articleForm;
+    V_MultimediaForm* multimediaForm;
     C_Mainwindow *controller;
 
     void createActions();
 
 public slots:
     void openNewArticle();
+    void openNewMultimedia();
 };
 
 #endif // V_MAINWINDOW_H

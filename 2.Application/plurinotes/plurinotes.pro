@@ -1,6 +1,6 @@
 QT += widgets
 QT += xml
-QT += core
+QT += core gui
 
 HEADERS += \
     models/datetime.h \
@@ -16,7 +16,8 @@ HEADERS += \
     views/v_littlenote.h\
     main.h \
     controllers/c_mainwindow.h \
-    views/v_articleform.h
+    views/v_articleform.h \
+    views/v_multimediaform.h
 
 
 SOURCES += \
@@ -32,7 +33,8 @@ SOURCES += \
     models/datetime.cpp \
     views/v_multiplenotes.cpp \
     views/v_littlenote.cpp \
-    views/v_articleform.cpp
+    views/v_articleform.cpp \
+    views/v_multimediaform.cpp
 
 FORMS += \
     views/v_mainwindow.ui \
