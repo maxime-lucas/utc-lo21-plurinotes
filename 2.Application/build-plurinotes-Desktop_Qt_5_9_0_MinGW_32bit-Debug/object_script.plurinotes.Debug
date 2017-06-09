@@ -13,8 +13,10 @@ INPUT(
 ./debug\v_littlenote.o
 ./debug\v_articleform.o
 ./debug\v_multimediaform.o
+./debug\v_taskform.o
 ./debug\moc_v_mainwindow.o
 ./debug\moc_v_multiplenotes.o
 ./debug\moc_v_articleform.o
 ./debug\moc_v_multimediaform.o
+./debug\moc_v_taskform.o
 );
