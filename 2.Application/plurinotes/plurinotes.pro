@@ -38,3 +38,4 @@ FORMS += \
     views/v_mainwindow.ui \
     views/v_multiplenotes.ui \
     views/v_articleform.ui
+
