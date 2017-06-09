@@ -1,0 +1,15 @@
+INPUT(
+./debug\p_notes.o
+./debug\p_versions.o
+./debug\p_relations.o
+./debug\main.o
+./debug\p_core.o
+./debug\operatorsoverloading.o
+./debug\v_article.o
+./debug\v_mainwindow.o
+./debug\c_mainwindow.o
+./debug\p_xml.o
+./debug\datetime.o
+./debug\moc_v_article.o
+./debug\moc_v_mainwindow.o
+);
