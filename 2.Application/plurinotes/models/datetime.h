@@ -25,6 +25,7 @@ class Datetime {
         unsigned int getMonth() const { return month; }
         unsigned int getDay() const { return day; }
 
+        QString toString() const;
 };
 
 #endif // DATETIME

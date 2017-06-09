@@ -2,6 +2,7 @@
 
 XMLManager::XMLManager(const QString &path ) : QWidget()  {
     dom = new QDomDocument("XMLManagerDom");
+    pathToFile = path;
     QFile doc(path);
 
     if(!doc.open(QIODevice::ReadOnly)) {
@@ -14,6 +15,7 @@ XMLManager::XMLManager(const QString &path ) : QWidget()  {
         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre attribue a l'objet QDomDocument.");
         return;
     }
+    doc.close();
 }
 
 std::vector<Article*> XMLManager::getAllActiveArticles() const {
@@ -84,7 +86,41 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
 }
 
 void XMLManager::insertIntoArticle(Article*a) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement articles = activeNotes.firstChildElement("articles");
 
+    QDomElement newArticle = dom->createElement("article");
+        QDomElement aID = dom->createElement("id");
+            aID.appendChild(dom->createTextNode(a->getId()));
+        QDomElement aTitle = dom->createElement("title");
+            aTitle.appendChild(dom->createTextNode(a->getTitle()));
+        QDomElement aCreatedOn = dom->createElement("createdOn");
+            aCreatedOn.appendChild(dom->createTextNode(a->getCreatedOn().toString()));
+        QDomElement aLastModifOn = dom->createElement("lastModifOn");
+            aLastModifOn.appendChild(dom->createTextNode(a->getLastModifOn().toString()));
+        QDomElement aText = dom->createElement("text");
+            aText.appendChild(dom->createTextNode(a->getText()));
+
+    newArticle.appendChild(aID);
+    newArticle.appendChild(aTitle);
+    newArticle.appendChild(aCreatedOn);
+    newArticle.appendChild(aLastModifOn);
+    newArticle.appendChild(aText);
+
+    articles.appendChild(newArticle);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
 }
 
 unsigned int XMLManager::getLastId() const {

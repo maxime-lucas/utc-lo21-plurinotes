@@ -59,5 +59,6 @@ void C_Mainwindow::saveNewArticle(Article *a) {
     // TODO:Vérifier s'il n'y a pas de références dans le texte de l'article vers d'autres notes
 
     app->getActiveNotesManager()->getTab()->push_back(a);
+    app->getXMLManager()->insertIntoArticle(a);
     refreshActiveNotes();
 }

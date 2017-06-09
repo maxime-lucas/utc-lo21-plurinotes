@@ -8,6 +8,7 @@ class XMLManager : public QWidget {
     private:
     QDomDocument *dom;
     QFile doc;
+    QString pathToFile;
 
     public:
     XMLManager(const QString &);
