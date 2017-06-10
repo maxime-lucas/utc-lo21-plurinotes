@@ -17,10 +17,8 @@ HEADERS += \
     controllers/c_mainwindow.h \
     views/v_articleform.h \
     views/v_multimediaform.h \
-    views/v_taskform.h
+    views/v_taskform.h \
     views/v_centralnote.h
-
-
 
 SOURCES += \
     models/p_notes.cpp \
@@ -36,7 +34,7 @@ SOURCES += \
     views/v_littlenote.cpp \
     views/v_articleform.cpp \
     views/v_multimediaform.cpp \
-    views/v_taskform.cpp
+    views/v_taskform.cpp \
     views/v_centralnote.cpp
 
 FORMS += \
@@ -44,5 +42,5 @@ FORMS += \
     views/v_multiplenotes.ui \
     views/v_articleform.ui \
     views/v_multimediaform.ui \
-    views/v_taskform.ui
+    views/v_taskform.ui \
     views/v_centralnote.ui
