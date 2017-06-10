@@ -82,6 +82,13 @@ void V_Mainwindow::refreshCentralNote(QString id) {
         centralNote = v_centralArticle;
         centralLayout->addWidget(centralNote);
     }
+
+    if( typeid(*note) == typeid(Multimedia) ) {
+        Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
+        V_CentralMultimedia *v_centralMultimedia = new V_CentralMultimedia(multimedia);
+        centralNote = v_centralMultimedia;
+        centralLayout->addWidget(centralNote);
+    }
 }
 
 V_Mainwindow::~V_Mainwindow()

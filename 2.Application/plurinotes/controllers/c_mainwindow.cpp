@@ -61,8 +61,6 @@ void C_Mainwindow::refreshActiveNotes() {
         signalMapper->setMapping(ln, note->getId());
         view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
 
-        //view->connect(ln,SIGNAL(clicked()),view,SLOT(refreshCentralNote()));
-
         if( column != 0 && column % 2 == 0 )
         {
             row++;

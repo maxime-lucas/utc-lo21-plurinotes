@@ -26,4 +26,10 @@ class V_CentralArticle : public V_CentralNote {
     ~V_CentralArticle();
 };
 
+class V_CentralMultimedia : public V_CentralNote {
+    public:
+    V_CentralMultimedia(Multimedia*);
+    ~V_CentralMultimedia();
+};
+
 #endif // V_CENTRALNOTE_H

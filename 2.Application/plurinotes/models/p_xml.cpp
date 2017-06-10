@@ -61,14 +61,22 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
         createdOn = multimedia.firstChildElement("createdOn").text();
         lastModifOn = multimedia.firstChildElement("lastModifOn").text();
 
-        Multimedia *a = new Multimedia(
+        enum TypeMultimedia type;
+        if( multimedia.firstChildElement("type").text() == "picture" ) type = PICTURE;
+        else if( multimedia.firstChildElement("type").text() == "video" ) type = VIDEO;
+        else type = AUDIO;
+
+        Multimedia *m = new Multimedia(
             multimedia.firstChildElement("id").text(),
             multimedia.firstChildElement("title").text(),
             QDateTime::fromString(createdOn),
-            QDateTime::fromString(lastModifOn)
+            QDateTime::fromString(lastModifOn),
+            multimedia.firstChildElement("description").text(),
+            multimedia.firstChildElement("fileName").text(),
+            type
         );
 
-        tab.push_back(a);
+        tab.push_back(m);
     }
 
     return tab;
