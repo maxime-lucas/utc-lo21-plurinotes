@@ -20,6 +20,7 @@ class NotesManager {
         virtual ~NotesManager() = 0;
 
         std::vector<Note*>* getTab() const { return tab; }
+
 };
 
 class ActiveNotesManager : public NotesManager {
@@ -109,6 +110,13 @@ class Task : public Note {
         Task(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString a ="", unsigned int p = 0, QDateTime tbdo = QDateTime::currentDateTime(), TaskStatus s = PENDING) : Note(i,t,co,lmo), action(a), priority(p), toBeDoneOn(tbdo), status(s)  {}
 
         ~Task();
+
+        //Getters
+        QString getAction() const { return action; }
+        unsigned int getPriority() const { return priority; }
+        QDateTime getDeadline() const { return toBeDoneOn; }
+        TaskStatus getStatus() const {return status;}
+
 };
 
 #endif // P_NOTES

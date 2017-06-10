@@ -12,6 +12,9 @@
    <article>
     <id>2</id>
     <title>Article 2</title>
+    <createdOn>2017-06-08 00:05:00</createdOn>
+    <lastModifOn>2017-06-08 00:05:00</lastModifOn>
+    <text>Voici le texte du deuxi?me article. J'ai plus d'inspi.</text>
     <createdOn>Sat Jun 10 15:15:35 2017</createdOn>
     <lastModifOn>Sat Jun 10 15:15:35 2017</lastModifOn>
     <text>Je ne sais pas quoi dire donc je brode</text>
@@ -23,7 +26,15 @@
     <lastModifOn>Sat Jun 10 15:32:05 2017</lastModifOn>
     <text>Article 3. Voila</text>
    </article>
+   <article>
+    <id>8</id>
+    <title>Mais j'ai pas touchew</title>
+    <createdOn>sam. juin 10 14:55:49 2017</createdOn>
+    <lastModifOn>sam. juin 10 14:55:49 2017</lastModifOn>
+    <text>Mais oui c'est clair</text>
+   </article>
   </articles>
+  <multimedias/>
   <multimedias>
    <multimedia>
     <id>4</id>
@@ -45,5 +56,27 @@
    </multimedia>
   </multimedias>
   <tasks/>
+  <tasks>
+   <task>
+    <id>9</id>
+    <title>C'est la fin ?</title>
+    <createdOn>sam. juin 10 19:32:49 2017</createdOn>
+    <lastModifOn>sam. juin 10 19:32:49 2017</lastModifOn>
+    <action>Mais ouiii</action>
+    <priority>42</priority>
+    <Deadline>sam. janv. 1 00:00:00 2000</Deadline>
+    <status>PENDING</status>
+   </task>
+   <task>
+    <id>10</id>
+    <title>coucou</title>
+    <createdOn>sam. juin 10 19:43:35 2017</createdOn>
+    <lastModifOn>sam. juin 10 19:43:35 2017</lastModifOn>
+    <action>c'est lmwa</action>
+    <priority>35</priority>
+    <Deadline></Deadline>
+    <status>PENDING</status>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>

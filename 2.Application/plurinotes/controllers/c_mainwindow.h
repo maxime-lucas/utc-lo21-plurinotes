@@ -26,6 +26,7 @@ class C_Mainwindow {
         void createActions();
         void createMenus();
         void refreshActiveNotes();
+        void refreshTask();
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
         void saveNewTask(Task*);
