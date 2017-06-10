@@ -19,11 +19,12 @@ class V_Littlenote : public QPushButton {
 
 class V_Littletask : public QPushButton {
 private:
-    QLabel* labelType;
-    QLabel* labelID;
+    QLabel* labelTitle;
+    QLabel* labelDate;
+    QLabel* labelPriority;
 
     QVBoxLayout* layout;
 
 public:
-    V_Littletask(QWidget* p=0 ,QString = "");
+    V_Littletask(QWidget* p=0 ,QString = "", QString = "", unsigned int = 0);
 };

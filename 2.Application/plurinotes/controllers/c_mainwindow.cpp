@@ -17,6 +17,7 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
     app = new PluriNotes;
 
     refreshActiveNotes();
+    refreshTask();
     createActions();
 }
 
@@ -30,10 +31,8 @@ void C_Mainwindow::createActions()
 
 void C_Mainwindow::refreshActiveNotes() {
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
-    unsigned int row1 = 0;
-    unsigned int column1 = 0;
-    unsigned int row2 = 0;
-    unsigned int column2 = 0;
+    unsigned int row = 0;
+    unsigned int column = 0;
 
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
@@ -41,43 +40,29 @@ void C_Mainwindow::refreshActiveNotes() {
     for(unsigned int i = 0; i < notes->size(); i++) {
         Note* note = notes->at(i);
         V_Littlenote* ln;
-        V_Littletask* la;
 
         if( typeid(*note) == typeid(Article) ) {
             Article* a = new Article( dynamic_cast<Article&>(*note) );
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article);
-            view->getActiveNotes()->getGridLayout()->addWidget(ln,row1,column1);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column1 != 0 && column1 % 2 == 0 )
+            if( column != 0 && column % 2 == 0 )
             {
-                row1++;
-                column1=0;
-            } else column1++;
+                row++;
+                column=0;
+            } else column++;
         }
 
         if( typeid(*note) == typeid(Multimedia) ) {
             Multimedia* a = new Multimedia( dynamic_cast<Multimedia&>(*note) );
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia);
-            view->getActiveNotes()->getGridLayout()->addWidget(ln,row1,column1);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column1 != 0 && column1 % 2 == 0 )
+            if( column != 0 && column % 2 == 0 )
             {
-                row1++;
-                column1=0;
-            } else column1++;
-        }
-
-        if( typeid(*note) == typeid(Task) ) {
-            Task* a = new Task( dynamic_cast<Task&>(*note) );
-            la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getId());
-            view->getTasks()->getGridLayout()->addWidget(la,row2,column2);
-
-            if( column2 != 0 && column2 % 2 == 0 )
-            {
-                row2++;
-                column2=0;
-            } else column2++;
-
+                row++;
+                column=0;
+            } else column++;
         }
 
         signalMapper->setMapping(ln, note->getId());
@@ -88,7 +73,84 @@ void C_Mainwindow::refreshActiveNotes() {
     }
 }
 
+void C_Mainwindow::refreshTask()
+{
+    std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
+    unsigned int row = 0;
+    unsigned int column = 0;
 
+    QSignalMapper* signalMapper = new QSignalMapper(view);
+    view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
+
+
+    std::vector<Note*> *tasks = new std::vector<Note*>;;
+
+    //Recupération de toutes les taches
+    for (unsigned int i = 0; i < notes->size(); i++)
+    {
+        Note* note = notes->at(i);
+
+        if(typeid(*note) == typeid(Task))
+        {
+            tasks->push_back(note);
+        }
+    }
+
+    //tri des taches
+
+    for (unsigned int i = 0; i < tasks->size(); i++)
+    {
+        Note* task = tasks->at(i);
+        Task* a = new Task( dynamic_cast<Task&>(*task) );
+
+        unsigned int max, indice = 0;
+
+        Note* tmp;
+
+        //initialisation
+        max = a->getPriority();
+        indice = i;
+
+        for(unsigned j = i; j < tasks->size(); j++)
+        {
+            Note* task2 = tasks->at(j);
+            Task* b = new Task( dynamic_cast<Task&>(*task2) );
+
+            //recupération du maximum
+            if( max < b->getPriority())
+            {
+                max = b->getPriority();
+                indice = j;
+            }
+         }
+        if(i!= indice)
+        {
+            tmp = tasks->at(i);
+            tasks->at(i) = tasks->at(indice);
+            tasks->at(indice) = tmp;
+        }
+    }
+
+    for(unsigned int i = 0; i < tasks->size(); i++) {
+        Note* task = tasks->at(i);
+        V_Littletask* la;
+        Task* a = new Task( dynamic_cast<Task&>(*task) );
+
+        la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getTitle(),a->getDeadline().toString(),a->getPriority());
+        view->getTasks()->getGridLayout()->addWidget(la,row,column);
+
+        if( column != 0 && column % 2 == 0 )
+        {
+                row++;
+                column=0;
+        } else column++;
+
+            signalMapper->setMapping(la, task->getId());
+            view->connect(la, SIGNAL(clicked()), signalMapper, SLOT(map()));
+        //view->connect(ln,SIGNAL(clicked()),view,SLOT(refreshCentralNote()));
+
+    }
+}
 
 void C_Mainwindow::saveNewArticle(Article *a) {
     // TODO:Vérifier s'il n'y a pas de références dans le texte de l'article vers d'autres notes
@@ -108,6 +170,6 @@ void C_Mainwindow::saveNewMultimedia(Multimedia *m) {
 void C_Mainwindow::saveNewTask(Task *t) {
 
     app->getActiveNotesManager()->getTab()->push_back(t);
-    //app->getXMLManager()->insertIntoTask(t);
-    refreshActiveNotes();
+    app->getXMLManager()->insertIntoTask(t);
+    refreshTask();
 }

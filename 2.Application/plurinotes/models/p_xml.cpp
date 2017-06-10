@@ -89,7 +89,9 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement tasks = activeNotes.firstChildElement("tasks");
     QDomElement task = tasks.firstChildElement("task");
     QString tmp;
-    QDateTime createdOn,lastModifOn;
+    QDateTime createdOn,lastModifOn,Deadline;
+    unsigned int priority;
+    TaskStatus status;
 
     std::vector<Task*> tab;
 
@@ -101,12 +103,21 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
         createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
         tmp = task.firstChildElement("lastModifOn").text();
         lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        tmp = task.firstChildElement("Deadline").text();
+        Deadline.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+
+        //Convertion de QString en unisgned int
+
+        //Convertion de QString en taskSatus
 
         Task *a = new Task(
             task.firstChildElement("id").text(),
             task.firstChildElement("title").text(),
             createdOn,
-            lastModifOn
+            lastModifOn,
+            task.firstChildElement("action").text(),
+            priority,
+            Deadline,
         );
 
         tab.push_back(a);
@@ -139,6 +150,64 @@ void XMLManager::insertIntoArticle(Article*a) {
     newArticle.appendChild(aText);
 
     articles.appendChild(newArticle);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::insertIntoTask(Task*t) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement tasks = activeNotes.firstChildElement("tasks");
+
+    QDomElement newtask = dom->createElement("task");
+        QDomElement tID = dom->createElement("id");
+            tID.appendChild(dom->createTextNode(t->getId()));
+        QDomElement tTitle = dom->createElement("title");
+            tTitle.appendChild(dom->createTextNode(t->getTitle()));
+        QDomElement tCreatedOn = dom->createElement("createdOn");
+            tCreatedOn.appendChild(dom->createTextNode(t->getCreatedOn().toString()));
+        QDomElement tLastModifOn = dom->createElement("lastModifOn");
+            tLastModifOn.appendChild(dom->createTextNode(t->getLastModifOn().toString()));
+        QDomElement tAction = dom->createElement("action");
+            tAction.appendChild(dom->createTextNode(t->getAction()));
+        QDomElement tPriority = dom->createElement("priority");
+            QString conv =QString::number(t->getPriority());
+            tPriority.appendChild(dom->createTextNode(conv));
+        QDomElement tDeadline = dom->createElement("Deadline");
+            tDeadline.appendChild(dom->createTextNode(t->getDeadline().toString()));
+        QDomElement tStatus = dom->createElement("status");
+
+        QString status;
+
+        if(t->getStatus() == PENDING)
+            status = "PENDING";
+        else if(t->getStatus() == PROGRESS)
+            status = "PROGRESS";
+        else if(t->getStatus() == FINISHED)
+            status = "FINISHED";
+
+            tStatus.appendChild(dom->createTextNode(status));
+
+    newtask.appendChild(tID);
+    newtask.appendChild(tTitle);
+    newtask.appendChild(tCreatedOn);
+    newtask.appendChild(tLastModifOn);
+    newtask.appendChild(tAction);
+    newtask.appendChild(tPriority);
+    newtask.appendChild(tDeadline);
+    newtask.appendChild(tStatus);
+
+    tasks.appendChild(newtask);
 
     QString newDoc = dom->toString();
 

@@ -14,7 +14,7 @@
     <title>Article 2</title>
     <createdOn>2017-06-08 00:05:00</createdOn>
     <lastModifOn>2017-06-08 00:05:00</lastModifOn>
-    <text>Voici le texte du deuxième article. J'ai plus d'inspi.</text>
+    <text>Voici le texte du deuxi?me article. J'ai plus d'inspi.</text>
    </article>
    <article>
     <id>3</id>
@@ -60,6 +60,27 @@
    </article>
   </articles>
   <multimedias/>
-  <tasks/>
+  <tasks>
+   <task>
+    <id>9</id>
+    <title>C'est la fin ?</title>
+    <createdOn>sam. juin 10 19:32:49 2017</createdOn>
+    <lastModifOn>sam. juin 10 19:32:49 2017</lastModifOn>
+    <action>Mais ouiii</action>
+    <priority>42</priority>
+    <Deadline>sam. janv. 1 00:00:00 2000</Deadline>
+    <status>PENDING</status>
+   </task>
+   <task>
+    <id>10</id>
+    <title>coucou</title>
+    <createdOn>sam. juin 10 19:43:35 2017</createdOn>
+    <lastModifOn>sam. juin 10 19:43:35 2017</lastModifOn>
+    <action>c'est lmwa</action>
+    <priority>35</priority>
+    <Deadline></Deadline>
+    <status>PENDING</status>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>
