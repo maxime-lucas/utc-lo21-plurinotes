@@ -1,6 +1,7 @@
 #include "v_centralnote.h"
 #include "ui_v_centralnote.h"
 #include <QPlainTextEdit>
+#include <QFileDialog>
 
 V_CentralNote::V_CentralNote(QWidget *parent) :
     QWidget(parent),
@@ -28,7 +29,7 @@ V_CentralArticle::V_CentralArticle(Article *a) {
 }
 
 V_CentralMultimedia::V_CentralMultimedia(Multimedia *m) {
-    this->getUi()->labelType->setText("Type : Multimedia");
+    this->getUi()->labelType->setText("Type : Multimedia/"+m->getTypeToQString());
     this->getUi()->labelID->setText("ID : " + m->getId());
     this->getUi()->textTitle->setText(m->getTitle());
     this->getUi()->labelCreatedOn->setText(m->getCreatedOn().toString());

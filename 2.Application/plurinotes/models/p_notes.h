@@ -95,6 +95,7 @@ class Multimedia : public Note {
         QString getFileName() const { return fileName; }
         void setFileName(QString f) { fileName = f; }
         enum TypeMultimedia getType() const { return type; }
+        QString getTypeToQString() const { if(type==PICTURE) return "picture"; if(type==VIDEO) return "video"; return "audio"; }
 };
 
 class Task : public Note {
