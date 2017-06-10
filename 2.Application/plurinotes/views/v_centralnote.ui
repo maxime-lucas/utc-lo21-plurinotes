@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>561</width>
+    <width>560</width>
     <height>560</height>
    </rect>
   </property>
@@ -195,7 +195,7 @@
      </widget>
     </item>
     <item row="4" column="0" colspan="2">
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="formWidget" native="true">
       <property name="minimumSize">
        <size>
         <width>539</width>
@@ -212,16 +212,6 @@
     </item>
    </layout>
   </widget>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>labelType</zorder>
-  <zorder>labelID</zorder>
-  <zorder>labelTitle</zorder>
-  <zorder>label1</zorder>
-  <zorder>label2</zorder>
-  <zorder>labelCreatedOn</zorder>
-  <zorder>labelLastModifOn</zorder>
-  <zorder>btnDelete</zorder>
-  <zorder>btnEdit</zorder>
  </widget>
  <resources/>
  <connections/>

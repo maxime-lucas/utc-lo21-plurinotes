@@ -26,6 +26,7 @@ typedef enum eTypeNote { article, multimedia, task } TypeNote;
 #include <QtXml>
 #include <QMessageBox>
 #include <QFile>
+#include <QObject>
 #include <QDomDocument>
 #include <QPushButton>
 #include <QHBoxLayout>

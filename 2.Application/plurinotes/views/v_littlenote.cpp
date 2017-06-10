@@ -10,8 +10,7 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     labelID->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
     QFont font;
-    font.setPixelSize(36);
-    font.setItalic(true);
+    font.setPixelSize(32);
     labelID->setFont(font);
 
     if( t == article ) {

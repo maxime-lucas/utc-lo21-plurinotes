@@ -21,6 +21,7 @@ class PluriNotes {
         ArchivedNotesManager* getArchivedNotesManager() const { return archivedNotesManager; }
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
         XMLManager* getXMLManager() const { return xmlManager; }
+        Note* getNoteByID(QString);
 };
 
 #endif // P_CORE

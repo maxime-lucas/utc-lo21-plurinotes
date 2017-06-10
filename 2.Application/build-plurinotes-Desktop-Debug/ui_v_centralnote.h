@@ -35,14 +35,14 @@ public:
     QLabel *labelID;
     QLabel *labelCreatedOn;
     QPushButton *btnEdit;
-    QWidget *widget;
+    QWidget *formWidget;
 
     void setupUi(QWidget *V_CentralNote)
     {
         if (V_CentralNote->objectName().isEmpty())
             V_CentralNote->setObjectName(QString::fromUtf8("V_CentralNote"));
         V_CentralNote->setWindowModality(Qt::NonModal);
-        V_CentralNote->resize(561, 560);
+        V_CentralNote->resize(560, 560);
         V_CentralNote->setMaximumSize(QSize(600, 560));
         V_CentralNote->setLayoutDirection(Qt::LeftToRight);
         gridLayoutWidget = new QWidget(V_CentralNote);
@@ -126,23 +126,13 @@ public:
 
         gridLayout->addWidget(btnEdit, 5, 1, 1, 1);
 
-        widget = new QWidget(gridLayoutWidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setMinimumSize(QSize(539, 382));
-        widget->setMaximumSize(QSize(539, 382));
+        formWidget = new QWidget(gridLayoutWidget);
+        formWidget->setObjectName(QString::fromUtf8("formWidget"));
+        formWidget->setMinimumSize(QSize(539, 382));
+        formWidget->setMaximumSize(QSize(539, 382));
 
-        gridLayout->addWidget(widget, 4, 0, 1, 2);
+        gridLayout->addWidget(formWidget, 4, 0, 1, 2);
 
-        gridLayoutWidget->raise();
-        labelType->raise();
-        labelID->raise();
-        labelTitle->raise();
-        label1->raise();
-        label2->raise();
-        labelCreatedOn->raise();
-        labelLastModifOn->raise();
-        btnDelete->raise();
-        btnEdit->raise();
 
         retranslateUi(V_CentralNote);
 

@@ -2,21 +2,28 @@
 #define V_CENTRALNOTE_H
 
 #include <QWidget>
+#include "models/p_notes.h"
 
 namespace Ui {
-class V_CentralNote;
+    class V_CentralNote;
 }
 
-class V_CentralNote : public QWidget
-{
+class V_CentralNote : public QWidget {
     Q_OBJECT
 
-public:
-    explicit V_CentralNote(QWidget *parent = 0);
-    ~V_CentralNote();
+    public:
+        explicit V_CentralNote(QWidget *parent = 0);
+        Ui::V_CentralNote* getUi() const { return ui; }
+        virtual ~V_CentralNote() = 0;
 
-private:
-    Ui::V_CentralNote *ui;
+    private:
+        Ui::V_CentralNote *ui;
+};
+
+class V_CentralArticle : public V_CentralNote {
+    public:
+    V_CentralArticle(Article*);
+    ~V_CentralArticle();
 };
 
 #endif // V_CENTRALNOTE_H
