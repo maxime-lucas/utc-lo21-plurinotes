@@ -5,6 +5,8 @@
 #include "datetime.h"
 #include "p_notes.h"
 
+class Article;
+
 std::ostream& operator << (std::ostream& , const Datetime& );
 std::ostream& operator << (std::ostream& f, const Article& a);
 std::ostream& operator << (std::ostream& f, Article *a);

@@ -27,27 +27,39 @@ void C_Mainwindow::createActions()
 }
 
 void C_Mainwindow::refreshActiveNotes() {
-
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
     unsigned int row = 0;
     unsigned int column = 0;
+
+    QSignalMapper* signalMapper = new QSignalMapper(view);
+    view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
+
     for(unsigned int i = 0; i < notes->size(); i++) {
         Note* note = notes->at(i);
+        V_Littlenote* ln;
 
         if( typeid(*note) == typeid(Article) ) {
             Article* a = new Article( dynamic_cast<Article&>(*note) );
-            view->getActiveNotes()->getGridLayout()->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article),row,column);
+            ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
         }
 
         if( typeid(*note) == typeid(Multimedia) ) {
             Multimedia* a = new Multimedia( dynamic_cast<Multimedia&>(*note) );
-            view->getActiveNotes()->getGridLayout()->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia),row,column);
+            ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
         }
 
         if( typeid(*note) == typeid(Task) ) {
             Task* a = new Task( dynamic_cast<Task&>(*note) );
-            view->getActiveNotes()->getGridLayout()->addWidget(new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),task),row,column);
+            ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),task);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
         }
+
+        signalMapper->setMapping(ln, note->getId());
+        view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
+
+        //view->connect(ln,SIGNAL(clicked()),view,SLOT(refreshCentralNote()));
 
         if( column != 0 && column % 2 == 0 )
         {

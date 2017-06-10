@@ -3,6 +3,7 @@
 
 typedef enum TaskStatus { PENDING, PROGRESS, FINISHED } TaskStatus;
 typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
+typedef enum eTypeNote { article, multimedia, task } TypeNote;
 
 #define NBMAX 100
 
@@ -25,6 +26,7 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <QtXml>
 #include <QMessageBox>
 #include <QFile>
+#include <QObject>
 #include <QDomDocument>
 #include <QPushButton>
 #include <QHBoxLayout>
@@ -32,8 +34,6 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 
 #include "models/datetime.h"
 #include "models/operatorsoverloading.h"
-
-enum eTypeNote { article, multimedia, task };
 
 #endif // MAIN
 

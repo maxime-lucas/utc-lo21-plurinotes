@@ -37,8 +37,19 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftLayout->addWidget(labelArchivedNotes);
     leftLayout->addWidget(archivedNotes);
 
+    centralNote = new QWidget();
+    QVBoxLayout *centralNoteLayout = new QVBoxLayout;
+    QLabel *beginningTitle = new QLabel("Select a note in the left tab");
+    beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+    centralNoteLayout->addWidget(beginningTitle);
+    centralNote->setFixedSize(560,560);
+    centralNote->setLayout(centralNoteLayout);
+
     leftWidget->setLayout(leftLayout);
+    leftWidget->setFixedWidth(210);
+
     centralLayout->addWidget(leftWidget);
+    centralLayout->addWidget(centralNote);
     centralWidget()->setLayout(centralLayout);
 }
 
@@ -50,6 +61,19 @@ void V_Mainwindow::openNewArticle() {
 void V_Mainwindow::openNewMultimedia(){
     multimediaForm = new V_MultimediaForm(0,this);
     multimediaForm->show();
+}
+
+void V_Mainwindow::refreshCentralNote(QString id) {
+    Note* note = controller->getApp()->getNoteByID(id);
+
+    if(centralNote != 0) delete centralNote;
+
+    if( typeid(*note) == typeid(Article) ) {
+        Article* article = new Article(dynamic_cast<Article&>(*note));
+        V_CentralArticle *v_centralArticle = new V_CentralArticle(article);
+        centralNote = v_centralArticle;
+        centralLayout->addWidget(centralNote);
+    }
 }
 
 V_Mainwindow::~V_Mainwindow()
