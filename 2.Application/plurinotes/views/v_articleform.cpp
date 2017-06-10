@@ -40,16 +40,7 @@ void V_ArticleForm::checkFields() {
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
     else {
 
-        std::time_t t = time(0);
-        struct std::tm* now = localtime(&t);
-        Datetime dNow(
-            now->tm_mday,
-            now->tm_mon+1,
-            now->tm_year+1900,
-            now->tm_hour,
-            now->tm_min,
-            now->tm_sec
-        );
+        QDateTime dNow = QDateTime::currentDateTime();
 
         Article *a = new Article(
             ui->textID->toPlainText(),

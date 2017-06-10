@@ -52,6 +52,11 @@ void V_Mainwindow::openNewMultimedia(){
     multimediaForm->show();
 }
 
+void V_Mainwindow::openNewTask(){
+    taskForm = new V_TaskForm(0,this);
+    taskForm->show();
+}
+
 V_Mainwindow::~V_Mainwindow()
 {
     delete ui;

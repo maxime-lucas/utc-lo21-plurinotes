@@ -3,7 +3,6 @@ QT += xml
 QT += core gui
 
 HEADERS += \
-    models/datetime.h \
     models/p_notes.h \
     models/p_versions.h \
     models/p_relations.h \
@@ -31,7 +30,6 @@ SOURCES += \
     views/v_mainwindow.cpp \
     controllers/c_mainwindow.cpp \
     models/p_xml.cpp \
-    models/datetime.cpp \
     views/v_multiplenotes.cpp \
     views/v_littlenote.cpp \
     views/v_articleform.cpp \

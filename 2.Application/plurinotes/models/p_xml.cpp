@@ -23,15 +23,25 @@ std::vector<Article*> XMLManager::getAllActiveArticles() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement articles = activeNotes.firstChildElement("articles");
     QDomElement article = articles.firstChildElement("article");
+    QString tmp;
+    QDateTime createdOn,lastModifOn;
 
     std::vector<Article*> tab;
 
     for(;!article.isNull(); article = article.nextSiblingElement("article")) {
+
+        //Convertion de Qstring de l'XML en QDateTime
+
+        tmp = article.firstChildElement("createdOn").text();
+        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        tmp = article.firstChildElement("lastModifOn").text();
+        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+
         Article *a = new Article(
             article.firstChildElement("id").text(),
             article.firstChildElement("title").text(),
-            article.firstChildElement("createdOn").text(),
-            article.firstChildElement("lastModifOn").text(),
+            createdOn,
+            lastModifOn,
             article.firstChildElement("text").text()
         );
 
@@ -46,15 +56,25 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement multimedias = activeNotes.firstChildElement("multimedias");
     QDomElement multimedia = multimedias.firstChildElement("multimedia");
+    QString tmp;
+    QDateTime createdOn,lastModifOn;
 
     std::vector<Multimedia*> tab;
 
     for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
+
+        //Convertion de Qstring de l'XML en QDateTime
+
+        tmp = multimedia.firstChildElement("createdOn").text();
+        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        tmp = multimedia.firstChildElement("lastModifOn").text();
+        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+
         Multimedia *a = new Multimedia(
             multimedia.firstChildElement("id").text(),
             multimedia.firstChildElement("title").text(),
-            multimedia.firstChildElement("createdOn").text(),
-            multimedia.firstChildElement("lastModifOn").text()
+            createdOn,
+            lastModifOn
         );
 
         tab.push_back(a);
@@ -68,15 +88,25 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement tasks = activeNotes.firstChildElement("tasks");
     QDomElement task = tasks.firstChildElement("task");
+    QString tmp;
+    QDateTime createdOn,lastModifOn;
 
     std::vector<Task*> tab;
 
     for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+
+        //Convertion de Qstring de l'XML en QDateTime
+
+        tmp = task.firstChildElement("createdOn").text();
+        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        tmp = task.firstChildElement("lastModifOn").text();
+        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+
         Task *a = new Task(
             task.firstChildElement("id").text(),
             task.firstChildElement("title").text(),
-            task.firstChildElement("createdOn").text(),
-            task.firstChildElement("lastModifOn").text()
+            createdOn,
+            lastModifOn
         );
 
         tab.push_back(a);

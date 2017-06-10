@@ -32,11 +32,11 @@ struct qt_meta_stringdata_V_TaskForm_t {
 static const qt_meta_stringdata_V_TaskForm_t qt_meta_stringdata_V_TaskForm = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "V_TaskForm"
-QT_MOC_LITERAL(1, 11, 11), // "checkFeilds"
+QT_MOC_LITERAL(1, 11, 11), // "checkFields"
 QT_MOC_LITERAL(2, 23, 0) // ""
 
     },
-    "V_TaskForm\0checkFeilds\0"
+    "V_TaskForm\0checkFields\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +68,7 @@ void V_TaskForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         V_TaskForm *_t = static_cast<V_TaskForm *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->checkFeilds(); break;
+        case 0: _t->checkFields(); break;
         default: ;
         }
     }

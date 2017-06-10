@@ -28,6 +28,7 @@ class C_Mainwindow {
         void refreshActiveNotes();
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
+        void saveNewTask(Task*);
 };
 
 #endif // C_MAINWINDOW

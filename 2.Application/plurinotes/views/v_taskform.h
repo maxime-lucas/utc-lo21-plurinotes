@@ -25,7 +25,7 @@ private:
     V_Mainwindow * parent;
 
 public slots:
-    void checkFeilds();
+    void checkFields();
 };
 
 #endif // V_TASKFORM_H

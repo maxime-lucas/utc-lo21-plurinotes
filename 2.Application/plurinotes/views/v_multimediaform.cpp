@@ -59,17 +59,9 @@ void V_MultimediaForm::checkFields() {
         (!(ui->videoBtn->isChecked()) && !(ui->imageBtn->isChecked()) && !(ui->audioBtn->isChecked())) ||
         (ui->fileLineEdit->text().isEmpty()))
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+    else {
+    QDateTime dNow = QDateTime::currentDateTime();
 
-    std::time_t t = time(0);
-    struct std::tm* now = localtime(&t);
-    Datetime dNow(
-        now->tm_mday,
-        now->tm_mon+1,
-        now->tm_year+1900,
-        now->tm_hour,
-        now->tm_min,
-        now->tm_sec
-    );
     TypeMultimedia type;
     if(ui->videoBtn->isChecked())
         type = VIDEO;
@@ -89,5 +81,7 @@ void V_MultimediaForm::checkFields() {
                 type);
 
     this->parent->getController()->saveNewMultimedia(m);
+
     this->close();
+}
 }

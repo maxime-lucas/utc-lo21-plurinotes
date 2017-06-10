@@ -18,12 +18,12 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -44,7 +44,7 @@ public:
     QLineEdit *actionLineEdit;
     QHBoxLayout *priorityLayout;
     QSlider *prioritySlider;
-    QSpinBox *priorityBox;
+    QLCDNumber *lcdNumber;
     QLabel *priorityLabel;
     QHBoxLayout *horizontalLayout_3;
     QRadioButton *yesBtn;
@@ -119,11 +119,10 @@ public:
 
         priorityLayout->addWidget(prioritySlider);
 
-        priorityBox = new QSpinBox(verticalLayoutWidget);
-        priorityBox->setObjectName(QStringLiteral("priorityBox"));
-        priorityBox->setReadOnly(true);
+        lcdNumber = new QLCDNumber(verticalLayoutWidget);
+        lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
 
-        priorityLayout->addWidget(priorityBox);
+        priorityLayout->addWidget(lcdNumber);
 
 
         formLayout->setLayout(10, QFormLayout::FieldRole, priorityLayout);
@@ -150,6 +149,7 @@ public:
 
         toBeDoneOnDateTimeEdit = new QDateTimeEdit(verticalLayoutWidget);
         toBeDoneOnDateTimeEdit->setObjectName(QStringLiteral("toBeDoneOnDateTimeEdit"));
+        toBeDoneOnDateTimeEdit->setEnabled(true);
 
         formLayout->setWidget(8, QFormLayout::FieldRole, toBeDoneOnDateTimeEdit);
 
@@ -198,7 +198,7 @@ public:
         yesBtn->setText(QApplication::translate("V_TaskForm", "Yes", Q_NULLPTR));
         noBtn->setText(QApplication::translate("V_TaskForm", "No", Q_NULLPTR));
         toBeDoneOnLabel_2->setText(QApplication::translate("V_TaskForm", "to be done on :", Q_NULLPTR));
-        label->setText(QApplication::translate("V_TaskForm", "With a deadline ?", Q_NULLPTR));
+        label->setText(QApplication::translate("V_TaskForm", "Add Deadline ?", Q_NULLPTR));
         btnCancel->setText(QApplication::translate("V_TaskForm", "Cancel", Q_NULLPTR));
         btnSave->setText(QApplication::translate("V_TaskForm", "Save", Q_NULLPTR));
     } // retranslateUi

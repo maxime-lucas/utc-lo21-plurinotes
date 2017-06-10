@@ -2,7 +2,6 @@
 #define P_NOTES
 
 #include "main.h"
-#include "datetime.h"
 #include <QString>
 
 class Note;
@@ -46,11 +45,11 @@ class Note {
     private:
         QString id;
         QString title;
-        Datetime createdOn;
-        Datetime lastModifOn;
+        QDateTime createdOn;
+        QDateTime lastModifOn;
 
     public:
-        Note(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0) :
+        Note(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime()) :
             id(i),
             title(t),
             createdOn(co),
@@ -59,13 +58,13 @@ class Note {
 
         QString getId() const { return id; }
         QString getTitle() const { return title; }
-        Datetime getCreatedOn() const { return createdOn; }
-        Datetime getLastModifOn() const { return lastModifOn; }
+        QDateTime getCreatedOn() const { return createdOn; }
+        QDateTime getLastModifOn() const { return lastModifOn; }
 
         void setId(QString i) { id = i; }
         void setTitle(QString t) { title = t; }
-        void setCreatedOn(Datetime co) { createdOn = co; }
-        void setLastModifOn(Datetime lmo) { lastModifOn = lmo; }
+        void setCreatedOn(QDateTime co) { createdOn = co; }
+        void setLastModifOn(QDateTime lmo) { lastModifOn = lmo; }
 
 };
 
@@ -74,7 +73,7 @@ class Article : public Note {
         QString text;
 
     public :
-        Article(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0, QString txt = "" ) : Note(i,t,co,lmo), text(txt) {}
+        Article(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString txt = "" ) : Note(i,t,co,lmo), text(txt) {}
         ~Article();
 
         QString getText() const { return text; }
@@ -88,7 +87,7 @@ class Multimedia : public Note {
         enum TypeMultimedia type;
 
     public :
-        Multimedia(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0, QString desc = "", QString ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(tm) {}
+        Multimedia(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString desc = "", QString ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(tm) {}
 
         ~Multimedia();
 };
@@ -97,11 +96,11 @@ class Task : public Note {
     private :
         QString action;
         unsigned int priority;
-        Datetime toBeDoneOn;
+        QDateTime toBeDoneOn;
         enum TaskStatus status;
 
     public :
-        Task(QString i = "", QString t = "", Datetime co = 0, Datetime lmo = 0, QString a ="", unsigned int p = 0, Datetime tbdo = 0, TaskStatus s = PENDING) : Note(i,t,co,lmo), action(a), priority(p), toBeDoneOn(tbdo), status(s)  {}
+        Task(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString a ="", unsigned int p = 0, QDateTime tbdo = QDateTime::currentDateTime(), TaskStatus s = PENDING) : Note(i,t,co,lmo), action(a), priority(p), toBeDoneOn(tbdo), status(s)  {}
 
         ~Task();
 };

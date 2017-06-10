@@ -3,6 +3,7 @@
 
 #include "v_articleform.h"
 #include "v_multimediaform.h"
+#include "v_taskform.h"
 #include "main.h"
 #include "v_multiplenotes.h"
 #include "../controllers/c_mainwindow.h"
@@ -14,6 +15,7 @@ class V_Mainwindow;
 class C_Mainwindow;
 class V_ArticleForm;
 class V_MultimediaForm;
+class V_TaskForm;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -47,6 +49,7 @@ private:
 
     V_ArticleForm* articleForm;
     V_MultimediaForm* multimediaForm;
+    V_TaskForm* taskForm;
     C_Mainwindow *controller;
 
     void createActions();
@@ -54,6 +57,7 @@ private:
 public slots:
     void openNewArticle();
     void openNewMultimedia();
+    void openNewTask();
 };
 
 #endif // V_MAINWINDOW_H

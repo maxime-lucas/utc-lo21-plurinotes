@@ -13,7 +13,7 @@ V_TaskForm::V_TaskForm(QWidget *w, V_Mainwindow *m) :
     unsigned int lastId = parent->getController()->getApp()->getXMLManager()->getLastId();
     ui->iDLineEdit->setText(QString::number(lastId+1));
 
-    QObject::connect(ui->prioritySlider, SIGNAL(valueChanged(int)), ui->priorityBox, SLOT(display(int))) ;
+    QObject::connect(ui->prioritySlider, SIGNAL(valueChanged(int)), ui->lcdNumber, SLOT(display(int))) ;
 
     QObject::connect(
                 this->ui->btnSave,
@@ -33,30 +33,23 @@ V_TaskForm::~V_TaskForm()
     delete ui;
 }
 
-void V_TaskForm::checkFeilds()
-{
+void V_TaskForm::checkFields() {
     if(ui->titleLineEdit->text().isEmpty() ||
        ui->actionLineEdit->text().isEmpty() ||
        (!(ui->yesBtn->isChecked()) && !(ui->noBtn->isChecked())))
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+else{
+    QDateTime dNow = QDateTime::currentDateTime();
 
-    std::time_t t = time(0);
-    struct std::tm* now = localtime(&t);
-    Datetime dNow(
-        now->tm_mday,
-        now->tm_mon+1,
-        now->tm_year+1900,
-        now->tm_hour,
-        now->tm_min,
-        now->tm_sec
-    );
     QDateTime ToBeDone;
 
     if(ui->yesBtn->isChecked())
          {
-            ToBeDone = ui->toBeDoneOnDateTimeEdit->text();
+            ToBeDone = ui->toBeDoneOnDateTimeEdit->dateTime();
            }
 
+
+    unsigned int test = ui->lcdNumber->value();
 
 
     Task *ta = new Task(
@@ -65,11 +58,12 @@ void V_TaskForm::checkFeilds()
                 dNow,
                 dNow,
                 ui->actionLineEdit->text(),
-                ui->priorityBox->text(),
+                test,
                 ToBeDone,
                 PENDING);
 
-    //this->parent->getController()->saveNewTask(ta);
-    this->close;
+    this->parent->getController()->saveNewTask(ta);
 
+    this->close();
+}
 }

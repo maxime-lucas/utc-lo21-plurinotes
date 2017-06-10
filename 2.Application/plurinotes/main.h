@@ -6,6 +6,7 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 
 #define NBMAX 100
 
+
 #include <ctime>
 #include <string>
 #include <iostream>
@@ -29,8 +30,8 @@ typedef enum TypeMultimedia { PICTURE, AUDIO, VIDEO } TypeMultimedia;
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QDateTime>
 
-#include "models/datetime.h"
 #include "models/operatorsoverloading.h"
 
 enum eTypeNote { article, multimedia, task };

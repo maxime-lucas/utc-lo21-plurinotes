@@ -86,11 +86,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="priorityBox">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <widget class="QLCDNumber" name="lcdNumber"/>
         </item>
        </layout>
       </item>
@@ -120,7 +116,11 @@
        </layout>
       </item>
       <item row="8" column="1">
-       <widget class="QDateTimeEdit" name="toBeDoneOnDateTimeEdit"/>
+       <widget class="QDateTimeEdit" name="toBeDoneOnDateTimeEdit">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item row="8" column="0">
        <widget class="QLabel" name="toBeDoneOnLabel_2">
@@ -132,7 +132,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>With a deadline ?</string>
+         <string>Add Deadline ?</string>
         </property>
        </widget>
       </item>

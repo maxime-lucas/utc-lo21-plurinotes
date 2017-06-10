@@ -6,6 +6,7 @@
 #include "ui_v_mainwindow.h"
 #include "ui_v_articleform.h"
 #include "ui_v_multimediaform.h"
+#include "ui_v_taskform.h"
 #include "ui_v_multiplenotes.h"
 
 C_Mainwindow::C_Mainwindow(QApplication *q) {
@@ -24,6 +25,7 @@ void C_Mainwindow::createActions()
     view->connect(view->getUi()->actionQuit, SIGNAL(triggered()), qapp, SLOT(quit()) );
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
+    view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
 }
 
 void C_Mainwindow::refreshActiveNotes() {
@@ -69,5 +71,12 @@ void C_Mainwindow::saveNewMultimedia(Multimedia *m) {
 
     app->getActiveNotesManager()->getTab()->push_back(m);
     //app->getXMLManager()->insertIntoMultiMedia(m);
+    refreshActiveNotes();
+}
+
+void C_Mainwindow::saveNewTask(Task *t) {
+
+    app->getActiveNotesManager()->getTab()->push_back(t);
+    //app->getXMLManager()->insertIntoTask(t);
     refreshActiveNotes();
 }
