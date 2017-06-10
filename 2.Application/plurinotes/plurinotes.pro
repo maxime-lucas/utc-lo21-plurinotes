@@ -18,6 +18,8 @@ HEADERS += \
     views/v_articleform.h \
     views/v_multimediaform.h \
     views/v_taskform.h
+    views/v_centralnote.h
+
 
 
 SOURCES += \
@@ -35,6 +37,7 @@ SOURCES += \
     views/v_articleform.cpp \
     views/v_multimediaform.cpp \
     views/v_taskform.cpp
+    views/v_centralnote.cpp
 
 FORMS += \
     views/v_mainwindow.ui \
@@ -42,4 +45,4 @@ FORMS += \
     views/v_articleform.ui \
     views/v_multimediaform.ui \
     views/v_taskform.ui
-
+    views/v_centralnote.ui

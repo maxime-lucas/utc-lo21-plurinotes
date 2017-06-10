@@ -57,10 +57,10 @@ public:
     {
         if (V_MultimediaForm->objectName().isEmpty())
             V_MultimediaForm->setObjectName(QStringLiteral("V_MultimediaForm"));
-        V_MultimediaForm->resize(421, 298);
+        V_MultimediaForm->resize(421, 346);
         verticalLayoutWidget = new QWidget(V_MultimediaForm);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 10, 401, 275));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 401, 326));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -69,7 +69,7 @@ public:
         labelWindowTitle = new QLabel(verticalLayoutWidget);
         labelWindowTitle->setObjectName(QStringLiteral("labelWindowTitle"));
         QFont font;
-        font.setPointSize(14);
+        font.setPointSize(36);
         font.setBold(true);
         font.setWeight(75);
         labelWindowTitle->setFont(font);
@@ -181,7 +181,7 @@ public:
 
     void retranslateUi(QDialog *V_MultimediaForm)
     {
-        V_MultimediaForm->setWindowTitle(QApplication::translate("V_MultimediaForm", "Dialog", Q_NULLPTR));
+        V_MultimediaForm->setWindowTitle(QApplication::translate("V_MultimediaForm", "Multimedia", Q_NULLPTR));
         labelWindowTitle->setText(QApplication::translate("V_MultimediaForm", "MultiMedia", Q_NULLPTR));
         labelID->setText(QApplication::translate("V_MultimediaForm", "ID :", Q_NULLPTR));
         labelTitle->setText(QApplication::translate("V_MultimediaForm", "Title :", Q_NULLPTR));

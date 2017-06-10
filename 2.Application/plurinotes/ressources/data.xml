@@ -44,8 +44,17 @@
     <lastModifOn>2017-06-09 03:28:45</lastModifOn>
     <text>World !</text>
    </article>
+   <article>
+    <id>7</id>
+    <title>Bidule</title>
+    <createdOn>2017-06-09 03:37:10</createdOn>
+    <lastModifOn>2017-06-09 03:37:10</lastModifOn>
+    <text>Machin</text>
+   </article>
   </articles>
-  <multimedia/>
-  <task/>
+  <multimedias>
+  </multimedias>
+  <tasks>
+  </tasks>
  </activeNotes>
 </plurinotes>

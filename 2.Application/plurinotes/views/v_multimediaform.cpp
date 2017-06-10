@@ -28,6 +28,7 @@ V_MultimediaForm::V_MultimediaForm(QWidget *w, V_Mainwindow *m) :
                 this,
                 SLOT(openFile())
                 );
+    ui->audioBtn->setChecked(true);
 }
 
 V_MultimediaForm::~V_MultimediaForm()
@@ -39,16 +40,17 @@ void V_MultimediaForm::openFile()
 {
     QString extensionFilter;
     if(ui->videoBtn->isChecked())
-        extensionFilter = "Video *.mp4";
+        extensionFilter = tr("Video (*.mp4)");
     else if(ui->imageBtn->isChecked())
-        extensionFilter = "Picture *.jpg";
+        extensionFilter = tr("JPEG (*.jpg *.jpeg);;PNG (*.png)");
     else if(ui->audioBtn->isChecked())
-        extensionFilter = "Audio *.mp3";
+        extensionFilter = tr("Audio (*.mp3)");
 
     QString files = QFileDialog::getOpenFileName(this,
                                                  tr("Open MultiMedia File"),
                                                  "",
-                                                 extensionFilter);
+                                                 extensionFilter,
+                                                 &extensionFilter);
 
     ui->fileLineEdit->setText(files);
 }

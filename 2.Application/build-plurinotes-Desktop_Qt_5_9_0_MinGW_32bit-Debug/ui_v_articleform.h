@@ -57,7 +57,7 @@ public:
         labelWindowTitle = new QLabel(verticalLayoutWidget);
         labelWindowTitle->setObjectName(QStringLiteral("labelWindowTitle"));
         QFont font;
-        font.setPointSize(14);
+        font.setPointSize(36);
         font.setBold(true);
         font.setWeight(75);
         labelWindowTitle->setFont(font);

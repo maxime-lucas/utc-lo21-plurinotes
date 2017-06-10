@@ -59,11 +59,7 @@ public:
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setEnabled(true);
-        centralwidget->setStyleSheet(QLatin1String("QLabel {\n"
-"	font-family: Amiko;\n"
-"	font-weight:bold;\n"
-"	font-size:10pt;\n"
-"}"));
+        centralwidget->setStyleSheet(QStringLiteral(""));
         V_Mainwindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(V_Mainwindow);
         menubar->setObjectName(QStringLiteral("menubar"));

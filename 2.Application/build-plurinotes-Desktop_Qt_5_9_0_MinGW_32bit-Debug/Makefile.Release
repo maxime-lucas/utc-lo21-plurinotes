@@ -267,6 +267,13 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfileinfo.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -304,9 +311,6 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -334,7 +338,6 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineparser.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcryptographichash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdiriterator.h \
@@ -440,6 +443,7 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -666,6 +670,13 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfileinfo.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -703,9 +714,6 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -733,7 +741,6 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineparser.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcryptographichash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdiriterator.h \
@@ -839,6 +846,7 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -955,6 +963,13 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		../plurinotes/views/v_mainwindow.h \
 		../plurinotes/views/v_articleform.h \
 		../plurinotes/views/v_multimediaform.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -992,9 +1007,6 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -1022,7 +1034,6 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineparser.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcryptographichash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdiriterator.h \
@@ -1128,6 +1139,7 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -1250,6 +1262,7 @@ release/moc_v_taskform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfileinfo.h \
+		../plurinotes/views/v_taskform.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -1419,6 +1432,7 @@ release/moc_v_taskform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -2571,8 +2585,12 @@ release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
 		../plurinotes/views/v_multimediaform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\plurinotes\main.cpp
@@ -3408,8 +3426,12 @@ release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.
 		../plurinotes/views/v_multimediaform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -3707,8 +3729,12 @@ release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes
 		../plurinotes/views/v_multimediaform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/views/v_littlenote.h \
 		ui_v_mainwindow.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
@@ -3739,6 +3765,11 @@ release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
+		ui_v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider \
 		ui_v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h
@@ -4552,6 +4583,13 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdir.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfileinfo.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -4589,9 +4627,6 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -4619,7 +4654,6 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineparser.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcryptographichash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdiriterator.h \
@@ -4725,6 +4759,7 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -4860,6 +4895,13 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfileinfo.h \
 		../plurinotes/views/v_mainwindow.h \
 		../plurinotes/views/v_articleform.h \
+		../plurinotes/views/v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -4897,9 +4939,6 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
@@ -4927,7 +4966,6 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcommandlineparser.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qcryptographichash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qelapsedtimer.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdiriterator.h \
@@ -5033,6 +5071,7 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -5341,6 +5380,7 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_t
 		../plurinotes/models/p_notes.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
+		../plurinotes/views/v_centralnote.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -5353,6 +5393,8 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_t
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qtextcursor.h \
@@ -5361,9 +5403,7 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_t
 		C:/Qt/5.9/mingw53_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpinBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_taskform.o ..\plurinotes\views\v_taskform.cpp
 
 release/moc_v_mainwindow.o: release/moc_v_mainwindow.cpp 
