@@ -137,7 +137,6 @@ void C_Mainwindow::refreshTask()
         la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getTitle(),a->getDeadline().toString(),a->getPriority());
         view->getTasks()->getGridLayout()->addWidget(la,row,column);
 
->>>>>>> yaya
         if( column != 0 && column % 2 == 0 )
         {
                 row++;
