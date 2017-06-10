@@ -81,8 +81,20 @@ void C_Mainwindow::saveNewArticle(Article *a) {
 
 void C_Mainwindow::saveNewMultimedia(Multimedia *m) {
 
+    // Déplacer le fichier dans le dossier ressources
+    QFile *file = new QFile(m->getFileName());
+    QFileInfo fileInfo(file->fileName());
+    QDir dirToRessources(QDir::currentPath());
+    dirToRessources.cd("../plurinotes/ressources/");
+
+    QString from(m->getFileName());
+    QString to(dirToRessources.absolutePath()+ QDir::separator() + m->getId() + "." + fileInfo.completeSuffix());
+    QFile::copy(from,to);
+
+    m->setFileName(m->getId() + "." + fileInfo.completeSuffix());
+
     app->getActiveNotesManager()->getTab()->push_back(m);
-    //app->getXMLManager()->insertIntoMultiMedia(m);
+    app->getXMLManager()->insertIntoMultimedia(m);
     refreshActiveNotes();
 }
 

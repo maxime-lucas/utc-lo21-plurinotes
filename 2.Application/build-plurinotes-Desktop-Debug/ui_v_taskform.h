@@ -60,10 +60,15 @@ public:
     {
         if (V_TaskForm->objectName().isEmpty())
             V_TaskForm->setObjectName(QString::fromUtf8("V_TaskForm"));
-        V_TaskForm->resize(423, 272);
+        V_TaskForm->resize(423, 333);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(V_TaskForm->sizePolicy().hasHeightForWidth());
+        V_TaskForm->setSizePolicy(sizePolicy);
         verticalLayoutWidget = new QWidget(V_TaskForm);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 10, 401, 251));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 401, 316));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -72,7 +77,7 @@ public:
         labelWindowTitle = new QLabel(verticalLayoutWidget);
         labelWindowTitle->setObjectName(QString::fromUtf8("labelWindowTitle"));
         QFont font;
-        font.setPointSize(14);
+        font.setPointSize(36);
         font.setBold(true);
         font.setWeight(75);
         labelWindowTitle->setFont(font);

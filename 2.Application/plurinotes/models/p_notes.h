@@ -83,13 +83,18 @@ class Article : public Note {
 class Multimedia : public Note {
     private :
         QString description;
-        QString pathToFile;
+        QString fileName;
         enum TypeMultimedia type;
 
     public :
-        Multimedia(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString desc = "", QString ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(tm) {}
+        Multimedia(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString desc = "", QString ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), fileName(ptf), type(tm) {}
 
         ~Multimedia();
+
+        QString getDescription() const { return description; }
+        QString getFileName() const { return fileName; }
+        void setFileName(QString f) { fileName = f; }
+        enum TypeMultimedia getType() const { return type; }
 };
 
 class Task : public Note {

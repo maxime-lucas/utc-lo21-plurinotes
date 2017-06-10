@@ -62,28 +62,27 @@ void V_MultimediaForm::checkFields() {
         (ui->fileLineEdit->text().isEmpty()))
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
     else {
-    QDateTime dNow = QDateTime::currentDateTime();
+        QDateTime dNow = QDateTime::currentDateTime();
 
-    TypeMultimedia type;
-    if(ui->videoBtn->isChecked())
-        type = VIDEO;
-    else if(ui->imageBtn->isChecked())
-        type = PICTURE;
-    else if(ui->audioBtn->isChecked())
-        type = AUDIO;
+        TypeMultimedia type;
+        if(ui->videoBtn->isChecked())
+            type = VIDEO;
+        else if(ui->imageBtn->isChecked())
+            type = PICTURE;
+        else if(ui->audioBtn->isChecked())
+            type = AUDIO;
 
 
-    Multimedia *m = new Multimedia(
-                ui->textID->toPlainText(),
-                ui->textTitle->toPlainText(),
-                dNow,
-                dNow,
-                ui->textDesc->toPlainText(),
-                ui->fileLineEdit->text(),
-                type);
+        Multimedia *m = new Multimedia(
+                    ui->textID->toPlainText(),
+                    ui->textTitle->toPlainText(),
+                    dNow,
+                    dNow,
+                    ui->textDesc->toPlainText(),
+                    ui->fileLineEdit->text(),
+                    type);
 
-    this->parent->getController()->saveNewMultimedia(m);
-
-    this->close();
-}
+        this->parent->getController()->saveNewMultimedia(m);
+        this->close();
+    }
 }
