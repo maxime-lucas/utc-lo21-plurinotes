@@ -14,7 +14,7 @@
     <title>Article 2</title>
     <createdOn>2017-06-08 00:05:00</createdOn>
     <lastModifOn>2017-06-08 00:05:00</lastModifOn>
-    <text>Voici le texte du deuxiÃ¨me article. J'ai plus d'inspi.</text>
+    <text>Voici le texte du deuxième article. J'ai plus d'inspi.</text>
    </article>
    <article>
     <id>3</id>
@@ -51,10 +51,15 @@
     <lastModifOn>2017-06-09 03:37:10</lastModifOn>
     <text>Machin</text>
    </article>
+   <article>
+    <id>8</id>
+    <title>Mais j'ai pas touchew</title>
+    <createdOn>sam. juin 10 14:55:49 2017</createdOn>
+    <lastModifOn>sam. juin 10 14:55:49 2017</lastModifOn>
+    <text>Mais oui c'est clair</text>
+   </article>
   </articles>
-  <multimedias>
-  </multimedias>
-  <tasks>
-  </tasks>
+  <multimedias/>
+  <tasks/>
  </activeNotes>
 </plurinotes>

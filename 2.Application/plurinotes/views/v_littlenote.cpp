@@ -29,3 +29,27 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     layout->addWidget(labelType);
     layout->addWidget(labelID);
 }
+
+V_Littletask::V_Littletask(QWidget *p, QString s) : QPushButton(p) {
+    setFixedSize(80,80);
+    layout = new QVBoxLayout;
+    setLayout(layout);
+
+    labelID = new QLabel(s);
+    labelID->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+
+    QFont font;
+    font.setPixelSize(32);
+    labelID->setFont(font);
+
+    labelType = new QLabel("Task");
+
+    labelType->setAlignment(Qt::AlignCenter);
+
+    font.setPixelSize(9);
+    font.setItalic(true);
+    labelType->setFont(font);
+
+    layout->addWidget(labelType);
+    layout->addWidget(labelID);
+}

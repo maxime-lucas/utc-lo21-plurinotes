@@ -30,8 +30,10 @@ void C_Mainwindow::createActions()
 
 void C_Mainwindow::refreshActiveNotes() {
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
-    unsigned int row = 0;
-    unsigned int column = 0;
+    unsigned int row1 = 0;
+    unsigned int column1 = 0;
+    unsigned int row2 = 0;
+    unsigned int column2 = 0;
 
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
@@ -39,23 +41,43 @@ void C_Mainwindow::refreshActiveNotes() {
     for(unsigned int i = 0; i < notes->size(); i++) {
         Note* note = notes->at(i);
         V_Littlenote* ln;
+        V_Littletask* la;
 
         if( typeid(*note) == typeid(Article) ) {
             Article* a = new Article( dynamic_cast<Article&>(*note) );
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article);
-            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row1,column1);
+
+            if( column1 != 0 && column1 % 2 == 0 )
+            {
+                row1++;
+                column1=0;
+            } else column1++;
         }
 
         if( typeid(*note) == typeid(Multimedia) ) {
             Multimedia* a = new Multimedia( dynamic_cast<Multimedia&>(*note) );
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia);
-            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
+            view->getActiveNotes()->getGridLayout()->addWidget(ln,row1,column1);
+
+            if( column1 != 0 && column1 % 2 == 0 )
+            {
+                row1++;
+                column1=0;
+            } else column1++;
         }
 
         if( typeid(*note) == typeid(Task) ) {
             Task* a = new Task( dynamic_cast<Task&>(*note) );
-            ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),task);
-            view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
+            la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getId());
+            view->getTasks()->getGridLayout()->addWidget(la,row2,column2);
+
+            if( column2 != 0 && column2 % 2 == 0 )
+            {
+                row2++;
+                column2=0;
+            } else column2++;
+
         }
 
         signalMapper->setMapping(ln, note->getId());
@@ -63,13 +85,10 @@ void C_Mainwindow::refreshActiveNotes() {
 
         //view->connect(ln,SIGNAL(clicked()),view,SLOT(refreshCentralNote()));
 
-        if( column != 0 && column % 2 == 0 )
-        {
-            row++;
-            column=0;
-        } else column++;
     }
 }
+
+
 
 void C_Mainwindow::saveNewArticle(Article *a) {
     // TODO:Vérifier s'il n'y a pas de références dans le texte de l'article vers d'autres notes

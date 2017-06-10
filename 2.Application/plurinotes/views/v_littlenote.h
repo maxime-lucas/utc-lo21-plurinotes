@@ -16,3 +16,14 @@ class V_Littlenote : public QPushButton {
         public:
         V_Littlenote(QWidget*p=0,QString = "",enum eTypeNote =article);
 };
+
+class V_Littletask : public QPushButton {
+private:
+    QLabel* labelType;
+    QLabel* labelID;
+
+    QVBoxLayout* layout;
+
+public:
+    V_Littletask(QWidget* p=0 ,QString = "");
+};
