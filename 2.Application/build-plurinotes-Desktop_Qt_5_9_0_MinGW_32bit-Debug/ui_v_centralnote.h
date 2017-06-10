@@ -16,6 +16,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -26,15 +27,15 @@ class Ui_V_CentralNote
 public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
-    QLabel *labelTitle;
+    QPushButton *btnEdit;
+    QLabel *labelCreatedOn;
     QLabel *label1;
-    QPushButton *btnDelete;
     QLabel *label2;
     QLabel *labelLastModifOn;
-    QLabel *labelType;
     QLabel *labelID;
-    QLabel *labelCreatedOn;
-    QPushButton *btnEdit;
+    QLabel *labelType;
+    QLineEdit *textTitle;
+    QPushButton *btnDelete;
     QWidget *formWidget;
 
     void setupUi(QWidget *V_CentralNote)
@@ -42,26 +43,31 @@ public:
         if (V_CentralNote->objectName().isEmpty())
             V_CentralNote->setObjectName(QStringLiteral("V_CentralNote"));
         V_CentralNote->setWindowModality(Qt::NonModal);
-        V_CentralNote->resize(560, 560);
-        V_CentralNote->setMaximumSize(QSize(600, 560));
+        V_CentralNote->resize(560, 611);
         V_CentralNote->setLayoutDirection(Qt::LeftToRight);
         gridLayoutWidget = new QWidget(V_CentralNote);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 10, 541, 541));
+        gridLayoutWidget->setGeometry(QRect(10, 10, 541, 593));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        labelTitle = new QLabel(gridLayoutWidget);
-        labelTitle->setObjectName(QStringLiteral("labelTitle"));
-        labelTitle->setMaximumSize(QSize(16777215, 30));
-        QFont font;
-        font.setPointSize(16);
-        font.setBold(true);
-        font.setWeight(75);
-        labelTitle->setFont(font);
-        labelTitle->setAlignment(Qt::AlignCenter);
+        btnEdit = new QPushButton(gridLayoutWidget);
+        btnEdit->setObjectName(QStringLiteral("btnEdit"));
 
-        gridLayout->addWidget(labelTitle, 1, 0, 1, 2);
+        gridLayout->addWidget(btnEdit, 5, 1, 1, 1);
+
+        labelCreatedOn = new QLabel(gridLayoutWidget);
+        labelCreatedOn->setObjectName(QStringLiteral("labelCreatedOn"));
+        labelCreatedOn->setMaximumSize(QSize(16777215, 20));
+        QFont font;
+        font.setPointSize(9);
+        font.setBold(false);
+        font.setItalic(true);
+        font.setWeight(50);
+        labelCreatedOn->setFont(font);
+        labelCreatedOn->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(labelCreatedOn, 3, 0, 1, 1);
 
         label1 = new QLabel(gridLayoutWidget);
         label1->setObjectName(QStringLiteral("label1"));
@@ -72,11 +78,6 @@ public:
         label1->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label1, 2, 0, 1, 1);
-
-        btnDelete = new QPushButton(gridLayoutWidget);
-        btnDelete->setObjectName(QStringLiteral("btnDelete"));
-
-        gridLayout->addWidget(btnDelete, 5, 0, 1, 1);
 
         label2 = new QLabel(gridLayoutWidget);
         label2->setObjectName(QStringLiteral("label2"));
@@ -89,22 +90,10 @@ public:
         labelLastModifOn = new QLabel(gridLayoutWidget);
         labelLastModifOn->setObjectName(QStringLiteral("labelLastModifOn"));
         labelLastModifOn->setMaximumSize(QSize(16777215, 20));
-        QFont font2;
-        font2.setPointSize(9);
-        font2.setBold(false);
-        font2.setItalic(true);
-        font2.setWeight(50);
-        labelLastModifOn->setFont(font2);
+        labelLastModifOn->setFont(font);
         labelLastModifOn->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(labelLastModifOn, 3, 1, 1, 1);
-
-        labelType = new QLabel(gridLayoutWidget);
-        labelType->setObjectName(QStringLiteral("labelType"));
-        labelType->setMaximumSize(QSize(16777215, 30));
-        labelType->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(labelType, 0, 0, 1, 1);
 
         labelID = new QLabel(gridLayoutWidget);
         labelID->setObjectName(QStringLiteral("labelID"));
@@ -113,23 +102,33 @@ public:
 
         gridLayout->addWidget(labelID, 0, 1, 1, 1);
 
-        labelCreatedOn = new QLabel(gridLayoutWidget);
-        labelCreatedOn->setObjectName(QStringLiteral("labelCreatedOn"));
-        labelCreatedOn->setMaximumSize(QSize(16777215, 20));
-        labelCreatedOn->setFont(font2);
-        labelCreatedOn->setAlignment(Qt::AlignCenter);
+        labelType = new QLabel(gridLayoutWidget);
+        labelType->setObjectName(QStringLiteral("labelType"));
+        labelType->setMaximumSize(QSize(16777215, 30));
+        labelType->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(labelCreatedOn, 3, 0, 1, 1);
+        gridLayout->addWidget(labelType, 0, 0, 1, 1);
 
-        btnEdit = new QPushButton(gridLayoutWidget);
-        btnEdit->setObjectName(QStringLiteral("btnEdit"));
+        textTitle = new QLineEdit(gridLayoutWidget);
+        textTitle->setObjectName(QStringLiteral("textTitle"));
+        textTitle->setBaseSize(QSize(0, 0));
+        QFont font2;
+        font2.setPointSize(16);
+        font2.setBold(true);
+        font2.setWeight(75);
+        textTitle->setFont(font2);
+        textTitle->setStyleSheet(QStringLiteral("margin:0 auto;"));
+        textTitle->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(btnEdit, 5, 1, 1, 1);
+        gridLayout->addWidget(textTitle, 1, 0, 1, 2);
+
+        btnDelete = new QPushButton(gridLayoutWidget);
+        btnDelete->setObjectName(QStringLiteral("btnDelete"));
+
+        gridLayout->addWidget(btnDelete, 5, 0, 1, 1);
 
         formWidget = new QWidget(gridLayoutWidget);
         formWidget->setObjectName(QStringLiteral("formWidget"));
-        formWidget->setMinimumSize(QSize(539, 382));
-        formWidget->setMaximumSize(QSize(539, 382));
 
         gridLayout->addWidget(formWidget, 4, 0, 1, 2);
 
@@ -142,15 +141,15 @@ public:
     void retranslateUi(QWidget *V_CentralNote)
     {
         V_CentralNote->setWindowTitle(QApplication::translate("V_CentralNote", "Form", Q_NULLPTR));
-        labelTitle->setText(QApplication::translate("V_CentralNote", "Title", Q_NULLPTR));
+        btnEdit->setText(QApplication::translate("V_CentralNote", "Edit", Q_NULLPTR));
+        labelCreatedOn->setText(QApplication::translate("V_CentralNote", "00/00/0000 at 00:00:00", Q_NULLPTR));
         label1->setText(QApplication::translate("V_CentralNote", "Created on :", Q_NULLPTR));
-        btnDelete->setText(QApplication::translate("V_CentralNote", "Delete", Q_NULLPTR));
         label2->setText(QApplication::translate("V_CentralNote", "Last Modif on :", Q_NULLPTR));
         labelLastModifOn->setText(QApplication::translate("V_CentralNote", "00/00/0000 at 00:00:00", Q_NULLPTR));
-        labelType->setText(QApplication::translate("V_CentralNote", "Type", Q_NULLPTR));
         labelID->setText(QApplication::translate("V_CentralNote", "ID : 1", Q_NULLPTR));
-        labelCreatedOn->setText(QApplication::translate("V_CentralNote", "00/00/0000 at 00:00:00", Q_NULLPTR));
-        btnEdit->setText(QApplication::translate("V_CentralNote", "Edit", Q_NULLPTR));
+        labelType->setText(QApplication::translate("V_CentralNote", "Type", Q_NULLPTR));
+        textTitle->setText(QApplication::translate("V_CentralNote", "Title", Q_NULLPTR));
+        btnDelete->setText(QApplication::translate("V_CentralNote", "Delete", Q_NULLPTR));
     } // retranslateUi
 
 };

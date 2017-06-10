@@ -5,9 +5,9 @@
    <article>
     <id>1</id>
     <title>Article 1</title>
-    <createdOn>2017-06-07 23:44:06</createdOn>
-    <lastModifOn>2017-06-07 23:44:06</lastModifOn>
-    <text>Voici le texte du premier article. C'est un article de fou.</text>
+    <createdOn>Sat Jun 10 15:15:16 2017</createdOn>
+    <lastModifOn>Sat Jun 10 15:15:16 2017</lastModifOn>
+    <text>Voici un super premier article de la mort</text>
    </article>
    <article>
     <id>2</id>
@@ -15,41 +15,16 @@
     <createdOn>2017-06-08 00:05:00</createdOn>
     <lastModifOn>2017-06-08 00:05:00</lastModifOn>
     <text>Voici le texte du deuxi?me article. J'ai plus d'inspi.</text>
+    <createdOn>Sat Jun 10 15:15:35 2017</createdOn>
+    <lastModifOn>Sat Jun 10 15:15:35 2017</lastModifOn>
+    <text>Je ne sais pas quoi dire donc je brode</text>
    </article>
    <article>
     <id>3</id>
     <title>Article 3</title>
-    <createdOn>2017-06-08 23:49:00</createdOn>
-    <lastModifOn>2017-06-08 23:49:00</lastModifOn>
-    <text>Voici le texte du troisieme article. Fuck.</text>
-   </article>
-   <article>
-    <id>4</id>
-    <title>Bidule</title>
-    <createdOn>2017-06-09 03:25:06</createdOn>
-    <lastModifOn>2017-06-09 03:25:06</lastModifOn>
-    <text>Machin</text>
-   </article>
-   <article>
-    <id>5</id>
-    <title>Machin</title>
-    <createdOn>2017-06-09 03:28:13</createdOn>
-    <lastModifOn>2017-06-09 03:28:13</lastModifOn>
-    <text>Truc</text>
-   </article>
-   <article>
-    <id>6</id>
-    <title>Hello</title>
-    <createdOn>2017-06-09 03:28:45</createdOn>
-    <lastModifOn>2017-06-09 03:28:45</lastModifOn>
-    <text>World !</text>
-   </article>
-   <article>
-    <id>7</id>
-    <title>Bidule</title>
-    <createdOn>2017-06-09 03:37:10</createdOn>
-    <lastModifOn>2017-06-09 03:37:10</lastModifOn>
-    <text>Machin</text>
+    <createdOn>Sat Jun 10 15:32:05 2017</createdOn>
+    <lastModifOn>Sat Jun 10 15:32:05 2017</lastModifOn>
+    <text>Article 3. Voila</text>
    </article>
    <article>
     <id>8</id>
@@ -60,6 +35,17 @@
    </article>
   </articles>
   <multimedias/>
+  <multimedias>
+   <multimedia>
+    <id>4</id>
+    <title>Paresseux</title>
+    <createdOn>Sat Jun 10 15:32:30 2017</createdOn>
+    <lastModifOn>Sat Jun 10 15:32:30 2017</lastModifOn>
+    <description>Voila un paresseux</description>
+    <fileName>4.jpeg</fileName>
+    <type>picture</type>
+   </multimedia>
+  </multimedias>
   <tasks>
    <task>
     <id>9</id>

@@ -17,7 +17,7 @@ V_CentralNote::~V_CentralNote()
 V_CentralArticle::V_CentralArticle(Article *a) {
     this->getUi()->labelType->setText("Type : Article");
     this->getUi()->labelID->setText("ID : " + a->getId());
-    this->getUi()->labelTitle->setText(a->getTitle());
+    this->getUi()->textTitle->setText(a->getTitle());
     this->getUi()->labelCreatedOn->setText(a->getCreatedOn().toString());
     this->getUi()->labelLastModifOn->setText(a->getLastModifOn().toString());
 
