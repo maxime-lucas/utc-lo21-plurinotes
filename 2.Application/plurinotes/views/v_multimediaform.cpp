@@ -61,35 +61,36 @@ void V_MultimediaForm::checkFields() {
         (!(ui->videoBtn->isChecked()) && !(ui->imageBtn->isChecked()) && !(ui->audioBtn->isChecked())) ||
         (ui->fileLineEdit->text().isEmpty()))
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+    else {
+        std::time_t t = time(0);
+        struct std::tm* now = localtime(&t);
+        Datetime dNow(
+            now->tm_mday,
+            now->tm_mon+1,
+            now->tm_year+1900,
+            now->tm_hour,
+            now->tm_min,
+            now->tm_sec
+        );
+        TypeMultimedia type;
+        if(ui->videoBtn->isChecked())
+            type = VIDEO;
+        else if(ui->imageBtn->isChecked())
+            type = PICTURE;
+        else if(ui->audioBtn->isChecked())
+            type = AUDIO;
 
-    std::time_t t = time(0);
-    struct std::tm* now = localtime(&t);
-    Datetime dNow(
-        now->tm_mday,
-        now->tm_mon+1,
-        now->tm_year+1900,
-        now->tm_hour,
-        now->tm_min,
-        now->tm_sec
-    );
-    TypeMultimedia type;
-    if(ui->videoBtn->isChecked())
-        type = VIDEO;
-    else if(ui->imageBtn->isChecked())
-        type = PICTURE;
-    else if(ui->audioBtn->isChecked())
-        type = AUDIO;
 
+        Multimedia *m = new Multimedia(
+                    ui->textID->toPlainText(),
+                    ui->textTitle->toPlainText(),
+                    dNow,
+                    dNow,
+                    ui->textDesc->toPlainText(),
+                    ui->fileLineEdit->text(),
+                    type);
 
-    Multimedia *m = new Multimedia(
-                ui->textID->toPlainText(),
-                ui->textTitle->toPlainText(),
-                dNow,
-                dNow,
-                ui->textDesc->toPlainText(),
-                ui->fileLineEdit->text(),
-                type);
-
-    this->parent->getController()->saveNewMultimedia(m);
-    this->close();
+        this->parent->getController()->saveNewMultimedia(m);
+        this->close();
+    }
 }

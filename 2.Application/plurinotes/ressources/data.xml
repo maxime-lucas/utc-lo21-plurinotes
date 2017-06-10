@@ -53,8 +53,16 @@
    </article>
   </articles>
   <multimedias>
+   <multimedia>
+    <id>8</id>
+    <title>Paresseux</title>
+    <createdOn>2017-06-10 14:45:00</createdOn>
+    <lastModifOn>2017-06-10 14:45:00</lastModifOn>
+    <description>Voici un paresseux trop mignon</description>
+    <fileName>8.jpeg</fileName>
+    <type>picture</type>
+   </multimedia>
   </multimedias>
-  <tasks>
-  </tasks>
+  <tasks/>
  </activeNotes>
 </plurinotes>

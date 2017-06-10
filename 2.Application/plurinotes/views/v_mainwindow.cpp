@@ -10,6 +10,8 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->setupUi(this);
     controller = c;
 
+    move(0,0);
+
     labelActiveNotes = new QLabel("Active Notes");
     labelActiveNotes->setFixedSize(200,20);
     labelActiveNotes->setAlignment(Qt::AlignCenter);
