@@ -91,6 +91,11 @@ class Multimedia : public Note {
         Multimedia(QString i = "", QString t = "", QDateTime co = QDateTime::currentDateTime(), QDateTime lmo = QDateTime::currentDateTime(), QString desc = "", QString ptf = "", TypeMultimedia tm = PICTURE) : Note(i,t,co,lmo), description(desc), pathToFile(ptf), type(tm) {}
 
         ~Multimedia();
+
+        QString getDescription() const { return description; }
+        QString getFileName() const { return pathToFile; }
+        void setFileName(QString f) { pathToFile = f; }
+        enum TypeMultimedia getType() const { return type; }
 };
 
 class Task : public Note {

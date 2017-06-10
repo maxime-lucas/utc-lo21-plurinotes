@@ -107,8 +107,17 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
         Deadline.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
 
         //Convertion de QString en unisgned int
+        bool ok;
+        priority = task.firstChildElement("priority").text().toInt(&ok,10);
 
         //Convertion de QString en taskSatus
+
+        if(task.firstChildElement("status").text() == "PENDING")
+            status = PENDING;
+        else if(task.firstChildElement("status").text() == "PROGRESS")
+            status = PROGRESS;
+        else if(task.firstChildElement("status").text() == "FINISHED")
+            status = FINISHED;
 
         Task *a = new Task(
             task.firstChildElement("id").text(),
@@ -118,6 +127,7 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
             task.firstChildElement("action").text(),
             priority,
             Deadline,
+            status
         );
 
         tab.push_back(a);
@@ -150,6 +160,53 @@ void XMLManager::insertIntoArticle(Article*a) {
     newArticle.appendChild(aText);
 
     articles.appendChild(newArticle);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::insertIntoMultimedia(Multimedia*m) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement multimedias = activeNotes.firstChildElement("multimedias");
+
+    QDomElement newMultimedia = dom->createElement("multimedia");
+        QDomElement mID = dom->createElement("id");
+            mID.appendChild(dom->createTextNode(m->getId()));
+        QDomElement mTitle = dom->createElement("title");
+            mTitle.appendChild(dom->createTextNode(m->getTitle()));
+        QDomElement mCreatedOn = dom->createElement("createdOn");
+            mCreatedOn.appendChild(dom->createTextNode(m->getCreatedOn().toString()));
+        QDomElement mLastModifOn = dom->createElement("lastModifOn");
+            mLastModifOn.appendChild(dom->createTextNode(m->getLastModifOn().toString()));
+        QDomElement mDescription = dom->createElement("description");
+            mDescription.appendChild(dom->createTextNode(m->getDescription()));
+        QDomElement mFileName = dom->createElement("fileName");
+            mFileName.appendChild(dom->createTextNode(m->getFileName()));
+        QDomElement mType = dom->createElement("type");
+            if(m->getType() == AUDIO ) mType.appendChild(dom->createTextNode("audio"));
+            else if(m->getType() == VIDEO ) mType.appendChild(dom->createTextNode("video"));
+            else mType.appendChild(dom->createTextNode("picture"));
+
+
+    newMultimedia.appendChild(mID);
+    newMultimedia.appendChild(mTitle);
+    newMultimedia.appendChild(mCreatedOn);
+    newMultimedia.appendChild(mLastModifOn);
+    newMultimedia.appendChild(mDescription);
+    newMultimedia.appendChild(mFileName);
+    newMultimedia.appendChild(mType);
+
+    multimedias.appendChild(newMultimedia);
 
     QString newDoc = dom->toString();
 
