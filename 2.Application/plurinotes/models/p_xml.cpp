@@ -24,25 +24,20 @@ std::vector<Article*> XMLManager::getAllActiveArticles() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement articles = activeNotes.firstChildElement("articles");
     QDomElement article = articles.firstChildElement("article");
-    QString tmp;
-    QDateTime createdOn,lastModifOn;
+    QString createdOn,lastModifOn;
 
     std::vector<Article*> tab;
 
     for(;!article.isNull(); article = article.nextSiblingElement("article")) {
 
-        //Convertion de Qstring de l'XML en QDateTime
-
-        tmp = article.firstChildElement("createdOn").text();
-        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = article.firstChildElement("lastModifOn").text();
-        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        createdOn = article.firstChildElement("createdOn").text();
+        lastModifOn = article.firstChildElement("lastModifOn").text();
 
         Article *a = new Article(
             article.firstChildElement("id").text(),
             article.firstChildElement("title").text(),
-            createdOn,
-            lastModifOn,
+            QDateTime::fromString(createdOn),
+            QDateTime::fromString(lastModifOn),
             article.firstChildElement("text").text()
         );
 
@@ -57,25 +52,20 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement multimedias = activeNotes.firstChildElement("multimedias");
     QDomElement multimedia = multimedias.firstChildElement("multimedia");
-    QString tmp;
-    QDateTime createdOn,lastModifOn;
+    QString createdOn,lastModifOn;
 
     std::vector<Multimedia*> tab;
 
     for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
 
-        //Convertion de Qstring de l'XML en QDateTime
-
-        tmp = multimedia.firstChildElement("createdOn").text();
-        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = multimedia.firstChildElement("lastModifOn").text();
-        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        createdOn = multimedia.firstChildElement("createdOn").text();
+        lastModifOn = multimedia.firstChildElement("lastModifOn").text();
 
         Multimedia *a = new Multimedia(
             multimedia.firstChildElement("id").text(),
             multimedia.firstChildElement("title").text(),
-            createdOn,
-            lastModifOn
+            QDateTime::fromString(createdOn),
+            QDateTime::fromString(lastModifOn)
         );
 
         tab.push_back(a);
