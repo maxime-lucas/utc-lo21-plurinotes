@@ -1,7 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
+  <articles>
+   <article>
+    <id>1</id>
+    <title>Article 1	</title>
+    <createdOn>Sun Jun 11 21:55:38 2017</createdOn>
+    <lastModifOn>Sun Jun 11 21:55:38 2017</lastModifOn>
+    <text>Starfoullah l'article de ouf</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+	...
+      </article>
+     </version>
+    </versions>
+   </article>
+  </articles>
   <multimedias/>
   <tasks/>
  </activeNotes>

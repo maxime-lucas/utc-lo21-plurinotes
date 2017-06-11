@@ -146,12 +146,14 @@ void XMLManager::insertIntoArticle(Article*a) {
             aLastModifOn.appendChild(dom->createTextNode(a->getLastModifOn().toString()));
         QDomElement aText = dom->createElement("text");
             aText.appendChild(dom->createTextNode(a->getText()));
+        QDomElement aVersions = dom->createElement("versions");
 
     newArticle.appendChild(aID);
     newArticle.appendChild(aTitle);
     newArticle.appendChild(aCreatedOn);
     newArticle.appendChild(aLastModifOn);
     newArticle.appendChild(aText);
+    newArticle.appendChild(aVersions);
 
     articles.appendChild(newArticle);
 
@@ -190,6 +192,7 @@ void XMLManager::insertIntoMultimedia(Multimedia*m) {
             if(m->getType() == AUDIO ) mType.appendChild(dom->createTextNode("audio"));
             else if(m->getType() == VIDEO ) mType.appendChild(dom->createTextNode("video"));
             else mType.appendChild(dom->createTextNode("picture"));
+        QDomElement mVersions = dom->createElement("versions");
 
 
     newMultimedia.appendChild(mID);
@@ -199,6 +202,7 @@ void XMLManager::insertIntoMultimedia(Multimedia*m) {
     newMultimedia.appendChild(mDescription);
     newMultimedia.appendChild(mFileName);
     newMultimedia.appendChild(mType);
+    newMultimedia.appendChild(mVersions);
 
     multimedias.appendChild(newMultimedia);
 
@@ -237,6 +241,8 @@ void XMLManager::insertIntoTask(Task*t) {
         QDomElement tDeadline = dom->createElement("deadline");
             tDeadline.appendChild(dom->createTextNode(t->getDeadline().toString()));
         QDomElement tStatus = dom->createElement("status");
+        QDomElement tVersions = dom->createElement("versions");
+
 
         QString status;
 
@@ -257,6 +263,7 @@ void XMLManager::insertIntoTask(Task*t) {
     newtask.appendChild(tPriority);
     newtask.appendChild(tDeadline);
     newtask.appendChild(tStatus);
+    newtask.appendChild(tVersions);
 
     tasks.appendChild(newtask);
 
