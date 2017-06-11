@@ -63,6 +63,7 @@ class V_Mainwindow : public QMainWindow
         void openNewMultimedia();
         void openNewTask();
         void refreshCentralNote(QString);
+        void setEmptyCentralNote();
 };
 
 #endif // V_MAINWINDOW_H

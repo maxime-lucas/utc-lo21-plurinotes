@@ -2,12 +2,6 @@ QT += widgets
 QT += xml
 QT += core gui
 
-TEMPLATE = app
-TARGET = videowidget
-
-target.path = $$[QT_INSTALL_EXAMPLES]/multimediawidgets/videowidget
-INSTALLS += target
-
 HEADERS += \
     models/p_notes.h \
     models/p_versions.h \
@@ -25,6 +19,7 @@ HEADERS += \
     views/v_multimediaform.h \
     views/v_taskform.h \
     views/v_centralnote.h
+
 SOURCES += \
     models/p_notes.cpp \
     models/p_versions.cpp \

@@ -32,4 +32,10 @@ class V_CentralMultimedia : public V_CentralNote {
     ~V_CentralMultimedia();
 };
 
+class V_CentralTask : public V_CentralNote {
+    public:
+    V_CentralTask(Task*);
+    ~V_CentralTask();
+};
+
 #endif // V_CENTRALNOTE_H

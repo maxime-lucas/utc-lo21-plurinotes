@@ -54,3 +54,7 @@ Note* PluriNotes::getNoteByID(QString id) {
 
     return 0;
 }
+
+void PluriNotes::debug(QString str) {
+    std::cout << "[DEBUG] " << str.toStdString() << std::endl;
+}

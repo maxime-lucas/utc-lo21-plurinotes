@@ -1,5 +1,7 @@
-#include "p_xml.h"
 #include "main.h"
+#include "p_xml.h"
+#include "p_core.h"
+
 
 XMLManager::XMLManager(const QString &path ) : QWidget()  {
     dom = new QDomDocument("XMLManagerDom");
@@ -86,31 +88,24 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement tasks = activeNotes.firstChildElement("tasks");
-    QDomElement task = tasks.firstChildElement("task");
-    QString tmp;
-    QDateTime createdOn,lastModifOn,Deadline;
+    QDomElement task = tasks.firstChildElement("task");    
     unsigned int priority;
     TaskStatus status;
+    QString createdOn,lastModifOn,deadline;
 
     std::vector<Task*> tab;
 
     for(;!task.isNull(); task = task.nextSiblingElement("task")) {
 
-        //Convertion de Qstring de l'XML en QDateTime
-
-        tmp = task.firstChildElement("createdOn").text();
-        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = task.firstChildElement("lastModifOn").text();
-        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = task.firstChildElement("Deadline").text();
-        Deadline.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        createdOn = task.firstChildElement("createdOn").text();
+        lastModifOn = task.firstChildElement("lastModifOn").text();
+        deadline = task.firstChildElement("deadline").text();
 
         //Convertion de QString en unisgned int
         bool ok;
         priority = task.firstChildElement("priority").text().toInt(&ok,10);
 
         //Convertion de QString en taskSatus
-
         if(task.firstChildElement("status").text() == "PENDING")
             status = PENDING;
         else if(task.firstChildElement("status").text() == "PROGRESS")
@@ -118,18 +113,18 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
         else if(task.firstChildElement("status").text() == "FINISHED")
             status = FINISHED;
 
-        Task *a = new Task(
+        Task *t = new Task(
             task.firstChildElement("id").text(),
             task.firstChildElement("title").text(),
-            createdOn,
-            lastModifOn,
+            QDateTime::fromString(createdOn),
+            QDateTime::fromString(lastModifOn),
             task.firstChildElement("action").text(),
             priority,
-            Deadline,
+            QDateTime::fromString(deadline),
             status
         );
 
-        tab.push_back(a);
+        tab.push_back(t);
     }
 
     return tab;
@@ -239,7 +234,7 @@ void XMLManager::insertIntoTask(Task*t) {
         QDomElement tPriority = dom->createElement("priority");
             QString conv =QString::number(t->getPriority());
             tPriority.appendChild(dom->createTextNode(conv));
-        QDomElement tDeadline = dom->createElement("Deadline");
+        QDomElement tDeadline = dom->createElement("deadline");
             tDeadline.appendChild(dom->createTextNode(t->getDeadline().toString()));
         QDomElement tStatus = dom->createElement("status");
 

@@ -39,6 +39,7 @@ void C_Mainwindow::refreshActiveNotes() {
 
     for(unsigned int i = 0; i < notes->size(); i++) {
         Note* note = notes->at(i);
+
         V_Littlenote* ln;
 
         if( typeid(*note) == typeid(Article) ) {
@@ -51,6 +52,9 @@ void C_Mainwindow::refreshActiveNotes() {
                 row++;
                 column=0;
             } else column++;
+
+            signalMapper->setMapping(ln, note->getId());
+            view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
         }
 
         if( typeid(*note) == typeid(Multimedia) ) {
@@ -63,11 +67,10 @@ void C_Mainwindow::refreshActiveNotes() {
                 row++;
                 column=0;
             } else column++;
+
+            signalMapper->setMapping(ln, note->getId());
+            view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
         }
-
-        signalMapper->setMapping(ln, note->getId());
-        view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
-
     }
 }
 
@@ -79,7 +82,6 @@ void C_Mainwindow::refreshTask()
 
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
-
 
     std::vector<Note*> *tasks = new std::vector<Note*>;;
 

@@ -22,6 +22,7 @@ class PluriNotes {
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
         XMLManager* getXMLManager() const { return xmlManager; }
         Note* getNoteByID(QString);
+        static void debug(QString);
 };
 
 #endif // P_CORE
