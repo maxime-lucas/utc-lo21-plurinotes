@@ -13,6 +13,7 @@ INPUT(
 ./debug\v_articleform.o
 ./debug\v_multimediaform.o
 ./debug\v_taskform.o
+./debug\v_taskform.o
 ./debug\v_centralnote.o
 ./debug\moc_v_mainwindow.o
 ./debug\moc_v_multiplenotes.o

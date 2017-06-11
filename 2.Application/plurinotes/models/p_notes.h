@@ -116,6 +116,7 @@ class Task : public Note {
         unsigned int getPriority() const { return priority; }
         QDateTime getDeadline() const { return toBeDoneOn; }
         TaskStatus getStatus() const {return status;}
+        QString getStatusToString() const { if(status==PENDING) return "pending"; if(status==PROGRESS) return "progress"; return "finished"; }
 
 };
 

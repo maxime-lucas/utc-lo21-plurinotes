@@ -4,6 +4,7 @@
   <articles>
    <article>
     <id>1</id>
+<<<<<<< HEAD
     <title>Article 1</title>
     <createdOn>Sat Jun 10 15:15:16 2017</createdOn>
     <lastModifOn>Sat Jun 10 15:15:16 2017</lastModifOn>
@@ -76,5 +77,23 @@
     <type>video</type>
    </multimedia>
   </multimedias>
+=======
+    <title>Article 1	</title>
+    <createdOn>Sun Jun 11 21:55:38 2017</createdOn>
+    <lastModifOn>Sun Jun 11 21:55:38 2017</lastModifOn>
+    <text>Starfoullah l'article de ouf</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+	...
+      </article>
+     </version>
+    </versions>
+   </article>
+  </articles>
+  <multimedias/>
+  <tasks/>
+>>>>>>> origin/dev
  </activeNotes>
 </plurinotes>

@@ -39,19 +39,13 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftLayout->addWidget(labelArchivedNotes);
     leftLayout->addWidget(archivedNotes);
 
-    centralNote = new QWidget();
-    QVBoxLayout *centralNoteLayout = new QVBoxLayout;
-    QLabel *beginningTitle = new QLabel("Select a note in the left tab");
-    beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
-    centralNoteLayout->addWidget(beginningTitle);
-    centralNote->setFixedSize(560,560);
-    centralNote->setLayout(centralNoteLayout);
+    centralNote = 0;
 
     leftWidget->setLayout(leftLayout);
     leftWidget->setFixedWidth(210);
 
     centralLayout->addWidget(leftWidget);
-    centralLayout->addWidget(centralNote);
+    setEmptyCentralNote();
     centralWidget()->setLayout(centralLayout);
 }
 
@@ -72,23 +66,42 @@ void V_Mainwindow::openNewTask(){
 }
 
 void V_Mainwindow::refreshCentralNote(QString id) {
+
     Note* note = controller->getApp()->getNoteByID(id);
 
-    if(centralNote != 0) delete centralNote;
+    if(centralNote != 0) { delete centralNote; centralNote = 0; }
 
     if( typeid(*note) == typeid(Article) ) {
         Article* article = new Article(dynamic_cast<Article&>(*note));
-        V_CentralArticle *v_centralArticle = new V_CentralArticle(article);
+        V_CentralArticle *v_centralArticle = new V_CentralArticle(article,this);
         centralNote = v_centralArticle;
         centralLayout->addWidget(centralNote);
     }
 
     if( typeid(*note) == typeid(Multimedia) ) {
         Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
-        V_CentralMultimedia *v_centralMultimedia = new V_CentralMultimedia(multimedia);
+        V_CentralMultimedia *v_centralMultimedia = new V_CentralMultimedia(multimedia,this);
         centralNote = v_centralMultimedia;
         centralLayout->addWidget(centralNote);
     }
+
+    if( typeid(*note) == typeid(Task) ) {
+        Task* task = new Task(dynamic_cast<Task&>(*note));
+        V_CentralTask *v_centralTask = new V_CentralTask(task,this);
+        centralNote = v_centralTask;
+        centralLayout->addWidget(centralNote);
+    }
+}
+
+void V_Mainwindow::setEmptyCentralNote() {
+    centralNote = new QWidget();
+    QVBoxLayout *centralNoteLayout = new QVBoxLayout;
+    QLabel *beginningTitle = new QLabel("Select a note in the left tab");
+    beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+    centralNoteLayout->addWidget(beginningTitle);
+    centralNote->setFixedSize(560,560);
+    centralNote->setLayout(centralNoteLayout);
+    centralLayout->addWidget(centralNote);
 }
 
 V_Mainwindow::~V_Mainwindow()

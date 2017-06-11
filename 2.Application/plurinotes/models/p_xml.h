@@ -1,3 +1,4 @@
+
 #ifndef P_XML
 #define P_XML
 
@@ -16,9 +17,15 @@ class XMLManager : public QWidget {
     std::vector<Multimedia*> getAllActiveMultimedia() const;
     std::vector<Task*> getAllActiveTasks() const;
     unsigned int getLastId() const;
+
     void insertIntoArticle(Article*);
     void insertIntoTask(Task*t);
     void insertIntoMultimedia(Multimedia*);
+
+    void deleteFromArticle(Article*);
+    void deleteFromMultimedia(Multimedia*);
+    void deleteFromTask(Task*t);
+
     ~XMLManager();
 };
 
