@@ -1,44 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles>
-   <article>
-    <id>1</id>
-    <title>Hello World	</title>
-    <createdOn>Sun Jun 11 19:13:45 2017</createdOn>
-    <lastModifOn>Sun Jun 11 19:13:45 2017</lastModifOn>
-    <text>Ouah</text>
-   </article>
-   <article>
-    <id>3</id>
-    <title>Hi</title>
-    <createdOn>Sun Jun 11 19:34:13 2017</createdOn>
-    <lastModifOn>Sun Jun 11 19:34:13 2017</lastModifOn>
-    <text>iohqzdqz</text>
-   </article>
-  </articles>
-  <multimedias>
-   <multimedia>
-    <id>4</id>
-    <title>Chouette</title>
-    <createdOn>Sun Jun 11 19:45:42 2017</createdOn>
-    <lastModifOn>Sun Jun 11 19:45:42 2017</lastModifOn>
-    <description>Chouette, voici une chouette !</description>
-    <fileName>4.jpeg</fileName>
-    <type>picture</type>
-   </multimedia>
-  </multimedias>
-  <tasks>
-   <task>
-    <id>2</id>
-    <title>truc</title>
-    <createdOn>Sun Jun 11 19:14:26 2017</createdOn>
-    <lastModifOn>Sun Jun 11 19:14:26 2017</lastModifOn>
-    <action>truc</action>
-    <priority>0</priority>
-    <deadline/>
-    <status>PENDING</status>
-   </task>
-  </tasks>
+  <articles/>
+  <multimedias/>
+  <tasks/>
  </activeNotes>
 </plurinotes>

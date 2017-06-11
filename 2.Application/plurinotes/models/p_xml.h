@@ -1,3 +1,4 @@
+
 #ifndef P_XML
 #define P_XML
 
@@ -19,6 +20,9 @@ class XMLManager : public QWidget {
     void insertIntoArticle(Article*);
     void insertIntoMultimedia(Multimedia*);
     void insertIntoTask(Task*t);
+    void deleteFromArticle(Article*);
+    void deleteFromMultimedia(Multimedia*);
+    void deleteFromTask(Task*t);
 
     ~XMLManager();
 };

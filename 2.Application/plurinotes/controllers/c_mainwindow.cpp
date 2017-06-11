@@ -34,6 +34,14 @@ void C_Mainwindow::refreshActiveNotes() {
     unsigned int row = 0;
     unsigned int column = 0;
 
+    // Remise à 0 du GridLayout
+    QLayoutItem* item;
+    while ( ( item = view->getActiveNotes()->getGridLayout()->takeAt( 0 ) ) != NULL )
+    {
+        delete item->widget();
+        delete item;
+    }
+
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
 
@@ -184,4 +192,43 @@ void C_Mainwindow::saveNewTask(Task *t) {
     app->getActiveNotesManager()->getTab()->push_back(t);
     app->getXMLManager()->insertIntoTask(t);
     refreshTask();
+}
+
+void C_Mainwindow::deleteByID(QString id) {
+    // WIP Suppression en base
+    Note* note = app->getNoteByID(id);
+
+    if( typeid(*note) == typeid(Article) ) {
+        Article* article = new Article(dynamic_cast<Article&>(*note));
+        app->getXMLManager()->deleteFromArticle(article);
+    }
+
+    if( typeid(*note) == typeid(Multimedia) ) {
+        Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
+        app->getXMLManager()->deleteFromMultimedia(multimedia);
+        // TODO Suppression du fichier pour les multimédias
+
+        QFile file(multimedia->getFileName());
+        QFileInfo fileInfo(file.fileName());
+        QDir dirToRessources(QDir::currentPath());
+        dirToRessources.cd("../plurinotes/ressources/");
+        QString filePath = dirToRessources.absolutePath()+ QDir::separator() + multimedia->getId() + "." + fileInfo.completeSuffix();
+        QFile completeFile(filePath);
+        completeFile.remove();
+    }
+
+    if( typeid(*note) == typeid(Task) ) {
+        Task* task = new Task(dynamic_cast<Task&>(*note));
+        app->getXMLManager()->deleteFromTask(task);
+    }
+
+    //Suppression dans les notes actives
+    for(unsigned int i = 0; i < app->getActiveNotesManager()->getTab()->size() ; i++ )
+    {
+        note = app->getActiveNotesManager()->getTab()->at(i);
+        if( note->getId() == id ) app->getActiveNotesManager()->getTab()->erase(app->getActiveNotesManager()->getTab()->begin() + i);
+    }
+    refreshActiveNotes();
+    refreshTask();
+    view->setEmptyCentralNote();
 }
