@@ -10,6 +10,8 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->setupUi(this);
     controller = c;
 
+    move(0,0);
+
     labelActiveNotes = new QLabel("Active Notes");
     labelActiveNotes->setFixedSize(200,20);
     labelActiveNotes->setAlignment(Qt::AlignCenter);
@@ -78,6 +80,13 @@ void V_Mainwindow::refreshCentralNote(QString id) {
         Article* article = new Article(dynamic_cast<Article&>(*note));
         V_CentralArticle *v_centralArticle = new V_CentralArticle(article);
         centralNote = v_centralArticle;
+        centralLayout->addWidget(centralNote);
+    }
+
+    if( typeid(*note) == typeid(Multimedia) ) {
+        Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
+        V_CentralMultimedia *v_centralMultimedia = new V_CentralMultimedia(multimedia);
+        centralNote = v_centralMultimedia;
         centralLayout->addWidget(centralNote);
     }
 }

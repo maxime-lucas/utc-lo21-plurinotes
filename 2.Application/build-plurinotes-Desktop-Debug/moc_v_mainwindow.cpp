@@ -22,7 +22,7 @@ static const uint qt_meta_data_V_Mainwindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,13 +33,15 @@ static const uint qt_meta_data_V_Mainwindow[] = {
       14,   13,   13,   13, 0x0a,
       31,   13,   13,   13, 0x0a,
       51,   13,   13,   13, 0x0a,
+      65,   13,   13,   13, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_V_Mainwindow[] = {
     "V_Mainwindow\0\0openNewArticle()\0"
-    "openNewMultimedia()\0refreshCentralNote(QString)\0"
+    "openNewMultimedia()\0openNewTask()\0"
+    "refreshCentralNote(QString)\0"
 };
 
 void V_Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -50,7 +52,8 @@ void V_Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         switch (_id) {
         case 0: _t->openNewArticle(); break;
         case 1: _t->openNewMultimedia(); break;
-        case 2: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->openNewTask(); break;
+        case 3: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -88,9 +91,9 @@ int V_Mainwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

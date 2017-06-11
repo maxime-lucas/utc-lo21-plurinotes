@@ -1,4 +1,5 @@
 #include "p_xml.h"
+#include "main.h"
 
 XMLManager::XMLManager(const QString &path ) : QWidget()  {
     dom = new QDomDocument("XMLManagerDom");
@@ -23,25 +24,20 @@ std::vector<Article*> XMLManager::getAllActiveArticles() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement articles = activeNotes.firstChildElement("articles");
     QDomElement article = articles.firstChildElement("article");
-    QString tmp;
-    QDateTime createdOn,lastModifOn;
+    QString createdOn,lastModifOn;
 
     std::vector<Article*> tab;
 
     for(;!article.isNull(); article = article.nextSiblingElement("article")) {
 
-        //Convertion de Qstring de l'XML en QDateTime
-
-        tmp = article.firstChildElement("createdOn").text();
-        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = article.firstChildElement("lastModifOn").text();
-        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        createdOn = article.firstChildElement("createdOn").text();
+        lastModifOn = article.firstChildElement("lastModifOn").text();
 
         Article *a = new Article(
             article.firstChildElement("id").text(),
             article.firstChildElement("title").text(),
-            createdOn,
-            lastModifOn,
+            QDateTime::fromString(createdOn),
+            QDateTime::fromString(lastModifOn),
             article.firstChildElement("text").text()
         );
 
@@ -56,28 +52,31 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement multimedias = activeNotes.firstChildElement("multimedias");
     QDomElement multimedia = multimedias.firstChildElement("multimedia");
-    QString tmp;
-    QDateTime createdOn,lastModifOn;
+    QString createdOn,lastModifOn;
 
     std::vector<Multimedia*> tab;
 
     for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
 
-        //Convertion de Qstring de l'XML en QDateTime
+        createdOn = multimedia.firstChildElement("createdOn").text();
+        lastModifOn = multimedia.firstChildElement("lastModifOn").text();
 
-        tmp = multimedia.firstChildElement("createdOn").text();
-        createdOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
-        tmp = multimedia.firstChildElement("lastModifOn").text();
-        lastModifOn.fromString(tmp,"yyyy:MM:dd hh:mm:ss");
+        enum TypeMultimedia type;
+        if( multimedia.firstChildElement("type").text() == "picture" ) type = PICTURE;
+        else if( multimedia.firstChildElement("type").text() == "video" ) type = VIDEO;
+        else type = AUDIO;
 
-        Multimedia *a = new Multimedia(
+        Multimedia *m = new Multimedia(
             multimedia.firstChildElement("id").text(),
             multimedia.firstChildElement("title").text(),
-            createdOn,
-            lastModifOn
+            QDateTime::fromString(createdOn),
+            QDateTime::fromString(lastModifOn),
+            multimedia.firstChildElement("description").text(),
+            multimedia.firstChildElement("fileName").text(),
+            type
         );
 
-        tab.push_back(a);
+        tab.push_back(m);
     }
 
     return tab;
@@ -108,7 +107,17 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
 
         //Convertion de QString en unisgned int
 
+        bool ok;
+        priority = task.firstChildElement("priority").text().toInt(&ok,10);
+
         //Convertion de QString en taskSatus
+
+        if(task.firstChildElement("status").text() == "PENDING")
+            status= PENDING;
+        if(task.firstChildElement("status").text() == "PROGRESS")
+            status= PROGRESS;
+        if(task.firstChildElement("status").text() == "FINISHED")
+            status= FINISHED;
 
         Task *a = new Task(
             task.firstChildElement("id").text(),
@@ -118,6 +127,7 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
             task.firstChildElement("action").text(),
             priority,
             Deadline,
+            status
         );
 
         tab.push_back(a);
@@ -208,6 +218,41 @@ void XMLManager::insertIntoTask(Task*t) {
     newtask.appendChild(tStatus);
 
     tasks.appendChild(newtask);
+}
+
+void XMLManager::insertIntoMultimedia(Multimedia*m) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement multimedias = activeNotes.firstChildElement("multimedias");
+
+    QDomElement newMultimedia = dom->createElement("multimedia");
+        QDomElement mID = dom->createElement("id");
+            mID.appendChild(dom->createTextNode(m->getId()));
+        QDomElement mTitle = dom->createElement("title");
+            mTitle.appendChild(dom->createTextNode(m->getTitle()));
+        QDomElement mCreatedOn = dom->createElement("createdOn");
+            mCreatedOn.appendChild(dom->createTextNode(m->getCreatedOn().toString()));
+        QDomElement mLastModifOn = dom->createElement("lastModifOn");
+            mLastModifOn.appendChild(dom->createTextNode(m->getLastModifOn().toString()));
+        QDomElement mDescription = dom->createElement("description");
+            mDescription.appendChild(dom->createTextNode(m->getDescription()));
+        QDomElement mFileName = dom->createElement("fileName");
+            mFileName.appendChild(dom->createTextNode(m->getFileName()));
+        QDomElement mType = dom->createElement("type");
+            if(m->getType() == AUDIO ) mType.appendChild(dom->createTextNode("audio"));
+            else if(m->getType() == VIDEO ) mType.appendChild(dom->createTextNode("video"));
+            else mType.appendChild(dom->createTextNode("picture"));
+
+
+    newMultimedia.appendChild(mID);
+    newMultimedia.appendChild(mTitle);
+    newMultimedia.appendChild(mCreatedOn);
+    newMultimedia.appendChild(mLastModifOn);
+    newMultimedia.appendChild(mDescription);
+    newMultimedia.appendChild(mFileName);
+    newMultimedia.appendChild(mType);
+
+    multimedias.appendChild(newMultimedia);
 
     QString newDoc = dom->toString();
 

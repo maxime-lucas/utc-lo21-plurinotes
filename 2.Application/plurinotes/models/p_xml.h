@@ -18,6 +18,7 @@ class XMLManager : public QWidget {
     unsigned int getLastId() const;
     void insertIntoArticle(Article*);
     void insertIntoTask(Task*t);
+    void insertIntoMultimedia(Multimedia*);
     ~XMLManager();
 };
 
