@@ -4,96 +4,20 @@
   <articles>
    <article>
     <id>1</id>
-<<<<<<< HEAD
-    <title>Article 1</title>
-    <createdOn>Sat Jun 10 15:15:16 2017</createdOn>
-    <lastModifOn>Sat Jun 10 15:15:16 2017</lastModifOn>
-    <text>Voici un super premier article de la mort</text>
+    <title>testtt</title>
+    <createdOn>dim. juin 11 23:34:18 2017</createdOn>
+    <lastModifOn>dim. juin 11 23:52:19 2017</lastModifOn>
+    <text>test</text>
+    <versions/>
    </article>
    <article>
-    <id>2</id>
-    <title>Article 2</title>
-    <createdOn>2017-06-08 00:05:00</createdOn>
-    <lastModifOn>2017-06-08 00:05:00</lastModifOn>
-    <text>Voici le texte du deuxi?me article. J'ai plus d'inspi.</text>
-    <createdOn>Sat Jun 10 15:15:35 2017</createdOn>
-    <lastModifOn>Sat Jun 10 15:15:35 2017</lastModifOn>
-    <text>Je ne sais pas quoi dire donc je brode</text>
-   </article>
-   <article>
-    <id>3</id>
-    <title>Article 3</title>
-    <createdOn>Sat Jun 10 15:32:05 2017</createdOn>
-    <lastModifOn>Sat Jun 10 15:32:05 2017</lastModifOn>
-    <text>Article 3. Voila</text>
-   </article>
-   <article>
-    <id>8</id>
-    <title>Mais j'ai pas touchew</title>
-    <createdOn>sam. juin 10 14:55:49 2017</createdOn>
-    <lastModifOn>sam. juin 10 14:55:49 2017</lastModifOn>
-    <text>Mais oui c'est clair</text>
+    <id>1</id>
+    <title>testtt</title>
+    <createdOn>dim. juin 11 23:34:18 2017</createdOn>
+    <lastModifOn>dim. juin 11 23:54:06 2017</lastModifOn>
+    <text>testtttt</text>
+    <versions/>
    </article>
   </articles>
-  <tasks>
-   <task>
-    <id>9</id>
-    <title>C'est la fin ?</title>
-    <createdOn>sam. juin 10 19:32:49 2017</createdOn>
-    <lastModifOn>sam. juin 10 19:32:49 2017</lastModifOn>
-    <action>Mais ouiii</action>
-    <priority>42</priority>
-    <Deadline>sam. janv. 1 00:00:00 2000</Deadline>
-    <status>PENDING</status>
-   </task>
-   <task>
-    <id>10</id>
-    <title>coucou</title>
-    <createdOn>sam. juin 10 19:43:35 2017</createdOn>
-    <lastModifOn>sam. juin 10 19:43:35 2017</lastModifOn>
-    <action>c'est lmwa</action>
-    <priority>35</priority>
-    <Deadline></Deadline>
-    <status>PENDING</status>
-   </task>
-  </tasks>
-  <multimedias>
-   <multimedia>
-    <id>4</id>
-    <title>Paresseux</title>
-    <createdOn>Sat Jun 10 15:32:30 2017</createdOn>
-    <lastModifOn>Sat Jun 10 15:32:30 2017</lastModifOn>
-    <description>Voila un paresseux</description>
-    <fileName>4.jpeg</fileName>
-    <type>picture</type>
-   </multimedia>
-   <multimedia>
-    <id>5</id>
-    <title>Parce que gueuler j'sais gueuler!</title>
-    <createdOn>Sat Jun 10 15:51:59 2017</createdOn>
-    <lastModifOn>Sat Jun 10 15:51:59 2017</lastModifOn>
-    <description>François &lt;3</description>
-    <fileName>5.mp4</fileName>
-    <type>video</type>
-   </multimedia>
-  </multimedias>
-=======
-    <title>Article 1	</title>
-    <createdOn>Sun Jun 11 21:55:38 2017</createdOn>
-    <lastModifOn>Sun Jun 11 21:55:38 2017</lastModifOn>
-    <text>Starfoullah l'article de ouf</text>
-    <versions>
-     <version>
-      <numVersion>1</numVersion>
-      <article>
-	...
-      </article>
-     </version>
-    </versions>
-   </article>
-  </articles>
-  <multimedias/>
-  <tasks/>
->>>>>>> origin/dev
  </activeNotes>
 </plurinotes>

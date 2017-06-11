@@ -168,6 +168,8 @@ void C_Mainwindow::saveNewArticle(Article *a) {
     refreshActiveNotes();
 }
 
+
+
 void C_Mainwindow::saveNewMultimedia(Multimedia *m) {
 
     // Déplacer le fichier dans le dossier ressources

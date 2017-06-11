@@ -1,6 +1,5 @@
 #include "v_centralnote.h"
 #include "ui_v_centralnote.h"
-#include <QPlainTextEdit>
 #include <QFileDialog>
 
 V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
@@ -14,6 +13,7 @@ V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
     parentView->connect(signalMapper, SIGNAL(mapped(QString)),this,SLOT(deleteNote()));
     signalMapper->setMapping(ui->btnDelete, ui->labelID->text());
     parentView->connect(ui->btnDelete, SIGNAL(clicked()), signalMapper, SLOT(map()));
+
 }
 
 void V_CentralNote::deleteNote() {
@@ -32,11 +32,39 @@ V_CentralArticle::V_CentralArticle(Article *a,V_Mainwindow* m) : V_CentralNote(0
     this->getUi()->labelCreatedOn->setText(a->getCreatedOn().toString());
     this->getUi()->labelLastModifOn->setText(a->getLastModifOn().toString());
 
-    QPlainTextEdit *textText = new QPlainTextEdit(a->getText());
+    text = new QPlainTextEdit(a->getText());
     QVBoxLayout *formWidgetLayout = new QVBoxLayout();
-    formWidgetLayout->addWidget(textText);
+    formWidgetLayout->addWidget(text);
     this->getUi()->formWidget->setLayout(formWidgetLayout);
+
+
+    QSignalMapper* signalMapper = new QSignalMapper(this);
+    this->connect(signalMapper, SIGNAL(mapped(QString)),this,SLOT(editArticle()));
+    signalMapper->setMapping(this->getUi()->btnEdit, text->toPlainText());
+    this->connect(this->getUi()->btnEdit, SIGNAL(clicked()), signalMapper, SLOT(map()));
 }
+
+void V_CentralArticle::editArticle()
+{
+    if(text->toPlainText().isEmpty())
+        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+
+    QDateTime dNow = QDateTime::currentDateTime();
+    QDateTime dCreated = QDateTime::fromString(this->getUi()->labelCreatedOn->text());
+
+    Article *a = new Article(
+        this->getUi()->labelID->text(),
+        this->getUi()->textTitle->text(),
+        dCreated,
+        dNow,
+        text->toPlainText()
+    );
+
+    this->getMainwindow()->getController()->saveNewArticle(a);
+    this->getMainwindow()->refreshCentralNote(this->getUi()->labelID->text());
+    this->getMainwindow()->getController()->refreshActiveNotes();
+}
+
 
 V_CentralMultimedia::V_CentralMultimedia(Multimedia *m, V_Mainwindow*mw) : V_CentralNote(0,mw){
     this->getUi()->labelType->setText("Type : Multimedia/"+m->getTypeToQString());
@@ -63,7 +91,36 @@ V_CentralMultimedia::V_CentralMultimedia(Multimedia *m, V_Mainwindow*mw) : V_Cen
     }
 
     this->getUi()->formWidget->setLayout(formWidgetLayout);
+
+    /*QSignalMapper* signalMapper = new QSignalMapper(this);
+    this->connect(signalMapper, SIGNAL(mapped(QString)),this,SLOT(editMultimedia()));
+    signalMapper->setMapping(this->getUi()->btnEdit, desc->toPlainText());*/
+    this->connect(this->getUi()->btnEdit, SIGNAL(clicked()), this, SLOT(editMultimedia(m)));
 }
+
+void V_CentralMultimedia::editMultimedia(Multimedia *m)
+{
+    if(desc->toPlainText().isEmpty())
+        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+
+    QDateTime dNow = QDateTime::currentDateTime();
+    QDateTime dCreated = QDateTime::fromString(this->getUi()->labelCreatedOn->text());
+
+    Multimedia *m2 = new Multimedia(
+        m->getId(),
+        this->getUi()->textTitle->text(),
+        dCreated,
+        dNow,
+        desc->toPlainText(),
+        m->getFileName(),
+        m->getType()
+    );
+
+    this->getMainwindow()->getController()->saveNewMultimedia(m);
+    this->getMainwindow()->refreshCentralNote(this->getUi()->labelID->text());
+    this->getMainwindow()->getController()->refreshActiveNotes();
+}
+
 
 V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     this->getUi()->labelType->setText("Type : Task/"+t->getStatusToString());

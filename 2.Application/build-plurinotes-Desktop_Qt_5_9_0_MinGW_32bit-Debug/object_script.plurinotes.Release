@@ -13,7 +13,6 @@ INPUT(
 ./release\v_articleform.o
 ./release\v_multimediaform.o
 ./release\v_taskform.o
-./release\v_taskform.o
 ./release\v_centralnote.o
 ./release\moc_v_mainwindow.o
 ./release\moc_v_multiplenotes.o

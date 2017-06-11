@@ -35,7 +35,6 @@ SOURCES += \
     views/v_articleform.cpp \
     views/v_multimediaform.cpp \
     views/v_taskform.cpp \
-    views/v_taskform.cpp \
     views/v_centralnote.cpp
 
 
