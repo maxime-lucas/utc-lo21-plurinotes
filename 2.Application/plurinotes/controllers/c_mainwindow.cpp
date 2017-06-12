@@ -55,7 +55,7 @@ void C_Mainwindow::refreshActiveNotes() {
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article);
             view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column != 0 && column % 2 == 0 )
+            if( column != 0 && column % 1 == 0 )
             {
                 row++;
                 column=0;
@@ -70,7 +70,7 @@ void C_Mainwindow::refreshActiveNotes() {
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia);
             view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column != 0 && column % 2 == 0 )
+            if( column != 0 && column % 1 == 0 )
             {
                 row++;
                 column=0;
@@ -155,7 +155,7 @@ void C_Mainwindow::refreshTask()
         la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getTitle(),a->getDeadline().toString(),a->getPriority());
         view->getTasks()->getGridLayout()->addWidget(la,row,column);
 
-        if( column != 0 && column % 2 == 0 )
+        if( column != 0 && column % 1 == 0 )
         {
                 row++;
                 column=0;

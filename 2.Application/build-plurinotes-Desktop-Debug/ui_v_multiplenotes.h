@@ -30,6 +30,7 @@ public:
         if (v_multiplenotes->objectName().isEmpty())
             v_multiplenotes->setObjectName(QString::fromUtf8("v_multiplenotes"));
         v_multiplenotes->resize(200, 170);
+        v_multiplenotes->setStyleSheet(QString::fromUtf8(""));
         scrollArea = new QScrollArea(v_multiplenotes);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(-1, -1, 201, 171));

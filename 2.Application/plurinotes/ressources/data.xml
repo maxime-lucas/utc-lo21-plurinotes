@@ -4,14 +4,53 @@
   <articles>
    <article>
     <id>1</id>
-    <title>hytrge</title>
-    <createdOn>Mon Jun 12 16:48:44 2017</createdOn>
-    <lastModifOn>Mon Jun 12 16:48:44 2017</lastModifOn>
-    <text>utgr(e</text>
+    <title>zfa</title>
+    <createdOn>Mon Jun 12 18:20:34 2017</createdOn>
+    <lastModifOn>Mon Jun 12 18:20:34 2017</lastModifOn>
+    <text>grzfea</text>
+    <versions/>
+   </article>
+   <article>
+    <id>2</id>
+    <title>gtreze</title>
+    <createdOn>Mon Jun 12 18:21:42 2017</createdOn>
+    <lastModifOn>Mon Jun 12 18:21:42 2017</lastModifOn>
+    <text>gfezdas</text>
+    <versions/>
+   </article>
+   <article>
+    <id>4</id>
+    <title>rgefz</title>
+    <createdOn>Mon Jun 12 18:25:32 2017</createdOn>
+    <lastModifOn>Mon Jun 12 18:25:32 2017</lastModifOn>
+    <text>gerfze</text>
     <versions/>
    </article>
   </articles>
-  <multimedias/>
-  <tasks/>
+  <multimedias>
+   <multimedia>
+    <id>5</id>
+    <title>gefrzed</title>
+    <createdOn>Mon Jun 12 18:26:42 2017</createdOn>
+    <lastModifOn>Mon Jun 12 18:26:42 2017</lastModifOn>
+    <description>rgtrerzfda</description>
+    <fileName>5.jpg</fileName>
+    <type>picture</type>
+    <versions/>
+   </multimedia>
+  </multimedias>
+  <tasks>
+   <task>
+    <id>3</id>
+    <title>refzda</title>
+    <createdOn>Mon Jun 12 18:22:05 2017</createdOn>
+    <lastModifOn>Mon Jun 12 18:22:05 2017</lastModifOn>
+    <action>rgtefzd</action>
+    <priority>0</priority>
+    <deadline/>
+    <status>PENDING</status>
+    <versions/>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>

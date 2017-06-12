@@ -11,6 +11,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     controller = c;
 
     move(0,0);
+    setStyleSheet("V_Mainwindow { background-color:#FFF;}");
 
     labelActiveNotes = new QLabel("Active Notes");
     labelActiveNotes->setFixedSize(200,20);
