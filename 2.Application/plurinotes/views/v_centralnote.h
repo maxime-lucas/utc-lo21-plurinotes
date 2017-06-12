@@ -20,9 +20,6 @@ class V_CentralNote : public QWidget {
     private:
         Ui::V_CentralNote *ui;
         V_Mainwindow *parentView;
-
-    public slots:
-        void deleteNote();
 };
 
 class V_CentralArticle : public V_CentralNote {
