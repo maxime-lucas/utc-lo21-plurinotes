@@ -26,6 +26,10 @@ class XMLManager : public QWidget {
     void deleteFromMultimedia(Multimedia*);
     void deleteFromTask(Task*t);
 
+    void updateArticle(Article*,Article*);
+    void updateMultimedia(Multimedia*,Multimedia*);
+    void updateTask(Task*,Task*);
+
     ~XMLManager();
 };
 

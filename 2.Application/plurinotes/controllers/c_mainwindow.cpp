@@ -23,6 +23,7 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 
 void C_Mainwindow::createActions()
 {
+    view->getUi()->actionQuit->setShortcut(Qt::Key_Close);
     view->connect(view->getUi()->actionQuit, SIGNAL(triggered()), qapp, SLOT(quit()) );
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
