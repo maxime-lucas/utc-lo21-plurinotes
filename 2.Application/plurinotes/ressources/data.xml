@@ -1,8 +1,40 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
-  <multimedias/>
-  <tasks/>
+  <articles>
+   <article>
+    <id>1</id>
+    <title>djfdsf	</title>
+    <createdOn>lun. juin 12 21:00:33 2017</createdOn>
+    <lastModifOn>lun. juin 12 21:00:33 2017</lastModifOn>
+    <text>fdsfds</text>
+    <versions/>
+   </article>
+  </articles>
+  <multimedias>
+   <multimedia>
+    <id>2</id>
+    <title>Multiiiiiiiiii	</title>
+    <createdOn>lun. juin 12 21:24:42 2017</createdOn>
+    <lastModifOn>lun. juin 12 21:24:42 2017</lastModifOn>
+    <description>fsfds</description>
+    <fileName>2.jpg</fileName>
+    <type>picture</type>
+    <versions/>
+   </multimedia>
+  </multimedias>
+  <tasks>
+   <task>
+    <id>3</id>
+    <title>heelloo</title>
+    <createdOn>lun. juin 12 21:25:08 2017</createdOn>
+    <lastModifOn>lun. juin 12 21:25:08 2017</lastModifOn>
+    <action>fefkdfnds</action>
+    <priority>49</priority>
+    <deadline>sam. janv. 1 00:00:00 2000</deadline>
+    <status>PENDING</status>
+    <versions/>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>
