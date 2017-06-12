@@ -8,9 +8,9 @@
 - [x] Task
 
 #### Suppression
-- [ ] Article
-- [ ] Multimedia
-- [ ] Task
+- [x] Article
+- [x] Multimedia
+- [x] Task
 
 #### Edition
 - [ ] Article
