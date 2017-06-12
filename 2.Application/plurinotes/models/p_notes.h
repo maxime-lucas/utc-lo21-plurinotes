@@ -94,10 +94,13 @@ class Multimedia : public Note {
 
         QString getDescription() const { return description; }
         QString getFileName() const { return fileName; }
-        void setFileName(QString f) { fileName = f; }
         enum TypeMultimedia getType() const { return type; }
         QString getTypeToQString() const { if(type==PICTURE) return "picture"; if(type==VIDEO) return "video"; return "audio"; }
+
+        void setDesc(QString d) { description = d;}
+        void setFileName(QString f) { fileName = f; }
 };
+
 
 class Task : public Note {
     private :
@@ -117,6 +120,12 @@ class Task : public Note {
         QDateTime getDeadline() const { return toBeDoneOn; }
         TaskStatus getStatus() const {return status;}
         QString getStatusToString() const { if(status==PENDING) return "pending"; if(status==PROGRESS) return "progress"; return "finished"; }
+
+        void setAction(QString a) {action = a;}
+        void setPriority(unsigned int p) {priority = p;}
+        void setDeadline(QDateTime d) {toBeDoneOn = d;}
+        void setStatus(TaskStatus s) {status = s;}
+
 
 };
 

@@ -196,6 +196,21 @@ void C_Mainwindow::saveNewTask(Task *t) {
     refreshTask();
 }
 
+void C_Mainwindow::editArticle(QString id,Article* newV)
+{
+    getView()->refreshCentralNote(id);
+}
+
+void C_Mainwindow::editMultimedia(QString id,Multimedia* newV)
+{
+
+}
+
+void C_Mainwindow::editTask(QString id,Task* newV)
+{
+
+}
+
 void C_Mainwindow::deleteByID(QString id) {
     // WIP Suppression en base
     Note* note = app->getNoteByID(id);

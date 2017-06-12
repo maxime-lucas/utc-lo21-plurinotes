@@ -4,20 +4,14 @@
   <articles>
    <article>
     <id>1</id>
-    <title>testtt</title>
-    <createdOn>dim. juin 11 23:34:18 2017</createdOn>
-    <lastModifOn>dim. juin 11 23:52:19 2017</lastModifOn>
+    <title>test</title>
+    <createdOn>lun. juin 12 10:57:31 2017</createdOn>
+    <lastModifOn>lun. juin 12 10:57:31 2017</lastModifOn>
     <text>test</text>
     <versions/>
    </article>
-   <article>
-    <id>1</id>
-    <title>testtt</title>
-    <createdOn>dim. juin 11 23:34:18 2017</createdOn>
-    <lastModifOn>dim. juin 11 23:54:06 2017</lastModifOn>
-    <text>testtttt</text>
-    <versions/>
-   </article>
   </articles>
+  <multimedias/>
+  <tasks/>
  </activeNotes>
 </plurinotes>

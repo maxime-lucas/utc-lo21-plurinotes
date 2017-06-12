@@ -27,9 +27,15 @@ class C_Mainwindow {
         void createMenus();
         void refreshActiveNotes();
         void refreshTask();
+
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
         void saveNewTask(Task*);
+
+        void editArticle(QString,Article*);
+        void editMultimedia(QString,Multimedia*);
+        void editTask(QString,Task*);
+
         void deleteByID(QString);
 };
 

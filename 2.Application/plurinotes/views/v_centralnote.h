@@ -3,6 +3,10 @@
 
 #include <QWidget>
 #include <QPlainTextEdit>
+#include <QRadioButton>
+#include <QVBoxLayout>
+#include <QSpinBox>
+#include <QFormLayout>
 #include "models/p_notes.h"
 #include "views/v_mainwindow.h"
 
@@ -26,6 +30,7 @@ class V_CentralNote : public QWidget {
 
     public slots:
         void deleteNote();
+        void editNote();
 
 };
 
@@ -36,12 +41,12 @@ class V_CentralArticle : public V_CentralNote {
 public:
     V_CentralArticle(Article*,V_Mainwindow*);
     ~V_CentralArticle();
+    void editArticle();
 
 private:
-    QPlainTextEdit *text;
+    QPlainTextEdit* text;
 
-public slots:
-    void editArticle();
+
 };
 
 class V_CentralMultimedia : public V_CentralNote {
@@ -53,9 +58,11 @@ public:
     ~V_CentralMultimedia();
 private:
     QPlainTextEdit *desc;
+    TypeMultimedia type;
+    QString pathToFile;
 
 public slots:
-    void editMultimedia(Multimedia*);
+    void editMultimedia();
 };
 
 class V_CentralTask : public V_CentralNote {
@@ -65,6 +72,17 @@ class V_CentralTask : public V_CentralNote {
     public:
     V_CentralTask(Task*,V_Mainwindow*);
     ~V_CentralTask();
+
+private:
+    QLineEdit* action;
+    QDateTimeEdit* deadline;
+    QRadioButton* prog;
+    QRadioButton* pend;
+    QRadioButton* fini;
+    QSpinBox* priority;
+
+public slots:
+    void editTask();
 
 
 };
