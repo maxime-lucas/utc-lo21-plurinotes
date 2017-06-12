@@ -12,7 +12,6 @@ V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
     parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteNote()));
     parentView->connect(ui->btnEdit, SIGNAL(clicked()), this, SLOT(editNote()));
 
-
 }
 
 void V_CentralNote::deleteNote() {

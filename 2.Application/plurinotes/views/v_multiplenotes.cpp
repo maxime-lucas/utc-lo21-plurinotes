@@ -9,12 +9,15 @@ V_Multiplenotes::V_Multiplenotes(QWidget *parent) :
 {
     ui->setupUi(this);
     setFixedSize(200,170);
+    setStyleSheet("#multipleNotes { background-color:#FFF }");
 
     container = new QWidget;
     ui->scrollArea->setWidgetResizable(true);
     ui->scrollArea->setWidget(container);
     gridLayout = new QGridLayout;
     container->setLayout(gridLayout);
+    container->setObjectName("multipleNotes");
+    container->setStyleSheet("#multipleNotes { background-color:#FCFCFC }");
 }
 
 V_Multiplenotes::~V_Multiplenotes()

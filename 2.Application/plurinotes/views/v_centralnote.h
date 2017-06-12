@@ -56,13 +56,13 @@ class V_CentralMultimedia : public V_CentralNote {
 public:
     V_CentralMultimedia(Multimedia*,V_Mainwindow*);
     ~V_CentralMultimedia();
+    void editMultimedia();
 private:
     QPlainTextEdit *desc;
     TypeMultimedia type;
     QString pathToFile;
 
-public slots:
-    void editMultimedia();
+
 };
 
 class V_CentralTask : public V_CentralNote {
@@ -72,6 +72,7 @@ class V_CentralTask : public V_CentralNote {
     public:
     V_CentralTask(Task*,V_Mainwindow*);
     ~V_CentralTask();
+    void editTask();
 
 private:
     QLineEdit* action;
@@ -80,10 +81,6 @@ private:
     QRadioButton* pend;
     QRadioButton* fini;
     QSpinBox* priority;
-
-public slots:
-    void editTask();
-
 
 };
 

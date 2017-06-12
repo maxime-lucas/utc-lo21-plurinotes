@@ -56,7 +56,7 @@ void C_Mainwindow::refreshActiveNotes() {
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),article);
             view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column != 0 && column % 2 == 0 )
+            if( column != 0 && column % 1 == 0 )
             {
                 row++;
                 column=0;
@@ -71,7 +71,7 @@ void C_Mainwindow::refreshActiveNotes() {
             ln = new V_Littlenote(this->getView()->getActiveNotes()->getContainer(),a->getId(),multimedia);
             view->getActiveNotes()->getGridLayout()->addWidget(ln,row,column);
 
-            if( column != 0 && column % 2 == 0 )
+            if( column != 0 && column % 1 == 0 )
             {
                 row++;
                 column=0;
@@ -88,6 +88,14 @@ void C_Mainwindow::refreshTask()
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
     unsigned int row = 0;
     unsigned int column = 0;
+
+    // Remise à 0 du GridLayout
+    QLayoutItem* item;
+    while ( ( item = view->getTasks()->getGridLayout()->takeAt( 0 ) ) != NULL )
+    {
+        delete item->widget();
+        delete item;
+    }
 
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
@@ -148,7 +156,7 @@ void C_Mainwindow::refreshTask()
         la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getTitle(),a->getDeadline().toString(),a->getPriority());
         view->getTasks()->getGridLayout()->addWidget(la,row,column);
 
-        if( column != 0 && column % 2 == 0 )
+        if( column != 0 && column % 1 == 0 )
         {
                 row++;
                 column=0;
@@ -209,6 +217,7 @@ void C_Mainwindow::editTask(QString id,Task* newV)
 }
 
 void C_Mainwindow::deleteByID(QString id) {
+
     // WIP Suppression en base
     Note* note = app->getNoteByID(id);
 
@@ -236,12 +245,14 @@ void C_Mainwindow::deleteByID(QString id) {
         app->getXMLManager()->deleteFromTask(task);
     }
 
-    //Suppression dans les notes actives
+    //Suppression dans les notes actives (côté vue)
     for(unsigned int i = 0; i < app->getActiveNotesManager()->getTab()->size() ; i++ )
     {
         note = app->getActiveNotesManager()->getTab()->at(i);
         if( note->getId() == id ) app->getActiveNotesManager()->getTab()->erase(app->getActiveNotesManager()->getTab()->begin() + i);
     }
+
+
     refreshActiveNotes();
     refreshTask();
     view->setEmptyCentralNote();

@@ -5,9 +5,13 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     setFixedSize(80,80);
     layout = new QVBoxLayout;
     setLayout(layout);
+    setObjectName("littleNote");
 
     labelID = new QLabel(s);
     labelID->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+
+    if( t == article ) setStyleSheet("background-color: #39B3B5;");
+    else setStyleSheet("background-color: #ED7376;");
 
     QFont font;
     font.setPixelSize(32);
@@ -34,6 +38,7 @@ V_Littletask::V_Littletask(QWidget *p, QString t, QString d,unsigned int pri) : 
     setFixedSize(80,80);
     layout = new QVBoxLayout;
     setLayout(layout);
+    setStyleSheet("background-color: #c8ed72;");
 
     labelTitle = new QLabel(t);
     labelTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
