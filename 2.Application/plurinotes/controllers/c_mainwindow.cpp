@@ -8,6 +8,7 @@
 #include "ui_v_multimediaform.h"
 #include "ui_v_taskform.h"
 #include "ui_v_multiplenotes.h"
+#include "ui_v_multiplerelation.h"
 
 C_Mainwindow::C_Mainwindow(QApplication *q) {
 

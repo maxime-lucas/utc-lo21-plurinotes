@@ -52,8 +52,10 @@ V_CentralArticle::V_CentralArticle(Article *a,V_Mainwindow* m) : V_CentralNote(0
     this->getUi()->labelLastModifOn->setText(a->getLastModifOn().toString());
 
     text = new QPlainTextEdit(a->getText());
+    text->setFixedSize(500,450);
     QVBoxLayout *formWidgetLayout = new QVBoxLayout();
     formWidgetLayout->addWidget(text);
+    formWidgetLayout->setAlignment(Qt::AlignCenter);
     this->getUi()->formWidget->setLayout(formWidgetLayout);
 
 
@@ -155,6 +157,12 @@ V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     WidgetLayout->addWidget(prog);
     WidgetLayout->addWidget(fini);
 
+    if(t->getStatus() == PENDING)
+        pend->setChecked(true);
+    else if(t->getStatus() == PROGRESS)
+        prog->setChecked(true);
+    else if(t->getStatus() == FINISHED)
+        fini->setChecked(true);
 
     formWidgetLayout->addRow(tr("Status : "),WidgetLayout);
 

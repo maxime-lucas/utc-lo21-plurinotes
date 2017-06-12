@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -35,6 +36,7 @@ public:
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menuNew;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *V_Mainwindow)
     {
@@ -49,10 +51,19 @@ public:
         actionQuit->setObjectName(QStringLiteral("actionQuit"));
         actionArticle = new QAction(V_Mainwindow);
         actionArticle->setObjectName(QStringLiteral("actionArticle"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("../ressources/newArticle.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionArticle->setIcon(icon1);
         actionMultimedia = new QAction(V_Mainwindow);
         actionMultimedia->setObjectName(QStringLiteral("actionMultimedia"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("../ressources/newMultimedia.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionMultimedia->setIcon(icon2);
         actionTask = new QAction(V_Mainwindow);
         actionTask->setObjectName(QStringLiteral("actionTask"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("../ressources/newTask.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionTask->setIcon(icon3);
         actionRelation = new QAction(V_Mainwindow);
         actionRelation->setObjectName(QStringLiteral("actionRelation"));
         actionDefault_view = new QAction(V_Mainwindow);
@@ -72,6 +83,9 @@ public:
         menuNew = new QMenu(menu_File);
         menuNew->setObjectName(QStringLiteral("menuNew"));
         V_Mainwindow->setMenuBar(menubar);
+        toolBar = new QToolBar(V_Mainwindow);
+        toolBar->setObjectName(QStringLiteral("toolBar"));
+        V_Mainwindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         menubar->addAction(menu_File->menuAction());
         menu_File->addAction(menuNew->menuAction());
@@ -81,6 +95,11 @@ public:
         menuNew->addAction(actionMultimedia);
         menuNew->addAction(actionTask);
         menuNew->addSeparator();
+        toolBar->addAction(actionArticle);
+        toolBar->addSeparator();
+        toolBar->addAction(actionMultimedia);
+        toolBar->addSeparator();
+        toolBar->addAction(actionTask);
 
         retranslateUi(V_Mainwindow);
 
@@ -99,6 +118,7 @@ public:
         actionRelations_view->setText(QApplication::translate("V_Mainwindow", "Relations view", Q_NULLPTR));
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", Q_NULLPTR));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", Q_NULLPTR));
+        toolBar->setWindowTitle(QApplication::translate("V_Mainwindow", "toolBar", Q_NULLPTR));
     } // retranslateUi
 
 };

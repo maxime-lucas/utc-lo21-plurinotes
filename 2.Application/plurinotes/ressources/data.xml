@@ -1,111 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
-  <multimedias/>
+  <articles>
+   <article>
+    <id>2</id>
+    <title>Ce genre d'article</title>
+    <createdOn>Mon Jun 12 22:36:20 2017</createdOn>
+    <lastModifOn>Mon Jun 12 22:36:20 2017</lastModifOn>
+    <text>Ce genre de texte</text>
+    <versions/>
+   </article>
+  </articles>
+  <multimedias>
+   <multimedia>
+    <id>1</id>
+    <title> Chouette</title>
+    <createdOn>Mon Jun 12 22:35:57 2017</createdOn>
+    <lastModifOn>Mon Jun 12 22:35:57 2017</lastModifOn>
+    <description>Ce genre de chouette</description>
+    <fileName>1.jpeg</fileName>
+    <type>picture</type>
+    <versions/>
+   </multimedia>
+  </multimedias>
   <tasks>
    <task>
-    <id>1</id>
-    <title>Faire pipi</title>
-    <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-    <lastModifOn>Mon Jun 12 22:03:39 2017</lastModifOn>
-    <action>rtgefzd</action>
+    <id>3</id>
+    <title>Ce genre de tache</title>
+    <createdOn>Mon Jun 12 22:36:39 2017</createdOn>
+    <lastModifOn>Mon Jun 12 22:36:39 2017</lastModifOn>
+    <action>Tacher de le faire</action>
     <priority>0</priority>
-    <deadline>Mon Jun 12 22:03:39 2017</deadline>
+    <deadline>Sat Jan 1 00:00:00 2000</deadline>
     <status>0</status>
-    <versions>
-     <version>
-      <numVersion>1</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 21:58:46 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Sat Jan 1 00:00:00 2000</deadline>
-       <status>0</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>2</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 21:58:53 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 21:58:53 2017</deadline>
-       <status>1</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>3</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 22:01:32 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 22:01:32 2017</deadline>
-       <status>0</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>4</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 22:01:34 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 22:01:34 2017</deadline>
-       <status>2</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>5</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 22:02:43 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 22:02:43 2017</deadline>
-       <status>1</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>6</numVersion>
-      <task>
-       <id>1</id>
-       <title>rgtezadz</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 22:02:46 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 22:02:46 2017</deadline>
-       <status>0</status>
-      </task>
-     </version>
-     <version>
-      <numVersion>7</numVersion>
-      <task>
-       <id>1</id>
-       <title>Faire Caca</title>
-       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
-       <lastModifOn>Mon Jun 12 22:02:52 2017</lastModifOn>
-       <action>rtgefzd</action>
-       <priority>0</priority>
-       <deadline>Mon Jun 12 22:02:52 2017</deadline>
-       <status>0</status>
-      </task>
-     </version>
-    </versions>
+    <versions/>
    </task>
   </tasks>
  </activeNotes>
