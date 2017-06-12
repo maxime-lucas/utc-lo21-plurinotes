@@ -4,37 +4,96 @@
   <articles>
    <article>
     <id>1</id>
-    <title>djfdsf	</title>
-    <createdOn>lun. juin 12 21:00:33 2017</createdOn>
-    <lastModifOn>lun. juin 12 21:00:33 2017</lastModifOn>
-    <text>fdsfds</text>
-    <versions/>
+    <title>Article 1</title>
+    <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+    <lastModifOn>Mon Jun 12 20:10:30 2017</lastModifOn>
+    <text>Article ... 1</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 19:24:00 2017</lastModifOn>
+       <text>Article ... 1</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>2</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 2</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:01:19 2017</lastModifOn>
+       <text>Article ... 2</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>3</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 3</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:01:52 2017</lastModifOn>
+       <text>Article ... 3</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>4</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 4</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:03:16 2017</lastModifOn>
+       <text>Article ... 4</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>5</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 5</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:09:36 2017</lastModifOn>
+       <text>Article ... 5</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>6</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:09:51 2017</lastModifOn>
+       <text>Article ... 1</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>7</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 2</title>
+       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
+       <lastModifOn>Mon Jun 12 20:10:03 2017</lastModifOn>
+       <text>Article ... 2</text>
+      </article>
+     </version>
+    </versions>
    </article>
   </articles>
   <multimedias>
    <multimedia>
     <id>2</id>
-    <title>Multiiiiiiiiii	</title>
-    <createdOn>lun. juin 12 21:24:42 2017</createdOn>
-    <lastModifOn>lun. juin 12 21:24:42 2017</lastModifOn>
-    <description>fsfds</description>
-    <fileName>2.jpg</fileName>
+    <title>Chouette</title>
+    <createdOn>Mon Jun 12 19:26:19 2017</createdOn>
+    <lastModifOn>Mon Jun 12 19:26:19 2017</lastModifOn>
+    <description>Oh une chouette</description>
+    <fileName>2.jpeg</fileName>
     <type>picture</type>
     <versions/>
    </multimedia>
   </multimedias>
-  <tasks>
-   <task>
-    <id>3</id>
-    <title>heelloo</title>
-    <createdOn>lun. juin 12 21:25:08 2017</createdOn>
-    <lastModifOn>lun. juin 12 21:25:08 2017</lastModifOn>
-    <action>fefkdfnds</action>
-    <priority>49</priority>
-    <deadline>sam. janv. 1 00:00:00 2000</deadline>
-    <status>PENDING</status>
-    <versions/>
-   </task>
-  </tasks>
+  <tasks/>
  </activeNotes>
 </plurinotes>

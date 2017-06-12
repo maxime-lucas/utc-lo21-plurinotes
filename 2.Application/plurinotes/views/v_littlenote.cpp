@@ -10,8 +10,9 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
     labelID = new QLabel(s);
     labelID->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
-    if( t == article ) setStyleSheet("background-color: #39B3B5;");
-    else setStyleSheet("background-color: #ED7376;");
+
+    if( t == article ) setStyleSheet("#littleNote {background-color: #39B3B5;}");
+    else setStyleSheet("#littleNote {background-color: #ED7376;}");
 
     QFont font;
     font.setPixelSize(32);

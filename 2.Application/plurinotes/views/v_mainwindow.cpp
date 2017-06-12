@@ -55,6 +55,12 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     rightWidget->setLayout(rightLayout);
 
     setEmptyCentralNote();
+    centralWidget()->setLayout(centralLayout);
+
+    ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
+    ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
+    ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
+
 }
 
 void V_Mainwindow::openNewArticle() {
