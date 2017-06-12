@@ -25,23 +25,19 @@ void V_CentralNote::editNote()
 
     if(typeid(*n) == typeid(Article))
     {
-        Article* article = new Article(dynamic_cast<Article&>(*n));
-        V_CentralArticle* Aview = new V_CentralArticle(article,getMainwindow());
-        Aview->editArticle();
+        V_CentralArticle* v_centralArticle = &(dynamic_cast<V_CentralArticle&>(*this));
+        v_centralArticle->editArticle();
     }
     else if(typeid(*n) == typeid(Multimedia))
     {
-        Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*n));
-        V_CentralMultimedia* Mview = new V_CentralMultimedia(multimedia,getMainwindow());
-        Mview->editMultimedia();
+        V_CentralMultimedia* v_centralMultimedia = &(dynamic_cast<V_CentralMultimedia&>(*this));
+        v_centralMultimedia->editMultimedia();
     }
     else if(typeid(*n) == typeid(Task))
     {
-        Task* task = new Task(dynamic_cast<Task&>(*n));
-        V_CentralTask* Tview = new V_CentralTask(task,getMainwindow());
-        Tview->editTask();
+        V_CentralTask* v_centralTask = &(dynamic_cast<V_CentralTask&>(*this));
+        v_centralTask->editTask();
     }
-
 }
 
 V_CentralNote::~V_CentralNote()
@@ -69,16 +65,14 @@ void V_CentralArticle::editArticle()
     if(text->toPlainText().isEmpty() || this->getUi()->textTitle->text().isEmpty())
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
     else {
-    Article* editArticle = new Article(
-                this->getUi()->labelID->text(),
-                this->getUi()->textTitle->text(),
-                QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
-                QDateTime::currentDateTime(),
-                text->toPlainText()
-                );
-
-    this->getMainwindow()->getController()->editArticle(this->getUi()->labelID->text(),editArticle);
-
+        Article* editArticle = new Article(
+                    this->getUi()->labelID->text(),
+                    this->getUi()->textTitle->text(),
+                    QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
+                    QDateTime::currentDateTime(),
+                    text->toPlainText()
+                    );
+        this->getMainwindow()->getController()->editArticle(this->getUi()->labelID->text(),editArticle);
     }
 }
 

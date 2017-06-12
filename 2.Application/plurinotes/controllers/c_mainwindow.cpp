@@ -153,16 +153,12 @@ void C_Mainwindow::refreshTask()
                 column=0;
         } else column++;
 
-            signalMapper->setMapping(la, task->getId());
-            view->connect(la, SIGNAL(clicked()), signalMapper, SLOT(map()));
-        //view->connect(ln,SIGNAL(clicked()),view,SLOT(refreshCentralNote()));
-
+        signalMapper->setMapping(la, task->getId());
+        view->connect(la, SIGNAL(clicked()), signalMapper, SLOT(map()));
     }
 }
 
 void C_Mainwindow::saveNewArticle(Article *a) {
-    // TODO:Vérifier s'il n'y a pas de références dans le texte de l'article vers d'autres notes
-
     app->getActiveNotesManager()->getTab()->push_back(a);
     app->getXMLManager()->insertIntoArticle(a);
     refreshActiveNotes();
@@ -198,17 +194,17 @@ void C_Mainwindow::saveNewTask(Task *t) {
 
 void C_Mainwindow::editArticle(QString id,Article* newV)
 {
-    getView()->refreshCentralNote(id);
+    Article* article = &(dynamic_cast<Article&>(*(app->getNoteByID(id))));
 }
 
 void C_Mainwindow::editMultimedia(QString id,Multimedia* newV)
 {
-
+    std::cout << id.toStdString() << std::endl;
 }
 
 void C_Mainwindow::editTask(QString id,Task* newV)
 {
-
+    std::cout << id.toStdString() << std::endl;
 }
 
 void C_Mainwindow::deleteByID(QString id) {
