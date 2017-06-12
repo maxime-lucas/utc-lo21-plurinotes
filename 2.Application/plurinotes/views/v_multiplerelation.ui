@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>v_multiplerelation</class>
+ <widget class="QWidget" name="v_multiplerelation">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>261</width>
-    <height>460</height>
+    <width>224</width>
+    <height>560</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,22 +16,22 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>10</y>
-     <width>241</width>
-     <height>441</height>
+     <width>221</width>
+     <height>541</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="labelDescendant">
       <property name="text">
-       <string>Ascendants</string>
+       <string>Descendants</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QTreeWidget" name="treeWidget">
+     <widget class="QTreeWidget" name="treeDescendant">
       <column>
        <property name="text">
         <string notr="true">1</string>
@@ -40,14 +40,20 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="labelAscendants">
       <property name="text">
-       <string>Descendants</string>
+       <string>Ascendants</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QTreeView" name="treeView"/>
+     <widget class="QTreeWidget" name="treeAscendant">
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>

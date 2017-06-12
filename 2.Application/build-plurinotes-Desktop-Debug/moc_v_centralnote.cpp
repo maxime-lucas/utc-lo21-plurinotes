@@ -159,33 +159,25 @@ static const uint qt_meta_data_V_CentralMultimedia[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: signature, parameters, type, tag, flags
-      21,   20,   20,   20, 0x0a,
-
        0        // eod
 };
 
 static const char qt_meta_stringdata_V_CentralMultimedia[] = {
-    "V_CentralMultimedia\0\0editMultimedia()\0"
+    "V_CentralMultimedia\0"
 };
 
 void V_CentralMultimedia::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        V_CentralMultimedia *_t = static_cast<V_CentralMultimedia *>(_o);
-        switch (_id) {
-        case 0: _t->editMultimedia(); break;
-        default: ;
-        }
-    }
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -220,11 +212,6 @@ int V_CentralMultimedia::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = V_CentralNote::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
-    }
     return _id;
 }
 static const uint qt_meta_data_V_CentralTask[] = {
@@ -233,33 +220,25 @@ static const uint qt_meta_data_V_CentralTask[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: signature, parameters, type, tag, flags
-      15,   14,   14,   14, 0x0a,
-
        0        // eod
 };
 
 static const char qt_meta_stringdata_V_CentralTask[] = {
-    "V_CentralTask\0\0editTask()\0"
+    "V_CentralTask\0"
 };
 
 void V_CentralTask::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        V_CentralTask *_t = static_cast<V_CentralTask *>(_o);
-        switch (_id) {
-        case 0: _t->editTask(); break;
-        default: ;
-        }
-    }
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -294,11 +273,6 @@ int V_CentralTask::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = V_CentralNote::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
-    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

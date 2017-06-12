@@ -21,5 +21,4 @@ INPUT(
 ./debug\moc_v_multimediaform.o
 ./debug\moc_v_taskform.o
 ./debug\moc_v_centralnote.o
-./debug\moc_v_multiplerelation.o
 );
