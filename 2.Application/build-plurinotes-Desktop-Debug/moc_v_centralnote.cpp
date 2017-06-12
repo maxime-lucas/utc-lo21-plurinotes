@@ -22,33 +22,25 @@ static const uint qt_meta_data_V_CentralNote[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       0,    0, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: signature, parameters, type, tag, flags
-      15,   14,   14,   14, 0x0a,
-
        0        // eod
 };
 
 static const char qt_meta_stringdata_V_CentralNote[] = {
-    "V_CentralNote\0\0deleteNote()\0"
+    "V_CentralNote\0"
 };
 
 void V_CentralNote::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
-        V_CentralNote *_t = static_cast<V_CentralNote *>(_o);
-        switch (_id) {
-        case 0: _t->deleteNote(); break;
-        default: ;
-        }
-    }
+    Q_UNUSED(_o);
+    Q_UNUSED(_id);
+    Q_UNUSED(_c);
     Q_UNUSED(_a);
 }
 
@@ -83,11 +75,6 @@ int V_CentralNote::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
-    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

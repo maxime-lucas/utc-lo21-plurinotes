@@ -41,6 +41,9 @@ public:
         if (V_Mainwindow->objectName().isEmpty())
             V_Mainwindow->setObjectName(QString::fromUtf8("V_Mainwindow"));
         V_Mainwindow->resize(800, 600);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../ressources/windowicon.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        V_Mainwindow->setWindowIcon(icon);
         V_Mainwindow->setStyleSheet(QString::fromUtf8(""));
         actionQuit = new QAction(V_Mainwindow);
         actionQuit->setObjectName(QString::fromUtf8("actionQuit"));

@@ -1,7 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
+  <articles>
+   <article>
+    <id>1</id>
+    <title>hytrge</title>
+    <createdOn>Mon Jun 12 16:48:44 2017</createdOn>
+    <lastModifOn>Mon Jun 12 16:48:44 2017</lastModifOn>
+    <text>utgr(e</text>
+    <versions/>
+   </article>
+  </articles>
   <multimedias/>
   <tasks/>
  </activeNotes>

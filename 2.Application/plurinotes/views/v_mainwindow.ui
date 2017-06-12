@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>PluriNotes - FAYAX</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../ressources/windowicon.jpg</normaloff>../ressources/windowicon.jpg</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
