@@ -204,11 +204,14 @@ void C_Mainwindow::saveNewTask(Task *t) {
 void C_Mainwindow::editArticle(QString id,Article* newV)
 {
     Article* article = &(dynamic_cast<Article&>(*(app->getNoteByID(id))));
+    app->getXMLManager()->updateArticle(article,newV);
+    app->reloadFromDatabase();
+    view->refreshCentralNote(id);
 }
 
 void C_Mainwindow::editMultimedia(QString id,Multimedia* newV)
 {
-    std::cout << id.toStdString() << std::endl;
+
 }
 
 void C_Mainwindow::editTask(QString id,Task* newV)

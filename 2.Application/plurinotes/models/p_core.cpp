@@ -2,6 +2,26 @@
 #include "models/p_core.h"
 
 PluriNotes::PluriNotes() {
+    activeNotesManager = 0;
+    deletedNotesManager = 0;
+    archivedNotesManager = 0;
+    xmlManager = 0;
+
+    reloadFromDatabase();
+}
+
+PluriNotes::~PluriNotes() {
+    delete activeNotesManager;
+    delete archivedNotesManager;
+    delete deletedNotesManager;
+}
+
+void PluriNotes::reloadFromDatabase() {
+    if(activeNotesManager != 0) delete activeNotesManager;
+    if(deletedNotesManager != 0) delete deletedNotesManager;
+    if(archivedNotesManager != 0) delete archivedNotesManager;
+    if(xmlManager != 0) delete xmlManager;
+
     activeNotesManager = new ActiveNotesManager();
     deletedNotesManager = new DeletedNotesManager();
     archivedNotesManager = new ArchivedNotesManager();
@@ -27,12 +47,6 @@ PluriNotes::PluriNotes() {
         Task *t = activeTasks[i];
         activeNotesManager->getTab()->push_back(t);
     }
-}
-
-PluriNotes::~PluriNotes() {
-    delete activeNotesManager;
-    delete archivedNotesManager;
-    delete deletedNotesManager;
 }
 
 Note* PluriNotes::getNoteByID(QString id) {
