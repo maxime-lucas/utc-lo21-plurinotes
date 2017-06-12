@@ -107,26 +107,6 @@ V_CentralMultimedia::V_CentralMultimedia(Multimedia *m, V_Mainwindow*mw) : V_Cen
 
 }
 
-void V_CentralMultimedia::editMultimedia()
-{
-    if(desc->toPlainText().isEmpty() || this->getUi()->textTitle->text().isEmpty())
-        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
-    else {
-    Multimedia* editMultimedia = new Multimedia(
-                this->getUi()->labelID->text(),
-                this->getUi()->textTitle->text(),
-                QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
-                QDateTime::currentDateTime(),
-                desc->toPlainText(),
-                pathToFile,
-                type
-                );
-
-    this->getMainwindow()->getController()->editMultimedia(this->getUi()->labelID->text(),editMultimedia);
-    }
-}
-
-
 V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     this->getUi()->labelType->setText("Type : Task/"+t->getStatusToString());
     this->getUi()->labelID->setText(t->getId());
@@ -135,7 +115,6 @@ V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     this->getUi()->labelLastModifOn->setText(t->getLastModifOn().toString());
 
     //ajout champ action
-
     action = new QLineEdit(this);
     action->setText(t->getAction());
     QFormLayout *formWidgetLayout = new QFormLayout();
@@ -159,6 +138,18 @@ V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     prog = new QRadioButton("PROGRESS",this);
     fini = new QRadioButton("FINISHED",this);
 
+    switch(t->getStatus()) {
+        case PENDING :
+            pend->setChecked(true);
+            break;
+        case PROGRESS:
+            prog->setChecked(true);
+            break;
+        case FINISHED:
+            fini->setChecked(true);
+            break;
+    }
+
     QHBoxLayout *WidgetLayout = new QHBoxLayout();
     WidgetLayout->addWidget(pend);
     WidgetLayout->addWidget(prog);
@@ -171,35 +162,53 @@ V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
 
 }
 
+void V_CentralMultimedia::editMultimedia()
+{
+    if(desc->toPlainText().isEmpty() || this->getUi()->textTitle->text().isEmpty())
+        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+    else {
+    Multimedia* editMultimedia = new Multimedia(
+                this->getUi()->labelID->text(),
+                this->getUi()->textTitle->text(),
+                QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
+                QDateTime::currentDateTime(),
+                desc->toPlainText(),
+                pathToFile,
+                type
+                );
+
+    this->getMainwindow()->getController()->editMultimedia(this->getUi()->labelID->text(),editMultimedia);
+    }
+}
+
 void V_CentralTask::editTask()
 {
-    if(action->text().isEmpty() || this->getUi()->textTitle->text().isEmpty())
-        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
-
     TaskStatus type;
 
     if(pend->isChecked())
         type = PENDING;
     else if(prog->isChecked())
         type = PROGRESS;
-    else if(fini->isChecked())
+    else
         type = FINISHED;
 
 
-
+    if( action->text().isEmpty() || this->getUi()->textTitle->text().isEmpty() ) {
+        QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+    }
     else {
-    Task* editTask = new Task(
-                this->getUi()->labelID->text(),
-                this->getUi()->textTitle->text(),
-                QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
-                QDateTime::currentDateTime(),
-                action->text(),
-                priority->value(),
-                deadline->dateTime(),
-                type
-                );
+        Task* editTask = new Task(
+            this->getUi()->labelID->text(),
+            this->getUi()->textTitle->text(),
+            QDateTime::fromString(this->getUi()->labelCreatedOn->text()),
+            QDateTime::currentDateTime(),
+            action->text(),
+            priority->value(),
+            QDateTime::currentDateTime(),
+            type
+            );
 
-    this->getMainwindow()->getController()->editTask(this->getUi()->labelID->text(),editTask);
+        this->getMainwindow()->getController()->editTask(this->getUi()->labelID->text(),editTask);
     }
 }
 

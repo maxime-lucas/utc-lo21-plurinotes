@@ -36,7 +36,7 @@ V_Littlenote::V_Littlenote(QWidget*p,QString s, enum eTypeNote t ) : QPushButton
 }
 
 V_Littletask::V_Littletask(QWidget *p, QString t, QString d,unsigned int pri) : QPushButton(p) {
-    setFixedSize(80,80);
+    setFixedSize(160,80);
     layout = new QVBoxLayout;
     setLayout(layout);
     setStyleSheet("background-color: #c8ed72;");

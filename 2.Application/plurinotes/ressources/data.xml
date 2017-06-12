@@ -1,99 +1,112 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles>
-   <article>
+  <articles/>
+  <multimedias/>
+  <tasks>
+   <task>
     <id>1</id>
-    <title>Article 1</title>
-    <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-    <lastModifOn>Mon Jun 12 20:10:30 2017</lastModifOn>
-    <text>Article ... 1</text>
+    <title>Faire pipi</title>
+    <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+    <lastModifOn>Mon Jun 12 22:03:39 2017</lastModifOn>
+    <action>rtgefzd</action>
+    <priority>0</priority>
+    <deadline>Mon Jun 12 22:03:39 2017</deadline>
+    <status>0</status>
     <versions>
      <version>
       <numVersion>1</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 1</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 19:24:00 2017</lastModifOn>
-       <text>Article ... 1</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 21:58:46 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Sat Jan 1 00:00:00 2000</deadline>
+       <status>0</status>
+      </task>
      </version>
      <version>
       <numVersion>2</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 2</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:01:19 2017</lastModifOn>
-       <text>Article ... 2</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 21:58:53 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 21:58:53 2017</deadline>
+       <status>1</status>
+      </task>
      </version>
      <version>
       <numVersion>3</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 3</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:01:52 2017</lastModifOn>
-       <text>Article ... 3</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 22:01:32 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 22:01:32 2017</deadline>
+       <status>0</status>
+      </task>
      </version>
      <version>
       <numVersion>4</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 4</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:03:16 2017</lastModifOn>
-       <text>Article ... 4</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 22:01:34 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 22:01:34 2017</deadline>
+       <status>2</status>
+      </task>
      </version>
      <version>
       <numVersion>5</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 5</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:09:36 2017</lastModifOn>
-       <text>Article ... 5</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 22:02:43 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 22:02:43 2017</deadline>
+       <status>1</status>
+      </task>
      </version>
      <version>
       <numVersion>6</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 1</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:09:51 2017</lastModifOn>
-       <text>Article ... 1</text>
-      </article>
+       <title>rgtezadz</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 22:02:46 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 22:02:46 2017</deadline>
+       <status>0</status>
+      </task>
      </version>
      <version>
       <numVersion>7</numVersion>
-      <article>
+      <task>
        <id>1</id>
-       <title>Article 2</title>
-       <createdOn>Mon Jun 12 19:24:00 2017</createdOn>
-       <lastModifOn>Mon Jun 12 20:10:03 2017</lastModifOn>
-       <text>Article ... 2</text>
-      </article>
+       <title>Faire Caca</title>
+       <createdOn>Mon Jun 12 21:58:46 2017</createdOn>
+       <lastModifOn>Mon Jun 12 22:02:52 2017</lastModifOn>
+       <action>rtgefzd</action>
+       <priority>0</priority>
+       <deadline>Mon Jun 12 22:02:52 2017</deadline>
+       <status>0</status>
+      </task>
      </version>
     </versions>
-   </article>
-  </articles>
-  <multimedias>
-   <multimedia>
-    <id>2</id>
-    <title>Chouette</title>
-    <createdOn>Mon Jun 12 19:26:19 2017</createdOn>
-    <lastModifOn>Mon Jun 12 19:26:19 2017</lastModifOn>
-    <description>Oh une chouette</description>
-    <fileName>2.jpeg</fileName>
-    <type>picture</type>
-    <versions/>
-   </multimedia>
-  </multimedias>
-  <tasks/>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>
