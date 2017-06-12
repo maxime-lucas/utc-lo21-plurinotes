@@ -47,4 +47,5 @@ FORMS += \
     views/v_multimediaform.ui \
     views/v_taskform.ui \
     views/v_centralnote.ui \
+    views/v_multiplerelation.ui \
     views/v_multiplerelation.ui
