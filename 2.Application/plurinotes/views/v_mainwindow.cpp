@@ -94,6 +94,15 @@ void V_Mainwindow::refreshCentralNote(QString id) {
 }
 
 void V_Mainwindow::setEmptyCentralNote() {
+
+    if(centralNote != NULL && ( typeid(*centralNote) == typeid(V_CentralArticle))) {
+        delete &(dynamic_cast<V_CentralArticle&>(*centralNote));
+    } else if(centralNote != NULL && ( typeid(*centralNote) == typeid(V_CentralMultimedia))) {
+        delete &(dynamic_cast<V_CentralMultimedia&>(*centralNote));
+    } else if(centralNote != NULL && ( typeid(*centralNote) == typeid(V_CentralTask))){
+        delete &(dynamic_cast<V_CentralTask&>(*centralNote));
+    }
+
     centralNote = new QWidget();
     QVBoxLayout *centralNoteLayout = new QVBoxLayout;
     QLabel *beginningTitle = new QLabel("Select a note in the left tab");

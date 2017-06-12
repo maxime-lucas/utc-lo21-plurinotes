@@ -17,6 +17,9 @@ class V_CentralNote : public QWidget {
         Ui::V_CentralNote* getUi() const { return ui; }
         virtual ~V_CentralNote() = 0;
 
+    public slots:
+        void deleteNote();
+
     private:
         Ui::V_CentralNote *ui;
         V_Mainwindow *parentView;

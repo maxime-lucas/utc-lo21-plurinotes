@@ -9,7 +9,14 @@ V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
 {
     parentView = m;
     ui->setupUi(this);
+
+    parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteNote()));
 }
+
+void V_CentralNote::deleteNote() {
+    parentView->getController()->deleteByID(this->ui->labelID->text());
+}
+
 
 V_CentralNote::~V_CentralNote()
 {
