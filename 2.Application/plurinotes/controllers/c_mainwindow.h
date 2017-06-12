@@ -30,6 +30,7 @@ class C_Mainwindow {
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
         void saveNewTask(Task*);
+        //void deleteNote(Note*);
         void deleteByID(QString);
 };
 

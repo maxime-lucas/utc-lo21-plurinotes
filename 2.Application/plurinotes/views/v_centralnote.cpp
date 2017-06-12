@@ -10,15 +10,13 @@ V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
     parentView = m;
     ui->setupUi(this);
 
-    QSignalMapper* signalMapper = new QSignalMapper(this);
-    parentView->connect(signalMapper, SIGNAL(mapped(QString)),this,SLOT(deleteNote()));
-    signalMapper->setMapping(ui->btnDelete, ui->labelID->text());
-    parentView->connect(ui->btnDelete, SIGNAL(clicked()), signalMapper, SLOT(map()));
+    parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteNote()));
 }
 
 void V_CentralNote::deleteNote() {
     parentView->getController()->deleteByID(this->ui->labelID->text());
 }
+
 
 V_CentralNote::~V_CentralNote()
 {

@@ -88,6 +88,14 @@ void C_Mainwindow::refreshTask()
     unsigned int row = 0;
     unsigned int column = 0;
 
+    // Remise à 0 du GridLayout
+    QLayoutItem* item;
+    while ( ( item = view->getTasks()->getGridLayout()->takeAt( 0 ) ) != NULL )
+    {
+        delete item->widget();
+        delete item;
+    }
+
     QSignalMapper* signalMapper = new QSignalMapper(view);
     view->connect(signalMapper, SIGNAL(mapped(QString)),view, SLOT(refreshCentralNote(QString)));
 
@@ -195,6 +203,7 @@ void C_Mainwindow::saveNewTask(Task *t) {
 }
 
 void C_Mainwindow::deleteByID(QString id) {
+
     // WIP Suppression en base
     Note* note = app->getNoteByID(id);
 
@@ -222,13 +231,16 @@ void C_Mainwindow::deleteByID(QString id) {
         app->getXMLManager()->deleteFromTask(task);
     }
 
-    //Suppression dans les notes actives
+    //Suppression dans les notes actives (côté vue)
     for(unsigned int i = 0; i < app->getActiveNotesManager()->getTab()->size() ; i++ )
     {
         note = app->getActiveNotesManager()->getTab()->at(i);
         if( note->getId() == id ) app->getActiveNotesManager()->getTab()->erase(app->getActiveNotesManager()->getTab()->begin() + i);
     }
+
+
     refreshActiveNotes();
     refreshTask();
+
     view->setEmptyCentralNote();
 }
