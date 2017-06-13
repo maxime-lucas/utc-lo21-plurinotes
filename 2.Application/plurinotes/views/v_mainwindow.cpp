@@ -12,86 +12,15 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     controller = c;
 
     move(0,0);
-    setStyleSheet("V_Minwindow { background-color:#FFF;}");
+    setStyleSheet("V_Mainwindow { background-color:#FFF;}");
 
-<<<<<<< HEAD
-    labelActiveNotes = new QLabel("Active Notes");
-    labelActiveNotes->setFixedSize(200,20);
-    labelActiveNotes->setAlignment(Qt::AlignCenter);
-
-    labelArchivedNotes = new QLabel("Archived Notes");
-    labelArchivedNotes->setFixedSize(200,20);
-    labelArchivedNotes->setAlignment(Qt::AlignCenter);
-
-    labelTasks = new QLabel("Tasks");
-    labelTasks->setFixedSize(200,20);
-    labelTasks->setAlignment(Qt::AlignCenter);
-
-    activeNotes = new V_Multiplenotes;
-    tasks = new V_Multiplenotes;
-    archivedNotes = new V_Multiplenotes;
-
-    relation = new V_Multiplerelation;
-
-    centralLayout = new QHBoxLayout;
-
-    leftWidget = new QWidget;
-    rightWidget = new QWidget;
-
-    leftLayout = new QVBoxLayout;
-    rightLayout = new QVBoxLayout;
-
-    leftLayout->addWidget(labelActiveNotes);
-    leftLayout->addWidget(activeNotes);
-    leftLayout->addWidget(labelTasks);
-    leftLayout->addWidget(tasks);
-    leftLayout->addWidget(labelArchivedNotes);
-    leftLayout->addWidget(archivedNotes);
-    leftLayout->setMargin(5);
-
-    centralNote = 0;
-
-    rightLayout->addWidget(relation);
-    rightLayout->setSpacing(0);
-    rightLayout->setMargin(5);
-
-    leftWidget->setLayout(leftLayout);
-    leftWidget->setFixedWidth(210);
-    leftWidget->setObjectName("leftWidget");
-
-    rightWidget->setLayout(rightLayout);
-    rightWidget->setFixedWidth(210);
-    rightWidget->setObjectName("rightWidget");
-
-    setEmptyCentralNote();
-    centralNote->setObjectName("centralWidget");
-
-    centralLayout->addWidget(leftWidget);
-    centralLayout->addWidget(centralNote);
-    centralLayout->addWidget(rightWidget);
-
-    centralWidget()->setLayout(centralLayout);
-    setEmptyCentralNote();
-
-=======
->>>>>>> dev
     ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
     ui->actionShow_Asc_Desc_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/asc_desc.png")));
 
-<<<<<<< HEAD
-
-    ui->actionRelations_view->connect(ui->actionRelations_view,SIGNAL(triggered(bool)),this,SLOT(openRelationView()));
-    ui->actionDefault_view->connect(ui->actionDefault_view,SIGNAL(triggered(bool)),this,SLOT(openMainView()));
-
-    setStyleSheet("#leftWidget,#rightWidget, #centralWidget { border:2px solid #CCCCCC;}");
-
-
-=======
     ui->actionShow_Asc_Desc_View->setChecked(true);
     init();
->>>>>>> dev
 }
 
 void V_Mainwindow::openNewArticle() {
@@ -283,39 +212,7 @@ void V_Mainwindow::init() {
     }
 }
 
-void V_Mainwindow::openRelationView() {
-
-    centralLayout->removeWidget(leftWidget);
-    centralLayout->removeWidget(rightWidget);
-    centralLayout->removeWidget(centralNote);
-    centralLayout->removeWidget(relationView);
-
-    delete centralLayout;
-
-    centralLayout = new QHBoxLayout;
-    relationView = new V_MainRelation;
-    centralLayout->addWidget(relationView);
-    centralWidget()->setLayout(centralLayout);
-}
-
-void V_Mainwindow::openMainView() {
-    centralLayout->removeWidget(leftWidget);
-    centralLayout->removeWidget(rightWidget);
-    centralLayout->removeWidget(centralNote);
-    centralLayout->removeWidget(relationView);
-
-    delete centralLayout;
-
-    centralLayout = new QHBoxLayout;
-    centralLayout->addWidget(leftWidget);
-    centralLayout->addWidget(rightWidget);
-    setEmptyCentralNote();
-    centralWidget()->setLayout(centralLayout);
-}
-
 V_Mainwindow::~V_Mainwindow()
 {
     delete ui;
 }
-
-

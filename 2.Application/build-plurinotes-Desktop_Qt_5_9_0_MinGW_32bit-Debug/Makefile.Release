@@ -13,7 +13,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE -DQT_QML_DEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -pipe -O2 -Wextra -Wall -W $(DEFINES)
-CXXFLAGS      = -fno-keep-inline-dllexport -pipe -O2 -std=gnu++11 -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
+CXXFLAGS      = -fno-keep-inline-dllexport -pipe -std=c++11 -O2 -std=gnu++11 -Wextra -Wall -W -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I..\plurinotes -I. -IC:\Qt\5.9\mingw53_32\include -IC:\Qt\5.9\mingw53_32\include\QtWidgets -IC:\Qt\5.9\mingw53_32\include\QtGui -IC:\Qt\5.9\mingw53_32\include\QtANGLE -IC:\Qt\5.9\mingw53_32\include\QtXml -IC:\Qt\5.9\mingw53_32\include\QtCore -Irelease -I. -IC:\Qt\5.9\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
@@ -172,7 +172,7 @@ compiler_moc_predefs_make_all: release/moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) release\moc_predefs.h
 release/moc_predefs.h: C:/Qt/5.9/mingw53_32/mkspecs/features/data/dummy.cpp
-	g++ -fno-keep-inline-dllexport -pipe -O2 -std=gnu++11 -Wextra -Wall -W -dM -E -o release\moc_predefs.h C:\Qt\5.9\mingw53_32\mkspecs\features\data\dummy.cpp
+	g++ -fno-keep-inline-dllexport -pipe -std=c++11 -O2 -std=gnu++11 -Wextra -Wall -W -dM -E -o release\moc_predefs.h C:\Qt\5.9\mingw53_32\mkspecs\features\data\dummy.cpp
 
 compiler_moc_header_make_all: release/moc_v_mainwindow.cpp release/moc_v_multiplenotes.cpp release/moc_v_articleform.cpp release/moc_v_multimediaform.cpp release/moc_v_taskform.cpp release/moc_v_centralnote.cpp release/moc_v_multiplerelation.cpp release/moc_v_mainrelation.cpp
 compiler_moc_header_clean:
@@ -463,10 +463,12 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -487,15 +489,6 @@ release/moc_v_mainwindow.cpp: ../plurinotes/views/v_articleform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
->>>>>>> dev
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_mainwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9/mingw53_32/bin/moc.exe
@@ -897,10 +890,12 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -921,15 +916,6 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
->>>>>>> dev
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_articleform.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9/mingw53_32/bin/moc.exe
@@ -1221,10 +1207,12 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -1245,15 +1233,6 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
->>>>>>> dev
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_multimediaform.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9/mingw53_32/bin/moc.exe
@@ -1545,10 +1524,12 @@ release/moc_v_taskform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -1569,15 +1550,6 @@ release/moc_v_taskform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
->>>>>>> dev
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_taskform.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9/mingw53_32/bin/moc.exe
@@ -1888,11 +1860,6 @@ release/moc_v_centralnote.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
-		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
-		../plurinotes/views/v_centralnote.h \
 		../plurinotes/views/v_mainrelation.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
@@ -1900,275 +1867,13 @@ release/moc_v_centralnote.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
+		../plurinotes/views/v_centralnote.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9/mingw53_32/bin/moc.exe
 	C:\Qt\5.9\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9/mingw53_32/mkspecs/win32-g++ -I"C:/Users/yaya/Documents/UTC/LO21/Nouveau dossier/Projet/utc-lo21-plurinotes/2.Application/plurinotes" -IC:/Qt/5.9/mingw53_32/include -IC:/Qt/5.9/mingw53_32/include/QtWidgets -IC:/Qt/5.9/mingw53_32/include/QtGui -IC:/Qt/5.9/mingw53_32/include/QtANGLE -IC:/Qt/5.9/mingw53_32/include/QtXml -IC:/Qt/5.9/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\plurinotes\views\v_centralnote.h -o release\moc_v_centralnote.cpp
 
 release/moc_v_multiplerelation.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qwidget.h \
-<<<<<<< HEAD
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtcore-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlogging.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qflags.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmutex.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmargins.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpalette.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcolor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgb.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgba64.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qregion.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qline.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtransform.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qimage.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		../plurinotes/views/v_multiplerelation.h \
-		release/moc_predefs.h \
-		C:/Qt/5.9/mingw53_32/bin/moc.exe
-	C:\Qt\5.9\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9/mingw53_32/mkspecs/win32-g++ -I"C:/Users/yaya/Documents/UTC/LO21/Nouveau dossier/Projet/utc-lo21-plurinotes/2.Application/plurinotes" -IC:/Qt/5.9/mingw53_32/include -IC:/Qt/5.9/mingw53_32/include/QtWidgets -IC:/Qt/5.9/mingw53_32/include/QtGui -IC:/Qt/5.9/mingw53_32/include/QtANGLE -IC:/Qt/5.9/mingw53_32/include/QtXml -IC:/Qt/5.9/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\plurinotes\views\v_multiplerelation.h -o release\moc_v_multiplerelation.cpp
-
-release/moc_v_mainrelation.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtcore-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlogging.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qflags.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmutex.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmargins.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpalette.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcolor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgb.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgba64.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qregion.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qline.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtransform.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qimage.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		../plurinotes/views/v_mainrelation.h \
-		release/moc_predefs.h \
-		C:/Qt/5.9/mingw53_32/bin/moc.exe
-	C:\Qt\5.9\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9/mingw53_32/mkspecs/win32-g++ -I"C:/Users/yaya/Documents/UTC/LO21/Nouveau dossier/Projet/utc-lo21-plurinotes/2.Application/plurinotes" -IC:/Qt/5.9/mingw53_32/include -IC:/Qt/5.9/mingw53_32/include/QtWidgets -IC:/Qt/5.9/mingw53_32/include/QtGui -IC:/Qt/5.9/mingw53_32/include/QtANGLE -IC:/Qt/5.9/mingw53_32/include/QtXml -IC:/Qt/5.9/mingw53_32/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\plurinotes\views\v_mainrelation.h -o release\moc_v_mainrelation.cpp
-
-compiler_moc_source_make_all:
-compiler_moc_source_clean:
-compiler_uic_make_all: ui_v_mainwindow.h ui_v_multiplenotes.h ui_v_articleform.h ui_v_multimediaform.h ui_v_taskform.h ui_v_centralnote.h ui_v_multiplerelation.h ui_v_mainrelation.h
-compiler_uic_clean:
-	-$(DEL_FILE) ui_v_mainwindow.h ui_v_multiplenotes.h ui_v_articleform.h ui_v_multimediaform.h ui_v_taskform.h ui_v_centralnote.h ui_v_multiplerelation.h ui_v_mainrelation.h
-ui_v_mainwindow.h: ../plurinotes/views/v_mainwindow.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_mainwindow.ui -o ui_v_mainwindow.h
-
-ui_v_multiplenotes.h: ../plurinotes/views/v_multiplenotes.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_multiplenotes.ui -o ui_v_multiplenotes.h
-
-ui_v_articleform.h: ../plurinotes/views/v_articleform.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_articleform.ui -o ui_v_articleform.h
-
-ui_v_multimediaform.h: ../plurinotes/views/v_multimediaform.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_multimediaform.ui -o ui_v_multimediaform.h
-
-ui_v_taskform.h: ../plurinotes/views/v_taskform.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_taskform.ui -o ui_v_taskform.h
-
-ui_v_centralnote.h: ../plurinotes/views/v_centralnote.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_centralnote.ui -o ui_v_centralnote.h
-
-ui_v_multiplerelation.h: ../plurinotes/views/v_multiplerelation.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_multiplerelation.ui -o ui_v_multiplerelation.h
-
-ui_v_mainrelation.h: ../plurinotes/views/v_mainrelation.ui \
-		C:/Qt/5.9/mingw53_32/bin/uic.exe
-	C:\Qt\5.9\mingw53_32\bin\uic.exe ..\plurinotes\views\v_mainrelation.ui -o ui_v_mainrelation.h
-
-compiler_yacc_decl_make_all:
-compiler_yacc_decl_clean:
-compiler_yacc_impl_make_all:
-compiler_yacc_impl_clean:
-compiler_lex_make_all:
-compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
-
-
-
-####### Compile
-
-release/p_notes.o: ../plurinotes/models/p_notes.cpp ../plurinotes/main.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-=======
->>>>>>> dev
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qtguiglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qglobal.h \
@@ -2561,6 +2266,7 @@ release/moc_v_mainrelation.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
+		../plurinotes/views/v_mainrelation.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -2581,7 +2287,6 @@ release/moc_v_mainrelation.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/views/v_mainrelation.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_mainrelation.h \
@@ -3464,49 +3169,9 @@ release/p_relations.o: ../plurinotes/models/p_relations.cpp ../plurinotes/main.h
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTabWidget \
 		../plurinotes/models/operatorsoverloading.h \
 		../plurinotes/models/p_notes.h \
-<<<<<<< HEAD
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/views/v_mainwindow.h \
-		../plurinotes/views/v_articleform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
-		../plurinotes/views/v_multimediaform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
-		../plurinotes/views/v_taskform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
-		../plurinotes/views/v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
-		../plurinotes/views/v_multiplerelation.h \
-		../plurinotes/views/v_mainrelation.h \
-		../plurinotes/views/v_centralnote.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontdatabase.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpinBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\plurinotes\main.cpp
-=======
 		../plurinotes/models/p_relations.h \
 		../plurinotes/models/notesexception.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\p_relations.o ..\plurinotes\models\p_relations.cpp
->>>>>>> dev
 
 release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
@@ -3795,6 +3460,9 @@ release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
+		../plurinotes/views/v_mainrelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -3815,9 +3483,6 @@ release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\plurinotes\main.cpp
@@ -4373,52 +4038,8 @@ release/operatorsoverloading.o: ../plurinotes/models/operatorsoverloading.cpp ..
 		C:/Qt/5.9/mingw53_32/include/QtCore/QDateTime \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTabWidget \
 		../plurinotes/models/operatorsoverloading.h \
-<<<<<<< HEAD
-		../plurinotes/models/p_notes.h \
-		../plurinotes/views/v_mainwindow.h \
-		../plurinotes/views/v_articleform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
-		../plurinotes/views/v_multimediaform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qfiledialog.h \
-		../plurinotes/views/v_taskform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdatetimeedit.h \
-		../plurinotes/views/v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
-		../plurinotes/views/v_multiplerelation.h \
-		../plurinotes/views/v_mainrelation.h \
-		../plurinotes/views/v_centralnote.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontdatabase.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpinBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_mainwindow.h \
-		ui_v_multiplenotes.h \
-		ui_v_multiplerelation.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainwindow.o ..\plurinotes\views\v_mainwindow.cpp
-=======
 		../plurinotes/models/p_notes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\operatorsoverloading.o ..\plurinotes\models\operatorsoverloading.cpp
->>>>>>> dev
 
 release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
@@ -4706,10 +4327,12 @@ release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -4730,27 +4353,24 @@ release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-		../plurinotes/views/v_littlenote.h \
 		ui_v_mainwindow.h \
-		ui_v_articleform.h \
-		ui_v_multimediaform.h \
-		ui_v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenu \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QToolBar \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtoolbar.h \
 		ui_v_multiplenotes.h \
-		ui_v_multiplerelation.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\c_mainwindow.o ..\plurinotes\controllers\c_mainwindow.cpp
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_mainwindow.h \
-		ui_v_multiplenotes.h \
-		ui_v_multiplerelation.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		ui_v_multiplerelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainwindow.o ..\plurinotes\views\v_mainwindow.cpp
->>>>>>> dev
 
 release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
@@ -5041,6 +4661,9 @@ release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
+		../plurinotes/views/v_mainrelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -5061,16 +4684,34 @@ release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
 		../plurinotes/views/v_littlenote.h \
 		ui_v_mainwindow.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenu \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QToolBar \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtoolbar.h \
 		ui_v_articleform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit \
 		ui_v_multimediaform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		ui_v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider \
 		ui_v_multiplenotes.h \
-		ui_v_multiplerelation.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
+		ui_v_multiplerelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\c_mainwindow.o ..\plurinotes\controllers\c_mainwindow.cpp
 
 release/p_xml.o: ../plurinotes/models/p_xml.cpp ../plurinotes/main.h \
@@ -5344,6 +4985,7 @@ release/p_xml.o: ../plurinotes/models/p_xml.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QDateTime \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTabWidget \
 		../plurinotes/models/operatorsoverloading.h \
 		../plurinotes/models/p_notes.h \
 		../plurinotes/models/p_xml.h \
@@ -5457,13 +5099,45 @@ release/v_multiplenotes.o: ../plurinotes/views/v_multiplenotes.cpp ../plurinotes
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
 		ui_v_multiplenotes.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplenotes.o ..\plurinotes\views\v_multiplenotes.cpp
 
 release/v_littlenote.o: ../plurinotes/views/v_littlenote.cpp ../plurinotes/views/v_littlenote.h \
@@ -5579,17 +5253,6 @@ release/v_littlenote.o: ../plurinotes/views/v_littlenote.cpp ../plurinotes/views
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-<<<<<<< HEAD
-		ui_v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplenotes.o ..\plurinotes\views\v_multiplenotes.cpp
-=======
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
@@ -5749,10 +5412,10 @@ release/v_littlenote.o: ../plurinotes/views/v_littlenote.cpp ../plurinotes/views
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QDateTime \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTabWidget \
 		../plurinotes/models/operatorsoverloading.h \
 		../plurinotes/models/p_notes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_littlenote.o ..\plurinotes\views\v_littlenote.cpp
->>>>>>> dev
 
 release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/views/v_articleform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
@@ -6040,6 +5703,12 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
+		../plurinotes/views/v_mainrelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -6060,13 +5729,13 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp ../plurinotes/vie
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_articleform.h
+		ui_v_articleform.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_articleform.o ..\plurinotes\views\v_articleform.cpp
 
 release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinotes/views/v_multimediaform.h \
@@ -6355,10 +6024,12 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -6379,22 +6050,16 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp ../plurinot
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_articleform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_articleform.o ..\plurinotes\views\v_articleform.cpp
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_multimediaform.h
+		ui_v_multimediaform.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multimediaform.o ..\plurinotes\views\v_multimediaform.cpp
->>>>>>> dev
 
 release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_taskform.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
@@ -6682,10 +6347,12 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_t
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
 		../plurinotes/views/v_mainrelation.h \
-=======
->>>>>>> dev
+		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
+		../plurinotes/controllers/c_mainwindow.h \
+		../plurinotes/models/p_core.h \
+		../plurinotes/models/p_xml.h \
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -6706,22 +6373,19 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp ../plurinotes/views/v_t
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-<<<<<<< HEAD
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_multimediaform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multimediaform.o ..\plurinotes\views\v_multimediaform.cpp
-=======
-		../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_taskform.h
+		ui_v_taskform.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_taskform.o ..\plurinotes\views\v_taskform.cpp
->>>>>>> dev
 
 release/v_centralnote.o: ../plurinotes/views/v_centralnote.cpp ../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
@@ -7030,41 +6694,20 @@ release/v_centralnote.o: ../plurinotes/views/v_centralnote.cpp ../plurinotes/vie
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
 		../plurinotes/views/v_mainrelation.h \
-<<<<<<< HEAD
-		../plurinotes/views/v_centralnote.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontdatabase.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpinBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_taskform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_taskform.o ..\plurinotes\views\v_taskform.cpp
-=======
 		C:/Qt/5.9/mingw53_32/include/QtGui/QList \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
-		ui_v_centralnote.h
+		ui_v_centralnote.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_centralnote.o ..\plurinotes\views\v_centralnote.cpp
->>>>>>> dev
 
 release/v_multiplerelation.o: ../plurinotes/views/v_multiplerelation.cpp ../plurinotes/views/v_multiplerelation.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
@@ -7167,45 +6810,50 @@ release/v_multiplerelation.o: ../plurinotes/views/v_multiplerelation.cpp ../plur
 		C:/Qt/5.9/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
-<<<<<<< HEAD
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtextedit.h \
+		ui_v_multiplerelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontdatabase.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QRadioButton \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpinBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QFormLayout \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayout \
-		../plurinotes/models/p_notes.h \
-=======
-		ui_v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplerelation.o ..\plurinotes\views\v_multiplerelation.cpp
 
 release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/views/v_mainrelation.h \
@@ -7332,7 +6980,6 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
->>>>>>> dev
 		../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
@@ -7342,8 +6989,14 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QString \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayout \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayout.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmenubar.h \
@@ -7483,7 +7136,9 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtXml/QDomDocument \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QDateTime \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTabWidget \
 		../plurinotes/models/operatorsoverloading.h \
@@ -7491,14 +7146,6 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		../plurinotes/views/v_multiplenotes.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QGridLayout \
 		../plurinotes/views/v_multiplerelation.h \
-<<<<<<< HEAD
-		../plurinotes/views/v_mainrelation.h \
-		../plurinotes/controllers/c_mainwindow.h \
-		../plurinotes/models/p_core.h \
-		../plurinotes/models/p_xml.h \
-		ui_v_centralnote.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_centralnote.o ..\plurinotes\views\v_centralnote.cpp
-=======
 		../plurinotes/views/v_centralnote.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPlainTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qplaintextedit.h \
@@ -7521,219 +7168,14 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qformlayout.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
-		ui_v_mainrelation.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainrelation.o ..\plurinotes\views\v_mainrelation.cpp
->>>>>>> dev
-
-release/v_multiplerelation.o: ../plurinotes/views/v_multiplerelation.cpp ../plurinotes/views/v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtcore-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlogging.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qflags.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmutex.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmargins.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpalette.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcolor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgb.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgba64.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qregion.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qline.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtransform.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qimage.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		ui_v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplerelation.o ..\plurinotes\views\v_multiplerelation.cpp
-
-release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/views/v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobal.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qconfig.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtcore-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlogging.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qflags.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmutex.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmargins.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpalette.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcolor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgb.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qrgba64.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qregion.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qline.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtransform.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qimage.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfont.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qcursor.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurl.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
-		ui_v_mainrelation.h
+		ui_v_mainrelation.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListView \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainrelation.o ..\plurinotes\views\v_mainrelation.cpp
 
 release/moc_v_mainwindow.o: release/moc_v_mainwindow.cpp 

@@ -22,11 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_V_Mainwindow_t {
     QByteArrayData data[9];
-<<<<<<< HEAD
-    char stringdata0[128];
-=======
     char stringdata0[136];
->>>>>>> dev
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,23 +38,14 @@ QT_MOC_LITERAL(3, 29, 17), // "openNewMultimedia"
 QT_MOC_LITERAL(4, 47, 11), // "openNewTask"
 QT_MOC_LITERAL(5, 59, 18), // "refreshCentralNote"
 QT_MOC_LITERAL(6, 78, 19), // "setEmptyCentralNote"
-<<<<<<< HEAD
-QT_MOC_LITERAL(7, 98, 16), // "openRelationView"
-QT_MOC_LITERAL(8, 115, 12) // "openMainView"
-=======
 QT_MOC_LITERAL(7, 98, 17), // "toggleAscDescView"
 QT_MOC_LITERAL(8, 116, 19) // "toggleRelationsView"
->>>>>>> dev
 
     },
     "V_Mainwindow\0openNewArticle\0\0"
     "openNewMultimedia\0openNewTask\0"
     "refreshCentralNote\0setEmptyCentralNote\0"
-<<<<<<< HEAD
-    "openRelationView\0openMainView"
-=======
     "toggleAscDescView\0toggleRelationsView"
->>>>>>> dev
 };
 #undef QT_MOC_LITERAL
 
@@ -107,13 +94,8 @@ void V_Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 2: _t->openNewTask(); break;
         case 3: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->setEmptyCentralNote(); break;
-<<<<<<< HEAD
-        case 5: _t->openRelationView(); break;
-        case 6: _t->openMainView(); break;
-=======
         case 5: _t->toggleAscDescView(); break;
         case 6: _t->toggleRelationsView(); break;
->>>>>>> dev
         default: ;
         }
     }

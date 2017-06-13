@@ -108,13 +108,8 @@ public:
         toolBar->addAction(actionMultimedia);
         toolBar->addSeparator();
         toolBar->addAction(actionTask);
-<<<<<<< HEAD
-        toolBar->addAction(actionDefault_view);
-        toolBar->addAction(actionRelations_view);
-=======
         toolBar->addSeparator();
         toolBar->addAction(actionShow_Asc_Desc_View);
->>>>>>> dev
 
         retranslateUi(V_Mainwindow);
 
@@ -128,12 +123,11 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionQuit->setToolTip(QApplication::translate("V_Mainwindow", "Quit the app", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-<<<<<<< HEAD
-=======
+
 #ifndef QT_NO_SHORTCUT
         actionQuit->setShortcut(QApplication::translate("V_Mainwindow", "Esc", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
->>>>>>> dev
+
         actionArticle->setText(QApplication::translate("V_Mainwindow", "Article", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         actionArticle->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Article", Q_NULLPTR));
@@ -146,11 +140,6 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionTask->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Task", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-<<<<<<< HEAD
-        actionRelation->setText(QApplication::translate("V_Mainwindow", "Relation", Q_NULLPTR));
-        actionDefault_view->setText(QApplication::translate("V_Mainwindow", "Default view", Q_NULLPTR));
-        actionRelations_view->setText(QApplication::translate("V_Mainwindow", "Relations view", Q_NULLPTR));
-=======
         actionShow_Asc_Desc_View->setText(QApplication::translate("V_Mainwindow", "Show Asc/Desc View", Q_NULLPTR));
 #ifndef QT_NO_SHORTCUT
         actionShow_Asc_Desc_View->setShortcut(QApplication::translate("V_Mainwindow", "N", Q_NULLPTR));
@@ -159,7 +148,6 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionShow_Relations_View->setToolTip(QApplication::translate("V_Mainwindow", "Show Relations View", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
->>>>>>> dev
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", Q_NULLPTR));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", Q_NULLPTR));
         menuView->setTitle(QApplication::translate("V_Mainwindow", "View", Q_NULLPTR));

@@ -7,7 +7,6 @@
 #include "main.h"
 #include "v_multiplenotes.h"
 #include "v_multiplerelation.h"
-#include "v_mainrelation.h"
 #include "v_centralnote.h"
 #include "v_mainrelation.h"
 #include "../controllers/c_mainwindow.h"
@@ -44,22 +43,13 @@ class V_Mainwindow : public QMainWindow
 
     private:
         Ui::V_Mainwindow *ui;
-<<<<<<< HEAD
-
-        QHBoxLayout* centralLayout;
-=======
         QHBoxLayout* centralMainLayout;
         QVBoxLayout* centralSecondLayout;
 
->>>>>>> dev
         QVBoxLayout* leftLayout;
         QVBoxLayout* rightLayout;
-
         QWidget* leftWidget;
         QWidget* rightWidget;
-
-        QTabWidget* tabWidget;
-        QWidget* mainTab;
 
         QLabel* labelActiveNotes;
         QLabel* labelTasks;
@@ -87,13 +77,8 @@ class V_Mainwindow : public QMainWindow
         void openNewTask();
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
-<<<<<<< HEAD
-        void openRelationView();
-        void openMainView();
-=======
         void toggleAscDescView();
         void toggleRelationsView();
->>>>>>> dev
 };
 
 #endif // V_MAINWINDOW_H
