@@ -107,10 +107,22 @@ void V_Mainwindow::setEmptyCentralNote() {
     centralNote->setFixedWidth(560);
     centralNote->setLayout(centralNoteLayout);
 
+    delete middleLayout;
+    middleLayout = new QVBoxLayout;
+
+    middleLayout->addWidget(centralNote);
+    middleLayout->addWidget(bottomWidget);
+
+    middleLayout->setMargin(0);
+    middleLayout->setSpacing(0);
+
+    middleWidget->setLayout(middleLayout);
+
     delete centralMainLayout;
     centralMainLayout = new QHBoxLayout;
+
     centralMainLayout->addWidget(leftWidget);
-    centralMainLayout->addWidget(centralNote);
+    centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
 
 }

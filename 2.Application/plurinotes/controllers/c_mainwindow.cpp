@@ -275,7 +275,6 @@ void C_Mainwindow::deleteByID(QString id) {
         if( note->getId() == id ) app->getActiveNotesManager()->getTab()->erase(app->getActiveNotesManager()->getTab()->begin() + i);
     }
 
-
     refreshActiveNotes();
     refreshTask();
     view->setEmptyCentralNote();
