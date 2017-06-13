@@ -1,7 +1,10 @@
-#include "v_taskform.h"
-#include "ui_v_taskform.h"
+#include <QMessageBox>
 #include <ctime>
 #include <iostream>
+
+#include "main.h"
+#include "v_taskform.h"
+#include "ui_v_taskform.h"
 
 V_TaskForm::V_TaskForm(QWidget *w, V_Mainwindow *m) :
     QDialog(w),

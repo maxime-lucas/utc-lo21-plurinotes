@@ -1,10 +1,14 @@
 #ifndef V_MAINWINDOW_H
 #define V_MAINWINDOW_H
 
+#include "main.h"
+
+#include <QMainWindow>
+#include <QLabel>
+
 #include "v_articleform.h"
 #include "v_multimediaform.h"
 #include "v_taskform.h"
-#include "main.h"
 #include "v_multiplenotes.h"
 #include "v_multiplerelation.h"
 #include "v_centralnote.h"

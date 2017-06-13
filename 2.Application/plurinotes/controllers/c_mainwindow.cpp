@@ -1,4 +1,8 @@
 #include "main.h"
+
+#include <typeinfo>
+#include <QSignalMapper>
+
 #include "../models/p_core.h"
 #include "c_mainwindow.h"
 #include "../views/v_mainwindow.h"
@@ -14,12 +18,14 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 
     // Initialisation des models et de la view
     qapp = q;
-    view = new V_Mainwindow(0,this);
     app = new PluriNotes;
+
+    view = new V_Mainwindow(0,this);
 
     refreshActiveNotes();
     refreshTask();
     createActions();
+
 }
 
 void C_Mainwindow::createActions()

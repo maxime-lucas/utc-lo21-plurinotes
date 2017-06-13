@@ -1,4 +1,7 @@
 #include "main.h"
+
+#include <typeinfo>
+
 #include "v_mainwindow.h"
 #include "ui_v_mainwindow.h"
 #include "ui_v_multiplenotes.h"
@@ -120,7 +123,6 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
-            item = nullptr;
         }
         delete centralMainLayout;
 
@@ -133,7 +135,6 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
-            item = nullptr;
         }
         delete centralSecondLayout;
 

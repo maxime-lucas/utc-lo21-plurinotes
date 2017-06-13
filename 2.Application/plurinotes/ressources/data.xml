@@ -4,14 +4,86 @@
   <articles>
    <article>
     <id>1</id>
-    <title>jutthrgefzat</title>
+    <title>Article 1</title>
     <createdOn>Tue Jun 13 13:14:35 2017</createdOn>
-    <lastModifOn>Tue Jun 13 13:14:35 2017</lastModifOn>
-    <text>hrgefzdaz</text>
-    <versions/>
+    <lastModifOn>Tue Jun 13 14:31:33 2017</lastModifOn>
+    <text>Voici le texte de l'article 1,
+Il est extra !</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+       <id>1</id>
+       <title>jutthrgefzat</title>
+       <createdOn>Tue Jun 13 13:14:35 2017</createdOn>
+       <lastModifOn>Tue Jun 13 13:14:35 2017</lastModifOn>
+       <text>hrgefzdaz</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>2</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Tue Jun 13 13:14:35 2017</createdOn>
+       <lastModifOn>Tue Jun 13 13:18:25 2017</lastModifOn>
+       <text>Voici le texte de l'article 1</text>
+      </article>
+     </version>
+    </versions>
    </article>
   </articles>
-  <multimedias/>
-  <tasks/>
+  <multimedias>
+   <multimedia>
+    <id>2</id>
+    <title>Chouette</title>
+    <createdOn>Tue Jun 13 14:56:49 2017</createdOn>
+    <lastModifOn>Tue Jun 13 14:58:57 2017</lastModifOn>
+    <description>Oh une chouette trop mignonne</description>
+    <fileName>2.jpeg</fileName>
+    <type>picture</type>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <multimedia>
+       <id>2</id>
+       <title>Chouette</title>
+       <createdOn>Tue Jun 13 14:56:49 2017</createdOn>
+       <lastModifOn>Tue Jun 13 14:56:49 2017</lastModifOn>
+       <description>Oh une chouette</description>
+       <fileName>2.jpeg</fileName>
+       <type>picture</type>
+      </multimedia>
+     </version>
+    </versions>
+   </multimedia>
+  </multimedias>
+  <tasks>
+   <task>
+    <id>3</id>
+    <title>Courses</title>
+    <createdOn>Tue Jun 13 14:57:10 2017</createdOn>
+    <lastModifOn>Tue Jun 13 15:04:46 2017</lastModifOn>
+    <action>Faire les courses au Simply</action>
+    <priority>60</priority>
+    <deadline>Tue Jun 13 15:04:46 2017</deadline>
+    <status>1</status>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <task>
+       <id>3</id>
+       <title>Courses</title>
+       <createdOn>Tue Jun 13 14:57:10 2017</createdOn>
+       <lastModifOn>Tue Jun 13 14:57:10 2017</lastModifOn>
+       <action>Faire les courses</action>
+       <priority>60</priority>
+       <deadline>Sat Jan 1 00:00:00 2000</deadline>
+       <status>0</status>
+      </task>
+     </version>
+    </versions>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>

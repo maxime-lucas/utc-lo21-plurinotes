@@ -50,3 +50,6 @@ FORMS += \
     views/v_centralnote.ui \
     views/v_multiplerelation.ui \
     views/v_multiplerelation.ui
+
+DISTFILES += \
+    ressources/data.xml

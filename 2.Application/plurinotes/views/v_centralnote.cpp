@@ -1,6 +1,10 @@
+#include <QFileDialog>
+#include <typeinfo>
+#include <QMessageBox>
+
+#include "main.h"
 #include "v_centralnote.h"
 #include "ui_v_centralnote.h"
-#include <QFileDialog>
 
 V_CentralNote::V_CentralNote(QWidget *parent,V_Mainwindow* m) :
     QWidget(parent),
