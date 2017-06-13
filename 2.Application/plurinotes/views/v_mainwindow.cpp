@@ -126,7 +126,7 @@ void V_Mainwindow::toggleRelationsView() {
 
         centralSecondLayout = new QVBoxLayout;
         centralSecondLayout->hasHeightForWidth();
-        relationView = new V_MainRelation;
+        relationView = new V_MainView(0,getController());
         relationView->adjustSize();
         centralSecondLayout->addWidget(relationView);
         centralWidget()->setLayout(centralSecondLayout);

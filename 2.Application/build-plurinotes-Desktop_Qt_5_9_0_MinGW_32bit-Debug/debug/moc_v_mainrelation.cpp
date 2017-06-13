@@ -20,29 +20,28 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_V_MainRelation_t {
+struct qt_meta_stringdata_V_MainView_t {
     QByteArrayData data[4];
-    char stringdata0[44];
+    char stringdata0[40];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_V_MainRelation_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_V_MainView_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_V_MainRelation_t qt_meta_stringdata_V_MainRelation = {
+static const qt_meta_stringdata_V_MainView_t qt_meta_stringdata_V_MainView = {
     {
-QT_MOC_LITERAL(0, 0, 14), // "V_MainRelation"
-QT_MOC_LITERAL(1, 15, 13), // "refreshCouple"
-QT_MOC_LITERAL(2, 29, 0), // ""
-QT_MOC_LITERAL(3, 30, 13) // "afficheCouple"
+QT_MOC_LITERAL(0, 0, 10), // "V_MainView"
+QT_MOC_LITERAL(1, 11, 13), // "refreshCouple"
+QT_MOC_LITERAL(2, 25, 0), // ""
+QT_MOC_LITERAL(3, 26, 13) // "afficheCouple"
 
     },
-    "V_MainRelation\0refreshCouple\0\0"
-    "afficheCouple"
+    "V_MainView\0refreshCouple\0\0afficheCouple"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_V_MainRelation[] = {
+static const uint qt_meta_data_V_MainView[] = {
 
  // content:
        7,       // revision
@@ -66,10 +65,10 @@ static const uint qt_meta_data_V_MainRelation[] = {
        0        // eod
 };
 
-void V_MainRelation::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void V_MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        V_MainRelation *_t = static_cast<V_MainRelation *>(_o);
+        V_MainView *_t = static_cast<V_MainView *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->refreshCouple(); break;
@@ -80,26 +79,26 @@ void V_MainRelation::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     Q_UNUSED(_a);
 }
 
-const QMetaObject V_MainRelation::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_V_MainRelation.data,
-      qt_meta_data_V_MainRelation,  qt_static_metacall, nullptr, nullptr}
+const QMetaObject V_MainView::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_V_MainView.data,
+      qt_meta_data_V_MainView,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *V_MainRelation::metaObject() const
+const QMetaObject *V_MainView::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *V_MainRelation::qt_metacast(const char *_clname)
+void *V_MainView::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_V_MainRelation.stringdata0))
-        return static_cast<void*>(const_cast< V_MainRelation*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_V_MainView.stringdata0))
+        return static_cast<void*>(const_cast< V_MainView*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int V_MainRelation::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int V_MainView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

@@ -79,13 +79,8 @@
    <addaction name="actionMultimedia"/>
    <addaction name="separator"/>
    <addaction name="actionTask"/>
-<<<<<<< HEAD
-   <addaction name="actionDefault_view"/>
-   <addaction name="actionRelations_view"/>
-=======
    <addaction name="separator"/>
    <addaction name="actionShow_Asc_Desc_View"/>
->>>>>>> dev
   </widget>
   <action name="actionQuit">
    <property name="text">

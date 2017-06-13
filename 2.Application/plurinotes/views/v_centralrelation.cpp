@@ -1,7 +1,7 @@
 #include "v_centralrelation.h"
 #include "ui_v_centralrelation.h"
 
-V_CentralView::V_CentralView(QWidget *parent, V_MainRelation *m) :
+V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     QWidget(parent),
     ui(new Ui::V_CentralRelation)
 {
@@ -26,19 +26,24 @@ V_CentralView::~V_CentralView()
     delete ui;
 }
 
-V_CentralRelation::V_CentralRelation(Relation *r,V_MainRelation* m) : V_CentralView(0,m) {
+V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(0,m) {
     this->getUi()->labelType->setText("Type : Relation");
     //this->getUi()->labelID->setText(r->getId());
     this->getUi()->textTitle->setText(r->getTitle());
 
     desc = new QPlainTextEdit(r->getDesc());
-    text->setFixedSize(500,450);
+    desc->setFixedSize(400,250);
 
     QFormLayout *formWidgetLayout = new QFormLayout();
 
 
     oriented = new QRadioButton("Yes");
     noriented = new QRadioButton("No");
+
+    if(r->getOriented() == true)
+        oriented->setChecked(true);
+    else if(r->getOriented() == false)
+        noriented->setChecked(true);
 
     QHBoxLayout* btnLayout = new QHBoxLayout;
 
@@ -52,7 +57,7 @@ V_CentralRelation::V_CentralRelation(Relation *r,V_MainRelation* m) : V_CentralV
 
 }
 
-void V_CentralRelation::editRelation()
+void V_Centralrelation::editRelation()
 {
     if(desc->toPlainText().isEmpty() || this->getUi()->textTitle->text().isEmpty())
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
@@ -74,7 +79,7 @@ void V_CentralRelation::editRelation()
     }
 }
 
-V_CentralCouple::V_CentralCouple(Couple *c,V_MainRelation* m) : V_CentralView(0,m) {
+V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m) {
     this->getUi()->labelType->setText("Type : Couple");
     //this->getUi()->labelID->setText(r->getId());
     this->getUi()->textTitle->setText(c->getLabel());
@@ -87,6 +92,23 @@ V_CentralCouple::V_CentralCouple(Couple *c,V_MainRelation* m) : V_CentralView(0,
     note1 = new QComboBox;
     note2 = new QComboBox;
 
+     std::vector<Note*> *notes = this->getMainwindow()->getController()->getApp()->getActiveNotesManager()->getTab();
+    for(unsigned int i = 0; i<notes->size(); i++)
+    {
+        Note* note = notes->at(i);
+        if( typeid(*note) == typeid(Article) ) {
+        note1->addItem("Article "+note->getId()+" : "+note->getTitle());
+        note2->addItem("Article "+note->getId()+" : "+note->getTitle());
+        }
+        if( typeid(*note) == typeid(Multimedia) ) {
+        note1->addItem("Multimedia "+note->getId()+" : "+note->getTitle());
+        note2->addItem("Multimedia "+note->getId()+" : "+note->getTitle());
+        }
+        if( typeid(*note) == typeid(Task) ) {
+        note1->addItem("task "+note->getId()+" : "+note->getTitle());
+        note2->addItem("task "+note->getId()+" : "+note->getTitle());
+        }
+    }
     formWidgetLayout->addRow(tr("Note 1"),note1);
     formWidgetLayout->addRow(tr("Note 2"),note2);
 
@@ -99,17 +121,17 @@ void V_CentralCouple::editCouple()
     if(label->text().isEmpty())
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
 
-     Note* a = this->getMainwindow()->getController()->getApp()->getNoteByID(note1->currentIndex());
+     /*Note* a = this->getMainwindow()->getController()->getApp()->getNoteByID(note1->currentIndex());
      Note* b = this->getMainwindow()->getController()->getApp()->getNoteByID(note2->currentIndex());
      else {
         Couple* editCouple = new Couple(
                     this->getUi()->textTile->text(),
                     a,
                     b
-                    );
+                    );*/
         //this->getMainwindow()->getController()->editRelation(editRelation);
-    }
+    //}
 }
 
-V_CentralRelation::~V_CentralRelation(){}
+V_Centralrelation::~V_Centralrelation(){}
 V_CentralCouple::~V_CentralCouple(){}

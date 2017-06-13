@@ -17,9 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListView>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -35,13 +33,8 @@ public:
     QListView *listeRelation;
     QLabel *labelCouple;
     QListView *listCouple;
-    QGridLayout *centralView;
-    QPushButton *btnEdit;
-    QLabel *labelID;
-    QPushButton *btnDelete;
-    QLineEdit *textTitle;
-    QLabel *labelType;
-    QWidget *contentView;
+    QGridLayout *gridLayout;
+    QWidget *formWidget;
 
     void setupUi(QWidget *v_mainrelation)
     {
@@ -85,52 +78,15 @@ public:
 
         centralLayout->addLayout(relationView);
 
-        centralView = new QGridLayout();
-        centralView->setObjectName(QStringLiteral("centralView"));
-        btnEdit = new QPushButton(horizontalLayoutWidget);
-        btnEdit->setObjectName(QStringLiteral("btnEdit"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        formWidget = new QWidget(horizontalLayoutWidget);
+        formWidget->setObjectName(QStringLiteral("formWidget"));
 
-        centralView->addWidget(btnEdit, 4, 1, 1, 1);
-
-        labelID = new QLabel(horizontalLayoutWidget);
-        labelID->setObjectName(QStringLiteral("labelID"));
-        labelID->setMaximumSize(QSize(16777215, 30));
-        labelID->setAlignment(Qt::AlignCenter);
-
-        centralView->addWidget(labelID, 0, 1, 1, 1);
-
-        btnDelete = new QPushButton(horizontalLayoutWidget);
-        btnDelete->setObjectName(QStringLiteral("btnDelete"));
-
-        centralView->addWidget(btnDelete, 4, 0, 1, 1);
-
-        textTitle = new QLineEdit(horizontalLayoutWidget);
-        textTitle->setObjectName(QStringLiteral("textTitle"));
-        textTitle->setBaseSize(QSize(0, 0));
-        QFont font;
-        font.setPointSize(16);
-        font.setBold(true);
-        font.setWeight(75);
-        textTitle->setFont(font);
-        textTitle->setStyleSheet(QStringLiteral("margin:0 auto;"));
-        textTitle->setAlignment(Qt::AlignCenter);
-
-        centralView->addWidget(textTitle, 1, 0, 1, 2);
-
-        labelType = new QLabel(horizontalLayoutWidget);
-        labelType->setObjectName(QStringLiteral("labelType"));
-        labelType->setMaximumSize(QSize(16777215, 30));
-        labelType->setAlignment(Qt::AlignCenter);
-
-        centralView->addWidget(labelType, 0, 0, 1, 1);
-
-        contentView = new QWidget(horizontalLayoutWidget);
-        contentView->setObjectName(QStringLiteral("contentView"));
-
-        centralView->addWidget(contentView, 3, 0, 1, 2);
+        gridLayout->addWidget(formWidget, 1, 0, 1, 2);
 
 
-        centralLayout->addLayout(centralView);
+        centralLayout->addLayout(gridLayout);
 
         centralLayout->setStretch(1, 100);
 
@@ -144,11 +100,6 @@ public:
         v_mainrelation->setWindowTitle(QApplication::translate("v_mainrelation", "Form", Q_NULLPTR));
         labelRelation->setText(QApplication::translate("v_mainrelation", "Relations", Q_NULLPTR));
         labelCouple->setText(QApplication::translate("v_mainrelation", "Couples", Q_NULLPTR));
-        btnEdit->setText(QApplication::translate("v_mainrelation", "Edit", Q_NULLPTR));
-        labelID->setText(QApplication::translate("v_mainrelation", "ID : 1", Q_NULLPTR));
-        btnDelete->setText(QApplication::translate("v_mainrelation", "Delete", Q_NULLPTR));
-        textTitle->setText(QApplication::translate("v_mainrelation", "Title", Q_NULLPTR));
-        labelType->setText(QApplication::translate("v_mainrelation", "Type", Q_NULLPTR));
     } // retranslateUi
 
 };

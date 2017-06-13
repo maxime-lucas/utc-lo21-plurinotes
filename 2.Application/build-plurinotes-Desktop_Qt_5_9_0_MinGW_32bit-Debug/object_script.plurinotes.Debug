@@ -16,6 +16,7 @@ INPUT(
 ./debug\v_centralnote.o
 ./debug\v_multiplerelation.o
 ./debug\v_mainrelation.o
+./debug\v_centralrelation.o
 ./debug\moc_v_mainwindow.o
 ./debug\moc_v_multiplenotes.o
 ./debug\moc_v_articleform.o
@@ -24,4 +25,5 @@ INPUT(
 ./debug\moc_v_centralnote.o
 ./debug\moc_v_multiplerelation.o
 ./debug\moc_v_mainrelation.o
+./debug\moc_v_centralrelation.o
 );

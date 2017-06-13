@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "v_centralrelation.h"
+#include <QLayoutItem>
 #include "../controllers/c_mainwindow.h"
 
 class C_Mainwindow;
@@ -16,8 +17,8 @@ class V_MainView : public QWidget {
     Q_OBJECT
 
 public:
-    explicit V_MainRelation(QWidget *parent = 0, C_Mainwindow *c = 0);
-    ~V_MainRelation();
+    explicit V_MainView(QWidget *parent = 0, C_Mainwindow *c = 0);
+    ~V_MainView();
 
     C_Mainwindow* getController() const {return controller;}
     Ui::v_mainrelation* getUi() const {return ui;}
@@ -30,6 +31,10 @@ private:
     QStringList relations;
     QStringList couples;
     QStringList empty;
+    QWidget* centralView;
+    QHBoxLayout* centralRLayout;
+    QVBoxLayout* leftLayout;
+    QWidget* leftWidget;
 
 
 public slots:

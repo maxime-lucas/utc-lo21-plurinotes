@@ -20,7 +20,7 @@ class V_ArticleForm;
 class V_MultimediaForm;
 class V_TaskForm;
 class V_Multiplerelation;
-class V_MainRelation;
+class V_MainView;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -61,7 +61,7 @@ class V_Mainwindow : public QMainWindow
 
         V_Multiplerelation *relation;
 
-        V_MainRelation* relationView;
+        V_MainView* relationView;
 
         V_ArticleForm* articleForm;
         V_MultimediaForm* multimediaForm;

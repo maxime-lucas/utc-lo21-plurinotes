@@ -123,11 +123,9 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionQuit->setToolTip(QApplication::translate("V_Mainwindow", "Quit the app", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-
 #ifndef QT_NO_SHORTCUT
         actionQuit->setShortcut(QApplication::translate("V_Mainwindow", "Esc", Q_NULLPTR));
 #endif // QT_NO_SHORTCUT
-
         actionArticle->setText(QApplication::translate("V_Mainwindow", "Article", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         actionArticle->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Article", Q_NULLPTR));
@@ -148,6 +146,9 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionShow_Relations_View->setToolTip(QApplication::translate("V_Mainwindow", "Show Relations View", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionShow_Relations_View->setShortcut(QApplication::translate("V_Mainwindow", "R", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", Q_NULLPTR));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", Q_NULLPTR));
         menuView->setTitle(QApplication::translate("V_Mainwindow", "View", Q_NULLPTR));

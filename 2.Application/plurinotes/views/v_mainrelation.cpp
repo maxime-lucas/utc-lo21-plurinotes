@@ -1,18 +1,33 @@
 #include "v_mainrelation.h"
 #include "ui_v_mainrelation.h"
 
-V_MainRelation::V_MainRelation(QWidget *parent, C_Mainwindow* c) :
+V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     QWidget(parent),
     ui(new Ui::v_mainrelation)
 {
     ui->setupUi(this);
     controller = c;
 
+    move(0,0);
+    setStyleSheet("V_mainrelation { background-color:#FFF;}");
+
+    centralView = new QWidget;
+    QVBoxLayout *centralViewLayout = new QVBoxLayout;
+    QLabel *beginningTitle = new QLabel("Select a relation in the left tab");
+    beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+    centralViewLayout->addWidget(beginningTitle);
+    centralView->setFixedWidth(560);
+    centralView->setLayout(centralViewLayout);
+
+    centralRLayout = new QHBoxLayout;
+    //centralView->setFixedWidth(580);
+    centralRLayout->addWidget(centralView);
+    ui->formWidget->setLayout(centralRLayout);
+
     QStringListModel* relationModel = new QStringListModel(this);
 
     //controller->getApp()->
     relations.push_back("Test");
-    relations.push_back("Test2");
 
     relationModel->setStringList(relations);
 
@@ -21,35 +36,28 @@ V_MainRelation::V_MainRelation(QWidget *parent, C_Mainwindow* c) :
     ui->listeRelation->connect(ui->listeRelation,SIGNAL(clicked(QModelIndex)),this,SLOT(refreshCouple()));
 }
 
-void V_MainRelation::refreshCouple() {
-    //couples.clear();
+void V_MainView::refreshCouple() {
 
-    QFormLayout* formLayout = new QFormLayout;
-    QTextEdit* label = new QTextEdit();
-    label->setText("C'est la relation de votre vie");
-    label->setFixedSize(200,100);
+    Relation* relation = new Relation("Test","Relation Test",true);
+    V_Centralrelation* V_CentralRelation = new V_Centralrelation(relation,this);
+    centralView = V_CentralRelation;
 
-    QRadioButton* oriented = new QRadioButton("Yes");
-    QRadioButton* noriented = new QRadioButton("No");
-
-    QHBoxLayout* btnLayout = new QHBoxLayout;
-
-    btnLayout->addWidget(oriented);
-    btnLayout->addWidget(noriented);
-
-    this->getUi()->labelType->setText("Type : Relation");
-    //this->getUi()->labelID->setText(r->getId());
-    //this->getUi()->textTitle->setText(r->getLabel());
-    ui->textTitle->setText("Relation");
-
-    formLayout->addRow(tr("Description"),label);
-    formLayout->addRow(tr("Oriented ?"),btnLayout);
-
-    ui->contentView->setLayout(formLayout);
+    QLayoutItem* item = centralRLayout->takeAt(0);
+    while ( item != NULL )
+    {
+        delete item->widget();
+        delete item;
+        item = nullptr;
+    }
+    delete centralRLayout;
+    centralRLayout = new QHBoxLayout;
+    centralView->setFixedWidth(580);
+    centralRLayout->addWidget(centralView);
+    ui->formWidget->setLayout(centralRLayout);
 
     QStringListModel* coupleModel = new QStringListModel(this);
 
-    couples.push_back("Hey");
+    couples.push_back("TestCouple");
 
     coupleModel->setStringList(couples);
 
@@ -59,24 +67,27 @@ void V_MainRelation::refreshCouple() {
 
 }
 
-void V_MainRelation::afficheCouple() {
+void V_MainView::afficheCouple() {
+    Note* a = this->getController()->getApp()->getNoteByID("1");
+    Note* b = this->getController()->getApp()->getNoteByID("2");
 
-    //controller->app->getCoupleById()
-    this->getUi()->labelType->setText("Type : Couple/");
-    //this->getUi()->labelID->setText(c->getId());
-    //this->getUi()->textTitle->setText(c->getLabel());
+    Couple* couple = new Couple("TestCouple",a,b);
+    V_CentralCouple* V_Centralcouple = new V_CentralCouple(couple,this);
+    centralView = V_Centralcouple;
 
-    QFormLayout* formLayout = new QFormLayout;
-    QLineEdit* label = new QLineEdit();
-    label->setText("C'est le label de votre vie");
+    QLayoutItem* item = centralRLayout->takeAt(0);
+    while ( item != NULL )
+    {
+        delete item->widget();
+        delete item;
+        item = nullptr;
+    }
 
-    ui->textTitle->setText("Mais oui c'est clair");
-
-    formLayout->addRow(tr("Label"),label);
-    formLayout->addRow(tr("Note1"),label);
-    formLayout->addRow(tr("Note2"),label);
-
-    ui->contentView->setLayout(formLayout);
+    delete centralRLayout;
+    centralRLayout = new QHBoxLayout;
+    centralView->setFixedWidth(580);
+    centralRLayout->addWidget(centralView);
+    ui->formWidget->setLayout(centralRLayout);
 
     QStringListModel* coupleModel = new QStringListModel(this);
 
@@ -89,7 +100,7 @@ void V_MainRelation::afficheCouple() {
 
 
 
-V_MainRelation::~V_MainRelation()
+V_MainView::~V_MainView()
 {
     delete ui;
 }
