@@ -29,13 +29,13 @@ public:
     QAction *actionArticle;
     QAction *actionMultimedia;
     QAction *actionTask;
-    QAction *actionRelation;
-    QAction *actionDefault_view;
-    QAction *actionRelations_view;
+    QAction *actionShow_Asc_Desc_View;
+    QAction *actionShow_Relations_View;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menuNew;
+    QMenu *menuView;
     QToolBar *toolBar;
 
     void setupUi(QMainWindow *V_Mainwindow)
@@ -64,12 +64,15 @@ public:
         QIcon icon3;
         icon3.addFile(QStringLiteral("../ressources/newTask.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionTask->setIcon(icon3);
-        actionRelation = new QAction(V_Mainwindow);
-        actionRelation->setObjectName(QStringLiteral("actionRelation"));
-        actionDefault_view = new QAction(V_Mainwindow);
-        actionDefault_view->setObjectName(QStringLiteral("actionDefault_view"));
-        actionRelations_view = new QAction(V_Mainwindow);
-        actionRelations_view->setObjectName(QStringLiteral("actionRelations_view"));
+        actionShow_Asc_Desc_View = new QAction(V_Mainwindow);
+        actionShow_Asc_Desc_View->setObjectName(QStringLiteral("actionShow_Asc_Desc_View"));
+        actionShow_Asc_Desc_View->setCheckable(true);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("../ressources/asc_desc.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionShow_Asc_Desc_View->setIcon(icon4);
+        actionShow_Relations_View = new QAction(V_Mainwindow);
+        actionShow_Relations_View->setObjectName(QStringLiteral("actionShow_Relations_View"));
+        actionShow_Relations_View->setCheckable(true);
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setEnabled(true);
@@ -82,12 +85,15 @@ public:
         menu_File->setObjectName(QStringLiteral("menu_File"));
         menuNew = new QMenu(menu_File);
         menuNew->setObjectName(QStringLiteral("menuNew"));
+        menuView = new QMenu(menubar);
+        menuView->setObjectName(QStringLiteral("menuView"));
         V_Mainwindow->setMenuBar(menubar);
         toolBar = new QToolBar(V_Mainwindow);
         toolBar->setObjectName(QStringLiteral("toolBar"));
         V_Mainwindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         menubar->addAction(menu_File->menuAction());
+        menubar->addAction(menuView->menuAction());
         menu_File->addAction(menuNew->menuAction());
         menu_File->addSeparator();
         menu_File->addAction(actionQuit);
@@ -95,11 +101,15 @@ public:
         menuNew->addAction(actionMultimedia);
         menuNew->addAction(actionTask);
         menuNew->addSeparator();
+        menuView->addAction(actionShow_Asc_Desc_View);
+        menuView->addAction(actionShow_Relations_View);
         toolBar->addAction(actionArticle);
         toolBar->addSeparator();
         toolBar->addAction(actionMultimedia);
         toolBar->addSeparator();
         toolBar->addAction(actionTask);
+        toolBar->addSeparator();
+        toolBar->addAction(actionShow_Asc_Desc_View);
 
         retranslateUi(V_Mainwindow);
 
@@ -110,14 +120,35 @@ public:
     {
         V_Mainwindow->setWindowTitle(QApplication::translate("V_Mainwindow", "PluriNotes - FAYAX", Q_NULLPTR));
         actionQuit->setText(QApplication::translate("V_Mainwindow", "Quit", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionQuit->setToolTip(QApplication::translate("V_Mainwindow", "Quit the app", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionQuit->setShortcut(QApplication::translate("V_Mainwindow", "Esc", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
         actionArticle->setText(QApplication::translate("V_Mainwindow", "Article", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionArticle->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Article", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionMultimedia->setText(QApplication::translate("V_Mainwindow", "Multimedia", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionMultimedia->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Multimedia", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionTask->setText(QApplication::translate("V_Mainwindow", "Task", Q_NULLPTR));
-        actionRelation->setText(QApplication::translate("V_Mainwindow", "Relation", Q_NULLPTR));
-        actionDefault_view->setText(QApplication::translate("V_Mainwindow", "Default view", Q_NULLPTR));
-        actionRelations_view->setText(QApplication::translate("V_Mainwindow", "Relations view", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionTask->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Task", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        actionShow_Asc_Desc_View->setText(QApplication::translate("V_Mainwindow", "Show Asc/Desc View", Q_NULLPTR));
+#ifndef QT_NO_SHORTCUT
+        actionShow_Asc_Desc_View->setShortcut(QApplication::translate("V_Mainwindow", "N", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionShow_Relations_View->setText(QApplication::translate("V_Mainwindow", "Show Relations View", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionShow_Relations_View->setToolTip(QApplication::translate("V_Mainwindow", "Show Relations View", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", Q_NULLPTR));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", Q_NULLPTR));
+        menuView->setTitle(QApplication::translate("V_Mainwindow", "View", Q_NULLPTR));
         toolBar->setWindowTitle(QApplication::translate("V_Mainwindow", "toolBar", Q_NULLPTR));
     } // retranslateUi
 

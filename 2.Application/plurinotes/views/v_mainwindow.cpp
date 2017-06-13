@@ -119,7 +119,11 @@ void V_Mainwindow::toggleRelationsView() {
         delete centralMainLayout;
 
         centralSecondLayout = new QVBoxLayout;
+        relationView = new V_MainRelation;
+        centralSecondLayout->addWidget(relationView);
         centralWidget()->setLayout(centralSecondLayout);
+
+
     } else {
         // Remise à 0 du GridLayout
         QLayoutItem* item;

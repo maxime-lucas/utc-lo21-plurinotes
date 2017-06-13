@@ -19,7 +19,8 @@ HEADERS += \
     views/v_multimediaform.h \
     views/v_taskform.h \
     views/v_centralnote.h \
-    views/v_multiplerelation.h
+    views/v_multiplerelation.h \
+    views/v_mainrelation.h
 
 SOURCES += \
     models/p_notes.cpp \
@@ -37,7 +38,8 @@ SOURCES += \
     views/v_multimediaform.cpp \
     views/v_taskform.cpp \
     views/v_centralnote.cpp \
-    views/v_multiplerelation.cpp
+    views/v_multiplerelation.cpp \
+    views/v_mainrelation.cpp
 
 
 FORMS += \
@@ -48,4 +50,4 @@ FORMS += \
     views/v_taskform.ui \
     views/v_centralnote.ui \
     views/v_multiplerelation.ui \
-    views/v_multiplerelation.ui
+    views/v_mainrelation.ui
