@@ -12,6 +12,7 @@
 #include "v_multiplenotes.h"
 #include "v_multiplerelation.h"
 #include "v_centralnote.h"
+#include "v_mainrelation.h"
 #include "../controllers/c_mainwindow.h"
 
 namespace Ui {
@@ -23,6 +24,7 @@ class V_ArticleForm;
 class V_MultimediaForm;
 class V_TaskForm;
 class V_Multiplerelation;
+class V_MainRelation;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -82,6 +84,9 @@ class V_Mainwindow : public QMainWindow
         V_ArticleForm* articleForm;
         V_MultimediaForm* multimediaForm;
         V_TaskForm* taskForm;
+
+        // ALL FOR RELATIONS VIEWS
+        V_MainRelation* relationView;
 
     public slots:
         void openNewArticle();
