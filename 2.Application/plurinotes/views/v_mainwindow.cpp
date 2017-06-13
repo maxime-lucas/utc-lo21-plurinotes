@@ -100,9 +100,14 @@ void V_Mainwindow::setEmptyCentralNote() {
 }
 
 void V_Mainwindow::toggleAscDescView() {
-    if( this->getUi()->actionShow_Asc_Desc_View->isChecked() ) rightWidget->setVisible(true);
+
+    if( this->getUi()->actionShow_Asc_Desc_View->isChecked() ) {
+        if(typeid(*(centralWidget()->layout())) == typeid(QHBoxLayout))
+            rightWidget->setVisible(true);
+    }
     else {
-        rightWidget->setVisible(false);
+        if(typeid(*(centralWidget()->layout())) == typeid(QHBoxLayout))
+            rightWidget->setVisible(false);
     }
 }
 
@@ -115,6 +120,7 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
+            item = nullptr;
         }
         delete centralMainLayout;
 
@@ -127,6 +133,7 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
+            item = nullptr;
         }
         delete centralSecondLayout;
 

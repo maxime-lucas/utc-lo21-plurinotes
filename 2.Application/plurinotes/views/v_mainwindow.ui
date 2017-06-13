@@ -154,6 +154,9 @@
    <property name="toolTip">
     <string>Show Relations View</string>
    </property>
+   <property name="shortcut">
+    <string>R</string>
+   </property>
   </action>
  </widget>
  <resources/>
