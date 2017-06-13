@@ -37,10 +37,13 @@ class V_Mainwindow : public QMainWindow
         V_MultimediaForm* getFormMultimedia() const{ return multimediaForm; }
         V_TaskForm* getFormTask() const{return taskForm;}
         C_Mainwindow* getController() const { return controller; }
+        void init();
 
     private:
         Ui::V_Mainwindow *ui;
-        QHBoxLayout* centralLayout;
+        QHBoxLayout* centralMainLayout;
+        QVBoxLayout* centralSecondLayout;
+
         QVBoxLayout* leftLayout;
         QVBoxLayout* rightLayout;
         QWidget* leftWidget;
@@ -71,6 +74,7 @@ class V_Mainwindow : public QMainWindow
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
         void toggleAscDescView();
+        void toggleRelationsView();
 };
 
 #endif // V_MAINWINDOW_H

@@ -31,6 +31,7 @@ void C_Mainwindow::createActions()
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
     view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
     view->connect(view->getUi()->actionShow_Asc_Desc_View,SIGNAL(triggered()),view,SLOT(toggleAscDescView()));
+    view->connect(view->getUi()->actionShow_Relations_View,SIGNAL(triggered()),view,SLOT(toggleRelationsView()));
 }
 
 void C_Mainwindow::refreshActiveNotes() {

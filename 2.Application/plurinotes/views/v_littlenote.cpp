@@ -45,7 +45,7 @@ V_Littletask::V_Littletask(QWidget *p, QString t, QString d,unsigned int pri) : 
     labelTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
     QFont font;
-    font.setPixelSize(20);
+    font.setPixelSize(15);
     labelTitle->setFont(font);
 
     labelDate = new QLabel(d);
