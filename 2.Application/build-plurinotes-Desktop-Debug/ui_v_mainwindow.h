@@ -142,6 +142,7 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionShow_Relations_View->setToolTip(QApplication::translate("V_Mainwindow", "Show Relations View", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
+        actionShow_Relations_View->setShortcut(QApplication::translate("V_Mainwindow", "R", 0, QApplication::UnicodeUTF8));
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", 0, QApplication::UnicodeUTF8));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", 0, QApplication::UnicodeUTF8));
         menuView->setTitle(QApplication::translate("V_Mainwindow", "View", 0, QApplication::UnicodeUTF8));
