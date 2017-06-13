@@ -78,6 +78,9 @@
    <property name="text">
     <string>Quit</string>
    </property>
+   <property name="toolTip">
+    <string>Quit the app</string>
+   </property>
   </action>
   <action name="actionArticle">
    <property name="icon">
@@ -86,6 +89,9 @@
    </property>
    <property name="text">
     <string>Article</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new Article</string>
    </property>
   </action>
   <action name="actionMultimedia">
@@ -96,6 +102,9 @@
    <property name="text">
     <string>Multimedia</string>
    </property>
+   <property name="toolTip">
+    <string>Add a new Multimedia</string>
+   </property>
   </action>
   <action name="actionTask">
    <property name="icon">
@@ -104,6 +113,9 @@
    </property>
    <property name="text">
     <string>Task</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a new Task</string>
    </property>
   </action>
   <action name="actionRelation">

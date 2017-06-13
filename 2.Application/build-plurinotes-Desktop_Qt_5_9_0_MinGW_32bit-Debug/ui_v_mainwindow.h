@@ -112,9 +112,21 @@ public:
     {
         V_Mainwindow->setWindowTitle(QApplication::translate("V_Mainwindow", "PluriNotes - FAYAX", Q_NULLPTR));
         actionQuit->setText(QApplication::translate("V_Mainwindow", "Quit", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionQuit->setToolTip(QApplication::translate("V_Mainwindow", "Quit the app", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionArticle->setText(QApplication::translate("V_Mainwindow", "Article", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionArticle->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Article", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionMultimedia->setText(QApplication::translate("V_Mainwindow", "Multimedia", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionMultimedia->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Multimedia", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionTask->setText(QApplication::translate("V_Mainwindow", "Task", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        actionTask->setToolTip(QApplication::translate("V_Mainwindow", "Add a new Task", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         actionRelation->setText(QApplication::translate("V_Mainwindow", "Relation", Q_NULLPTR));
         actionDefault_view->setText(QApplication::translate("V_Mainwindow", "Default view", Q_NULLPTR));
         actionRelations_view->setText(QApplication::translate("V_Mainwindow", "Relations view", Q_NULLPTR));

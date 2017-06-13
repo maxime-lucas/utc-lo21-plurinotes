@@ -32,10 +32,10 @@ public:
     {
         if (v_multiplerelation->objectName().isEmpty())
             v_multiplerelation->setObjectName(QStringLiteral("v_multiplerelation"));
-        v_multiplerelation->resize(224, 560);
+        v_multiplerelation->resize(210, 560);
         verticalLayoutWidget = new QWidget(v_multiplerelation);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 10, 221, 541));
+        verticalLayoutWidget->setGeometry(QRect(0, 0, 211, 561));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -44,6 +44,11 @@ public:
         __qtreewidgetitem->setText(0, QStringLiteral("Descendants"));
         treeDescendant->setHeaderItem(__qtreewidgetitem);
         treeDescendant->setObjectName(QStringLiteral("treeDescendant"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(treeDescendant->sizePolicy().hasHeightForWidth());
+        treeDescendant->setSizePolicy(sizePolicy);
 
         verticalLayout->addWidget(treeDescendant);
 
@@ -52,6 +57,8 @@ public:
         __qtreewidgetitem1->setText(0, QStringLiteral("Ascendants"));
         treeAscendant->setHeaderItem(__qtreewidgetitem1);
         treeAscendant->setObjectName(QStringLiteral("treeAscendant"));
+        sizePolicy.setHeightForWidth(treeAscendant->sizePolicy().hasHeightForWidth());
+        treeAscendant->setSizePolicy(sizePolicy);
 
         verticalLayout->addWidget(treeAscendant);
 

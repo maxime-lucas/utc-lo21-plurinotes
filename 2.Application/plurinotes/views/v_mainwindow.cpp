@@ -46,15 +46,29 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftLayout->addWidget(tasks);
     leftLayout->addWidget(labelArchivedNotes);
     leftLayout->addWidget(archivedNotes);
+    leftLayout->setMargin(5);
 
     centralNote = 0;
 
     rightLayout->addWidget(relation);
+    rightLayout->setSpacing(0);
+    rightLayout->setMargin(5);
 
     leftWidget->setLayout(leftLayout);
     leftWidget->setFixedWidth(210);
+    leftWidget->setObjectName("leftWidget");
 
     rightWidget->setLayout(rightLayout);
+    rightWidget->setFixedWidth(210);
+    rightWidget->setObjectName("rightWidget");
+
+    setEmptyCentralNote();
+    centralNote->setObjectName("centralWidget");
+
+    centralLayout->addWidget(leftWidget);
+    centralLayout->addWidget(centralNote);
+    centralLayout->addWidget(rightWidget);
+
     centralWidget()->setLayout(centralLayout);
     setEmptyCentralNote();
 
@@ -62,8 +76,12 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
 
+
     ui->actionRelations_view->connect(ui->actionRelations_view,SIGNAL(triggered(bool)),this,SLOT(openRelationView()));
     ui->actionDefault_view->connect(ui->actionDefault_view,SIGNAL(triggered(bool)),this,SLOT(openMainView()));
+
+    setStyleSheet("#leftWidget,#rightWidget, #centralWidget { border:2px solid #CCCCCC;}");
+
 
 }
 
@@ -110,6 +128,7 @@ void V_Mainwindow::refreshCentralNote(QString id) {
     delete centralLayout;
     centralLayout = new QHBoxLayout;
     centralNote->setFixedWidth(580);
+    centralNote->setObjectName("centralWidget");
     centralLayout->addWidget(leftWidget);
     centralLayout->addWidget(centralNote);
     centralLayout->addWidget(rightWidget);
@@ -131,7 +150,7 @@ void V_Mainwindow::setEmptyCentralNote() {
     QLabel *beginningTitle = new QLabel("Select a note in the left tab");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
     centralNoteLayout->addWidget(beginningTitle);
-    centralNote->setFixedSize(560,560);
+    centralNote->setFixedWidth(560);
     centralNote->setLayout(centralNoteLayout);
 
     delete centralLayout;
