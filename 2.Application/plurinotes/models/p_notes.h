@@ -67,6 +67,7 @@ class Note {
         QString getTitle() const { return title; }
         QDateTime getCreatedOn() const { return createdOn; }
         QDateTime getLastModifOn() const { return lastModifOn; }
+        std::vector<Version*>* getVersions() const { return versions; }
 
         void setId(QString i) { id = i; }
         void setTitle(QString t) { title = t; }

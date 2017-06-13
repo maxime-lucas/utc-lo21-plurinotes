@@ -1,5 +1,6 @@
 #include <QMessageBox>
 #include <QTextStream>
+#include <typeinfo>
 
 #include "main.h"
 #include "p_xml.h"
@@ -742,6 +743,33 @@ void XMLManager::updateTask(Task* oldA,Task* newA) {
 
     stream << newDoc;
 
+}
+
+void XMLManager::deleteNoteVersion(Note*n,Version*v) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+
+    if(typeid(*n) == typeid(Article)) {
+        QDomElement tasks = activeNotes.firstChildElement("tasks");
+        QDomElement task = tasks.firstChildElement("task");
+
+        for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
 }
 
 XMLManager::~XMLManager() {

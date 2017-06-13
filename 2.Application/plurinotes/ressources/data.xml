@@ -1,8 +1,114 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
-  <multimedias/>
+  <articles>
+   <article>
+    <id>1</id>
+    <title>Article 1</title>
+    <createdOn>Tue Jun 13 20:13:48 2017</createdOn>
+    <lastModifOn>Tue Jun 13 21:58:06 2017</lastModifOn>
+    <text>FUCK IT</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Tue Jun 13 20:13:48 2017</createdOn>
+       <lastModifOn>Tue Jun 13 20:13:48 2017</lastModifOn>
+       <text>Salut à tous, voici le premier article de PluriNotes - FAYAX</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>2</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Tue Jun 13 20:13:48 2017</createdOn>
+       <lastModifOn>Tue Jun 13 21:30:07 2017</lastModifOn>
+       <text>Salut à tous, voici le premier article de PluriNotes</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>3</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Tue Jun 13 20:13:48 2017</createdOn>
+       <lastModifOn>Tue Jun 13 21:30:13 2017</lastModifOn>
+       <text>Salut à tous, voici le premier article</text>
+      </article>
+     </version>
+     <version>
+      <numVersion>4</numVersion>
+      <article>
+       <id>1</id>
+       <title>Article 1</title>
+       <createdOn>Tue Jun 13 20:13:48 2017</createdOn>
+       <lastModifOn>Tue Jun 13 21:30:28 2017</lastModifOn>
+       <text>FUCK</text>
+      </article>
+     </version>
+    </versions>
+   </article>
+   <article>
+    <id>3</id>
+    <title>Article 1</title>
+    <createdOn>Tue Jun 13 21:29:26 2017</createdOn>
+    <lastModifOn>Tue Jun 13 21:29:26 2017</lastModifOn>
+    <text>Hi nigga</text>
+    <versions/>
+   </article>
+  </articles>
+  <multimedias>
+   <multimedia>
+    <id>2</id>
+    <title>Multimedia 1</title>
+    <createdOn>Tue Jun 13 20:51:21 2017</createdOn>
+    <lastModifOn>Tue Jun 13 21:29:42 2017</lastModifOn>
+    <description>Texte du multimedia 3</description>
+    <fileName>2.jpeg</fileName>
+    <type>picture</type>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <multimedia>
+       <id>2</id>
+       <title>Multimedia 1</title>
+       <createdOn>Tue Jun 13 20:51:21 2017</createdOn>
+       <lastModifOn>Tue Jun 13 20:51:21 2017</lastModifOn>
+       <description>juhtyrgefzd</description>
+       <fileName>2.jpeg</fileName>
+       <type>picture</type>
+      </multimedia>
+     </version>
+     <version>
+      <numVersion>2</numVersion>
+      <multimedia>
+       <id>2</id>
+       <title>Multimedia 1</title>
+       <createdOn>Tue Jun 13 20:51:21 2017</createdOn>
+       <lastModifOn>Tue Jun 13 20:59:12 2017</lastModifOn>
+       <description>Texte du multimedia 1</description>
+       <fileName>2.jpeg</fileName>
+       <type>picture</type>
+      </multimedia>
+     </version>
+     <version>
+      <numVersion>3</numVersion>
+      <multimedia>
+       <id>2</id>
+       <title>Multimedia 1</title>
+       <createdOn>Tue Jun 13 20:51:21 2017</createdOn>
+       <lastModifOn>Tue Jun 13 21:27:58 2017</lastModifOn>
+       <description>Texte du multimedia 2</description>
+       <fileName>2.jpeg</fileName>
+       <type>picture</type>
+      </multimedia>
+     </version>
+    </versions>
+   </multimedia>
+  </multimedias>
   <tasks/>
  </activeNotes>
 </plurinotes>

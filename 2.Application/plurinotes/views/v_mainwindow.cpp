@@ -1,6 +1,7 @@
 #include "main.h"
 
 #include <typeinfo>
+#include <QSignalMapper>
 
 #include "v_mainwindow.h"
 #include "ui_v_mainwindow.h"
@@ -24,6 +25,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
 
     ui->actionShow_Asc_Desc_View->setChecked(true);
     init();
+    this->connect(versions, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(restoreVersion(QListWidgetItem*)));
 }
 
 void V_Mainwindow::openNewArticle() {
@@ -87,6 +89,42 @@ void V_Mainwindow::refreshCentralNote(QString id) {
     centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
 
+    refreshVersions(id);
+}
+
+void V_Mainwindow::refreshVersions(QString id) {
+
+    Note* note = controller->getApp()->getNoteByID(id);
+
+    std::vector<Version*>* noteVersions = note->getVersions();
+
+    // CLEAR RELATIONS QLISTWIDGET
+    while(versions->count()>0) versions->takeItem(0);
+
+    for(unsigned int i = 0; i < noteVersions->size(); i++) {
+        Version*v = noteVersions->at(i);
+        Note*s = v->getState();
+
+        // PREPARE THE DISPLAY OF A VERSION IN THE QLISTWIDGET
+        QString f;
+        f += "[v." + QString::number(v->getNumVersion()) + "] ";
+        f += s->getTitle()+" - ";
+
+        if( typeid(*s) == typeid(Article) ) {
+            Article *a = new Article(dynamic_cast<Article&>(*s));
+            f += a->getText();
+
+        } else if( typeid(*s) == typeid(Multimedia) ) {
+            Multimedia *m = new Multimedia(dynamic_cast<Multimedia&>(*s));
+            f += m->getDescription();
+        }
+
+        QListWidgetItem *item = new QListWidgetItem;
+        item->setData(Qt::UserRole,note->getId()+":"+QString::number(v->getNumVersion()));
+        item->setText(f);
+
+        versions->addItem(item);
+    }
 }
 
 void V_Mainwindow::setEmptyCentralNote() {
@@ -104,7 +142,7 @@ void V_Mainwindow::setEmptyCentralNote() {
     QLabel *beginningTitle = new QLabel("Select a note in the left tab");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
     centralNoteLayout->addWidget(beginningTitle);
-    centralNote->setFixedWidth(560);
+    centralNote->setFixedWidth(580);
     centralNote->setLayout(centralNoteLayout);
 
     delete middleLayout;
@@ -125,6 +163,33 @@ void V_Mainwindow::setEmptyCentralNote() {
     centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
 
+}
+
+void V_Mainwindow::restoreVersion(QListWidgetItem* i) {
+    QString str = i->data(Qt::UserRole).toString();
+
+    QStringList strList = str.split(":");
+    QString id = strList.at(0);
+    QString numVersion = strList.at(1);
+
+    Version* v = controller->getApp()->getNoteVersionByID(id,numVersion);
+
+    QString mbText = "State of this version : \n\n"+v->toString()+"\n\n What would you like to do ?";
+
+    QMessageBox mb(this);
+    mb.setWindowTitle("What would you like to do ?");
+    mb.setText(mbText);
+    mb.addButton(tr("Delete"),QMessageBox::YesRole);
+    mb.addButton(tr("Restore"),QMessageBox::YesRole);
+    mb.addButton("Cancel", QMessageBox::NoRole);
+    mb.exec();
+
+    if(mb.clickedButton()->text() == "Delete") {
+        if(QMessageBox::question(this,"Delete versions","This operation will delete all anterior versions. \n Are you sure you want to continue ?", QMessageBox::Yes|QMessageBox::No) == QMessageBox::Yes)
+            controller->deleteNoteVersion(id,numVersion);
+     } else if(mb.clickedButton()->text() == "Restore") {
+        controller->restoreNoteVersion(id,numVersion);
+     }
 }
 
 void V_Mainwindow::toggleAscDescView() {
@@ -237,14 +302,18 @@ void V_Mainwindow::init() {
 
     bottomWidget = new QWidget;
     bottomLayout = new QVBoxLayout;
+    labelVersions = new QLabel("Versions");
+    versions = new QListWidget;
 
-    QLabel *versions = new QLabel("VERSIONS",bottomWidget);
-    versions->setAlignment(Qt::AlignCenter);
 
+    labelVersions->setAlignment(Qt::AlignCenter);
+    labelVersions->setFixedHeight(20);
+
+    bottomLayout->addWidget(labelVersions);
     bottomLayout->addWidget(versions);
 
     bottomWidget->setLayout(bottomLayout);
-    bottomWidget->setFixedSize(580,100);
+    bottomWidget->setFixedHeight(100);
     bottomWidget->setObjectName("bottomWidget");
 
     // MIDDLE WIDGET INIT

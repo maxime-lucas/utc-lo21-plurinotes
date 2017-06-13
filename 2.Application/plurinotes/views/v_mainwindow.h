@@ -5,6 +5,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QListWidget>
 
 #include "v_articleform.h"
 #include "v_multimediaform.h"
@@ -79,6 +80,11 @@ class V_Mainwindow : public QMainWindow
 
         V_Multiplerelation *relation;
 
+        // ALL FOR BOTTOM WIDGET
+
+        QLabel* labelVersions;
+        QListWidget* versions;
+
         // ALL FOR FORM PROMPTS
 
         V_ArticleForm* articleForm;
@@ -93,9 +99,11 @@ class V_Mainwindow : public QMainWindow
         void openNewMultimedia();
         void openNewTask();
         void refreshCentralNote(QString);
+        void refreshVersions(QString);
         void setEmptyCentralNote();
         void toggleAscDescView();
         void toggleRelationsView();
+        void restoreVersion(QListWidgetItem*);
 };
 
 #endif // V_MAINWINDOW_H

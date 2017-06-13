@@ -73,6 +73,17 @@ Note* PluriNotes::getNoteByID(QString id) {
     return 0;
 }
 
+Version* PluriNotes::getNoteVersionByID(QString id, QString numV) {
+    Note* n = getNoteByID(id);
+
+    for(unsigned int i = 0; i < n->getVersions()->size() ; i++ ) {
+        Version *v = n->getVersions()->at(i);
+        if(v->getNumVersion() == numV.toInt()) return v;
+    }
+
+    return 0;
+}
+
 void PluriNotes::debug(QString str) {
     std::cout << "[DEBUG] " << str.toStdString() << std::endl;
 }

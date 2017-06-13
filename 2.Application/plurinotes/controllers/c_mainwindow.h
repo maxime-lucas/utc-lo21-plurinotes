@@ -36,6 +36,9 @@ class C_Mainwindow {
         void editMultimedia(QString,Multimedia*);
         void editTask(QString,Task*);
 
+        void restoreNoteVersion(QString,QString);
+        void deleteNoteVersion(QString,QString);
+
         void deleteByID(QString);
 };
 

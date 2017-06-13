@@ -279,3 +279,41 @@ void C_Mainwindow::deleteByID(QString id) {
     refreshTask();
     view->setEmptyCentralNote();
 }
+
+void C_Mainwindow::restoreNoteVersion(QString noteID, QString numVersion) {
+    // XML :
+    // - Update de l'état actuel avec la version voulue
+    // - Suppression de toutes les versions
+}
+
+void C_Mainwindow::deleteNoteVersion(QString noteID, QString numVersion) {
+    // XML :
+    // - Suppression de la version voulue et de toutes les versions ultérieures
+    Note *n = app->getNoteByID(noteID);
+    Version *v = app->getNoteVersionByID(noteID,numVersion);
+
+    app->getXMLManager()->deleteNoteVersion(n,v);
+
+    //Suppression dans les notes actives (côté vue)
+    for(unsigned int i = 0; i < app->getActiveNotesManager()->getTab()->size() ; i++ ) {
+        Note *note = app->getActiveNotesManager()->getTab()->at(i);
+
+        if( note->getId() == n->getId() ) {
+
+            int index = -1;
+            for(unsigned int j = 0; j < note->getVersions()->size() ; j++ ) {
+                Version *version = note->getVersions()->at(j);
+
+                if( version->getNumVersion() == v->getNumVersion() ) index = j;
+            }
+
+            if(index != -1) note->getVersions()->erase(note->getVersions()->begin() + index, note->getVersions()->end());
+        }
+    }
+
+    refreshActiveNotes();
+    refreshTask();
+    view->setEmptyCentralNote();
+    view->refreshVersions(noteID);
+
+}
