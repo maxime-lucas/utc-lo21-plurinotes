@@ -11,7 +11,30 @@
     <versions/>
    </article>
   </articles>
-  <multimedias/>
-  <tasks/>
+  <multimedias>
+   <multimedia>
+    <id>2</id>
+    <title>C'est l'image de ta vie</title>
+    <createdOn>mar. juin 13 18:44:04 2017</createdOn>
+    <lastModifOn>mar. juin 13 18:44:04 2017</lastModifOn>
+    <description>ouais mon gars</description>
+    <fileName>2.jpg</fileName>
+    <type>picture</type>
+    <versions/>
+   </multimedia>
+  </multimedias>
+  <tasks>
+   <task>
+    <id>3</id>
+    <title>laver le linge</title>
+    <createdOn>mar. juin 13 18:44:29 2017</createdOn>
+    <lastModifOn>mar. juin 13 18:44:29 2017</lastModifOn>
+    <action>fdfsd</action>
+    <priority>36</priority>
+    <deadline>sam. janv. 1 00:00:00 2000</deadline>
+    <status>0</status>
+    <versions/>
+   </task>
+  </tasks>
  </activeNotes>
 </plurinotes>

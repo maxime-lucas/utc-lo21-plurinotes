@@ -13,12 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -34,26 +35,27 @@ public:
     QListView *listeRelation;
     QLabel *labelCouple;
     QListView *listCouple;
-    QHBoxLayout *coupleLayout;
-    QVBoxLayout *coupleView;
-    QSpacerItem *horizontalSpacer_3;
-    QVBoxLayout *coupleButon;
-    QPushButton *btnAdd;
+    QGridLayout *centralView;
     QPushButton *btnEdit;
+    QLabel *labelID;
     QPushButton *btnDelete;
-    QSpacerItem *verticalSpacer;
+    QLineEdit *textTitle;
+    QLabel *labelType;
+    QWidget *contentView;
 
     void setupUi(QWidget *v_mainrelation)
     {
         if (v_mainrelation->objectName().isEmpty())
             v_mainrelation->setObjectName(QStringLiteral("v_mainrelation"));
         v_mainrelation->resize(800, 600);
+        v_mainrelation->setBaseSize(QSize(800, 600));
+        v_mainrelation->setLayoutDirection(Qt::LeftToRight);
         horizontalLayoutWidget = new QWidget(v_mainrelation);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(10, 10, 781, 581));
         centralLayout = new QHBoxLayout(horizontalLayoutWidget);
         centralLayout->setObjectName(QStringLiteral("centralLayout"));
-        centralLayout->setSizeConstraint(QLayout::SetFixedSize);
+        centralLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         centralLayout->setContentsMargins(0, 0, 0, 0);
         relationView = new QVBoxLayout();
         relationView->setObjectName(QStringLiteral("relationView"));
@@ -83,46 +85,53 @@ public:
 
         centralLayout->addLayout(relationView);
 
-        coupleLayout = new QHBoxLayout();
-        coupleLayout->setSpacing(8);
-        coupleLayout->setObjectName(QStringLiteral("coupleLayout"));
-        coupleView = new QVBoxLayout();
-        coupleView->setObjectName(QStringLiteral("coupleView"));
-        horizontalSpacer_3 = new QSpacerItem(80, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        coupleView->addItem(horizontalSpacer_3);
-
-
-        coupleLayout->addLayout(coupleView);
-
-        coupleButon = new QVBoxLayout();
-        coupleButon->setObjectName(QStringLiteral("coupleButon"));
-        btnAdd = new QPushButton(horizontalLayoutWidget);
-        btnAdd->setObjectName(QStringLiteral("btnAdd"));
-
-        coupleButon->addWidget(btnAdd);
-
+        centralView = new QGridLayout();
+        centralView->setObjectName(QStringLiteral("centralView"));
         btnEdit = new QPushButton(horizontalLayoutWidget);
         btnEdit->setObjectName(QStringLiteral("btnEdit"));
 
-        coupleButon->addWidget(btnEdit);
+        centralView->addWidget(btnEdit, 4, 1, 1, 1);
+
+        labelID = new QLabel(horizontalLayoutWidget);
+        labelID->setObjectName(QStringLiteral("labelID"));
+        labelID->setMaximumSize(QSize(16777215, 30));
+        labelID->setAlignment(Qt::AlignCenter);
+
+        centralView->addWidget(labelID, 0, 1, 1, 1);
 
         btnDelete = new QPushButton(horizontalLayoutWidget);
         btnDelete->setObjectName(QStringLiteral("btnDelete"));
 
-        coupleButon->addWidget(btnDelete);
+        centralView->addWidget(btnDelete, 4, 0, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        textTitle = new QLineEdit(horizontalLayoutWidget);
+        textTitle->setObjectName(QStringLiteral("textTitle"));
+        textTitle->setBaseSize(QSize(0, 0));
+        QFont font;
+        font.setPointSize(16);
+        font.setBold(true);
+        font.setWeight(75);
+        textTitle->setFont(font);
+        textTitle->setStyleSheet(QStringLiteral("margin:0 auto;"));
+        textTitle->setAlignment(Qt::AlignCenter);
 
-        coupleButon->addItem(verticalSpacer);
+        centralView->addWidget(textTitle, 1, 0, 1, 2);
+
+        labelType = new QLabel(horizontalLayoutWidget);
+        labelType->setObjectName(QStringLiteral("labelType"));
+        labelType->setMaximumSize(QSize(16777215, 30));
+        labelType->setAlignment(Qt::AlignCenter);
+
+        centralView->addWidget(labelType, 0, 0, 1, 1);
+
+        contentView = new QWidget(horizontalLayoutWidget);
+        contentView->setObjectName(QStringLiteral("contentView"));
+
+        centralView->addWidget(contentView, 3, 0, 1, 2);
 
 
-        coupleLayout->addLayout(coupleButon);
+        centralLayout->addLayout(centralView);
 
-
-        centralLayout->addLayout(coupleLayout);
-
-        centralLayout->setStretch(0, 30);
         centralLayout->setStretch(1, 100);
 
         retranslateUi(v_mainrelation);
@@ -135,9 +144,11 @@ public:
         v_mainrelation->setWindowTitle(QApplication::translate("v_mainrelation", "Form", Q_NULLPTR));
         labelRelation->setText(QApplication::translate("v_mainrelation", "Relations", Q_NULLPTR));
         labelCouple->setText(QApplication::translate("v_mainrelation", "Couples", Q_NULLPTR));
-        btnAdd->setText(QApplication::translate("v_mainrelation", "add Couple", Q_NULLPTR));
-        btnEdit->setText(QApplication::translate("v_mainrelation", "edit Couple", Q_NULLPTR));
-        btnDelete->setText(QApplication::translate("v_mainrelation", "delete Couple", Q_NULLPTR));
+        btnEdit->setText(QApplication::translate("v_mainrelation", "Edit", Q_NULLPTR));
+        labelID->setText(QApplication::translate("v_mainrelation", "ID : 1", Q_NULLPTR));
+        btnDelete->setText(QApplication::translate("v_mainrelation", "Delete", Q_NULLPTR));
+        textTitle->setText(QApplication::translate("v_mainrelation", "Title", Q_NULLPTR));
+        labelType->setText(QApplication::translate("v_mainrelation", "Type", Q_NULLPTR));
     } // retranslateUi
 
 };

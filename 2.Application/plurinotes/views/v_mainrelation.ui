@@ -10,8 +10,17 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="baseSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
   </property>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
@@ -22,9 +31,9 @@
      <height>581</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="centralLayout" stretch="30,100">
+   <layout class="QHBoxLayout" name="centralLayout" stretch="0,100">
     <property name="sizeConstraint">
-     <enum>QLayout::SetFixedSize</enum>
+     <enum>QLayout::SetDefaultConstraint</enum>
     </property>
     <item>
      <layout class="QVBoxLayout" name="relationView">
@@ -64,67 +73,9 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="coupleLayout" stretch="0,0">
-      <property name="spacing">
-       <number>8</number>
-      </property>
-      <item>
-       <layout class="QVBoxLayout" name="coupleView">
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>80</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="coupleButon">
-        <item>
-         <widget class="QPushButton" name="btnAdd">
-          <property name="text">
-           <string>add Couple</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnEdit">
-          <property name="text">
-           <string>edit Couple</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnDelete">
-          <property name="text">
-           <string>delete Couple</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0" colspan="2">
+       <widget class="QWidget" name="formWidget" native="true"/>
       </item>
      </layout>
     </item>

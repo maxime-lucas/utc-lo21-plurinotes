@@ -30,6 +30,9 @@ class Relation
     public:
         Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
         void addCouple(QString lab,Note* a,Note* b);
+        QString getTitle() const {return title;}
+        QString getDesc() const {return description;}
+        bool getOriented() const {return isOriented;}
         void RemoveCouple(QString lab);
         ~Relation() { if (couples) delete[] couples;}
 };

@@ -1,11 +1,8 @@
 #ifndef V_MAINRELATION_H
 #define V_MAINRELATION_H
 
-#include <QWidget>
-#include <QMessageBox>
-#include <QList>
-#include <QStringListModel>
-
+#include "main.h"
+#include "v_centralrelation.h"
 #include "../controllers/c_mainwindow.h"
 
 class C_Mainwindow;
@@ -14,7 +11,7 @@ namespace Ui {
     class v_mainrelation;
 }
 
-class V_MainRelation : public QWidget {
+class V_MainView : public QWidget {
 
     Q_OBJECT
 
@@ -22,16 +19,22 @@ public:
     explicit V_MainRelation(QWidget *parent = 0, C_Mainwindow *c = 0);
     ~V_MainRelation();
 
+    C_Mainwindow* getController() const {return controller;}
     Ui::v_mainrelation* getUi() const {return ui;}
+
+    void setEmptyCentralView();
 
 private:
     Ui::v_mainrelation* ui;
     C_Mainwindow* controller;
     QStringList relations;
-    QStringList* couples;
+    QStringList couples;
+    QStringList empty;
+
 
 public slots:
     void refreshCouple();
+    void afficheCouple();
 };
 
 
