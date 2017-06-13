@@ -24,7 +24,7 @@ class V_CentralNote : public QWidget {
         V_Mainwindow* getMainwindow() const { return parentView; }
         virtual ~V_CentralNote() = 0;
 
-    private:
+    protected:
         Ui::V_CentralNote *ui;
         V_Mainwindow *parentView;
 
@@ -58,7 +58,7 @@ public:
     ~V_CentralMultimedia();
     void editMultimedia();
 private:
-    QPlainTextEdit *desc;
+    QTextEdit *desc;
     TypeMultimedia type;
     QString pathToFile;
 

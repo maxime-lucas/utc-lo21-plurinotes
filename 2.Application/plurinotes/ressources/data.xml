@@ -32,6 +32,14 @@ Il est extra !</text>
      </version>
     </versions>
    </article>
+   <article>
+    <id>4</id>
+    <title>Article 2</title>
+    <createdOn>Tue Jun 13 15:49:21 2017</createdOn>
+    <lastModifOn>Tue Jun 13 15:49:21 2017</lastModifOn>
+    <text>rgefzead</text>
+    <versions/>
+   </article>
   </articles>
   <multimedias>
    <multimedia>
@@ -52,6 +60,29 @@ Il est extra !</text>
        <lastModifOn>Tue Jun 13 14:56:49 2017</lastModifOn>
        <description>Oh une chouette</description>
        <fileName>2.jpeg</fileName>
+       <type>picture</type>
+      </multimedia>
+     </version>
+    </versions>
+   </multimedia>
+   <multimedia>
+    <id>5</id>
+    <title>VIGOGNE</title>
+    <createdOn>Tue Jun 13 17:00:03 2017</createdOn>
+    <lastModifOn>Tue Jun 13 17:00:20 2017</lastModifOn>
+    <description>C'est pas un alpaga</description>
+    <fileName>5.jpg</fileName>
+    <type>picture</type>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <multimedia>
+       <id>5</id>
+       <title>VIGOGNE</title>
+       <createdOn>Tue Jun 13 17:00:03 2017</createdOn>
+       <lastModifOn>Tue Jun 13 17:00:03 2017</lastModifOn>
+       <description>LOL</description>
+       <fileName>5.jpg</fileName>
        <type>picture</type>
       </multimedia>
      </version>

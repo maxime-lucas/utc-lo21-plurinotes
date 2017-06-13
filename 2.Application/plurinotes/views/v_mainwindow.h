@@ -45,13 +45,25 @@ class V_Mainwindow : public QMainWindow
 
     private:
         Ui::V_Mainwindow *ui;
-        QHBoxLayout* centralMainLayout;
-        QVBoxLayout* centralSecondLayout;
+        C_Mainwindow *controller;
 
-        QVBoxLayout* leftLayout;
-        QVBoxLayout* rightLayout;
-        QWidget* leftWidget;
-        QWidget* rightWidget;
+        // LAYOUTS AND WIDGETS
+
+        QHBoxLayout* centralMainLayout; // MAIN VIEW (tab-1)
+        QVBoxLayout* centralSecondLayout; // RELATIONS VIEW (tab-2)
+        QVBoxLayout* leftLayout; // TO BUILD THE LEFT WIDGET (activeNotes,Tasks,....)
+        QVBoxLayout* rightLayout; // TO BUILD THE RIGHT WIDGET (Asc & Desc)
+        QVBoxLayout* bottomLayout; // TO BUILD THE BOTTOM WIDGET (Versions for each note)
+        QVBoxLayout* middleLayout; // TO BUILD THE MIDDLE WIDGET = CENTRAL NOTE + VERSIONS
+        QVBoxLayout *centralNoteLayout; // TO BUILD THE CENTRAL NOTE
+
+        QWidget* leftWidget; // (SEE ABOVE)
+        QWidget* rightWidget; // (SEE ABOVE)
+        QWidget* bottomWidget; // (SEE ABOVE)
+        QWidget* middleWidget; // (SEE ABOVE)
+        QWidget *centralNote; // (SEE ABOVE)
+
+        // ALL FOR LEFT WIDGET
 
         QLabel* labelActiveNotes;
         QLabel* labelTasks;
@@ -61,15 +73,15 @@ class V_Mainwindow : public QMainWindow
         V_Multiplenotes *tasks;
         V_Multiplenotes *archivedNotes;
 
+        // ALL FOR RIGHT WIDGET
+
         V_Multiplerelation *relation;
+
+        // ALL FOR FORM PROMPTS
 
         V_ArticleForm* articleForm;
         V_MultimediaForm* multimediaForm;
         V_TaskForm* taskForm;
-        C_Mainwindow *controller;
-        QWidget *centralNote;
-
-        void createActions();
 
     public slots:
         void openNewArticle();
