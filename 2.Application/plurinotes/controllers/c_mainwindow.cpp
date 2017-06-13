@@ -8,6 +8,7 @@
 #include "ui_v_multimediaform.h"
 #include "ui_v_taskform.h"
 #include "ui_v_multiplenotes.h"
+#include "ui_v_multiplerelation.h"
 
 C_Mainwindow::C_Mainwindow(QApplication *q) {
 
@@ -23,7 +24,7 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 
 void C_Mainwindow::createActions()
 {
-    view->getUi()->actionQuit->setShortcut(Qt::Key_Close);
+    view->getUi()->actionQuit->setShortcut(Qt::Key_Escape);
     view->connect(view->getUi()->actionQuit, SIGNAL(triggered()), qapp, SLOT(quit()) );
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
@@ -76,18 +77,17 @@ void C_Mainwindow::refreshActiveNotes() {
                 row++;
                 column=0;
             } else column++;
-        }
 
             signalMapper->setMapping(ln, note->getId());
             view->connect(ln, SIGNAL(clicked()), signalMapper, SLOT(map()));
         }
     }
+}
 
 void C_Mainwindow::refreshTask()
 {
     std::vector<Note*> *notes = app->getActiveNotesManager()->getTab();
     unsigned int row = 0;
-    unsigned int column = 0;
 
     // Remise à 0 du GridLayout
     QLayoutItem* item;
@@ -154,13 +154,9 @@ void C_Mainwindow::refreshTask()
         Task* a = new Task( dynamic_cast<Task&>(*task) );
 
         la = new V_Littletask(this->getView()->getTasks()->getContainer(),a->getTitle(),a->getDeadline().toString(),a->getPriority());
-        view->getTasks()->getGridLayout()->addWidget(la,row,column);
+        view->getTasks()->getGridLayout()->addWidget(la,row,0);
 
-        if( column != 0 && column % 1 == 0 )
-        {
-                row++;
-                column=0;
-        } else column++;
+        row++;
 
         signalMapper->setMapping(la, task->getId());
         view->connect(la, SIGNAL(clicked()), signalMapper, SLOT(map()));
@@ -204,16 +200,34 @@ void C_Mainwindow::saveNewTask(Task *t) {
 void C_Mainwindow::editArticle(QString id,Article* newV)
 {
     Article* article = &(dynamic_cast<Article&>(*(app->getNoteByID(id))));
+
+    if( article->getText() != newV->getText() || article->getTitle() != newV->getTitle() ) {
+        app->getXMLManager()->updateArticle(article,newV);
+        app->reloadFromDatabase();
+        view->refreshCentralNote(id);
+    }
 }
 
 void C_Mainwindow::editMultimedia(QString id,Multimedia* newV)
 {
-    std::cout << id.toStdString() << std::endl;
+    Multimedia* multimedia = &(dynamic_cast<Multimedia&>(*(app->getNoteByID(id))));
+
+    if( multimedia->getTitle() != newV->getTitle() || multimedia->getDescription() != newV->getDescription()) {
+        app->getXMLManager()->updateMultimedia(multimedia,newV);
+        app->reloadFromDatabase();
+        view->refreshCentralNote(id);
+    }
 }
 
 void C_Mainwindow::editTask(QString id,Task* newV)
 {
-    std::cout << id.toStdString() << std::endl;
+    Task* task = &(dynamic_cast<Task&>(*(app->getNoteByID(id))));
+    if( task->getTitle() != newV->getTitle() || task->getAction() != newV->getAction() || task->getPriority() != newV->getPriority() || task->getDeadline() != newV->getDeadline() || task->getStatus() != newV->getStatus()) {
+        app->getXMLManager()->updateTask(task,newV);
+        app->reloadFromDatabase();
+        view->refreshCentralNote(id);
+        refreshTask();
+    }
 }
 
 void C_Mainwindow::deleteByID(QString id) {

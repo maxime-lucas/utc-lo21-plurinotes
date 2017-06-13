@@ -2,6 +2,7 @@
 #include "v_mainwindow.h"
 #include "ui_v_mainwindow.h"
 #include "ui_v_multiplenotes.h"
+#include "ui_v_multiplerelation.h"
 
 V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     QMainWindow(parent),
@@ -29,9 +30,13 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     tasks = new V_Multiplenotes;
     archivedNotes = new V_Multiplenotes;
 
+    relation = new V_Multiplerelation;
+
     centralLayout = new QHBoxLayout;
     leftWidget = new QWidget;
+    rightWidget = new QWidget;
     leftLayout = new QVBoxLayout;
+    rightLayout = new QVBoxLayout;
 
     leftLayout->addWidget(labelActiveNotes);
     leftLayout->addWidget(activeNotes);
@@ -39,15 +44,33 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftLayout->addWidget(tasks);
     leftLayout->addWidget(labelArchivedNotes);
     leftLayout->addWidget(archivedNotes);
+    leftLayout->setMargin(5);
 
     centralNote = 0;
 
+    rightLayout->addWidget(relation);
+    rightLayout->setSpacing(0);
+    rightLayout->setMargin(5);
+
     leftWidget->setLayout(leftLayout);
     leftWidget->setFixedWidth(210);
+    leftWidget->setObjectName("leftWidget");
 
-    centralLayout->addWidget(leftWidget);
+    rightWidget->setLayout(rightLayout);
+    rightWidget->setFixedWidth(210);
+    rightWidget->setObjectName("rightWidget");
+
     setEmptyCentralNote();
+    centralNote->setObjectName("centralWidget");
     centralWidget()->setLayout(centralLayout);
+
+    ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
+    ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
+    ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
+
+    setStyleSheet("#leftWidget,#rightWidget, #centralWidget { border:2px solid #CCCCCC;}");
+    rightWidget->setVisible(false);
+
 }
 
 void V_Mainwindow::openNewArticle() {
@@ -76,22 +99,28 @@ void V_Mainwindow::refreshCentralNote(QString id) {
         Article* article = new Article(dynamic_cast<Article&>(*note));
         V_CentralArticle *v_centralArticle = new V_CentralArticle(article,this);
         centralNote = v_centralArticle;
-        centralLayout->addWidget(centralNote);
     }
 
     if( typeid(*note) == typeid(Multimedia) ) {
         Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
         V_CentralMultimedia *v_centralMultimedia = new V_CentralMultimedia(multimedia,this);
         centralNote = v_centralMultimedia;
-        centralLayout->addWidget(centralNote);
     }
 
     if( typeid(*note) == typeid(Task) ) {
         Task* task = new Task(dynamic_cast<Task&>(*note));
         V_CentralTask *v_centralTask = new V_CentralTask(task,this);
         centralNote = v_centralTask;
-        centralLayout->addWidget(centralNote);
     }
+
+    delete centralLayout;
+    centralLayout = new QHBoxLayout;
+    centralNote->setFixedWidth(580);
+    centralNote->setObjectName("centralWidget");
+    centralLayout->addWidget(leftWidget);
+    centralLayout->addWidget(centralNote);
+    centralLayout->addWidget(rightWidget);
+    centralWidget()->setLayout(centralLayout);
 }
 
 void V_Mainwindow::setEmptyCentralNote() {
@@ -109,9 +138,16 @@ void V_Mainwindow::setEmptyCentralNote() {
     QLabel *beginningTitle = new QLabel("Select a note in the left tab");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
     centralNoteLayout->addWidget(beginningTitle);
-    centralNote->setFixedSize(560,560);
+    centralNote->setFixedWidth(560);
     centralNote->setLayout(centralNoteLayout);
+
+    delete centralLayout;
+    centralLayout = new QHBoxLayout;
+    centralLayout->addWidget(leftWidget);
     centralLayout->addWidget(centralNote);
+    centralLayout->addWidget(rightWidget);
+    centralWidget()->setLayout(centralLayout);
+
 }
 
 V_Mainwindow::~V_Mainwindow()

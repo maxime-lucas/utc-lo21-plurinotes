@@ -105,14 +105,13 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
         bool ok;
         priority = task.firstChildElement("priority").text().toInt(&ok,10);
 
-
         //Convertion de QString en taskSatus
 
-        if(task.firstChildElement("status").text() == "PENDING")
+        if(task.firstChildElement("status").text() == "0")
             status = PENDING;
-        else if(task.firstChildElement("status").text() == "PROGRESS")
+        else if(task.firstChildElement("status").text() == "1")
             status = PROGRESS;
-        else if(task.firstChildElement("status").text() == "FINISHED")
+        else if(task.firstChildElement("status").text() == "2")
             status = FINISHED;
 
         Task *t = new Task(
@@ -241,24 +240,15 @@ void XMLManager::insertIntoTask(Task*t) {
         QDomElement tAction = dom->createElement("action");
             tAction.appendChild(dom->createTextNode(t->getAction()));
         QDomElement tPriority = dom->createElement("priority");
-            QString conv =QString::number(t->getPriority());
-            tPriority.appendChild(dom->createTextNode(conv));
+            tPriority.appendChild(dom->createTextNode(QString::number(t->getPriority())));
         QDomElement tDeadline = dom->createElement("deadline");
             tDeadline.appendChild(dom->createTextNode(t->getDeadline().toString()));
         QDomElement tStatus = dom->createElement("status");
+            if(t->getStatus() == PENDING) tStatus.appendChild(dom->createTextNode("0"));
+            else if(t->getStatus() == PROGRESS) tStatus.appendChild(dom->createTextNode("1"));
+            else tStatus.appendChild(dom->createTextNode("2"));
         QDomElement tVersions = dom->createElement("versions");
 
-
-        QString status;
-
-        if(t->getStatus() == PENDING)
-            status = "PENDING";
-        else if(t->getStatus() == PROGRESS)
-            status = "PROGRESS";
-        else if(t->getStatus() == FINISHED)
-            status = "FINISHED";
-
-            tStatus.appendChild(dom->createTextNode(status));
 
     newtask.appendChild(tID);
     newtask.appendChild(tTitle);
@@ -438,6 +428,228 @@ unsigned int XMLManager::getLastId() const {
         }
 
     return lastID;
+}
+
+void XMLManager::updateArticle(Article* oldA,Article* newA) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement articles = activeNotes.firstChildElement("articles");
+    QDomElement article = articles.firstChildElement("article");
+
+    for(;!article.isNull(); article = article.nextSiblingElement("article")) {
+
+        if( article.firstChildElement("id").text() == oldA->getId() ) {
+
+            QDomElement versions = article.firstChildElement("versions");
+                QDomElement version = dom->createElement("version");
+                    QDomElement numVersion = dom->createElement("numVersion");
+                        numVersion.appendChild(dom->createTextNode(QString::number(versions.childNodes().size() + 1 )));
+                    QDomElement versionArticle = dom->createElement("article");
+                        QDomElement aID = dom->createElement("id");
+                            aID.appendChild(dom->createTextNode(oldA->getId()));
+                        QDomElement aTitle = dom->createElement("title");
+                            aTitle.appendChild(dom->createTextNode(oldA->getTitle()));
+                        QDomElement aCreatedOn = dom->createElement("createdOn");
+                            aCreatedOn.appendChild(dom->createTextNode(oldA->getCreatedOn().toString()));
+                        QDomElement aLastModifOn = dom->createElement("lastModifOn");
+                            aLastModifOn.appendChild(dom->createTextNode(oldA->getLastModifOn().toString()));
+                        QDomElement aText = dom->createElement("text");
+                            aText.appendChild(dom->createTextNode(oldA->getText()));
+                        versionArticle.appendChild(aID);
+                        versionArticle.appendChild(aTitle);
+                        versionArticle.appendChild(aCreatedOn);
+                        versionArticle.appendChild(aLastModifOn);
+                        versionArticle.appendChild(aText);
+
+                    version.appendChild(numVersion);
+                    version.appendChild(versionArticle);
+                versions.appendChild(version);
+
+            QDomElement oTitle = article.firstChildElement("title");
+                oTitle.removeChild(oTitle.childNodes().at(0));
+                oTitle.appendChild(dom->createTextNode(newA->getTitle()));
+            QDomElement oText = article.firstChildElement("text");
+                oText.removeChild(oText.childNodes().at(0));
+                oText.appendChild(dom->createTextNode(newA->getText()));
+            QDomElement oLastModifOn = article.firstChildElement("lastModifOn");
+                oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                oLastModifOn.appendChild(dom->createTextNode(newA->getLastModifOn().toString()));
+        }
+
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+
+}
+
+void XMLManager::updateMultimedia(Multimedia* oldA,Multimedia* newA) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement multimedias = activeNotes.firstChildElement("multimedias");
+    QDomElement multimedia = multimedias.firstChildElement("multimedia");
+
+    for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
+
+        if( multimedia.firstChildElement("id").text() == oldA->getId() ) {
+
+            QDomElement versions = multimedia.firstChildElement("versions");
+                QDomElement version = dom->createElement("version");
+                    QDomElement numVersion = dom->createElement("numVersion");
+                        numVersion.appendChild(dom->createTextNode(QString::number(versions.childNodes().size() + 1 )));
+                    QDomElement versionMultimedia = dom->createElement("multimedia");
+                        QDomElement mID = dom->createElement("id");
+                            mID.appendChild(dom->createTextNode(oldA->getId()));
+                        QDomElement mTitle = dom->createElement("title");
+                            mTitle.appendChild(dom->createTextNode(oldA->getTitle()));
+                        QDomElement mCreatedOn = dom->createElement("createdOn");
+                            mCreatedOn.appendChild(dom->createTextNode(oldA->getCreatedOn().toString()));
+                        QDomElement mLastModifOn = dom->createElement("lastModifOn");
+                            mLastModifOn.appendChild(dom->createTextNode(oldA->getLastModifOn().toString()));
+                        QDomElement mDescription = dom->createElement("description");
+                            mDescription.appendChild(dom->createTextNode(oldA->getDescription()));
+                        QDomElement mFileName = dom->createElement("fileName");
+                            mFileName.appendChild(dom->createTextNode(oldA->getFileName()));
+                        QDomElement mType = dom->createElement("type");
+                            if(oldA->getType() == AUDIO ) mType.appendChild(dom->createTextNode("audio"));
+                            else if(oldA->getType() == VIDEO ) mType.appendChild(dom->createTextNode("video"));
+                            else mType.appendChild(dom->createTextNode("picture"));
+
+                        versionMultimedia.appendChild(mID);
+                        versionMultimedia.appendChild(mTitle);
+                        versionMultimedia.appendChild(mCreatedOn);
+                        versionMultimedia.appendChild(mLastModifOn);
+                        versionMultimedia.appendChild(mDescription);
+                        versionMultimedia.appendChild(mFileName);
+                        versionMultimedia.appendChild(mType);
+
+                    version.appendChild(numVersion);
+                    version.appendChild(versionMultimedia);
+                versions.appendChild(version);
+
+            QDomElement oTitle = multimedia.firstChildElement("title");
+                oTitle.removeChild(oTitle.childNodes().at(0));
+                oTitle.appendChild(dom->createTextNode(newA->getTitle()));
+            QDomElement oDescription = multimedia.firstChildElement("description");
+                oDescription.removeChild(oDescription.childNodes().at(0));
+                oDescription.appendChild(dom->createTextNode(newA->getDescription()));
+            QDomElement oLastModifOn = multimedia.firstChildElement("lastModifOn");
+                oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                oLastModifOn.appendChild(dom->createTextNode(newA->getLastModifOn().toString()));
+        }
+
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+
+}
+
+void XMLManager::updateTask(Task* oldA,Task* newA) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+    QDomElement tasks = activeNotes.firstChildElement("tasks");
+    QDomElement task = tasks.firstChildElement("task");
+
+    for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+
+        if( task.firstChildElement("id").text() == oldA->getId() ) {
+
+            QDomElement versions = task.firstChildElement("versions");
+                QDomElement version = dom->createElement("version");
+                    QDomElement numVersion = dom->createElement("numVersion");
+                        numVersion.appendChild(dom->createTextNode(QString::number(versions.childNodes().size() + 1 )));
+                    QDomElement versionTask = dom->createElement("task");
+                        QDomElement tID = dom->createElement("id");
+                            tID.appendChild(dom->createTextNode(oldA->getId()));
+                        QDomElement tTitle = dom->createElement("title");
+                            tTitle.appendChild(dom->createTextNode(oldA->getTitle()));
+                        QDomElement tCreatedOn = dom->createElement("createdOn");
+                            tCreatedOn.appendChild(dom->createTextNode(oldA->getCreatedOn().toString()));
+                        QDomElement tLastModifOn = dom->createElement("lastModifOn");
+                            tLastModifOn.appendChild(dom->createTextNode(oldA->getLastModifOn().toString()));
+                        QDomElement tAction = dom->createElement("action");
+                            tAction.appendChild(dom->createTextNode(oldA->getAction()));
+                        QDomElement tPriority = dom->createElement("priority");
+                            QString conv =QString::number(oldA->getPriority());
+                            tPriority.appendChild(dom->createTextNode(conv));
+                        QDomElement tDeadline = dom->createElement("deadline");
+                            tDeadline.appendChild(dom->createTextNode(oldA->getDeadline().toString()));
+                        QDomElement tStatus = dom->createElement("status");
+                            if(oldA->getStatus() == PENDING) tStatus.appendChild(dom->createTextNode("0"));
+                            else if(oldA->getStatus() == PROGRESS) tStatus.appendChild(dom->createTextNode("1"));
+                            else tStatus.appendChild(dom->createTextNode("2"));
+
+                        versionTask.appendChild(tID);
+                        versionTask.appendChild(tTitle);
+                        versionTask.appendChild(tCreatedOn);
+                        versionTask.appendChild(tLastModifOn);
+                        versionTask.appendChild(tAction);
+                        versionTask.appendChild(tPriority);
+                        versionTask.appendChild(tDeadline);
+                        versionTask.appendChild(tStatus);
+
+                    version.appendChild(numVersion);
+                    version.appendChild(versionTask);
+                versions.appendChild(version);
+
+            QDomElement oTitle = task.firstChildElement("title");
+                oTitle.removeChild(oTitle.childNodes().at(0));
+                oTitle.appendChild(dom->createTextNode(newA->getTitle()));
+            QDomElement oAction = task.firstChildElement("action");
+                oAction.removeChild(oAction.childNodes().at(0));
+                oAction.appendChild(dom->createTextNode(newA->getAction()));
+            QDomElement oPriority = task.firstChildElement("priority");
+                oPriority.removeChild(oPriority.childNodes().at(0));
+                oPriority.appendChild(dom->createTextNode(QString::number(newA->getPriority())));
+            QDomElement oDeadline = task.firstChildElement("deadline");
+                oDeadline.removeChild(oDeadline.childNodes().at(0));
+                oDeadline.appendChild(dom->createTextNode(newA->getDeadline().toString()));
+            QDomElement oStatus = task.firstChildElement("status");
+                oStatus.removeChild(oStatus.childNodes().at(0));
+                if(newA->getStatus() == PENDING) oStatus.appendChild(dom->createTextNode("0"));
+                else if(newA->getStatus() == PROGRESS) oStatus.appendChild(dom->createTextNode("1"));
+                else oStatus.appendChild(dom->createTextNode("2"));
+            QDomElement oLastModifOn = task.firstChildElement("lastModifOn");
+                oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                oLastModifOn.appendChild(dom->createTextNode(newA->getLastModifOn().toString()));
+        }
+
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+
 }
 
 XMLManager::~XMLManager() {
