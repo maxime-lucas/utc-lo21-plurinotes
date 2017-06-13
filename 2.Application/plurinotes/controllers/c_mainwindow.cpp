@@ -24,11 +24,13 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 
 void C_Mainwindow::createActions()
 {
-    view->getUi()->actionQuit->setShortcut(Qt::Key_Escape);
+    view->getUi()->actionShow_Asc_Desc_View->setChecked(true);
+
     view->connect(view->getUi()->actionQuit, SIGNAL(triggered()), qapp, SLOT(quit()) );
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
     view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
+    view->connect(view->getUi()->actionShow_Asc_Desc_View,SIGNAL(triggered()),view,SLOT(toggleAscDescView()));
 }
 
 void C_Mainwindow::refreshActiveNotes() {

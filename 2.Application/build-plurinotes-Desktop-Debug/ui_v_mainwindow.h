@@ -32,10 +32,12 @@ public:
     QAction *actionRelation;
     QAction *actionDefault_view;
     QAction *actionRelations_view;
+    QAction *actionShow_Asc_Desc_View;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_File;
     QMenu *menuNew;
+    QMenu *menuView;
     QToolBar *toolBar;
 
     void setupUi(QMainWindow *V_Mainwindow)
@@ -70,6 +72,9 @@ public:
         actionDefault_view->setObjectName(QString::fromUtf8("actionDefault_view"));
         actionRelations_view = new QAction(V_Mainwindow);
         actionRelations_view->setObjectName(QString::fromUtf8("actionRelations_view"));
+        actionShow_Asc_Desc_View = new QAction(V_Mainwindow);
+        actionShow_Asc_Desc_View->setObjectName(QString::fromUtf8("actionShow_Asc_Desc_View"));
+        actionShow_Asc_Desc_View->setCheckable(true);
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setEnabled(true);
@@ -82,12 +87,15 @@ public:
         menu_File->setObjectName(QString::fromUtf8("menu_File"));
         menuNew = new QMenu(menu_File);
         menuNew->setObjectName(QString::fromUtf8("menuNew"));
+        menuView = new QMenu(menubar);
+        menuView->setObjectName(QString::fromUtf8("menuView"));
         V_Mainwindow->setMenuBar(menubar);
         toolBar = new QToolBar(V_Mainwindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         V_Mainwindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         menubar->addAction(menu_File->menuAction());
+        menubar->addAction(menuView->menuAction());
         menu_File->addAction(menuNew->menuAction());
         menu_File->addSeparator();
         menu_File->addAction(actionQuit);
@@ -95,6 +103,7 @@ public:
         menuNew->addAction(actionMultimedia);
         menuNew->addAction(actionTask);
         menuNew->addSeparator();
+        menuView->addAction(actionShow_Asc_Desc_View);
         toolBar->addAction(actionArticle);
         toolBar->addSeparator();
         toolBar->addAction(actionMultimedia);
@@ -128,8 +137,11 @@ public:
         actionRelation->setText(QApplication::translate("V_Mainwindow", "Relation", 0, QApplication::UnicodeUTF8));
         actionDefault_view->setText(QApplication::translate("V_Mainwindow", "Default view", 0, QApplication::UnicodeUTF8));
         actionRelations_view->setText(QApplication::translate("V_Mainwindow", "Relations view", 0, QApplication::UnicodeUTF8));
+        actionShow_Asc_Desc_View->setText(QApplication::translate("V_Mainwindow", "Show Asc/Desc View", 0, QApplication::UnicodeUTF8));
+        actionShow_Asc_Desc_View->setShortcut(QApplication::translate("V_Mainwindow", "N", 0, QApplication::UnicodeUTF8));
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", 0, QApplication::UnicodeUTF8));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", 0, QApplication::UnicodeUTF8));
+        menuView->setTitle(QApplication::translate("V_Mainwindow", "View", 0, QApplication::UnicodeUTF8));
         toolBar->setWindowTitle(QApplication::translate("V_Mainwindow", "toolBar", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

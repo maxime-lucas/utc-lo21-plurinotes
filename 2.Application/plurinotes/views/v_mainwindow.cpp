@@ -68,8 +68,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
 
-    setStyleSheet("#leftWidget,#rightWidget, #centralWidget { border:2px solid #CCCCCC;}");
-    rightWidget->setVisible(false);
+    rightWidget->setVisible(true);
 
 }
 
@@ -116,7 +115,6 @@ void V_Mainwindow::refreshCentralNote(QString id) {
     delete centralLayout;
     centralLayout = new QHBoxLayout;
     centralNote->setFixedWidth(580);
-    centralNote->setObjectName("centralWidget");
     centralLayout->addWidget(leftWidget);
     centralLayout->addWidget(centralNote);
     centralLayout->addWidget(rightWidget);
@@ -148,6 +146,11 @@ void V_Mainwindow::setEmptyCentralNote() {
     centralLayout->addWidget(rightWidget);
     centralWidget()->setLayout(centralLayout);
 
+}
+
+void V_Mainwindow::toggleAscDescView() {
+    if( this->getUi()->actionShow_Asc_Desc_View->isChecked() ) rightWidget->setVisible(true);
+    else rightWidget->setVisible(false);
 }
 
 V_Mainwindow::~V_Mainwindow()

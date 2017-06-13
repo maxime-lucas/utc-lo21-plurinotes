@@ -1,16 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles>
-   <article>
-    <id>2</id>
-    <title>Ce genre d'article</title>
-    <createdOn>Mon Jun 12 22:36:20 2017</createdOn>
-    <lastModifOn>Mon Jun 12 22:36:20 2017</lastModifOn>
-    <text>Ce genre de texte</text>
-    <versions/>
-   </article>
-  </articles>
+  <articles/>
   <multimedias>
    <multimedia>
     <id>1</id>

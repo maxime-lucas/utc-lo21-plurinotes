@@ -70,6 +70,7 @@ class V_Mainwindow : public QMainWindow
         void openNewTask();
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
+        void toggleAscDescView();
 };
 
 #endif // V_MAINWINDOW_H
