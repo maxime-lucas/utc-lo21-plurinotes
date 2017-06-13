@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -26,9 +25,7 @@ class Ui_v_multiplerelation
 public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QLabel *labelDescendant;
     QTreeWidget *treeDescendant;
-    QLabel *labelAscendants;
     QTreeWidget *treeAscendant;
 
     void setupUi(QWidget *v_multiplerelation)
@@ -42,27 +39,17 @@ public:
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        labelDescendant = new QLabel(verticalLayoutWidget);
-        labelDescendant->setObjectName(QStringLiteral("labelDescendant"));
-
-        verticalLayout->addWidget(labelDescendant);
-
         treeDescendant = new QTreeWidget(verticalLayoutWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setText(0, QStringLiteral("1"));
+        __qtreewidgetitem->setText(0, QStringLiteral("Descendants"));
         treeDescendant->setHeaderItem(__qtreewidgetitem);
         treeDescendant->setObjectName(QStringLiteral("treeDescendant"));
 
         verticalLayout->addWidget(treeDescendant);
 
-        labelAscendants = new QLabel(verticalLayoutWidget);
-        labelAscendants->setObjectName(QStringLiteral("labelAscendants"));
-
-        verticalLayout->addWidget(labelAscendants);
-
         treeAscendant = new QTreeWidget(verticalLayoutWidget);
         QTreeWidgetItem *__qtreewidgetitem1 = new QTreeWidgetItem();
-        __qtreewidgetitem1->setText(0, QStringLiteral("1"));
+        __qtreewidgetitem1->setText(0, QStringLiteral("Ascendants"));
         treeAscendant->setHeaderItem(__qtreewidgetitem1);
         treeAscendant->setObjectName(QStringLiteral("treeAscendant"));
 
@@ -77,8 +64,6 @@ public:
     void retranslateUi(QWidget *v_multiplerelation)
     {
         v_multiplerelation->setWindowTitle(QApplication::translate("v_multiplerelation", "Form", Q_NULLPTR));
-        labelDescendant->setText(QApplication::translate("v_multiplerelation", "Descendants", Q_NULLPTR));
-        labelAscendants->setText(QApplication::translate("v_multiplerelation", "Ascendants", Q_NULLPTR));
     } // retranslateUi
 
 };

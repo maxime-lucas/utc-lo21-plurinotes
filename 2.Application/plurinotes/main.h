@@ -33,6 +33,7 @@ typedef enum eTypeNote { article, multimedia, task } TypeNote;
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QDateTime>
+#include <QTabWidget>
 
 #include "models/operatorsoverloading.h"
 

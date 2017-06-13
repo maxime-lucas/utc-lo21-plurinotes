@@ -42,7 +42,7 @@ public:
     {
         if (V_Mainwindow->objectName().isEmpty())
             V_Mainwindow->setObjectName(QStringLiteral("V_Mainwindow"));
-        V_Mainwindow->resize(800, 600);
+        V_Mainwindow->resize(1100, 600);
         QIcon icon;
         icon.addFile(QStringLiteral("../ressources/windowicon.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         V_Mainwindow->setWindowIcon(icon);
@@ -77,7 +77,7 @@ public:
         V_Mainwindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(V_Mainwindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 1100, 21));
         menu_File = new QMenu(menubar);
         menu_File->setObjectName(QStringLiteral("menu_File"));
         menuNew = new QMenu(menu_File);
@@ -100,6 +100,8 @@ public:
         toolBar->addAction(actionMultimedia);
         toolBar->addSeparator();
         toolBar->addAction(actionTask);
+        toolBar->addAction(actionDefault_view);
+        toolBar->addAction(actionRelations_view);
 
         retranslateUi(V_Mainwindow);
 

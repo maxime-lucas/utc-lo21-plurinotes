@@ -24,33 +24,19 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="labelDescendant">
-      <property name="text">
-       <string>Descendants</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QTreeWidget" name="treeDescendant">
       <column>
        <property name="text">
-        <string notr="true">1</string>
+        <string notr="true">Descendants</string>
        </property>
       </column>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="labelAscendants">
-      <property name="text">
-       <string>Ascendants</string>
-      </property>
      </widget>
     </item>
     <item>
      <widget class="QTreeWidget" name="treeAscendant">
       <column>
        <property name="text">
-        <string notr="true">1</string>
+        <string notr="true">Ascendants</string>
        </property>
       </column>
      </widget>

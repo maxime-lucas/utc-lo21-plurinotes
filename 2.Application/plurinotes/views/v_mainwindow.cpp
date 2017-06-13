@@ -12,7 +12,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     controller = c;
 
     move(0,0);
-    setStyleSheet("V_Mainwindow { background-color:#FFF;}");
+    setStyleSheet("V_Minwindow { background-color:#FFF;}");
 
     labelActiveNotes = new QLabel("Active Notes");
     labelActiveNotes->setFixedSize(200,20);
@@ -33,8 +33,10 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     relation = new V_Multiplerelation;
 
     centralLayout = new QHBoxLayout;
+
     leftWidget = new QWidget;
     rightWidget = new QWidget;
+
     leftLayout = new QVBoxLayout;
     rightLayout = new QVBoxLayout;
 
@@ -53,13 +55,15 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     leftWidget->setFixedWidth(210);
 
     rightWidget->setLayout(rightLayout);
-
-    setEmptyCentralNote();
     centralWidget()->setLayout(centralLayout);
+    setEmptyCentralNote();
 
     ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
+
+    ui->actionRelations_view->connect(ui->actionRelations_view,SIGNAL(triggered(bool)),this,SLOT(openRelationView()));
+    ui->actionDefault_view->connect(ui->actionDefault_view,SIGNAL(triggered(bool)),this,SLOT(openMainView()));
 
 }
 
@@ -139,7 +143,39 @@ void V_Mainwindow::setEmptyCentralNote() {
 
 }
 
+void V_Mainwindow::openRelationView() {
+
+    centralLayout->removeWidget(leftWidget);
+    centralLayout->removeWidget(rightWidget);
+    centralLayout->removeWidget(centralNote);
+    centralLayout->removeWidget(relationView);
+
+    delete centralLayout;
+
+    centralLayout = new QHBoxLayout;
+    relationView = new V_MainRelation;
+    centralLayout->addWidget(relationView);
+    centralWidget()->setLayout(centralLayout);
+}
+
+void V_Mainwindow::openMainView() {
+    centralLayout->removeWidget(leftWidget);
+    centralLayout->removeWidget(rightWidget);
+    centralLayout->removeWidget(centralNote);
+    centralLayout->removeWidget(relationView);
+
+    delete centralLayout;
+
+    centralLayout = new QHBoxLayout;
+    centralLayout->addWidget(leftWidget);
+    centralLayout->addWidget(rightWidget);
+    setEmptyCentralNote();
+    centralWidget()->setLayout(centralLayout);
+}
+
 V_Mainwindow::~V_Mainwindow()
 {
     delete ui;
 }
+
+

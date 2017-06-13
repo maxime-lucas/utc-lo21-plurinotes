@@ -7,6 +7,7 @@
 #include "main.h"
 #include "v_multiplenotes.h"
 #include "v_multiplerelation.h"
+#include "v_mainrelation.h"
 #include "v_centralnote.h"
 #include "../controllers/c_mainwindow.h"
 
@@ -19,6 +20,7 @@ class V_ArticleForm;
 class V_MultimediaForm;
 class V_TaskForm;
 class V_Multiplerelation;
+class V_MainRelation;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -40,11 +42,16 @@ class V_Mainwindow : public QMainWindow
 
     private:
         Ui::V_Mainwindow *ui;
+
         QHBoxLayout* centralLayout;
         QVBoxLayout* leftLayout;
         QVBoxLayout* rightLayout;
+
         QWidget* leftWidget;
         QWidget* rightWidget;
+
+        QTabWidget* tabWidget;
+        QWidget* mainTab;
 
         QLabel* labelActiveNotes;
         QLabel* labelTasks;
@@ -55,6 +62,8 @@ class V_Mainwindow : public QMainWindow
         V_Multiplenotes *archivedNotes;
 
         V_Multiplerelation *relation;
+
+        V_MainRelation* relationView;
 
         V_ArticleForm* articleForm;
         V_MultimediaForm* multimediaForm;
@@ -70,6 +79,8 @@ class V_Mainwindow : public QMainWindow
         void openNewTask();
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
+        void openRelationView();
+        void openMainView();
 };
 
 #endif // V_MAINWINDOW_H
