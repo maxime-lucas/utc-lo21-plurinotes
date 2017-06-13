@@ -9,6 +9,7 @@
 #include "v_multiplerelation.h"
 #include "v_mainrelation.h"
 #include "v_centralnote.h"
+#include "v_mainrelation.h"
 #include "../controllers/c_mainwindow.h"
 
 namespace Ui {
@@ -39,11 +40,18 @@ class V_Mainwindow : public QMainWindow
         V_MultimediaForm* getFormMultimedia() const{ return multimediaForm; }
         V_TaskForm* getFormTask() const{return taskForm;}
         C_Mainwindow* getController() const { return controller; }
+        void init();
 
     private:
         Ui::V_Mainwindow *ui;
+<<<<<<< HEAD
 
         QHBoxLayout* centralLayout;
+=======
+        QHBoxLayout* centralMainLayout;
+        QVBoxLayout* centralSecondLayout;
+
+>>>>>>> dev
         QVBoxLayout* leftLayout;
         QVBoxLayout* rightLayout;
 
@@ -79,8 +87,13 @@ class V_Mainwindow : public QMainWindow
         void openNewTask();
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
+<<<<<<< HEAD
         void openRelationView();
         void openMainView();
+=======
+        void toggleAscDescView();
+        void toggleRelationsView();
+>>>>>>> dev
 };
 
 #endif // V_MAINWINDOW_H

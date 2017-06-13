@@ -3,38 +3,15 @@
  <activeNotes>
   <articles>
    <article>
-    <id>2</id>
-    <title>Ce genre d'article</title>
-    <createdOn>Mon Jun 12 22:36:20 2017</createdOn>
-    <lastModifOn>Mon Jun 12 22:36:20 2017</lastModifOn>
-    <text>Ce genre de texte</text>
+    <id>1</id>
+    <title>jutthrgefzat</title>
+    <createdOn>Tue Jun 13 13:14:35 2017</createdOn>
+    <lastModifOn>Tue Jun 13 13:14:35 2017</lastModifOn>
+    <text>hrgefzdaz</text>
     <versions/>
    </article>
   </articles>
-  <multimedias>
-   <multimedia>
-    <id>1</id>
-    <title> Chouette</title>
-    <createdOn>Mon Jun 12 22:35:57 2017</createdOn>
-    <lastModifOn>Mon Jun 12 22:35:57 2017</lastModifOn>
-    <description>Ce genre de chouette</description>
-    <fileName>1.jpeg</fileName>
-    <type>picture</type>
-    <versions/>
-   </multimedia>
-  </multimedias>
-  <tasks>
-   <task>
-    <id>3</id>
-    <title>Ce genre de tache</title>
-    <createdOn>Mon Jun 12 22:36:39 2017</createdOn>
-    <lastModifOn>Mon Jun 12 22:36:39 2017</lastModifOn>
-    <action>Tacher de le faire</action>
-    <priority>0</priority>
-    <deadline>Sat Jan 1 00:00:00 2000</deadline>
-    <status>0</status>
-    <versions/>
-   </task>
-  </tasks>
+  <multimedias/>
+  <tasks/>
  </activeNotes>
 </plurinotes>
