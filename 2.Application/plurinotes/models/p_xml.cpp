@@ -961,5 +961,52 @@ void XMLManager::restoreNoteVersion(Note*n,Version*v) {
 }
 
 XMLManager::~XMLManager() {
+
     doc.close();
+}
+
+Note* XMLManager::getNoteById(QString id) const {
+    std::vector<Article*> articles = getAllActiveArticles();
+    std::vector<Multimedia*> multimedias = getAllActiveMultimedia();
+    std::vector<Task*> tasks = getAllActiveTasks();
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Article* article = articles.at(i);
+        if( article->getId() == id ) return article;
+    }
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Multimedia* multimedia = multimedias.at(i);
+        if( multimedia->getId() == id ) return multimedia;
+    }
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Task* task = tasks.at(i);
+        if( task->getId() == id ) return task;
+    }
+
+    return 0;
+}
+
+Couple* XMLManager::getCoupleById(QString id) const {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement couples = root.firstChildElement("couples");
+    QDomElement couple = couples.firstChildElement("couple");
+
+    for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+
+        if(id == couple.firstChildElement("id").text() ) {
+
+            Couple *newC = new Couple(
+                couple.firstChildElement("label").text(),
+                getNoteById(couple.firstChildElement("noteX").text()),
+                getNoteById(couple.firstChildElement("noteY").text())
+            );
+
+            return newC;
+        }
+    }
+
+    return 0;
 }

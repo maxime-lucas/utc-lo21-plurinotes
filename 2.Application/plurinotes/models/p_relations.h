@@ -49,6 +49,7 @@ class Couple
         void setY(Note* b) {x = b;}
 
         QString generateCoupleId(Note* X, Note* Y);
+        QString toString() const;
 };
 
 class Relation {
