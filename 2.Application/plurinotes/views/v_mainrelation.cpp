@@ -1,6 +1,6 @@
 #include "v_mainrelation.h"
 #include "ui_v_mainrelation.h"
-#include <QStringListModel>
+#include <QSignalMapper>
 
 V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     QWidget(parent),
@@ -25,21 +25,28 @@ V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
-    QStringListModel* relationModel = new QStringListModel(this);
+    for(unsigned int i = 0; i < controller->getApp()->getRelationManager()->getTab()->size(); i ++)
+    {
+        Relation* r = controller->getApp()->getRelationManager()->getTab()->at(i);
 
-    //controller->getApp()->
-    relations.push_back("Test");
+        QListWidgetItem * item = new QListWidgetItem;
+        item->setData(Qt::UserRole,r->getId());
+        item->setText("Relation "+r->getId()+" : "+r->getTitle());
 
-    relationModel->setStringList(relations);
-
-    ui->listeRelation->setModel(relationModel);
-
-    ui->listeRelation->connect(ui->listeRelation,SIGNAL(clicked(QModelIndex)),this,SLOT(refreshCouple()));
+        ui->listRelation->addItem(item);
+    }
+    this->connect(ui->listRelation,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(refreshCouple(QListWidgetItem*)));
 }
 
-void V_MainView::refreshCouple() {
+void V_MainView::refreshCouple(QListWidgetItem* id) {
 
-    Relation* relation = new Relation("Test","Relation Test",true);
+    while(ui->listWidget->count()>0) ui->listWidget->takeItem(0);
+
+
+
+    QString idRelation = id->data(Qt::UserRole).toString();
+    Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
+
     V_Centralrelation* V_CentralRelation = new V_Centralrelation(relation,this);
     V_CentralRelation->setIsRelationView(true);
     centralView = V_CentralRelation;
@@ -52,29 +59,30 @@ void V_MainView::refreshCouple() {
         delete item;
         item = nullptr;
     }
+
     delete centralRLayout;
     centralRLayout = new QHBoxLayout;
     centralView->setFixedWidth(580);
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
-    QStringListModel* coupleModel = new QStringListModel(this);
 
-    couples.push_back("TestCouple");
+    refreshListCouple(id->data(Qt::UserRole).toString());
 
-    coupleModel->setStringList(couples);
-
-    ui->listCouple->setModel(coupleModel);
-
-    ui->listCouple->connect(ui->listCouple,SIGNAL(clicked(QModelIndex)),this,SLOT(afficheCouple()));
-
+    this->connect(ui->listWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(afficheCouple(QListWidgetItem*)));
 }
 
-void V_MainView::afficheCouple() {
-    Note* a = this->getController()->getApp()->getNoteByID("1");
-    Note* b = this->getController()->getApp()->getNoteByID("2");
+void V_MainView::afficheCouple(QListWidgetItem* c) {
 
-    Couple* couple = new Couple("TestCouple",a,b);
+
+    QString str = c->data(Qt::UserRole).toString();
+
+    QStringList strList = str.split(".");
+    QString idRelation = strList.at(0);
+    QString idCouple = strList.at(1);
+
+    Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
+    Couple* couple = this->getController()->getApp()->getCoupleByID(idCouple,relation);
     V_CentralCouple* V_Centralcouple = new V_CentralCouple(couple,this);
     V_Centralcouple->setIsRelationView(false);
     centralView = V_Centralcouple;
@@ -93,15 +101,42 @@ void V_MainView::afficheCouple() {
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
-    QStringListModel* coupleModel = new QStringListModel(this);
-
-    coupleModel->setStringList(empty);
-
-    ui->listCouple->setModel(coupleModel);
 
 }
 
+void V_MainView::refreshRelation()
+{
+    while(ui->listRelation->count()>0) ui->listRelation->takeItem(0);
 
+    for(unsigned int i = 0; i < controller->getApp()->getRelationManager()->getTab()->size(); i ++)
+    {
+        Relation* r = controller->getApp()->getRelationManager()->getTab()->at(i);
+
+        QListWidgetItem * item = new QListWidgetItem;
+        item->setData(Qt::UserRole,r->getId());
+        item->setText("Relation "+r->getId()+" : "+r->getTitle());
+
+        ui->listRelation->addItem(item);
+    }
+}
+
+void V_MainView::refreshListCouple(QString id)
+{
+    while(ui->listWidget->count()>0) ui->listWidget->takeItem(0);
+
+    Relation* relation = this->getController()->getApp()->getRelationByID(id);
+
+    for(unsigned int i = 0; i < relation->getCouples()->size(); i ++)
+    {
+        Couple* couple = relation->getCouples()->at(i);
+
+        QListWidgetItem * item = new QListWidgetItem;
+        item->setData(Qt::UserRole,relation->getId()+"."+couple->getId());
+        item->setText("Couple "+couple->getId()+" : "+couple->getLabel());
+
+        ui->listWidget->addItem(item);
+    }
+}
 
 
 V_MainView::~V_MainView()

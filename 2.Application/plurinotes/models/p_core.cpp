@@ -9,6 +9,7 @@ PluriNotes::PluriNotes() {
     activeNotesManager = 0;
     deletedNotesManager = 0;
     archivedNotesManager = 0;
+    relationManager = 0;
     xmlManager = 0;
 
     reloadFromDatabase();
@@ -18,17 +19,20 @@ PluriNotes::~PluriNotes() {
     delete activeNotesManager;
     delete archivedNotesManager;
     delete deletedNotesManager;
+    delete relationManager;
 }
 
 void PluriNotes::reloadFromDatabase() {
     if(activeNotesManager != 0) delete activeNotesManager;
     if(deletedNotesManager != 0) delete deletedNotesManager;
     if(archivedNotesManager != 0) delete archivedNotesManager;
+    if(relationManager != 0) delete relationManager;
     if(xmlManager != 0) delete xmlManager;
 
     activeNotesManager = new ActiveNotesManager();
     deletedNotesManager = new DeletedNotesManager();
     archivedNotesManager = new ArchivedNotesManager();
+    relationManager = new RelationManager();
     xmlManager = new XMLManager("../plurinotes/ressources/data.xml");
 
     // Récupération des articles actifs
@@ -73,12 +77,33 @@ Note* PluriNotes::getNoteByID(QString id) {
     return 0;
 }
 
+Relation* PluriNotes::getRelationByID(QString id) {
+
+    for(unsigned int i = 0; i < relationManager->getTab()->size() ; i++ ) {
+        Relation* r = relationManager->getTab()->at(i);
+        if(r->getId() == id) return r;
+    }
+
+    return 0;
+}
+
+Couple* PluriNotes::getCoupleByID(QString id,Relation* r) {
+
+    for(unsigned int i = 0; i < r->getCouples()->size() ; i++ ) {
+        Couple* c = r->getCouples()->at(i);
+        if(c->getId() == id) return c;}
+
+    return 0;
+}
+
+
 Version* PluriNotes::getNoteVersionByID(QString id, QString numV) {
     Note* n = getNoteByID(id);
 
     for(unsigned int i = 0; i < n->getVersions()->size() ; i++ ) {
         Version *v = n->getVersions()->at(i);
         if(v->getNumVersion() == (unsigned)numV.toInt()) return v;
+
     }
 
     return 0;

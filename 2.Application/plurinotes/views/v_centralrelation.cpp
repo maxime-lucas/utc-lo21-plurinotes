@@ -1,6 +1,7 @@
 #include "v_centralrelation.h"
 #include "ui_v_centralrelation.h"
 #include <QMessageBox>
+#include <QSignalMapper>
 
 V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     QWidget(parent),
@@ -41,7 +42,7 @@ V_CentralView::~V_CentralView()
 
 V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(0,m) {
     this->getUi()->labelType->setText("Type : Relation");
-    //this->getUi()->labelID->setText(r->getId());
+    this->getUi()->labelID->setText(r->getId());
     this->getUi()->textTitle->setText(r->getTitle());
 
     desc = new QPlainTextEdit(r->getDesc());
@@ -49,30 +50,23 @@ V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(
 
     QFormLayout *formWidgetLayout = new QFormLayout();
 
-
-    oriented = new QRadioButton("Yes");
-    noriented = new QRadioButton("No");
-
     if(r->getOriented() == true)
-        oriented->setChecked(true);
-    else if(r->getOriented() == false)
-        noriented->setChecked(true);
-
-    QHBoxLayout* btnLayout = new QHBoxLayout;
-
-    btnLayout->addWidget(oriented);
-    btnLayout->addWidget(noriented);
+        oriented = new QLabel("Yes");
+    if(r->getOriented() == false)
+        oriented = new QLabel("No");
 
     formWidgetLayout->addRow(tr("Description :"),desc);
-    formWidgetLayout->addRow(tr("Oriented ?"),btnLayout);
+    formWidgetLayout->addRow(tr("Oriented ?"),oriented);
 
     QPushButton* addCouple = new QPushButton("AddCouple");
     this->getUi()->gridLayout->addWidget(addCouple,4,0);
 
     this->getUi()->formWidget->setLayout(formWidgetLayout);
 
-    this->getMainwindow()->connect(addCouple,SIGNAL(clicked(bool)), this->getMainwindow()->getController()->getView(),SLOT(openNewCouple()));
-
+    QSignalMapper* signalmapper = new QSignalMapper(this);
+    this->connect(signalmapper, SIGNAL(mapped(QString)),this->getMainwindow()->getController()->getView(), SLOT(openNewCouple(QString)));
+    signalmapper->setMapping(addCouple,r->getId());
+    this->getMainwindow()->connect(addCouple, SIGNAL(clicked()), signalmapper, SLOT(map()));
 }
 
 void V_Centralrelation::editRelation()
@@ -82,24 +76,28 @@ void V_Centralrelation::editRelation()
     else {
         bool ori;
 
-        if(oriented->isChecked())
+        if(oriented->text() == "Yes")
             ori = true;
-        else if(noriented->isChecked())
+        if(oriented->text() == "No")
             ori = false;
 
 
+        QString id = QString::number(this->getMainwindow()->getController()->getApp()->getRelationManager()->getCurrentId()+1);
+
+        this->getMainwindow()->getController()->getApp()->getRelationManager()->incCurrentId();
         Relation* editRelation = new Relation(
+                    id,
                     this->getUi()->textTitle->text(),
                     desc->toPlainText(),
                     ori
                     );
-        //this->getMainwindow()->getController()->editRelation(editRelation);
+       this->getMainwindow()->getController()->editRelation(editRelation);
     }
 }
 
-V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m) {
+V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m), c(c){
     this->getUi()->labelType->setText("Type : Couple");
-    //this->getUi()->labelID->setText(r->getId());
+    this->getUi()->labelID->setText(c->getId());
     this->getUi()->textTitle->setText(c->getLabel());
 
     label = new QLineEdit;
@@ -107,34 +105,30 @@ V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m) {
 
     QFormLayout *formWidgetLayout = new QFormLayout();
 
-    note1 = new QComboBox;
-    note2 = new QComboBox;
 
-     std::vector<Note*> *notes = this->getMainwindow()->getController()->getApp()->getActiveNotesManager()->getTab();
-    for(unsigned int i = 0; i<notes->size(); i++)
-    {
-        Note* note = notes->at(i);
+
+        Note* note = c->getX();
         if( typeid(*note) == typeid(Article) ) {
-        note1->addItem("Article "+note->getId()+" : "+note->getTitle());
-        note2->addItem("Article "+note->getId()+" : "+note->getTitle());
+        note1 = new QLabel("Article "+note->getId()+" : "+note->getTitle());
         }
         if( typeid(*note) == typeid(Multimedia) ) {
-        note1->addItem("Multimedia "+note->getId()+" : "+note->getTitle());
-        note2->addItem("Multimedia "+note->getId()+" : "+note->getTitle());
+        note1 = new QLabel("Multimedia "+note->getId()+" : "+note->getTitle());
         }
         if( typeid(*note) == typeid(Task) ) {
-        note1->addItem("task "+note->getId()+" : "+note->getTitle());
-        note2->addItem("task "+note->getId()+" : "+note->getTitle());
+        note1 = new QLabel("task "+note->getId()+" : "+note->getTitle());
         }
-    }
 
+        Note* n= c->getY();
+        if( typeid(*n) == typeid(Article) ) {
+        note2 = new QLabel("Article "+n->getId()+" : "+n->getTitle());
+        }
+        if( typeid(*n) == typeid(Multimedia) ) {
+        note2 = new QLabel("Multimedia "+n->getId()+" : "+n->getTitle());
+        }
+        if( typeid(*n) == typeid(Task) ) {
+        note2 = new QLabel("task "+n->getId()+" : "+n->getTitle());
+        }
 
-    // initialisation des combo box$
-    bool ok = true;
-    int xId = c->getX()->getId().toInt(&ok,10);
-    int yId = c->getY()->getId().toInt(&ok,10);
-    note1->setCurrentIndex(xId - 1);
-    note2->setCurrentIndex(yId - 1);
 
     formWidgetLayout->addRow(tr("Note 1"),note1);
     formWidgetLayout->addRow(tr("Note 2"),note2);
@@ -150,16 +144,13 @@ void V_CentralCouple::editCouple()
     else {
      //Currentindex() renvoie 0 a partir du permier rang
 
-     Note* a = this->getMainwindow()->getController()->getApp()->getNoteByID(QString::number(note1->currentIndex()+1));
-     Note* b = this->getMainwindow()->getController()->getApp()->getNoteByID(QString::number(note2->currentIndex()+1));
-
         Couple* editCouple = new Couple(
-                    this->getUi()->textTitle->text(),
-                    a,
-                    b
-                    );
+            this->getUi()->textTitle->text(),
+            c->getX(),
+            c->getY()
+            );
 
-        //this->getMainwindow()->getController()->editRelation(editRelation);
+        //this->getMainwindow()->getController()->editCouple(editCouple,r);
     }
 }
 

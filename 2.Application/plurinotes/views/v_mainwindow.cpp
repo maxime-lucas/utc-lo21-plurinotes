@@ -52,12 +52,10 @@ void V_Mainwindow::openNewRelation() {
     relationForm->show();
 }
 
-void V_Mainwindow::openNewCouple() {
-    //this->getController()->getApp()->getRelationNoteManager()->getRelationById()
+void V_Mainwindow::openNewCouple(QString id) {
 
-    Relation* test = new Relation("Relation test","Coucou",true);
-
-    coupleForm = new V_CoupleForm(test,0,this);
+    Relation* relation = this->getController()->getApp()->getRelationByID(id);
+    coupleForm = new V_CoupleForm(relation,0,this);
     coupleForm->show();
 }
 

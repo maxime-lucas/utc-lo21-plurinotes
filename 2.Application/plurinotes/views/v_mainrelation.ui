@@ -48,17 +48,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="listeRelation">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>20</width>
-          <height>200</height>
-         </size>
-        </property>
-       </widget>
+       <widget class="QListWidget" name="listRelation"/>
       </item>
       <item>
        <widget class="QLabel" name="labelCouple">
@@ -68,7 +58,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QListView" name="listCouple"/>
+       <widget class="QListWidget" name="listWidget"/>
       </item>
      </layout>
     </item>

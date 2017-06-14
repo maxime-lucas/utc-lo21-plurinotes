@@ -49,8 +49,10 @@ class V_Mainwindow : public QMainWindow
         V_RelationForm* getFormRelation() const {return relationForm;}
         V_TaskForm* getFormTask() const{return taskForm;}
         V_CoupleForm* getFormCouple() const{return coupleForm;}
-        C_Mainwindow* getController() const { return controller; }
+        C_Mainwindow* getController() const {return controller; }
+        V_MainView* getRelationView() const {return relationView;}
         QListWidget* getVersions() const { return versions; }
+
         void init();
 
     private:
@@ -110,7 +112,7 @@ class V_Mainwindow : public QMainWindow
         void openNewMultimedia();
         void openNewTask();
         void openNewRelation();
-        void openNewCouple();
+        void openNewCouple(QString);
         void refreshCentralNote(QString);
         void refreshVersions(QString);
         void setEmptyCentralNote();

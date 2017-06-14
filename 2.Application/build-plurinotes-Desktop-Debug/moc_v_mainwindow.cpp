@@ -35,12 +35,12 @@ static const uint qt_meta_data_V_Mainwindow[] = {
       51,   13,   13,   13, 0x0a,
       65,   13,   13,   13, 0x0a,
       83,   13,   13,   13, 0x0a,
-      99,   13,   13,   13, 0x0a,
-     127,   13,   13,   13, 0x0a,
-     152,   13,   13,   13, 0x0a,
-     174,   13,   13,   13, 0x0a,
-     194,   13,   13,   13, 0x0a,
-     216,   13,   13,   13, 0x0a,
+     106,   13,   13,   13, 0x0a,
+     134,   13,   13,   13, 0x0a,
+     159,   13,   13,   13, 0x0a,
+     181,   13,   13,   13, 0x0a,
+     201,   13,   13,   13, 0x0a,
+     223,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -48,7 +48,7 @@ static const uint qt_meta_data_V_Mainwindow[] = {
 static const char qt_meta_stringdata_V_Mainwindow[] = {
     "V_Mainwindow\0\0openNewArticle()\0"
     "openNewMultimedia()\0openNewTask()\0"
-    "openNewRelation()\0openNewCouple()\0"
+    "openNewRelation()\0openNewCouple(QString)\0"
     "refreshCentralNote(QString)\0"
     "refreshVersions(QString)\0setEmptyCentralNote()\0"
     "toggleAscDescView()\0toggleRelationsView()\0"
@@ -65,7 +65,7 @@ void V_Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 1: _t->openNewMultimedia(); break;
         case 2: _t->openNewTask(); break;
         case 3: _t->openNewRelation(); break;
-        case 4: _t->openNewCouple(); break;
+        case 4: _t->openNewCouple((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 6: _t->refreshVersions((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 7: _t->setEmptyCentralNote(); break;
