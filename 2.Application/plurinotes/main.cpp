@@ -1,5 +1,7 @@
 #include "main.h"
 
+#include <QApplication>
+
 #include "controllers/c_mainwindow.h"
 
 

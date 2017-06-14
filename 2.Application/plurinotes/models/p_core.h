@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "p_notes.h"
+#include "p_relations.h"
 #include "p_xml.h"
 
 class PluriNotes {
@@ -22,6 +23,7 @@ class PluriNotes {
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
         XMLManager* getXMLManager() const { return xmlManager; }
         Note* getNoteByID(QString);
+        Version* getNoteVersionByID(QString,QString);
         void reloadFromDatabase();
         static void debug(QString);
 };

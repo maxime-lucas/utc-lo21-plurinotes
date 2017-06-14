@@ -1,7 +1,11 @@
-#include "v_multimediaform.h"
-#include "ui_v_multimediaform.h"
 #include <ctime>
 #include <iostream>
+#include <QMessageBox>
+
+#include "main.h"
+#include "v_multimediaform.h"
+#include "ui_v_multimediaform.h"
+
 V_MultimediaForm::V_MultimediaForm(QWidget *w, V_Mainwindow *m) :
     QDialog(w),
     ui(new Ui::V_MultimediaForm)

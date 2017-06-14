@@ -15,6 +15,10 @@ INPUT(
 ./debug\v_taskform.o
 ./debug\v_centralnote.o
 ./debug\v_multiplerelation.o
+./debug\v_mainrelation.o
+./debug\v_centralrelation.o
+./debug\v_relationform.o
+./debug\v_coupleform.o
 ./debug\moc_v_mainwindow.o
 ./debug\moc_v_multiplenotes.o
 ./debug\moc_v_articleform.o
@@ -22,4 +26,8 @@ INPUT(
 ./debug\moc_v_taskform.o
 ./debug\moc_v_centralnote.o
 ./debug\moc_v_multiplerelation.o
+./debug\moc_v_mainrelation.o
+./debug\moc_v_centralrelation.o
+./debug\moc_v_relationform.o
+./debug\moc_v_coupleform.o
 );

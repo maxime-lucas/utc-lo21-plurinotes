@@ -1,4 +1,8 @@
 #include "main.h"
+
+#include <iostream>
+#include <string>
+
 #include "models/p_core.h"
 
 PluriNotes::PluriNotes() {
@@ -64,6 +68,17 @@ Note* PluriNotes::getNoteByID(QString id) {
     for(unsigned int i = 0; i < deletedNotesManager->getTab()->size() ; i++ ) {
         Note* n = deletedNotesManager->getTab()->at(i);
         if(n->getId() == id) return n;
+    }
+
+    return 0;
+}
+
+Version* PluriNotes::getNoteVersionByID(QString id, QString numV) {
+    Note* n = getNoteByID(id);
+
+    for(unsigned int i = 0; i < n->getVersions()->size() ; i++ ) {
+        Version *v = n->getVersions()->at(i);
+        if(v->getNumVersion() == numV.toInt()) return v;
     }
 
     return 0;

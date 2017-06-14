@@ -3,6 +3,11 @@
 #define P_XML
 
 #include "main.h"
+
+#include <QDomDocument>
+#include <QWidget>
+#include <QFile>
+
 #include "p_notes.h"
 
 class XMLManager : public QWidget {
@@ -29,6 +34,9 @@ class XMLManager : public QWidget {
     void updateArticle(Article*,Article*);
     void updateMultimedia(Multimedia*,Multimedia*);
     void updateTask(Task*,Task*);
+
+    void deleteNoteVersion(Note*,Version*);
+    void restoreNoteVersion(Note*,Version*);
 
     ~XMLManager();
 };
