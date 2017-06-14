@@ -9,6 +9,7 @@
 #include <QFile>
 
 #include "p_notes.h"
+#include "p_relations.h"
 
 class XMLManager : public QWidget {
     private:
@@ -21,6 +22,7 @@ class XMLManager : public QWidget {
     std::vector<Article*> getAllActiveArticles() const;
     std::vector<Multimedia*> getAllActiveMultimedia() const;
     std::vector<Task*> getAllActiveTasks() const;
+    std::vector<Relation*>getAllRelations() const;
     unsigned int getLastId() const;
 
     void insertIntoArticle(Article*);

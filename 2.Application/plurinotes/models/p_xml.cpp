@@ -224,7 +224,52 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
 
     return tab;
 }
+=========================
+std::vector<Relation*> XMLManager::getAllRelations() const {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+    QDomElement relation = relations.firstChildElement("relation");
 
+    std::vector<Relation*> tab;
+
+    for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+
+        std::vector<Couple*> *coupleTab = new std::vector<Couple*>;
+
+        QDomElement id = relation.firstChildElement("id");
+        QDomElement title = relation.firstChildElement("title");
+        QDomElement description = relation.firstChildElement("description");
+        QDomElement isOriented = relation.firstChildElement("isOriented");
+        QDomElement couples = relation.firstChildElement("couples");
+
+        for(;!version.isNull(); version = version.nextSiblingElement("version")) {
+
+            unsigned int numVersion = version.firstChildElement("numVersion").text().toInt();
+
+            enum TypeMultimedia typeV;
+            if( version.firstChildElement("multimedia").firstChildElement("type").text() == "picture" ) typeV = PICTURE;
+            else if( version.firstChildElement("multimedia").firstChildElement("type").text() == "video" ) typeV = VIDEO;
+            else type = AUDIO;
+
+            Version *v = new Version(numVersion,mV);
+
+            versionsTab->push_back(v);
+        }
+
+        Relation *r = new Relation(
+            relation.firstChildElement("id").text(),
+            relation.firstChildElement("title").text(),
+            relation.firstChildElement("description").text(),
+            relation.firstChildElement("isOriented").text(),
+            versionsTab
+        );
+
+        tab.push_back(r);
+    }
+
+    return tab;
+}
+==============================
 void XMLManager::insertIntoArticle(Article*a) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
