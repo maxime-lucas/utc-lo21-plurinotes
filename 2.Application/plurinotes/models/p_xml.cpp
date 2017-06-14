@@ -775,7 +775,7 @@ void XMLManager::deleteNoteVersion(Note*n,Version*v) {
 
                 QDomElement numVersion = version.firstChildElement("numVersion");
 
-                if( numVersion.text().toInt() >= v->getNumVersion() ) {
+                if( (unsigned)numVersion.text().toInt() >= v->getNumVersion() ) {
                     versions.removeChild(version);
 
                     version = nextSibling;
@@ -828,7 +828,7 @@ void XMLManager::restoreNoteVersion(Note*n,Version*v) {
 
             for(;!version.isNull(); version = version.nextSiblingElement("version")) {
 
-                if( version.firstChildElement("numVersion").text().toInt() == v->getNumVersion() ) {
+                if( (unsigned)version.firstChildElement("numVersion").text().toInt() == v->getNumVersion() ) {
 
                     if(typeid(*n) == typeid(Article)) {
 

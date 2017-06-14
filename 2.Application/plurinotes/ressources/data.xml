@@ -2,39 +2,10 @@
 <plurinotes>
  <activeNotes>
   <articles>
-   <article>
-    <id>1</id>
-    <title>Art 1</title>
-    <createdOn>Wed Jun 14 22:53:20 2017</createdOn>
-    <lastModifOn>Wed Jun 14 23:35:26 2017</lastModifOn>
-    <text>Text 2</text>
-    <versions/>
-   </article>
   </articles>
   <multimedias>
-   <multimedia>
-    <id>2</id>
-    <title>Un super multimedia</title>
-    <createdOn>Wed Jun 14 23:35:57 2017</createdOn>
-    <lastModifOn>Wed Jun 14 23:36:16 2017</lastModifOn>
-    <description>Mult 1</description>
-    <fileName>2.jpg</fileName>
-    <type>picture</type>
-    <versions/>
-   </multimedia>
   </multimedias>
   <tasks>
-   <task>
-    <id>3</id>
-    <title>Task 1</title>
-    <createdOn>Wed Jun 14 23:36:29 2017</createdOn>
-    <lastModifOn>Wed Jun 14 23:37:06 2017</lastModifOn>
-    <action>ACT1</action>
-    <priority>20</priority>
-    <deadline>Wed Jun 14 23:37:06 2017</deadline>
-    <status>0</status>
-    <versions/>
-   </task>
   </tasks>
  </activeNotes>
 </plurinotes>

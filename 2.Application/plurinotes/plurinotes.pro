@@ -21,7 +21,10 @@ HEADERS += \
     views/v_taskform.h \
     views/v_centralnote.h \
     views/v_multiplerelation.h \
-    views/v_mainrelation.h
+    views/v_mainrelation.h \
+    views/v_centralrelation.h \
+    views/v_relationform.h \
+    views/v_coupleform.h
 
 SOURCES += \
     models/p_notes.cpp \
@@ -40,7 +43,10 @@ SOURCES += \
     views/v_taskform.cpp \
     views/v_centralnote.cpp \
     views/v_multiplerelation.cpp \
-    views/v_mainrelation.cpp
+    views/v_mainrelation.cpp \
+    views/v_centralrelation.cpp \
+    views/v_relationform.cpp \
+    views/v_coupleform.cpp
 
 FORMS += \
     views/v_mainwindow.ui \
@@ -50,9 +56,10 @@ FORMS += \
     views/v_taskform.ui \
     views/v_centralnote.ui \
     views/v_multiplerelation.ui \
-    views/v_mainrelation.ui
+    views/v_mainrelation.ui \
+    views/v_centralrelation.ui \
+    views/v_relationform.ui \
+    views/v_coupleform.ui
 
 DISTFILES += \
     ressources/data.xml
-
-

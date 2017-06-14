@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1100</width>
     <height>600</height>
    </rect>
   </property>
@@ -33,8 +33,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>25</height>
+     <width>1100</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -49,6 +49,8 @@
      <addaction name="actionMultimedia"/>
      <addaction name="actionTask"/>
      <addaction name="separator"/>
+     <addaction name="actionRelation"/>
+     <addaction name="actionCouple"/>
     </widget>
     <addaction name="menuNew"/>
     <addaction name="separator"/>
@@ -156,6 +158,16 @@
    </property>
    <property name="shortcut">
     <string>R</string>
+   </property>
+  </action>
+  <action name="actionRelation">
+   <property name="text">
+    <string>Relation</string>
+   </property>
+  </action>
+  <action name="actionCouple">
+   <property name="text">
+    <string>Couple</string>
    </property>
   </action>
  </widget>

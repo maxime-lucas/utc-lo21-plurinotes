@@ -22,7 +22,7 @@ static const uint qt_meta_data_V_Mainwindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,11 +34,13 @@ static const uint qt_meta_data_V_Mainwindow[] = {
       31,   13,   13,   13, 0x0a,
       51,   13,   13,   13, 0x0a,
       65,   13,   13,   13, 0x0a,
-      93,   13,   13,   13, 0x0a,
-     118,   13,   13,   13, 0x0a,
-     140,   13,   13,   13, 0x0a,
-     160,   13,   13,   13, 0x0a,
-     182,   13,   13,   13, 0x0a,
+      83,   13,   13,   13, 0x0a,
+      99,   13,   13,   13, 0x0a,
+     127,   13,   13,   13, 0x0a,
+     152,   13,   13,   13, 0x0a,
+     174,   13,   13,   13, 0x0a,
+     194,   13,   13,   13, 0x0a,
+     216,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -46,6 +48,7 @@ static const uint qt_meta_data_V_Mainwindow[] = {
 static const char qt_meta_stringdata_V_Mainwindow[] = {
     "V_Mainwindow\0\0openNewArticle()\0"
     "openNewMultimedia()\0openNewTask()\0"
+    "openNewRelation()\0openNewCouple()\0"
     "refreshCentralNote(QString)\0"
     "refreshVersions(QString)\0setEmptyCentralNote()\0"
     "toggleAscDescView()\0toggleRelationsView()\0"
@@ -61,12 +64,14 @@ void V_Mainwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 0: _t->openNewArticle(); break;
         case 1: _t->openNewMultimedia(); break;
         case 2: _t->openNewTask(); break;
-        case 3: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 4: _t->refreshVersions((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 5: _t->setEmptyCentralNote(); break;
-        case 6: _t->toggleAscDescView(); break;
-        case 7: _t->toggleRelationsView(); break;
-        case 8: _t->restoreVersion((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 3: _t->openNewRelation(); break;
+        case 4: _t->openNewCouple(); break;
+        case 5: _t->refreshCentralNote((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: _t->refreshVersions((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->setEmptyCentralNote(); break;
+        case 8: _t->toggleAscDescView(); break;
+        case 9: _t->toggleRelationsView(); break;
+        case 10: _t->restoreVersion((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -104,9 +109,9 @@ int V_Mainwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }

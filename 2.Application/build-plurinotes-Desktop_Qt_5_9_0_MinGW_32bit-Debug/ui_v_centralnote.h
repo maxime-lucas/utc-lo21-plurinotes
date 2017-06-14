@@ -43,11 +43,11 @@ public:
         if (V_CentralNote->objectName().isEmpty())
             V_CentralNote->setObjectName(QStringLiteral("V_CentralNote"));
         V_CentralNote->setWindowModality(Qt::NonModal);
-        V_CentralNote->resize(560, 611);
+        V_CentralNote->resize(560, 523);
         V_CentralNote->setLayoutDirection(Qt::LeftToRight);
         gridLayoutWidget = new QWidget(V_CentralNote);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(10, 10, 541, 593));
+        gridLayoutWidget->setGeometry(QRect(10, 10, 541, 501));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);

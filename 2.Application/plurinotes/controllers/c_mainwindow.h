@@ -31,6 +31,8 @@ class C_Mainwindow {
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
         void saveNewTask(Task*);
+        void saveNewRelation(Relation*);
+        void addCouple(Couple*,Relation*);
 
         void editArticle(QString,Article*);
         void editMultimedia(QString,Multimedia*);

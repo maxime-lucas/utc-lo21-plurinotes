@@ -36,6 +36,8 @@ void C_Mainwindow::createActions()
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
     view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
+    view->connect(view->getUi()->actionRelation,SIGNAL(triggered()),view,SLOT(openNewRelation()));
+    view->connect(view->getUi()->actionCouple,SIGNAL(triggered()),view,SLOT(openNewCouple()));
     view->connect(view->getUi()->actionShow_Asc_Desc_View,SIGNAL(triggered()),view,SLOT(toggleAscDescView()));
     view->connect(view->getUi()->actionShow_Relations_View,SIGNAL(triggered()),view,SLOT(toggleRelationsView()));
 }
@@ -178,8 +180,6 @@ void C_Mainwindow::saveNewArticle(Article *a) {
     refreshActiveNotes();
 }
 
-
-
 void C_Mainwindow::saveNewMultimedia(Multimedia *m) {
 
     // Déplacer le fichier dans le dossier ressources
@@ -204,6 +204,14 @@ void C_Mainwindow::saveNewTask(Task *t) {
     app->getActiveNotesManager()->getTab()->push_back(t);
     app->getXMLManager()->insertIntoTask(t);
     refreshTask();
+}
+
+void C_Mainwindow::saveNewRelation(Relation *r) {
+
+}
+
+void C_Mainwindow::addCouple(Couple *c,Relation *r) {
+
 }
 
 void C_Mainwindow::editArticle(QString id,Article* newV)

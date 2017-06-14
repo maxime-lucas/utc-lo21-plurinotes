@@ -14,7 +14,6 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
 #include <QtGui/QTreeWidget>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
@@ -26,9 +25,7 @@ class Ui_v_multiplerelation
 public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QLabel *labelDescendants;
     QTreeWidget *treeDescendant;
-    QLabel *labelAscendants;
     QTreeWidget *treeAscendant;
 
     void setupUi(QWidget *v_multiplerelation)
@@ -42,16 +39,9 @@ public:
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        labelDescendants = new QLabel(verticalLayoutWidget);
-        labelDescendants->setObjectName(QString::fromUtf8("labelDescendants"));
-        labelDescendants->setMinimumSize(QSize(0, 20));
-        labelDescendants->setMaximumSize(QSize(16777215, 20));
-
-        verticalLayout->addWidget(labelDescendants);
-
         treeDescendant = new QTreeWidget(verticalLayoutWidget);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
-        __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
+        __qtreewidgetitem->setText(0, QString::fromUtf8("Descendants"));
         treeDescendant->setHeaderItem(__qtreewidgetitem);
         treeDescendant->setObjectName(QString::fromUtf8("treeDescendant"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -62,16 +52,9 @@ public:
 
         verticalLayout->addWidget(treeDescendant);
 
-        labelAscendants = new QLabel(verticalLayoutWidget);
-        labelAscendants->setObjectName(QString::fromUtf8("labelAscendants"));
-        labelAscendants->setMinimumSize(QSize(0, 20));
-        labelAscendants->setMaximumSize(QSize(16777215, 20));
-
-        verticalLayout->addWidget(labelAscendants);
-
         treeAscendant = new QTreeWidget(verticalLayoutWidget);
         QTreeWidgetItem *__qtreewidgetitem1 = new QTreeWidgetItem();
-        __qtreewidgetitem1->setText(0, QString::fromUtf8("1"));
+        __qtreewidgetitem1->setText(0, QString::fromUtf8("Ascendants"));
         treeAscendant->setHeaderItem(__qtreewidgetitem1);
         treeAscendant->setObjectName(QString::fromUtf8("treeAscendant"));
         sizePolicy.setHeightForWidth(treeAscendant->sizePolicy().hasHeightForWidth());
@@ -88,8 +71,6 @@ public:
     void retranslateUi(QWidget *v_multiplerelation)
     {
         v_multiplerelation->setWindowTitle(QApplication::translate("v_multiplerelation", "Form", 0, QApplication::UnicodeUTF8));
-        labelDescendants->setText(QApplication::translate("v_multiplerelation", "Descendants", 0, QApplication::UnicodeUTF8));
-        labelAscendants->setText(QApplication::translate("v_multiplerelation", "Ascendants", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
