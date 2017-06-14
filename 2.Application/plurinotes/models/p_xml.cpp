@@ -750,12 +750,150 @@ void XMLManager::deleteNoteVersion(Note*n,Version*v) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
 
+    QDomElement notes;
+    QDomElement note;
     if(typeid(*n) == typeid(Article)) {
-        QDomElement tasks = activeNotes.firstChildElement("tasks");
-        QDomElement task = tasks.firstChildElement("task");
+        notes =  activeNotes.firstChildElement("articles");
+        note = notes.firstChildElement("article");
+    } else if (typeid(*n) == typeid(Multimedia)) {
+        notes =  activeNotes.firstChildElement("multimedias");
+        note = notes.firstChildElement("multimedia");
+    } else {
+        notes =  activeNotes.firstChildElement("tasks");
+        note = notes.firstChildElement("task");
+    }
 
-        for(;!task.isNull(); task = task.nextSiblingElement("task")) {
+    for(;!note.isNull(); note = note.nextSiblingElement(note.text())) {
 
+        if( note.firstChildElement("id").text() == n->getId() ) {
+
+            QDomElement versions = note.firstChildElement("versions");
+            QDomElement version = versions.firstChildElement("version");
+
+            while(!version.isNull()) {
+                QDomElement nextSibling = version.nextSiblingElement("version");
+
+                QDomElement numVersion = version.firstChildElement("numVersion");
+
+                if( numVersion.text().toInt() >= v->getNumVersion() ) {
+                    versions.removeChild(version);
+
+                    version = nextSibling;
+                }
+                else {
+                    version = version.nextSiblingElement("version");
+                }
+            }
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::restoreNoteVersion(Note*n,Version*v) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement activeNotes = root.firstChildElement("activeNotes");
+
+    QDomElement notes;
+    QDomElement note;
+
+    if(typeid(*n) == typeid(Article)) {
+        notes =  activeNotes.firstChildElement("articles");
+        note = notes.firstChildElement("article");
+    } else if (typeid(*n) == typeid(Multimedia)) {
+        notes =  activeNotes.firstChildElement("multimedias");
+        note = notes.firstChildElement("multimedia");
+    } else {
+        notes =  activeNotes.firstChildElement("tasks");
+        note = notes.firstChildElement("task");
+    }
+
+    for(;!note.isNull(); note = note.nextSiblingElement(note.text())) {
+
+        if( note.firstChildElement("id").text() == n->getId() ) {
+
+            QDomElement versions = note.firstChildElement("versions");
+            QDomElement version = versions.firstChildElement("version");
+
+            for(;!version.isNull(); version = version.nextSiblingElement("version")) {
+
+                if( version.firstChildElement("numVersion").text().toInt() == v->getNumVersion() ) {
+
+                    if(typeid(*n) == typeid(Article)) {
+
+                        Article *aFromVersion = new Article(dynamic_cast<Article&>(*(v->getState())));
+
+                        QDomElement oTitle = note.firstChildElement("title");
+                            oTitle.removeChild(oTitle.childNodes().at(0));
+                            oTitle.appendChild(dom->createTextNode(aFromVersion->getTitle()));
+                        QDomElement oText = note.firstChildElement("text");
+                            oText.removeChild(oText.childNodes().at(0));
+                            oText.appendChild(dom->createTextNode(aFromVersion->getText()));
+                        QDomElement oLastModifOn = note.firstChildElement("lastModifOn");
+                            oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                            oLastModifOn.appendChild(dom->createTextNode(QDateTime::currentDateTime().toString()));
+                        note.removeChild(versions);
+                        note.appendChild(dom->createElement("versions"));
+
+                    } else if (typeid(*n) == typeid(Multimedia)) {
+
+                        Multimedia *mFromVersion = new Multimedia(dynamic_cast<Multimedia&>(*(v->getState())));
+
+                        QDomElement oTitle = note.firstChildElement("title");
+                            oTitle.removeChild(oTitle.childNodes().at(0));
+                            oTitle.appendChild(dom->createTextNode(mFromVersion->getTitle()));
+                        QDomElement oDescription = note.firstChildElement("description");
+                            oDescription.removeChild(oDescription.childNodes().at(0));
+                            oDescription.appendChild(dom->createTextNode(mFromVersion->getDescription()));
+                        QDomElement oLastModifOn = note.firstChildElement("lastModifOn");
+                            oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                            oLastModifOn.appendChild(dom->createTextNode(QDateTime::currentDateTime().toString()));
+
+                        note.removeChild(versions);
+                        note.appendChild(dom->createElement("versions"));
+
+                    } else {
+
+                        Task *tFromVersion = new Task(dynamic_cast<Task&>(*(v->getState())));
+
+                        QDomElement oTitle = note.firstChildElement("title");
+                            oTitle.removeChild(oTitle.childNodes().at(0));
+                            oTitle.appendChild(dom->createTextNode(tFromVersion->getTitle()));
+                        QDomElement oAction = note.firstChildElement("action");
+                            oAction.removeChild(oAction.childNodes().at(0));
+                            oAction.appendChild(dom->createTextNode(tFromVersion->getAction()));
+                        QDomElement oPriority = note.firstChildElement("priority");
+                            oPriority.removeChild(oPriority.childNodes().at(0));
+                            oPriority.appendChild(dom->createTextNode(QString::number(tFromVersion->getPriority())));
+                        QDomElement oDeadline = note.firstChildElement("deadline");
+                            oDeadline.removeChild(oDeadline.childNodes().at(0));
+                            oDeadline.appendChild(dom->createTextNode(tFromVersion->getDeadline().toString()));
+                        QDomElement oStatus = note.firstChildElement("status");
+                            oStatus.removeChild(oStatus.childNodes().at(0));
+                            if(tFromVersion->getStatus() == PENDING) oStatus.appendChild(dom->createTextNode("0"));
+                            else if(tFromVersion->getStatus() == PROGRESS) oStatus.appendChild(dom->createTextNode("1"));
+                            else oStatus.appendChild(dom->createTextNode("2"));
+                        QDomElement oLastModifOn = note.firstChildElement("lastModifOn");
+                            oLastModifOn.removeChild(oLastModifOn.childNodes().at(0));
+                            oLastModifOn.appendChild(dom->createTextNode(QDateTime::currentDateTime().toString()));
+
+                        note.removeChild(versions);
+                        note.appendChild(dom->createElement("versions"));
+
+                    }
+                }
+            }
         }
     }
 

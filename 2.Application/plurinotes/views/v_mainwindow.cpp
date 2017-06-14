@@ -4,6 +4,7 @@
 #include <QSignalMapper>
 
 #include "v_mainwindow.h"
+#include "models/p_notes.h"
 #include "ui_v_mainwindow.h"
 #include "ui_v_multiplenotes.h"
 #include "ui_v_multiplerelation.h"
@@ -117,6 +118,12 @@ void V_Mainwindow::refreshVersions(QString id) {
         } else if( typeid(*s) == typeid(Multimedia) ) {
             Multimedia *m = new Multimedia(dynamic_cast<Multimedia&>(*s));
             f += m->getDescription();
+        } else if( typeid(*s) == typeid(Task) ) {
+            Task *t = new Task(dynamic_cast<Task&>(*s));
+            f += t->getAction() + " - ";
+            f += t->getStatusToString() + " - ";
+            f += t->getDeadline().toString() + " - ";
+            f += QString::number(t->getPriority());
         }
 
         QListWidgetItem *item = new QListWidgetItem;
@@ -163,6 +170,7 @@ void V_Mainwindow::setEmptyCentralNote() {
     centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
 
+    while(versions->count()>0) versions->takeItem(0);
 }
 
 void V_Mainwindow::restoreVersion(QListWidgetItem* i) {
@@ -187,9 +195,9 @@ void V_Mainwindow::restoreVersion(QListWidgetItem* i) {
     if(mb.clickedButton()->text() == "Delete") {
         if(QMessageBox::question(this,"Delete versions","This operation will delete all anterior versions. \n Are you sure you want to continue ?", QMessageBox::Yes|QMessageBox::No) == QMessageBox::Yes)
             controller->deleteNoteVersion(id,numVersion);
-     } else if(mb.clickedButton()->text() == "Restore") {
-        controller->restoreNoteVersion(id,numVersion);
-     }
+    } else if(mb.clickedButton()->text() == "Restore") {
+            controller->restoreNoteVersion(id,numVersion);
+    }
 }
 
 void V_Mainwindow::toggleAscDescView() {

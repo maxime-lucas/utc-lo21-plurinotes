@@ -278,12 +278,64 @@ void C_Mainwindow::deleteByID(QString id) {
     refreshActiveNotes();
     refreshTask();
     view->setEmptyCentralNote();
+
+
 }
 
 void C_Mainwindow::restoreNoteVersion(QString noteID, QString numVersion) {
     // XML :
     // - Update de l'état actuel avec la version voulue
     // - Suppression de toutes les versions
+    Note *n = app->getNoteByID(noteID);
+    Version *v = app->getNoteVersionByID(noteID,numVersion);
+
+    app->getXMLManager()->restoreNoteVersion(n,v);
+
+    //Suppression dans les notes actives (côté vue)
+    for(unsigned int i = 0; i < app->getActiveNotesManager()->getTab()->size() ; i++ ) {
+        Note *note = app->getActiveNotesManager()->getTab()->at(i);
+
+        if( note->getId() == n->getId() ) {
+
+            for(unsigned int j = 0; j < note->getVersions()->size() ; j++ ) {
+                Version *version = note->getVersions()->at(j);
+
+                if( version->getNumVersion() == v->getNumVersion() ) {
+
+                    if(typeid(*n) == typeid(Article)) {
+                        Article *aFromVersion = new Article(dynamic_cast<Article&>(*(version->getState())));
+                        Article *article = &(dynamic_cast<Article&>(*(note)));
+
+                        article->setTitle(aFromVersion->getTitle());
+                        article->setText(aFromVersion->getText());
+                        article->setLastModifOn(QDateTime::currentDateTime());
+                    } else if(typeid(*n) == typeid(Multimedia)) {
+                        Multimedia *mFromVersion = new Multimedia(dynamic_cast<Multimedia&>(*(version->getState())));
+                        Multimedia *multimedia = &(dynamic_cast<Multimedia&>(*(note)));
+
+                        multimedia->setTitle(mFromVersion->getTitle());
+                        multimedia->setDesc(mFromVersion->getDescription());
+                        multimedia->setLastModifOn(QDateTime::currentDateTime());
+                    } else {
+                        Task *tFromVersion = new Task(dynamic_cast<Task&>(*(version->getState())));
+                        Task *task = &(dynamic_cast<Task&>(*(note)));
+
+                        task->setTitle(tFromVersion->getTitle());
+                        task->setAction(tFromVersion->getAction());
+                        task->setDeadline(tFromVersion->getDeadline());
+                        task->setStatus(tFromVersion->getStatus());
+                        task->setPriority(tFromVersion->getPriority());
+                        task->setLastModifOn(QDateTime::currentDateTime());
+                    }
+                }
+            }
+            note->getVersions()->clear();
+        }
+    }
+    Note* ni = app->getActiveNotesManager()->getTab()->at(0);
+    refreshActiveNotes();
+    refreshTask();
+    view->refreshCentralNote(noteID);
 }
 
 void C_Mainwindow::deleteNoteVersion(QString noteID, QString numVersion) {
@@ -313,7 +365,5 @@ void C_Mainwindow::deleteNoteVersion(QString noteID, QString numVersion) {
 
     refreshActiveNotes();
     refreshTask();
-    view->setEmptyCentralNote();
     view->refreshVersions(noteID);
-
 }

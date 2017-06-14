@@ -44,6 +44,7 @@ class V_Mainwindow : public QMainWindow
         V_MultimediaForm* getFormMultimedia() const{ return multimediaForm; }
         V_TaskForm* getFormTask() const{return taskForm;}
         C_Mainwindow* getController() const { return controller; }
+        QListWidget* getVersions() const { return versions; }
         void init();
 
     private:
