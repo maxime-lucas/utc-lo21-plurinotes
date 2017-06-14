@@ -340,7 +340,7 @@ void C_Mainwindow::restoreNoteVersion(QString noteID, QString numVersion) {
             note->getVersions()->clear();
         }
     }
-    Note* ni = app->getActiveNotesManager()->getTab()->at(0);
+
     refreshActiveNotes();
     refreshTask();
     view->refreshCentralNote(noteID);

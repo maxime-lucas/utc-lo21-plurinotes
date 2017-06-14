@@ -23,6 +23,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
+    ui->actionRelation->setIcon(QIcon(QPixmap("../plurinotes/ressources/newRelation.png")));
     ui->actionShow_Asc_Desc_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/asc_desc.png")));
 
     ui->actionShow_Asc_Desc_View->setChecked(true);
