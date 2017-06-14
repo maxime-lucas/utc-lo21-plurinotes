@@ -17,6 +17,8 @@ INPUT(
 ./release\v_multiplerelation.o
 ./release\v_mainrelation.o
 ./release\v_centralrelation.o
+./release\v_relationform.o
+./release\v_coupleform.o
 ./release\moc_v_mainwindow.o
 ./release\moc_v_multiplenotes.o
 ./release\moc_v_articleform.o
@@ -26,4 +28,6 @@ INPUT(
 ./release\moc_v_multiplerelation.o
 ./release\moc_v_mainrelation.o
 ./release\moc_v_centralrelation.o
+./release\moc_v_relationform.o
+./release\moc_v_coupleform.o
 );

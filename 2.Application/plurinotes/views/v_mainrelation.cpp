@@ -40,7 +40,9 @@ void V_MainView::refreshCouple() {
 
     Relation* relation = new Relation("Test","Relation Test",true);
     V_Centralrelation* V_CentralRelation = new V_Centralrelation(relation,this);
+    V_CentralRelation->setIsRelationView(true);
     centralView = V_CentralRelation;
+
 
     QLayoutItem* item = centralRLayout->takeAt(0);
     while ( item != NULL )
@@ -73,6 +75,7 @@ void V_MainView::afficheCouple() {
 
     Couple* couple = new Couple("TestCouple",a,b);
     V_CentralCouple* V_Centralcouple = new V_CentralCouple(couple,this);
+    V_Centralcouple->setIsRelationView(false);
     centralView = V_Centralcouple;
 
     QLayoutItem* item = centralRLayout->takeAt(0);

@@ -9,7 +9,7 @@ V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     ui->setupUi(this);
 
     //parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteView()));
-    //parentView->connect(ui->btnEdit, SIGNAL(clicked()), this, SLOT(editView()));
+    parentView->connect(ui->btnEdit, SIGNAL(clicked()), this, SLOT(editView()));
 }
 
 void V_CentralView::deleteView() {
@@ -18,6 +18,18 @@ void V_CentralView::deleteView() {
 
 void V_CentralView::editView()
 {
+
+    if(relationView == true)
+    {
+        V_Centralrelation* v_centralRelation = &(dynamic_cast<V_Centralrelation&>(*this));
+        v_centralRelation->editRelation();
+    }
+    else if(relationView == false)
+    {
+        V_CentralCouple* v_centralcouple = &(dynamic_cast<V_CentralCouple&>(*this));
+        v_centralcouple->editCouple();
+    }
+
 
 }
 
@@ -53,7 +65,12 @@ V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(
     formWidgetLayout->addRow(tr("Description :"),desc);
     formWidgetLayout->addRow(tr("Oriented ?"),btnLayout);
 
+    QPushButton* addCouple = new QPushButton("AddCouple");
+    this->getUi()->gridLayout->addWidget(addCouple,4,0);
+
     this->getUi()->formWidget->setLayout(formWidgetLayout);
+
+    this->getMainwindow()->connect(addCouple,SIGNAL(clicked(bool)), this->getMainwindow()->getController()->getView(),SLOT(openNewCouple()));
 
 }
 
@@ -109,6 +126,15 @@ V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m) {
         note2->addItem("task "+note->getId()+" : "+note->getTitle());
         }
     }
+
+
+    // initialisation des combo box$
+    bool ok = true;
+    int xId = c->getX()->getId().toInt(&ok,10);
+    int yId = c->getY()->getId().toInt(&ok,10);
+    note1->setCurrentIndex(xId - 1);
+    note2->setCurrentIndex(yId - 1);
+
     formWidgetLayout->addRow(tr("Note 1"),note1);
     formWidgetLayout->addRow(tr("Note 2"),note2);
 
@@ -120,17 +146,20 @@ void V_CentralCouple::editCouple()
 {
     if(label->text().isEmpty())
         QMessageBox::warning(this,"Missing field","The fields cannot be empty.");
+    else {
+     //Currentindex() renvoie 0 a partir du permier rang
 
-     /*Note* a = this->getMainwindow()->getController()->getApp()->getNoteByID(note1->currentIndex());
-     Note* b = this->getMainwindow()->getController()->getApp()->getNoteByID(note2->currentIndex());
-     else {
+     Note* a = this->getMainwindow()->getController()->getApp()->getNoteByID(QString::number(note1->currentIndex()+1));
+     Note* b = this->getMainwindow()->getController()->getApp()->getNoteByID(QString::number(note2->currentIndex()+1));
+
         Couple* editCouple = new Couple(
-                    this->getUi()->textTile->text(),
+                    this->getUi()->textTitle->text(),
                     a,
                     b
-                    );*/
+                    );
+
         //this->getMainwindow()->getController()->editRelation(editRelation);
-    //}
+    }
 }
 
 V_Centralrelation::~V_Centralrelation(){}

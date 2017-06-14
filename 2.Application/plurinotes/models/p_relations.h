@@ -15,7 +15,10 @@ class Couple
             x = a;
             y = b;
         }
+
         const QString getLabel() const { return label; }
+        Note* getX() const {return x;}
+        Note* getY() const {return y;}
 };
 
 class Relation
