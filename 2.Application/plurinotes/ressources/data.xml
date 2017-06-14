@@ -2,25 +2,10 @@
 <plurinotes>
  <activeNotes>
   <articles>
-   <article>
-    <id>1</id>
-    <title>coucou</title>
-    <createdOn>mer. juin 14 14:32:27 2017</createdOn>
-    <lastModifOn>mer. juin 14 14:32:27 2017</lastModifOn>
-    <text>coucoucouc</text>
-    <versions/>
-   </article>
-   <article>
-    <id>2</id>
-    <title>Coucouc	</title>
-    <createdOn>mer. juin 14 14:41:27 2017</createdOn>
-    <lastModifOn>mer. juin 14 14:41:27 2017</lastModifOn>
-    <text>coucoucoucoucouc
-</text>
-    <versions/>
-   </article>
   </articles>
-  <multimedias/>
-  <tasks/>
+  <multimedias>
+  </multimedias>
+  <tasks>
+  </tasks>
  </activeNotes>
 </plurinotes>

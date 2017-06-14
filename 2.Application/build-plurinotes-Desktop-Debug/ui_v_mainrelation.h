@@ -13,12 +13,11 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QListView>
-#include <QtGui/QPushButton>
-#include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -34,26 +33,22 @@ public:
     QListView *listeRelation;
     QLabel *labelCouple;
     QListView *listCouple;
-    QHBoxLayout *coupleLayout;
-    QVBoxLayout *coupleView;
-    QSpacerItem *horizontalSpacer_3;
-    QVBoxLayout *coupleButon;
-    QPushButton *btnAdd;
-    QPushButton *btnEdit;
-    QPushButton *btnDelete;
-    QSpacerItem *verticalSpacer;
+    QGridLayout *gridLayout;
+    QWidget *formWidget;
 
     void setupUi(QWidget *v_mainrelation)
     {
         if (v_mainrelation->objectName().isEmpty())
             v_mainrelation->setObjectName(QString::fromUtf8("v_mainrelation"));
         v_mainrelation->resize(800, 600);
+        v_mainrelation->setBaseSize(QSize(800, 600));
+        v_mainrelation->setLayoutDirection(Qt::LeftToRight);
         horizontalLayoutWidget = new QWidget(v_mainrelation);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(10, 10, 781, 581));
         centralLayout = new QHBoxLayout(horizontalLayoutWidget);
         centralLayout->setObjectName(QString::fromUtf8("centralLayout"));
-        centralLayout->setSizeConstraint(QLayout::SetFixedSize);
+        centralLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         centralLayout->setContentsMargins(0, 0, 0, 0);
         relationView = new QVBoxLayout();
         relationView->setObjectName(QString::fromUtf8("relationView"));
@@ -83,46 +78,16 @@ public:
 
         centralLayout->addLayout(relationView);
 
-        coupleLayout = new QHBoxLayout();
-        coupleLayout->setSpacing(8);
-        coupleLayout->setObjectName(QString::fromUtf8("coupleLayout"));
-        coupleView = new QVBoxLayout();
-        coupleView->setObjectName(QString::fromUtf8("coupleView"));
-        horizontalSpacer_3 = new QSpacerItem(80, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        formWidget = new QWidget(horizontalLayoutWidget);
+        formWidget->setObjectName(QString::fromUtf8("formWidget"));
 
-        coupleView->addItem(horizontalSpacer_3);
+        gridLayout->addWidget(formWidget, 1, 0, 1, 2);
 
 
-        coupleLayout->addLayout(coupleView);
+        centralLayout->addLayout(gridLayout);
 
-        coupleButon = new QVBoxLayout();
-        coupleButon->setObjectName(QString::fromUtf8("coupleButon"));
-        btnAdd = new QPushButton(horizontalLayoutWidget);
-        btnAdd->setObjectName(QString::fromUtf8("btnAdd"));
-
-        coupleButon->addWidget(btnAdd);
-
-        btnEdit = new QPushButton(horizontalLayoutWidget);
-        btnEdit->setObjectName(QString::fromUtf8("btnEdit"));
-
-        coupleButon->addWidget(btnEdit);
-
-        btnDelete = new QPushButton(horizontalLayoutWidget);
-        btnDelete->setObjectName(QString::fromUtf8("btnDelete"));
-
-        coupleButon->addWidget(btnDelete);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        coupleButon->addItem(verticalSpacer);
-
-
-        coupleLayout->addLayout(coupleButon);
-
-
-        centralLayout->addLayout(coupleLayout);
-
-        centralLayout->setStretch(0, 30);
         centralLayout->setStretch(1, 100);
 
         retranslateUi(v_mainrelation);
@@ -135,9 +100,6 @@ public:
         v_mainrelation->setWindowTitle(QApplication::translate("v_mainrelation", "Form", 0, QApplication::UnicodeUTF8));
         labelRelation->setText(QApplication::translate("v_mainrelation", "Relations", 0, QApplication::UnicodeUTF8));
         labelCouple->setText(QApplication::translate("v_mainrelation", "Couples", 0, QApplication::UnicodeUTF8));
-        btnAdd->setText(QApplication::translate("v_mainrelation", "add Couple", 0, QApplication::UnicodeUTF8));
-        btnEdit->setText(QApplication::translate("v_mainrelation", "edit Couple", 0, QApplication::UnicodeUTF8));
-        btnDelete->setText(QApplication::translate("v_mainrelation", "delete Couple", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

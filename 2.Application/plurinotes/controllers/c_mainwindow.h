@@ -40,6 +40,9 @@ class C_Mainwindow {
         void editRelation(Relation*);
         void editCouple(Couple*,QString);
 
+        void restoreNoteVersion(QString,QString);
+        void deleteNoteVersion(QString,QString);
+
         void deleteByID(QString);
 };
 

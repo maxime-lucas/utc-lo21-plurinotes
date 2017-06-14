@@ -91,7 +91,19 @@ Couple* PluriNotes::getCoupleByID(QString id,Relation* r) {
 
     for(unsigned int i = 0; i < r->getCouples()->size() ; i++ ) {
         Couple* c = r->getCouples()->at(i);
-        if(c->getId() == id) return c;
+        if(c->getId() == id) return c;}
+
+    return 0;
+}
+
+
+Version* PluriNotes::getNoteVersionByID(QString id, QString numV) {
+    Note* n = getNoteByID(id);
+
+    for(unsigned int i = 0; i < n->getVersions()->size() ; i++ ) {
+        Version *v = n->getVersions()->at(i);
+        if(v->getNumVersion() == (unsigned)numV.toInt()) return v;
+
     }
 
     return 0;

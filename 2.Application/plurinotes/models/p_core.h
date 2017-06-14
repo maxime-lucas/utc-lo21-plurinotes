@@ -27,6 +27,8 @@ class PluriNotes {
         Note* getNoteByID(QString);
         Relation* getRelationByID(QString);
         Couple* getCoupleByID(QString,Relation*);
+        Version* getNoteVersionByID(QString,QString);
+
         void reloadFromDatabase();
         static void debug(QString);
 };

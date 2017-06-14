@@ -35,6 +35,9 @@ class XMLManager : public QWidget {
     void updateMultimedia(Multimedia*,Multimedia*);
     void updateTask(Task*,Task*);
 
+    void deleteNoteVersion(Note*,Version*);
+    void restoreNoteVersion(Note*,Version*);
+
     ~XMLManager();
 };
 

@@ -5,6 +5,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QListWidget>
 
 #include "v_articleform.h"
 #include "v_multimediaform.h"
@@ -50,6 +51,8 @@ class V_Mainwindow : public QMainWindow
         V_CoupleForm* getFormCouple() const{return coupleForm;}
         C_Mainwindow* getController() const {return controller; }
         V_MainView* getRelationView() const {return relationView;}
+        QListWidget* getVersions() const { return versions; }
+
         void init();
 
     private:
@@ -86,6 +89,11 @@ class V_Mainwindow : public QMainWindow
 
         V_Multiplerelation *relation;
 
+        // ALL FOR BOTTOM WIDGET
+
+        QLabel* labelVersions;
+        QListWidget* versions;
+
         // ALL FOR FORM PROMPTS
 
         V_ArticleForm* articleForm;
@@ -106,9 +114,11 @@ class V_Mainwindow : public QMainWindow
         void openNewRelation();
         void openNewCouple(QString);
         void refreshCentralNote(QString);
+        void refreshVersions(QString);
         void setEmptyCentralNote();
         void toggleAscDescView();
         void toggleRelationsView();
+        void restoreVersion(QListWidgetItem*);
 };
 
 #endif // V_MAINWINDOW_H
