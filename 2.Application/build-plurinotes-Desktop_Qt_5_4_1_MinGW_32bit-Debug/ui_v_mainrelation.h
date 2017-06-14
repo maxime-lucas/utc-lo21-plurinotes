@@ -17,7 +17,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -30,9 +30,9 @@ public:
     QHBoxLayout *centralLayout;
     QVBoxLayout *relationView;
     QLabel *labelRelation;
-    QListView *listeRelation;
+    QListWidget *listRelation;
     QLabel *labelCouple;
-    QListView *listCouple;
+    QListWidget *listWidget;
     QGridLayout *gridLayout;
     QWidget *formWidget;
 
@@ -58,22 +58,20 @@ public:
 
         relationView->addWidget(labelRelation);
 
-        listeRelation = new QListView(horizontalLayoutWidget);
-        listeRelation->setObjectName(QStringLiteral("listeRelation"));
-        listeRelation->setEnabled(true);
-        listeRelation->setBaseSize(QSize(20, 200));
+        listRelation = new QListWidget(horizontalLayoutWidget);
+        listRelation->setObjectName(QStringLiteral("listRelation"));
 
-        relationView->addWidget(listeRelation);
+        relationView->addWidget(listRelation);
 
         labelCouple = new QLabel(horizontalLayoutWidget);
         labelCouple->setObjectName(QStringLiteral("labelCouple"));
 
         relationView->addWidget(labelCouple);
 
-        listCouple = new QListView(horizontalLayoutWidget);
-        listCouple->setObjectName(QStringLiteral("listCouple"));
+        listWidget = new QListWidget(horizontalLayoutWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
 
-        relationView->addWidget(listCouple);
+        relationView->addWidget(listWidget);
 
 
         centralLayout->addLayout(relationView);

@@ -224,7 +224,7 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
 
     return tab;
 }
-=========================
+
 std::vector<Relation*> XMLManager::getAllRelations() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement relations = root.firstChildElement("relations");
@@ -234,34 +234,29 @@ std::vector<Relation*> XMLManager::getAllRelations() const {
 
     for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
 
-        std::vector<Couple*> *coupleTab = new std::vector<Couple*>;
+        std::vector<Couple*> *couplesTab = new std::vector<Couple*>;
 
         QDomElement id = relation.firstChildElement("id");
         QDomElement title = relation.firstChildElement("title");
         QDomElement description = relation.firstChildElement("description");
         QDomElement isOriented = relation.firstChildElement("isOriented");
         QDomElement couples = relation.firstChildElement("couples");
+        QDomElement couple = couples.firstChildElement("couple");
+        bool isOrientedR = false;
+        if(isOriented.text()=="TRUE"){isOrientedR = true;}
 
-        for(;!version.isNull(); version = version.nextSiblingElement("version")) {
-
-            unsigned int numVersion = version.firstChildElement("numVersion").text().toInt();
-
-            enum TypeMultimedia typeV;
-            if( version.firstChildElement("multimedia").firstChildElement("type").text() == "picture" ) typeV = PICTURE;
-            else if( version.firstChildElement("multimedia").firstChildElement("type").text() == "video" ) typeV = VIDEO;
-            else type = AUDIO;
-
-            Version *v = new Version(numVersion,mV);
-
-            versionsTab->push_back(v);
+        for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+            QString coupleId = couple.text();
+            Couple *c = getCoupleById(coupleId);
+            couplesTab->push_back(c);
         }
 
         Relation *r = new Relation(
-            relation.firstChildElement("id").text(),
-            relation.firstChildElement("title").text(),
-            relation.firstChildElement("description").text(),
-            relation.firstChildElement("isOriented").text(),
-            versionsTab
+            id.text(),
+            title.text(),
+            description.text(),
+            isOrientedR,
+            couplesTab
         );
 
         tab.push_back(r);
@@ -269,7 +264,7 @@ std::vector<Relation*> XMLManager::getAllRelations() const {
 
     return tab;
 }
-==============================
+
 void XMLManager::insertIntoArticle(Article*a) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
