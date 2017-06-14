@@ -201,6 +201,7 @@ void C_Mainwindow::saveNewTask(Task *t) {
 }
 
 void C_Mainwindow::saveNewRelation(Relation *r) {
+    app->getRelationManager()->getTab()->push_back(r);
 
 }
 

@@ -4,6 +4,23 @@
 #include "main.h"
 #include "models/p_notes.h"
 
+class Relation;
+
+class RelationManager {
+
+    private:
+        std::vector<Relation*>* tab;
+
+    public:
+
+        RelationManager();
+        ~RelationManager();
+
+        std::vector<Relation*>* getTab() const { return tab; }
+
+};
+
+
 class Couple
 {
     private:
@@ -27,16 +44,13 @@ class Relation
         QString title;
         QString description;
         bool isOriented;
-        Couple** couples;
-        unsigned int nbCouple;
-        unsigned int nbMaxCouple;
+        std::vector<Couple*>* couples;
+
     public:
-        Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
-        void addCouple(QString lab,Note* a,Note* b);
+        Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or) {}
         QString getTitle() const {return title;}
         QString getDesc() const {return description;}
         bool getOriented() const {return isOriented;}
-        void RemoveCouple(QString lab);
         ~Relation() { if (couples) delete[] couples;}
 };
 

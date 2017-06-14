@@ -12,6 +12,7 @@ class PluriNotes {
         ActiveNotesManager* activeNotesManager;
         ArchivedNotesManager* archivedNotesManager;
         DeletedNotesManager* deletedNotesManager;
+        RelationManager* relationManager;
         XMLManager* xmlManager;
 
     public:
@@ -21,6 +22,7 @@ class PluriNotes {
         ActiveNotesManager* getActiveNotesManager() const { return activeNotesManager; }
         ArchivedNotesManager* getArchivedNotesManager() const { return archivedNotesManager; }
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
+        RelationManager* getRelationManager() const {return relationManager;}
         XMLManager* getXMLManager() const { return xmlManager; }
         Note* getNoteByID(QString);
         void reloadFromDatabase();
