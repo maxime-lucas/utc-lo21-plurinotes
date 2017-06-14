@@ -9,6 +9,7 @@
 #include <QFile>
 
 #include "p_notes.h"
+#include "p_relations.h"
 
 class XMLManager : public QWidget {
     private:
@@ -26,6 +27,7 @@ class XMLManager : public QWidget {
     void insertIntoArticle(Article*);
     void insertIntoTask(Task*t);
     void insertIntoMultimedia(Multimedia*);
+    void insertIntoRelation(Relation*);
 
     void deleteFromArticle(Article*);
     void deleteFromMultimedia(Multimedia*);

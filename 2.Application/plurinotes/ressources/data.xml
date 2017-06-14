@@ -8,4 +8,27 @@
   <tasks>
   </tasks>
  </activeNotes>
+
+ <relations>
+  <relation>
+   <id></id>
+   <title></title>
+   <description></description>
+   <isOriented></isOriented>
+   <couples>
+    <couple></couple>
+    <couple></couple>
+    </couples>
+  </relation>
+ </relations>
+
+ <couples>
+    <couple>
+        <id></id>
+        <label></label>
+        <noteX></noteX>
+        <noteY></noteY>
+    </couple>
+ </couples>
+
 </plurinotes>

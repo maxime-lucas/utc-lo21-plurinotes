@@ -24,12 +24,11 @@ class Couple
 class Relation
 {
     private:
+        QString id;
         QString title;
         QString description;
         bool isOriented;
-        Couple** couples;
-        unsigned int nbCouple;
-        unsigned int nbMaxCouple;
+        std::vector<Couple*> couples;
     public:
         Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
         void addCouple(QString lab,Note* a,Note* b);
