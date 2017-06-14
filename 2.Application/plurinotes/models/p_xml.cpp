@@ -376,9 +376,9 @@ void XMLManager::insertIntoRelation(Relation*r) {
             QDomElement rTitle = dom->createElement("title");
                 rTitle.appendChild(dom->createTextNode(r->getTitle()));
             QDomElement rDescription = dom->createElement("description");
-                rDescription.appendChild(dom->createTextNode(r->getDescription()));
+                rDescription.appendChild(dom->createTextNode(r->getDesc()));
             QDomElement rIsOriented = dom->createElement("isOriented");
-                if( r->getIsOriented() ) rIsOriented.appendChild(dom->createTextNode("TRUE"));
+                if( r->getOriented() ) rIsOriented.appendChild(dom->createTextNode("TRUE"));
                 else rIsOriented.appendChild(dom->createTextNode("FALSE"));
             QDomElement rCouples = dom->createElement("couples");
 

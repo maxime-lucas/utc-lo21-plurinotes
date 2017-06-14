@@ -37,7 +37,6 @@ void C_Mainwindow::createActions()
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
     view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
     view->connect(view->getUi()->actionRelation,SIGNAL(triggered()),view,SLOT(openNewRelation()));
-    view->connect(view->getUi()->actionCouple,SIGNAL(triggered()),view,SLOT(openNewCouple()));
     view->connect(view->getUi()->actionShow_Asc_Desc_View,SIGNAL(triggered()),view,SLOT(toggleAscDescView()));
     view->connect(view->getUi()->actionShow_Relations_View,SIGNAL(triggered()),view,SLOT(toggleRelationsView()));
 }
@@ -207,11 +206,29 @@ void C_Mainwindow::saveNewTask(Task *t) {
 }
 
 void C_Mainwindow::saveNewRelation(Relation *r) {
+    app->getRelationManager()->getTab()->push_back(r);
+    this->getView()->getRelationView()->refreshRelation();
+
 
 }
 
-void C_Mainwindow::addCouple(Couple *c,Relation *r) {
+void C_Mainwindow::addCouple(Couple *c,QString rId) {
+    Relation* relation = app->getRelationByID(rId);
 
+    if(relation->getOriented() == false)
+    {
+        QString id = c->generateCoupleId(c->getY(),c->getX());
+
+        Couple* couple = new Couple(
+                    c->getLabel(),
+                    c->getY(),
+                    c->getX()
+                    );
+        relation->getCouples()->push_back(couple);
+    }
+
+    relation->getCouples()->push_back(c);
+    this->getView()->getRelationView()->refreshListCouple(rId);
 }
 
 void C_Mainwindow::editArticle(QString id,Article* newV)
@@ -245,6 +262,27 @@ void C_Mainwindow::editTask(QString id,Task* newV)
         view->refreshCentralNote(id);
         refreshTask();
     }
+}
+
+void C_Mainwindow::editRelation(Relation* r)
+{
+    Relation* relation = app->getRelationByID(r->getId());
+    relation->setTitle(r->getTitle());
+    relation->setDesc(r->getDesc());
+    relation->setOriented(r->getOriented());
+}
+
+void C_Mainwindow::editCouple(Couple* c,QString RId)
+{
+    Relation* relation = app->getRelationByID(RId);
+
+    Couple* couple = app->getCoupleByID(c->getId(),relation);
+
+    couple->setLabel(c->getLabel());
+    couple->setX(c->getX());
+    couple->setY(c->getY());
+
+
 }
 
 void C_Mainwindow::deleteByID(QString id) {
@@ -340,7 +378,7 @@ void C_Mainwindow::restoreNoteVersion(QString noteID, QString numVersion) {
             note->getVersions()->clear();
         }
     }
-    Note* ni = app->getActiveNotesManager()->getTab()->at(0);
+
     refreshActiveNotes();
     refreshTask();
     view->refreshCentralNote(noteID);

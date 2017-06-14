@@ -34,7 +34,7 @@
      <x>0</x>
      <y>0</y>
      <width>1100</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -50,7 +50,6 @@
      <addaction name="actionTask"/>
      <addaction name="separator"/>
      <addaction name="actionRelation"/>
-     <addaction name="actionCouple"/>
     </widget>
     <addaction name="menuNew"/>
     <addaction name="separator"/>
@@ -81,6 +80,8 @@
    <addaction name="actionMultimedia"/>
    <addaction name="separator"/>
    <addaction name="actionTask"/>
+   <addaction name="separator"/>
+   <addaction name="actionRelation"/>
    <addaction name="separator"/>
    <addaction name="actionShow_Asc_Desc_View"/>
   </widget>
@@ -161,6 +162,10 @@
    </property>
   </action>
   <action name="actionRelation">
+   <property name="icon">
+    <iconset>
+     <normaloff>../ressources/newRelation.png</normaloff>../ressources/newRelation.png</iconset>
+   </property>
    <property name="text">
     <string>Relation</string>
    </property>

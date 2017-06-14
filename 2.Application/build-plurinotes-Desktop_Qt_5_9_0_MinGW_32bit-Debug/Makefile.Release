@@ -373,6 +373,11 @@ release/moc_v_mainwindow.cpp: ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -674,6 +679,11 @@ release/moc_v_articleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -865,6 +875,11 @@ release/moc_v_multimediaform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -1056,6 +1071,11 @@ release/moc_v_taskform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QTimeEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -1247,6 +1267,11 @@ release/moc_v_centralnote.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -1518,6 +1543,11 @@ release/moc_v_mainrelation.cpp: ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		../plurinotes/views/v_mainrelation.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/views/v_mainwindow.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMainWindow \
@@ -1709,6 +1739,11 @@ release/moc_v_centralrelation.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QWidge
 		../plurinotes/views/v_mainrelation.h \
 		../plurinotes/views/v_centralrelation.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/views/v_mainwindow.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMainWindow \
@@ -1925,6 +1960,11 @@ release/moc_v_relationform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -2116,6 +2156,11 @@ release/moc_v_coupleform.cpp: C:/Qt/5.9/mingw53_32/include/QtWidgets/QDialog \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -2329,8 +2374,7 @@ release/p_relations.o: ../plurinotes/models/p_relations.cpp ../plurinotes/main.h
 		C:/Qt/5.9/mingw53_32/include/QtCore/qbytearraylist.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlist.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h \
-		../plurinotes/models/notesexception.h
+		C:/Qt/5.9/mingw53_32/include/QtCore/qstringmatcher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\p_relations.o ..\plurinotes\models\p_relations.cpp
 
 release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
@@ -2519,6 +2563,11 @@ release/main.o: ../plurinotes/main.cpp ../plurinotes/main.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
 		C:/Qt/5.9/mingw53_32/include/QtXml/QDomDocument \
@@ -2825,6 +2874,11 @@ release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -2834,37 +2888,8 @@ release/v_mainwindow.o: ../plurinotes/views/v_mainwindow.cpp ../plurinotes/main.
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
 		ui_v_mainwindow.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenu \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmenu.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenuBar \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QToolBar \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtoolbar.h \
 		ui_v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		ui_v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h
+		ui_v_multiplerelation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainwindow.o ..\plurinotes\views\v_mainwindow.cpp
 
 release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes/main.h \
@@ -3055,49 +3080,18 @@ release/c_mainwindow.o: ../plurinotes/controllers/c_mainwindow.cpp ../plurinotes
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
-		../plurinotes/views/v_littlenote.h \
-		ui_v_mainwindow.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenu \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmenu.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMenuBar \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QToolBar \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtoolbar.h \
+		../plurinotes/views/v_littlenote.h \
+		ui_v_mainwindow.h \
 		ui_v_articleform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit \
 		ui_v_multimediaform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		ui_v_taskform.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider \
 		ui_v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
-		ui_v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h
+		ui_v_multiplerelation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\c_mainwindow.o ..\plurinotes\controllers\c_mainwindow.cpp
 
 release/p_xml.o: ../plurinotes/models/p_xml.cpp C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
@@ -3327,45 +3321,13 @@ release/v_multiplenotes.o: ../plurinotes/views/v_multiplenotes.cpp ../plurinotes
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
 		ui_v_multiplenotes.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QScrollArea \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplenotes.o ..\plurinotes\views\v_multiplenotes.cpp
 
 release/v_littlenote.o: ../plurinotes/views/v_littlenote.cpp ../plurinotes/views/v_littlenote.h \
@@ -3663,6 +3625,11 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp C:/Qt/5.9/mingw53
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -3671,25 +3638,7 @@ release/v_articleform.o: ../plurinotes/views/v_articleform.cpp C:/Qt/5.9/mingw53
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxmlglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
-		ui_v_articleform.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit
+		ui_v_articleform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_articleform.o ..\plurinotes\views\v_articleform.cpp
 
 release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
@@ -3872,6 +3821,11 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp C:/Qt/5.9/m
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -3880,27 +3834,7 @@ release/v_multimediaform.o: ../plurinotes/views/v_multimediaform.cpp C:/Qt/5.9/m
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxmlglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
-		ui_v_multimediaform.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit
+		ui_v_multimediaform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multimediaform.o ..\plurinotes\views\v_multimediaform.cpp
 
 release/v_taskform.o: ../plurinotes/views/v_taskform.cpp C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
@@ -4083,6 +4017,11 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp C:/Qt/5.9/mingw53_32/in
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -4091,30 +4030,7 @@ release/v_taskform.o: ../plurinotes/views/v_taskform.cpp C:/Qt/5.9/mingw53_32/in
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxmlglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
-		ui_v_taskform.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QDateTimeEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLCDNumber \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlcdnumber.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QSlider
+		ui_v_taskform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_taskform.o ..\plurinotes\views\v_taskform.cpp
 
 release/v_centralnote.o: ../plurinotes/views/v_centralnote.cpp C:/Qt/5.9/mingw53_32/include/QtWidgets/QFileDialog \
@@ -4297,6 +4213,11 @@ release/v_centralnote.o: ../plurinotes/views/v_centralnote.cpp C:/Qt/5.9/mingw53
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -4305,26 +4226,7 @@ release/v_centralnote.o: ../plurinotes/views/v_centralnote.cpp C:/Qt/5.9/mingw53
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxmlglobal.h \
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
-		ui_v_centralnote.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h
+		ui_v_centralnote.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_centralnote.o ..\plurinotes\views\v_centralnote.cpp
 
 release/v_multiplerelation.o: ../plurinotes/views/v_multiplerelation.cpp ../plurinotes/views/v_multiplerelation.h \
@@ -4429,49 +4331,9 @@ release/v_multiplerelation.o: ../plurinotes/views/v_multiplerelation.cpp ../plur
 		C:/Qt/5.9/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9/mingw53_32/include/QtGui/qtouchdevice.h \
 		ui_v_multiplerelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qicon.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qregularexpression.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTreeWidget \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreeview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qtreewidgetitemiterator.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QVBoxLayout \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qframe.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_multiplerelation.o ..\plurinotes\views\v_multiplerelation.cpp
 
 release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/views/v_mainrelation.h \
@@ -4627,6 +4489,11 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtCore/QDateTime \
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/views/v_mainwindow.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMainWindow \
@@ -4661,27 +4528,8 @@ release/v_mainrelation.o: ../plurinotes/views/v_mainrelation.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
 		ui_v_mainrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QStringListModel \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qstringlistmodel.h
+		C:/Qt/5.9/mingw53_32/include/QtCore/QSignalMapper \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qsignalmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_mainrelation.o ..\plurinotes\views\v_mainrelation.cpp
 
 release/v_centralrelation.o: ../plurinotes/views/v_centralrelation.cpp ../plurinotes/views/v_centralrelation.h \
@@ -4837,6 +4685,11 @@ release/v_centralrelation.o: ../plurinotes/views/v_centralrelation.cpp ../plurin
 		C:/Qt/5.9/mingw53_32/include/QtCore/qdatetime.h \
 		../plurinotes/views/v_mainrelation.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/views/v_mainwindow.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMainWindow \
@@ -4871,27 +4724,10 @@ release/v_centralrelation.o: ../plurinotes/views/v_centralrelation.cpp ../plurin
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
 		ui_v_centralrelation.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmessagebox.h
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/QSignalMapper \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qsignalmapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_centralrelation.o ..\plurinotes\views\v_centralrelation.cpp
 
 release/v_relationform.o: ../plurinotes/views/v_relationform.cpp ../plurinotes/views/v_relationform.h \
@@ -5072,6 +4908,11 @@ release/v_relationform.o: ../plurinotes/views/v_relationform.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -5081,26 +4922,6 @@ release/v_relationform.o: ../plurinotes/views/v_relationform.cpp ../plurinotes/v
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
 		ui_v_relationform.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QTextEdit \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_relationform.o ..\plurinotes\views\v_relationform.cpp
@@ -5283,6 +5104,11 @@ release/v_coupleform.o: ../plurinotes/views/v_coupleform.cpp ../plurinotes/views
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qpushbutton.h \
 		../plurinotes/models/p_relations.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLayoutItem \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/QListWidget \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlistview.h \
+		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		../plurinotes/controllers/c_mainwindow.h \
 		../plurinotes/models/p_core.h \
 		../plurinotes/models/p_xml.h \
@@ -5292,25 +5118,6 @@ release/v_coupleform.o: ../plurinotes/views/v_coupleform.cpp ../plurinotes/views
 		C:/Qt/5.9/mingw53_32/include/QtXml/qtxml-config.h \
 		C:/Qt/5.9/mingw53_32/include/QtCore/QFile \
 		ui_v_coupleform.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QAction \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.9/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.9/mingw53_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/5.9/mingw53_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.9/mingw53_32/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\v_coupleform.o ..\plurinotes\views\v_coupleform.cpp

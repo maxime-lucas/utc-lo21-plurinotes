@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_V_MainView_t {
-    QByteArrayData data[4];
-    char stringdata0[40];
+    QByteArrayData data[5];
+    char stringdata0[57];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,10 +34,12 @@ static const qt_meta_stringdata_V_MainView_t qt_meta_stringdata_V_MainView = {
 QT_MOC_LITERAL(0, 0, 10), // "V_MainView"
 QT_MOC_LITERAL(1, 11, 13), // "refreshCouple"
 QT_MOC_LITERAL(2, 25, 0), // ""
-QT_MOC_LITERAL(3, 26, 13) // "afficheCouple"
+QT_MOC_LITERAL(3, 26, 16), // "QListWidgetItem*"
+QT_MOC_LITERAL(4, 43, 13) // "afficheCouple"
 
     },
-    "V_MainView\0refreshCouple\0\0afficheCouple"
+    "V_MainView\0refreshCouple\0\0QListWidgetItem*\0"
+    "afficheCouple"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,12 +57,12 @@ static const uint qt_meta_data_V_MainView[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x0a /* Public */,
-       3,    0,   25,    2, 0x0a /* Public */,
+       1,    1,   24,    2, 0x0a /* Public */,
+       4,    1,   27,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 3,    2,
+    QMetaType::Void, 0x80000000 | 3,    2,
 
        0        // eod
 };
@@ -71,12 +73,11 @@ void V_MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         V_MainView *_t = static_cast<V_MainView *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->refreshCouple(); break;
-        case 1: _t->afficheCouple(); break;
+        case 0: _t->refreshCouple((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 1: _t->afficheCouple((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject V_MainView::staticMetaObject = {
