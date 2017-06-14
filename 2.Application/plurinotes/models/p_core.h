@@ -25,6 +25,8 @@ class PluriNotes {
         RelationManager* getRelationManager() const {return relationManager;}
         XMLManager* getXMLManager() const { return xmlManager; }
         Note* getNoteByID(QString);
+        Relation* getRelationByID(QString);
+        Couple* getCoupleByID(QString,Relation*);
         void reloadFromDatabase();
         static void debug(QString);
 };

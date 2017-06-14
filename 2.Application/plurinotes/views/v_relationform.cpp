@@ -44,8 +44,12 @@ void V_RelationForm::checkFields() {
         else if(ui->btnNo->isChecked())
             type = false;
 
+        QString id = QString::number(parent->getRelationView()->getController()->getApp()->getRelationManager()->getCurrentId()+1);
+
+        parent->getRelationView()->getController()->getApp()->getRelationManager()->incCurrentId();
 
         Relation* r = new Relation(
+                    id,
                     ui->lineTitle->text(),
                     ui->textEdit->toPlainText(),
                     type

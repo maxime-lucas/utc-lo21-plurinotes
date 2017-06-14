@@ -4,6 +4,7 @@
 #include "main.h"
 #include "v_centralrelation.h"
 #include <QLayoutItem>
+#include <QListWidget>
 #include "../controllers/c_mainwindow.h"
 
 class C_Mainwindow;
@@ -24,13 +25,12 @@ public:
     Ui::v_mainrelation* getUi() const {return ui;}
 
     void setEmptyCentralView();
+    void refreshRelation();
+    void refreshListCouple(QString);
 
 private:
     Ui::v_mainrelation* ui;
     C_Mainwindow* controller;
-    QStringList relations;
-    QStringList couples;
-    QStringList empty;
     QWidget* centralView;
     QHBoxLayout* centralRLayout;
     QVBoxLayout* leftLayout;
@@ -38,8 +38,8 @@ private:
 
 
 public slots:
-    void refreshCouple();
-    void afficheCouple();
+    void refreshCouple(QListWidgetItem*);
+    void afficheCouple(QListWidgetItem*);
 };
 
 

@@ -32,11 +32,13 @@ class C_Mainwindow {
         void saveNewMultimedia(Multimedia*);
         void saveNewTask(Task*);
         void saveNewRelation(Relation*);
-        void addCouple(Couple*,Relation*);
+        void addCouple(Couple*,QString);
 
         void editArticle(QString,Article*);
         void editMultimedia(QString,Multimedia*);
         void editTask(QString,Task*);
+        void editRelation(Relation*);
+        void editCouple(Couple*,QString);
 
         void deleteByID(QString);
 };

@@ -8,6 +8,7 @@
 #include <QFormLayout>
 #include <QComboBox>
 #include <QPushButton>
+#include <QLabel>
 #include "models/p_relations.h"
 #include "views/v_mainrelation.h"
 
@@ -53,8 +54,7 @@ public:
 
 private:
     QPlainTextEdit* desc;
-    QRadioButton* oriented;
-    QRadioButton* noriented;
+    QLabel* oriented;
 };
 
 class V_CentralCouple : public V_CentralView {
@@ -67,8 +67,9 @@ public:
     void editCouple();
 private:
     QLineEdit* label;
-    QComboBox* note1;
-    QComboBox* note2;
+    QLabel* note1;
+    QLabel* note2;
+    Couple* c;
 
 };
 

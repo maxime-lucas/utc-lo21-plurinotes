@@ -68,7 +68,7 @@ void V_CoupleForm::checkFields() {
                     b
                     );
 
-        this->parent->getController()->addCouple(c,r);
+        this->parent->getController()->addCouple(c,r->getId());
         this->close();
     }
 

@@ -108,7 +108,6 @@ public:
         menuNew->addAction(actionTask);
         menuNew->addSeparator();
         menuNew->addAction(actionRelation);
-        menuNew->addAction(actionCouple);
         menuView->addAction(actionShow_Asc_Desc_View);
         menuView->addAction(actionShow_Relations_View);
         toolBar->addAction(actionArticle);
