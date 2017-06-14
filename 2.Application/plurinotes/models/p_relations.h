@@ -21,22 +21,24 @@ class Couple
         Note* getY() const {return y;}
 };
 
-class Relation
-{
+class Relation {
     private:
         QString id;
         QString title;
         QString description;
         bool isOriented;
-        std::vector<Couple*> couples;
+        std::vector<Couple*>* couples;
+
     public:
-        Relation(QString t,QString d,bool Or): title(t),description(d),isOriented(Or),nbCouple(0),nbMaxCouple(NBMAX) {}
-        void addCouple(QString lab,Note* a,Note* b);
-        QString getTitle() const {return title;}
-        QString getDesc() const {return description;}
-        bool getOriented() const {return isOriented;}
-        void RemoveCouple(QString lab);
-        ~Relation() { if (couples) delete[] couples;}
+        Relation(QString i, QString t, QString d, bool iO) : id(i), title(t), description(d), isOriented(iO), couples(new std::vector<Couple*>) {}
+        Relation(QString i, QString t, QString d, bool iO,std::vector<Couple*>*c) : id(i), title(t), description(d), isOriented(iO), couples(c) {}
+        ~Relation();
+
+        QString getId() const { return id; }
+        QString getTitle() const { return title; }
+        QString getDescription() const { return description; }
+        bool getIsOriented() const { return isOriented; }
+        std::vector<Couple*>* getCouples() const { return couples; }
 };
 
 #endif // P_RELATIONS

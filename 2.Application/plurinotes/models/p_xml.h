@@ -28,6 +28,7 @@ class XMLManager : public QWidget {
     void insertIntoTask(Task*t);
     void insertIntoMultimedia(Multimedia*);
     void insertIntoRelation(Relation*);
+    void insertIntoRelationCouple(Relation*,Couple*);
 
     void deleteFromArticle(Article*);
     void deleteFromMultimedia(Multimedia*);

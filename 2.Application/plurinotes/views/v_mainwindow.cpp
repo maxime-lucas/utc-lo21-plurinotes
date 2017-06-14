@@ -52,7 +52,6 @@ void V_Mainwindow::openNewRelation() {
 }
 
 void V_Mainwindow::openNewCouple() {
-    //this->getController()->getApp()->getRelationNoteManager()->getRelationById()
 
     Relation* test = new Relation("Relation test","Coucou",true);
 

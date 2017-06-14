@@ -265,7 +265,6 @@ void XMLManager::insertIntoArticle(Article*a) {
     stream << newDoc;
 }
 
-
 void XMLManager::insertIntoMultimedia(Multimedia*m) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -314,7 +313,6 @@ void XMLManager::insertIntoMultimedia(Multimedia*m) {
 
     stream << newDoc;
 }
-
 
 void XMLManager::insertIntoTask(Task*t) {
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -368,6 +366,58 @@ void XMLManager::insertIntoTask(Task*t) {
     stream << newDoc;
 }
 
+void XMLManager::insertIntoRelation(Relation*r) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+        QDomElement relation = dom->createElement("relation");
+            QDomElement rId = dom->createElement("id");
+                rId.appendChild(dom->createTextNode(r->getId()));
+            QDomElement rTitle = dom->createElement("title");
+                rTitle.appendChild(dom->createTextNode(r->getTitle()));
+            QDomElement rDescription = dom->createElement("description");
+                rDescription.appendChild(dom->createTextNode(r->getDescription()));
+            QDomElement rIsOriented = dom->createElement("isOriented");
+                if( r->getIsOriented() ) rIsOriented.appendChild(dom->createTextNode("TRUE"));
+                else rIsOriented.appendChild(dom->createTextNode("FALSE"));
+            QDomElement rCouples = dom->createElement("couples");
+
+        relation.appendChild(rId);
+        relation.appendChild(rTitle);
+        relation.appendChild(rDescription);
+        relation.appendChild(rIsOriented);
+        relation.appendChild(rCouples);
+    relations.appendChild(relation);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
 
 void XMLManager::deleteFromArticle(Article *a) {
     QDomElement root = dom->firstChildElement("plurinotes");
