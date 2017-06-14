@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "p_notes.h"
+#include "p_relations.h"
 #include "p_xml.h"
 
 class PluriNotes {

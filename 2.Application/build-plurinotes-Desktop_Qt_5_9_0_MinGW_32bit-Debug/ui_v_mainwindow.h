@@ -31,6 +31,8 @@ public:
     QAction *actionTask;
     QAction *actionShow_Asc_Desc_View;
     QAction *actionShow_Relations_View;
+    QAction *actionRelation;
+    QAction *actionCouple;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_File;
@@ -42,7 +44,7 @@ public:
     {
         if (V_Mainwindow->objectName().isEmpty())
             V_Mainwindow->setObjectName(QStringLiteral("V_Mainwindow"));
-        V_Mainwindow->resize(800, 600);
+        V_Mainwindow->resize(1100, 600);
         QIcon icon;
         icon.addFile(QStringLiteral("../ressources/windowicon.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         V_Mainwindow->setWindowIcon(icon);
@@ -73,6 +75,10 @@ public:
         actionShow_Relations_View = new QAction(V_Mainwindow);
         actionShow_Relations_View->setObjectName(QStringLiteral("actionShow_Relations_View"));
         actionShow_Relations_View->setCheckable(true);
+        actionRelation = new QAction(V_Mainwindow);
+        actionRelation->setObjectName(QStringLiteral("actionRelation"));
+        actionCouple = new QAction(V_Mainwindow);
+        actionCouple->setObjectName(QStringLiteral("actionCouple"));
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setEnabled(true);
@@ -80,7 +86,7 @@ public:
         V_Mainwindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(V_Mainwindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 1100, 21));
         menu_File = new QMenu(menubar);
         menu_File->setObjectName(QStringLiteral("menu_File"));
         menuNew = new QMenu(menu_File);
@@ -101,6 +107,8 @@ public:
         menuNew->addAction(actionMultimedia);
         menuNew->addAction(actionTask);
         menuNew->addSeparator();
+        menuNew->addAction(actionRelation);
+        menuNew->addAction(actionCouple);
         menuView->addAction(actionShow_Asc_Desc_View);
         menuView->addAction(actionShow_Relations_View);
         toolBar->addAction(actionArticle);
@@ -146,6 +154,11 @@ public:
 #ifndef QT_NO_TOOLTIP
         actionShow_Relations_View->setToolTip(QApplication::translate("V_Mainwindow", "Show Relations View", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
+#ifndef QT_NO_SHORTCUT
+        actionShow_Relations_View->setShortcut(QApplication::translate("V_Mainwindow", "R", Q_NULLPTR));
+#endif // QT_NO_SHORTCUT
+        actionRelation->setText(QApplication::translate("V_Mainwindow", "Relation", Q_NULLPTR));
+        actionCouple->setText(QApplication::translate("V_Mainwindow", "Couple", Q_NULLPTR));
         menu_File->setTitle(QApplication::translate("V_Mainwindow", "&File", Q_NULLPTR));
         menuNew->setTitle(QApplication::translate("V_Mainwindow", "New...", Q_NULLPTR));
         menuView->setTitle(QApplication::translate("V_Mainwindow", "View", Q_NULLPTR));

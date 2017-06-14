@@ -42,6 +42,20 @@ void V_Mainwindow::openNewTask(){
     taskForm->show();
 }
 
+void V_Mainwindow::openNewRelation() {
+    relationForm = new V_RelationForm(0,this);
+    relationForm->show();
+}
+
+void V_Mainwindow::openNewCouple() {
+    //this->getController()->getApp()->getRelationNoteManager()->getRelationById()
+
+    Relation* test = new Relation("Relation test","Coucou",true);
+
+    coupleForm = new V_CoupleForm(test,0,this);
+    coupleForm->show();
+}
+
 void V_Mainwindow::refreshCentralNote(QString id) {
 
     Note* note = controller->getApp()->getNoteByID(id);
@@ -151,7 +165,9 @@ void V_Mainwindow::toggleRelationsView() {
         delete centralMainLayout;
 
         centralSecondLayout = new QVBoxLayout;
-        relationView = new V_MainRelation;
+        centralSecondLayout->hasHeightForWidth();
+        relationView = new V_MainView(0,getController());
+        relationView->adjustSize();
         centralSecondLayout->addWidget(relationView);
         centralWidget()->setLayout(centralSecondLayout);
 

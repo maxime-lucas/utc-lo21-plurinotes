@@ -9,6 +9,8 @@
 #include "v_articleform.h"
 #include "v_multimediaform.h"
 #include "v_taskform.h"
+#include "v_relationform.h"
+#include "v_coupleform.h"
 #include "v_multiplenotes.h"
 #include "v_multiplerelation.h"
 #include "v_centralnote.h"
@@ -23,8 +25,10 @@ class C_Mainwindow;
 class V_ArticleForm;
 class V_MultimediaForm;
 class V_TaskForm;
+class V_RelationForm;
+class V_CoupleForm;
 class V_Multiplerelation;
-class V_MainRelation;
+class V_MainView;
 
 class V_Mainwindow : public QMainWindow
 {
@@ -41,7 +45,9 @@ class V_Mainwindow : public QMainWindow
         V_Multiplenotes *getArchivedNotes() const { return archivedNotes; }
         V_ArticleForm* getFormArticle() const { return articleForm; }
         V_MultimediaForm* getFormMultimedia() const{ return multimediaForm; }
+        V_RelationForm* getFormRelation() const {return relationForm;}
         V_TaskForm* getFormTask() const{return taskForm;}
+        V_CoupleForm* getFormCouple() const{return coupleForm;}
         C_Mainwindow* getController() const { return controller; }
         void init();
 
@@ -85,13 +91,19 @@ class V_Mainwindow : public QMainWindow
         V_MultimediaForm* multimediaForm;
         V_TaskForm* taskForm;
 
+        V_RelationForm* relationForm;
+        V_CoupleForm* coupleForm;
+
         // ALL FOR RELATIONS VIEWS
-        V_MainRelation* relationView;
+
+        V_MainView* relationView;
 
     public slots:
         void openNewArticle();
         void openNewMultimedia();
         void openNewTask();
+        void openNewRelation();
+        void openNewCouple();
         void refreshCentralNote(QString);
         void setEmptyCentralNote();
         void toggleAscDescView();

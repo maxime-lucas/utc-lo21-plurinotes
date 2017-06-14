@@ -9,6 +9,9 @@ typedef enum eTypeNote { article, multimedia, task } TypeNote;
 
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <vector>
+#include <typeinfo>
 
 #endif // MAIN
 
