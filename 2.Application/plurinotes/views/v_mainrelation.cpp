@@ -1,5 +1,6 @@
 #include "v_mainrelation.h"
 #include "ui_v_mainrelation.h"
+#include <QStringListModel>
 
 V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     QWidget(parent),

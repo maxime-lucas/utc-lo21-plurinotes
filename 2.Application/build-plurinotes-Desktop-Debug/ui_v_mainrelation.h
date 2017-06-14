@@ -17,7 +17,6 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QListView>
-#include <QtGui/QListWidget>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QVBoxLayout>
@@ -32,9 +31,9 @@ public:
     QHBoxLayout *centralLayout;
     QVBoxLayout *relationView;
     QLabel *labelRelation;
-    QListView *Relations;
+    QListView *listeRelation;
     QLabel *labelCouple;
-    QListWidget *listCouple;
+    QListView *listCouple;
     QHBoxLayout *coupleLayout;
     QVBoxLayout *coupleView;
     QSpacerItem *horizontalSpacer_3;
@@ -64,21 +63,20 @@ public:
 
         relationView->addWidget(labelRelation);
 
-        Relations = new QListView(horizontalLayoutWidget);
-        Relations->setObjectName(QString::fromUtf8("Relations"));
-        Relations->setEnabled(true);
-        Relations->setBaseSize(QSize(20, 200));
+        listeRelation = new QListView(horizontalLayoutWidget);
+        listeRelation->setObjectName(QString::fromUtf8("listeRelation"));
+        listeRelation->setEnabled(true);
+        listeRelation->setBaseSize(QSize(20, 200));
 
-        relationView->addWidget(Relations);
+        relationView->addWidget(listeRelation);
 
         labelCouple = new QLabel(horizontalLayoutWidget);
         labelCouple->setObjectName(QString::fromUtf8("labelCouple"));
 
         relationView->addWidget(labelCouple);
 
-        listCouple = new QListWidget(horizontalLayoutWidget);
+        listCouple = new QListView(horizontalLayoutWidget);
         listCouple->setObjectName(QString::fromUtf8("listCouple"));
-        listCouple->setBaseSize(QSize(200, 200));
 
         relationView->addWidget(listCouple);
 

@@ -4,37 +4,23 @@
   <articles>
    <article>
     <id>1</id>
-    <title>jutthrgefzat</title>
-    <createdOn>Tue Jun 13 13:14:35 2017</createdOn>
-    <lastModifOn>Tue Jun 13 13:14:35 2017</lastModifOn>
-    <text>hrgefzdaz</text>
+    <title>coucou</title>
+    <createdOn>mer. juin 14 14:32:27 2017</createdOn>
+    <lastModifOn>mer. juin 14 14:32:27 2017</lastModifOn>
+    <text>coucoucouc</text>
+    <versions/>
+   </article>
+   <article>
+    <id>2</id>
+    <title>Coucouc	</title>
+    <createdOn>mer. juin 14 14:41:27 2017</createdOn>
+    <lastModifOn>mer. juin 14 14:41:27 2017</lastModifOn>
+    <text>coucoucoucoucouc
+</text>
     <versions/>
    </article>
   </articles>
-  <multimedias>
-   <multimedia>
-    <id>2</id>
-    <title>C'est l'image de ta vie</title>
-    <createdOn>mar. juin 13 18:44:04 2017</createdOn>
-    <lastModifOn>mar. juin 13 18:44:04 2017</lastModifOn>
-    <description>ouais mon gars</description>
-    <fileName>2.jpg</fileName>
-    <type>picture</type>
-    <versions/>
-   </multimedia>
-  </multimedias>
-  <tasks>
-   <task>
-    <id>3</id>
-    <title>laver le linge</title>
-    <createdOn>mar. juin 13 18:44:29 2017</createdOn>
-    <lastModifOn>mar. juin 13 18:44:29 2017</lastModifOn>
-    <action>fdfsd</action>
-    <priority>36</priority>
-    <deadline>sam. janv. 1 00:00:00 2000</deadline>
-    <status>0</status>
-    <versions/>
-   </task>
-  </tasks>
+  <multimedias/>
+  <tasks/>
  </activeNotes>
 </plurinotes>

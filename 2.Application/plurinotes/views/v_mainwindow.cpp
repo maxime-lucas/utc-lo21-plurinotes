@@ -1,4 +1,7 @@
 #include "main.h"
+
+#include <typeinfo>
+
 #include "v_mainwindow.h"
 #include "ui_v_mainwindow.h"
 #include "ui_v_multiplenotes.h"
@@ -77,13 +80,27 @@ void V_Mainwindow::refreshCentralNote(QString id) {
         centralNote = v_centralTask;
     }
 
+    centralNote->setFixedWidth(580);
+    centralNote->setObjectName("centralNote");
+
+    delete middleLayout;
+    middleLayout = new QVBoxLayout;
+
+    middleLayout->addWidget(centralNote);
+    middleLayout->addWidget(bottomWidget);
+
+    middleLayout->setMargin(0);
+    middleLayout->setSpacing(0);
+
+    middleWidget->setLayout(middleLayout);
+
     delete centralMainLayout;
     centralMainLayout = new QHBoxLayout;
-    centralNote->setFixedWidth(580);
+
     centralMainLayout->addWidget(leftWidget);
-    centralMainLayout->addWidget(centralNote);
+    centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
-    centralWidget()->setLayout(centralMainLayout);
+
 }
 
 void V_Mainwindow::setEmptyCentralNote() {
@@ -104,23 +121,33 @@ void V_Mainwindow::setEmptyCentralNote() {
     centralNote->setFixedWidth(560);
     centralNote->setLayout(centralNoteLayout);
 
+    delete middleLayout;
+    middleLayout = new QVBoxLayout;
+
+    middleLayout->addWidget(centralNote);
+    middleLayout->addWidget(bottomWidget);
+
+    middleLayout->setMargin(0);
+    middleLayout->setSpacing(0);
+
+    middleWidget->setLayout(middleLayout);
+
     delete centralMainLayout;
     centralMainLayout = new QHBoxLayout;
+
     centralMainLayout->addWidget(leftWidget);
-    centralMainLayout->addWidget(centralNote);
+    centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
-    centralWidget()->setLayout(centralMainLayout);
 
 }
 
 void V_Mainwindow::toggleAscDescView() {
 
-    if( this->getUi()->actionShow_Asc_Desc_View->isChecked() ) {
-        if(typeid(*(centralWidget()->layout())) == typeid(QHBoxLayout))
-            rightWidget->setVisible(true);
+    if( this->getUi()->actionShow_Asc_Desc_View->isChecked() && !this->getUi()->actionShow_Relations_View->isChecked()) {
+        rightWidget->setVisible(true);
     }
     else {
-        if(typeid(*(centralWidget()->layout())) == typeid(QHBoxLayout))
+        if(!this->getUi()->actionShow_Relations_View->isChecked())
             rightWidget->setVisible(false);
     }
 }
@@ -134,7 +161,6 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
-            item = nullptr;
         }
         delete centralMainLayout;
 
@@ -153,7 +179,6 @@ void V_Mainwindow::toggleRelationsView() {
         {
             delete item->widget();
             delete item;
-            item = nullptr;
         }
         delete centralSecondLayout;
 
@@ -166,26 +191,24 @@ void V_Mainwindow::toggleRelationsView() {
 }
 
 void V_Mainwindow::init() {
+
+    // LEFT WIDGET INIT
+
     labelActiveNotes = new QLabel("Active Notes");
-    labelActiveNotes->setFixedSize(200,20);
-    labelActiveNotes->setAlignment(Qt::AlignCenter);
-
     labelArchivedNotes = new QLabel("Archived Notes");
-    labelArchivedNotes->setFixedSize(200,20);
-    labelArchivedNotes->setAlignment(Qt::AlignCenter);
-
     labelTasks = new QLabel("Tasks");
-    labelTasks->setFixedSize(200,20);
-    labelTasks->setAlignment(Qt::AlignCenter);
-
     activeNotes = new V_Multiplenotes;
     tasks = new V_Multiplenotes;
     archivedNotes = new V_Multiplenotes;
-
     leftWidget = new QWidget;
-    rightWidget = new QWidget;
     leftLayout = new QVBoxLayout;
-    rightLayout = new QVBoxLayout;
+
+    labelActiveNotes->setFixedSize(200,20);
+    labelActiveNotes->setAlignment(Qt::AlignCenter);
+    labelArchivedNotes->setFixedSize(200,20);
+    labelArchivedNotes->setAlignment(Qt::AlignCenter);
+    labelTasks->setFixedSize(200,20);
+    labelTasks->setAlignment(Qt::AlignCenter);
 
     leftLayout->addWidget(labelActiveNotes);
     leftLayout->addWidget(activeNotes);
@@ -195,32 +218,81 @@ void V_Mainwindow::init() {
     leftLayout->addWidget(archivedNotes);
     leftLayout->setMargin(5);
 
+    leftWidget->setLayout(leftLayout);
+    leftWidget->setFixedWidth(210);
+    leftWidget->setObjectName("leftWidget");
+
+    // RIGHT WIDGET INIT
+
     relation = new V_Multiplerelation;
+    rightWidget = new QWidget;
+    rightLayout = new QVBoxLayout;
 
     rightLayout->addWidget(relation);
     rightLayout->setSpacing(0);
     rightLayout->setMargin(5);
 
-    leftWidget->setLayout(leftLayout);
-    leftWidget->setFixedWidth(210);
-
     rightWidget->setLayout(rightLayout);
     rightWidget->setFixedWidth(210);
+    rightWidget->setObjectName("rightWidget");
 
-    centralNote = new QWidget();
-    QVBoxLayout *centralNoteLayout = new QVBoxLayout;
+    // CENTRAL NOTE INIT
+
+    centralNote = new QWidget;
+    centralNoteLayout = new QVBoxLayout;
+
     QLabel *beginningTitle = new QLabel("Select a note in the left tab");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+
     centralNoteLayout->addWidget(beginningTitle);
-    centralNote->setFixedWidth(560);
+
     centralNote->setLayout(centralNoteLayout);
+    centralNote->setFixedWidth(580);
+
+    // BOTTOM WIDGET INIT
+
+    bottomWidget = new QWidget;
+    bottomLayout = new QVBoxLayout;
+
+    QLabel *versions = new QLabel("VERSIONS",bottomWidget);
+    versions->setAlignment(Qt::AlignCenter);
+
+    bottomLayout->addWidget(versions);
+
+    bottomWidget->setLayout(bottomLayout);
+    bottomWidget->setFixedSize(580,100);
+    bottomWidget->setObjectName("bottomWidget");
+
+    // MIDDLE WIDGET INIT
+
+    middleWidget = new QWidget;
+    middleLayout = new QVBoxLayout;
+
+    middleLayout->addWidget(centralNote);
+    middleLayout->addWidget(bottomWidget);
+
+    middleLayout->setMargin(0);
+    middleLayout->setSpacing(0);
+
+    middleWidget->setLayout(middleLayout);
+    middleWidget->setObjectName("middleWidget");
+
+    // ADD ALL WIDGETS TO CENTRAL WIDGET
 
     centralMainLayout = new QHBoxLayout;
-    centralNote->setFixedWidth(580);
+
     centralMainLayout->addWidget(leftWidget);
-    centralMainLayout->addWidget(centralNote);
+    centralMainLayout->addWidget(middleWidget);
     centralMainLayout->addWidget(rightWidget);
+
+    centralMainLayout->setMargin(0);
+    centralMainLayout->setSpacing(0);
+
     centralWidget()->setLayout(centralMainLayout);
+
+    // MISC
+
+    setStyleSheet("#rightWidget,#middleWidget,#leftWidget,#bottomWidget,#centralNote { border: 3px solid #DDD; }");
 
     if( this->getUi()->actionShow_Asc_Desc_View->isChecked() ) rightWidget->setVisible(true);
     else {

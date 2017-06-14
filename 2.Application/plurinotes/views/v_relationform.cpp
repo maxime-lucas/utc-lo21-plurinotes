@@ -2,6 +2,7 @@
 #include "ui_v_relationform.h"
 #include <ctime>
 #include <iostream>
+#include <QMessageBox>
 
 V_RelationForm::V_RelationForm(QWidget *w, V_Mainwindow *m) :
     QDialog(w),

@@ -48,7 +48,6 @@ SOURCES += \
     views/v_relationform.cpp \
     views/v_coupleform.cpp
 
-
 FORMS += \
     views/v_mainwindow.ui \
     views/v_multiplenotes.ui \
@@ -61,3 +60,6 @@ FORMS += \
     views/v_centralrelation.ui \
     views/v_relationform.ui \
     views/v_coupleform.ui
+
+DISTFILES += \
+    ressources/data.xml

@@ -1,6 +1,10 @@
+#include <QMessageBox>
+#include <QTextStream>
+
 #include "main.h"
 #include "p_xml.h"
 #include "p_core.h"
+#include "p_versions.h"
 
 
 XMLManager::XMLManager(const QString &path ) : QWidget()  {
@@ -22,6 +26,7 @@ XMLManager::XMLManager(const QString &path ) : QWidget()  {
 }
 
 std::vector<Article*> XMLManager::getAllActiveArticles() const {
+
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement articles = activeNotes.firstChildElement("articles");
@@ -32,15 +37,38 @@ std::vector<Article*> XMLManager::getAllActiveArticles() const {
 
     for(;!article.isNull(); article = article.nextSiblingElement("article")) {
 
+        std::vector<Version*> *versionsTab = new std::vector<Version*>;
+
         createdOn = article.firstChildElement("createdOn").text();
         lastModifOn = article.firstChildElement("lastModifOn").text();
+
+        QDomElement versions = article.firstChildElement("versions");
+        QDomElement version = versions.firstChildElement("version");
+
+        for(;!version.isNull(); version = version.nextSiblingElement("version")) {
+
+            unsigned int numVersion = version.firstChildElement("numVersion").text().toInt();
+
+            Article *aV = new Article(
+                version.firstChildElement("article").firstChildElement("id").text(),
+                version.firstChildElement("article").firstChildElement("title").text(),
+                QDateTime::fromString(version.firstChildElement("article").firstChildElement("createdOn").text()),
+                QDateTime::fromString(version.firstChildElement("article").firstChildElement("lastModifOn").text()),
+                version.firstChildElement("article").firstChildElement("text").text()
+            );
+
+            Version *v = new Version(numVersion,aV);
+
+            versionsTab->push_back(v);
+        }
 
         Article *a = new Article(
             article.firstChildElement("id").text(),
             article.firstChildElement("title").text(),
             QDateTime::fromString(createdOn),
             QDateTime::fromString(lastModifOn),
-            article.firstChildElement("text").text()
+            article.firstChildElement("text").text(),
+            versionsTab
         );
 
         tab.push_back(a);
@@ -60,6 +88,8 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
 
     for(;!multimedia.isNull(); multimedia = multimedia.nextSiblingElement("multimedia")) {
 
+        std::vector<Version*> *versionsTab = new std::vector<Version*>;
+
         createdOn = multimedia.firstChildElement("createdOn").text();
         lastModifOn = multimedia.firstChildElement("lastModifOn").text();
 
@@ -68,6 +98,33 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
         else if( multimedia.firstChildElement("type").text() == "video" ) type = VIDEO;
         else type = AUDIO;
 
+        QDomElement versions = multimedia.firstChildElement("versions");
+        QDomElement version = versions.firstChildElement("version");
+
+        for(;!version.isNull(); version = version.nextSiblingElement("version")) {
+
+            unsigned int numVersion = version.firstChildElement("numVersion").text().toInt();
+
+            enum TypeMultimedia typeV;
+            if( version.firstChildElement("multimedia").firstChildElement("type").text() == "picture" ) typeV = PICTURE;
+            else if( version.firstChildElement("multimedia").firstChildElement("type").text() == "video" ) typeV = VIDEO;
+            else type = AUDIO;
+
+            Multimedia *mV = new Multimedia(
+                version.firstChildElement("multimedia").firstChildElement("id").text(),
+                version.firstChildElement("multimedia").firstChildElement("title").text(),
+                QDateTime::fromString(version.firstChildElement("multimedia").firstChildElement("createdOn").text()),
+                QDateTime::fromString(version.firstChildElement("multimedia").firstChildElement("lastModifOn").text()),
+                version.firstChildElement("multimedia").firstChildElement("description").text(),
+                version.firstChildElement("multimedia").firstChildElement("fileName").text(),
+                typeV
+            );
+
+            Version *v = new Version(numVersion,mV);
+
+            versionsTab->push_back(v);
+        }
+
         Multimedia *m = new Multimedia(
             multimedia.firstChildElement("id").text(),
             multimedia.firstChildElement("title").text(),
@@ -75,7 +132,8 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
             QDateTime::fromString(lastModifOn),
             multimedia.firstChildElement("description").text(),
             multimedia.firstChildElement("fileName").text(),
-            type
+            type,
+            versionsTab
         );
 
         tab.push_back(m);
@@ -97,10 +155,6 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
 
     for(;!task.isNull(); task = task.nextSiblingElement("task")) {
 
-        createdOn = task.firstChildElement("createdOn").text();
-        lastModifOn = task.firstChildElement("lastModifOn").text();
-        deadline = task.firstChildElement("deadline").text();
-
         //Convertion de QString en unisgned int
         bool ok;
         priority = task.firstChildElement("priority").text().toInt(&ok,10);
@@ -114,16 +168,54 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
         else if(task.firstChildElement("status").text() == "2")
             status = FINISHED;
 
+        std::vector<Version*> *versionsTab = new std::vector<Version*>;
+
+        QDomElement versions = task.firstChildElement("versions");
+        QDomElement version = versions.firstChildElement("version");
+
+        for(;!version.isNull(); version = version.nextSiblingElement("version")) {
+
+            unsigned int numVersion = version.firstChildElement("numVersion").text().toInt();
+
+            TaskStatus statusV;
+
+            if(version.firstChildElement("task").firstChildElement("status").text() == "0")
+                statusV = PENDING;
+            else if(version.firstChildElement("task").firstChildElement("status").text() == "1")
+                statusV = PROGRESS;
+            else if(version.firstChildElement("task").firstChildElement("status").text() == "2")
+                statusV = FINISHED;
+
+            unsigned int priorityV = version.firstChildElement("task").firstChildElement("priority").text().toInt(&ok,10);
+
+            Task *tV = new Task(
+
+                version.firstChildElement("task").firstChildElement("id").text(),
+                version.firstChildElement("task").firstChildElement("title").text(),
+                QDateTime::fromString(version.firstChildElement("task").firstChildElement("createdOn").text()),
+                QDateTime::fromString(version.firstChildElement("task").firstChildElement("lastModifOn").text()),
+                version.firstChildElement("task").firstChildElement("action").text(),
+                priorityV,
+                QDateTime::fromString(version.firstChildElement("task").firstChildElement("deadline").text()),
+                statusV
+            );
+
+            Version *v = new Version(numVersion,tV);
+
+            versionsTab->push_back(v);
+        }
+
         Task *t = new Task(
 
             task.firstChildElement("id").text(),
             task.firstChildElement("title").text(),
-            QDateTime::fromString(createdOn),
-            QDateTime::fromString(lastModifOn),
+            QDateTime::fromString(task.firstChildElement("createdOn").text()),
+            QDateTime::fromString(task.firstChildElement("lastModifOn").text()),
             task.firstChildElement("action").text(),
             priority,
-            QDateTime::fromString(deadline),
-            status
+            QDateTime::fromString(task.firstChildElement("deadline").text()),
+            status,
+            versionsTab
         );
 
         tab.push_back(t);

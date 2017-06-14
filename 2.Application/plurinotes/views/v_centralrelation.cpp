@@ -1,5 +1,6 @@
 #include "v_centralrelation.h"
 #include "ui_v_centralrelation.h"
+#include <QMessageBox>
 
 V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     QWidget(parent),

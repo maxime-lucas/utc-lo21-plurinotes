@@ -1,4 +1,8 @@
 #include "main.h"
+
+#include <iostream>
+#include <string>
+
 #include "models/p_core.h"
 
 PluriNotes::PluriNotes() {

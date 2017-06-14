@@ -5,6 +5,10 @@
 
 #include "main.h"
 
+#include <QPushButton>
+#include <QLabel>
+#include <QLayout>
+
 class V_Littlenote : public QPushButton {
 
         private:

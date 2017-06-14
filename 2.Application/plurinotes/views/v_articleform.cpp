@@ -1,7 +1,10 @@
-#include "v_articleform.h"
-#include "ui_v_articleform.h"
 #include <ctime>
 #include <iostream>
+#include <QMessageBox>
+
+#include "main.h"
+#include "v_articleform.h"
+#include "ui_v_articleform.h"
 
 V_ArticleForm::V_ArticleForm(QWidget *w, V_Mainwindow *m) :
     QDialog(w),

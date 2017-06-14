@@ -2,6 +2,7 @@
 #include "ui_v_coupleform.h"
 #include <ctime>
 #include <iostream>
+#include <QMessageBox>
 
 V_CoupleForm::V_CoupleForm(Relation *relation, QWidget *w, V_Mainwindow *c) :
     QDialog(w),

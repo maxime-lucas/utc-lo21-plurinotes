@@ -3,6 +3,11 @@
 #define P_XML
 
 #include "main.h"
+
+#include <QDomDocument>
+#include <QWidget>
+#include <QFile>
+
 #include "p_notes.h"
 
 class XMLManager : public QWidget {
