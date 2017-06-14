@@ -145,10 +145,10 @@ void V_CentralCouple::editCouple()
      //Currentindex() renvoie 0 a partir du permier rang
 
         Couple* editCouple = new Couple(
-                    this->getUi()->textTitle->text(),
-                    c->getX(),
-                    c->getY()
-                    );
+            this->getUi()->textTitle->text(),
+            c->getX(),
+            c->getY()
+            );
 
         //this->getMainwindow()->getController()->editCouple(editCouple,r);
     }

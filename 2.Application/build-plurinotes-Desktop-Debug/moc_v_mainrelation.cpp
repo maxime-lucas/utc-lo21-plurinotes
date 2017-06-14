@@ -31,13 +31,14 @@ static const uint qt_meta_data_V_MainView[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x0a,
-      28,   11,   11,   11, 0x0a,
+      44,   11,   11,   11, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_V_MainView[] = {
-    "V_MainView\0\0refreshCouple()\0afficheCouple()\0"
+    "V_MainView\0\0refreshCouple(QListWidgetItem*)\0"
+    "afficheCouple(QListWidgetItem*)\0"
 };
 
 void V_MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,12 +47,11 @@ void V_MainView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         V_MainView *_t = static_cast<V_MainView *>(_o);
         switch (_id) {
-        case 0: _t->refreshCouple(); break;
-        case 1: _t->afficheCouple(); break;
+        case 0: _t->refreshCouple((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 1: _t->afficheCouple((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData V_MainView::staticMetaObjectExtraData = {

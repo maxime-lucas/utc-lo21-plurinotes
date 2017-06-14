@@ -61,9 +61,9 @@ class Relation
         std::vector<Couple*>* couples;
 
     public:
-        Relation(QString id,QString t,QString d,bool Or):Id(id), title(t),description(d),isOriented(Or) {
-            couples = new std::vector<Couple*>;
-        }
+        Relation(QString id,QString t,QString d,bool Or):Id(id), title(t),description(d),isOriented(Or),couples(new std::vector<Couple*>){}
+        Relation(QString id,QString t,QString d,bool Or, std::vector<Couple*>* c):Id(id), title(t),description(d),isOriented(Or),couples(c){}
+
         std::vector<Couple*>* getCouples() {return couples;}
         QString getId() const {return Id;}
         QString getTitle() const {return title;}
