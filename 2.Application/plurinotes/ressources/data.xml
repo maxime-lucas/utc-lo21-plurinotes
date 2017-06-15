@@ -35,15 +35,24 @@
    <title>R2</title>
    <description>T2</description>
    <isOriented>TRUE</isOriented>
-   <couples/>
+   <couples>
+    <couple>1/2</couple>
+    <couple>2/1</couple>
+   </couples>
   </relation>
  </relations>
  <couples>
   <couple>
    <id>1/2</id>
-   <label>C1</label>
+   <label>Hello dude</label>
    <noteX>1</noteX>
    <noteY>2</noteY>
+  </couple>
+  <couple>
+   <id>2/1</id>
+   <label>Hey</label>
+   <noteX>2</noteX>
+   <noteY>1</noteY>
   </couple>
  </couples>
 </plurinotes>

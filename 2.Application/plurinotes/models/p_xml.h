@@ -39,6 +39,7 @@ class XMLManager : public QWidget {
     std::vector<Relation*>getAllRelations() const;
     unsigned int getLastId() const;
     unsigned int getLastRelationId() const;
+    bool isCoupleInRelation(Relation*,Couple*) const;
 
     /*!
      * \brief Insertions
@@ -106,6 +107,10 @@ class XMLManager : public QWidget {
          * MAJ d'une tâche
          */
     void updateTask(Task*,Task*);
+        /*!
+         * MAJ du label d'un couple en fonction de son ID
+         */
+    void updateCoupleLabelById(QString,QString);
 
 
         /*!

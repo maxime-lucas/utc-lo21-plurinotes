@@ -1284,3 +1284,46 @@ unsigned int XMLManager::getLastRelationId() const {
     return lastID;
 }
 
+void XMLManager::updateCoupleLabelById(QString id,QString newLabel) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement couples = root.firstChildElement("couples");
+    QDomElement couple = couples.firstChildElement("couple");
+
+    for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+        if(couple.firstChildElement("id").text() == id ) {
+            QDomElement label = couple.firstChildElement("label");
+                label.removeChild(label.childNodes().at(0));
+                label.appendChild(dom->createTextNode(newLabel));
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+bool XMLManager::isCoupleInRelation(Relation *r, Couple *c) const {
+    QDomElement relation = dom->firstChildElement("plurinotes").firstChildElement("relations").firstChildElement("relation");
+
+    for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+        if( relation.firstChildElement("id").text() == r->getId() ) {
+            QDomElement couple = relation.firstChildElement("couples").firstChildElement("couple");
+            for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+                if( couple.text() == c->getId() )
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}
+
