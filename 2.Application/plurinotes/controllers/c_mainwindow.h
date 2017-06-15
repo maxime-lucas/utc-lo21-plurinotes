@@ -47,21 +47,72 @@ class C_Mainwindow {
         void refreshActiveNotes();
         void refreshTask();
 
+        /*!
+         * \brief Sauvegarde
+         */
+            /*!
+             * Sauvegarde d'un article
+             */
         void saveNewArticle(Article*);
+            /*!
+             * Sauvegarde d'un Multimedia
+             */
         void saveNewMultimedia(Multimedia*);
+            /*!
+             * Sauvegarde d'une tâche
+             */
         void saveNewTask(Task*);
+            /*!
+             * Sauvegarde d'une relation
+             */
         void saveNewRelation(Relation*);
+            /*!
+             * Sauvegarde d'un couple
+             */
         void addCouple(Couple*,QString);
 
+
+
+        /*!
+         * \brief Edition
+         */
+            /*!
+             * Edition d'un article
+             */
         void editArticle(QString,Article*);
+            /*!
+             * Edition d'un multimedia
+             */
         void editMultimedia(QString,Multimedia*);
+            /*!
+             * Edition d'une tâche
+             */
         void editTask(QString,Task*);
+            /*!
+             * Edition d'une relation
+             */
         void editRelation(Relation*);
+            /*!
+             * Edition d'un couple
+             */
         void editCouple(Couple*,QString);
 
+
+            /*!
+             * \brief restoreNoteVersion
+             * Restaure l'état d'une version en supprimant les versions suivantes grâce à l'Id de la version et le numéro de la version
+             */
         void restoreNoteVersion(QString,QString);
+            /*!
+             * \brief deleteNoteVersion
+             * Supprime une version ainsi que les versions suivantes grâce à l'Id de la version et le numéro de la version
+             */
         void deleteNoteVersion(QString,QString);
 
+            /*!
+             * \brief deleteByID
+             * Supprime une note, peu importe son type, grâce à son Id
+             */
         void deleteByID(QString);
 };
 
