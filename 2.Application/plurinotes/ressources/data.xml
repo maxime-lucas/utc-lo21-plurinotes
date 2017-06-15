@@ -75,16 +75,16 @@
  </activeNotes>
  <relations>
   <relation>
-   <id/>
-   <title/>
-   <description/>
-   <isOriented/>
+   <id>1</id>
+   <title>Titre de la relation</title>
+   <description>Une relation au pif</description>
+   <isOriented>FALSE</isOriented>
    <couples>
-    <couple/>
-    <couple/>
+    <couple>1/2</couple>
    </couples>
   </relation>
  </relations>
+<<<<<<< HEAD
  <couples>
   <couple>
    <id>1/2</id>
@@ -99,5 +99,8 @@
    <noteY>2</noteY>
   </couple>
  </couples>
+>>>>>>> dev
+=======
+ <couples/>
 >>>>>>> dev
 </plurinotes>

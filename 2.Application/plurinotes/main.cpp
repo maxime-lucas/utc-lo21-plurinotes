@@ -11,6 +11,5 @@ int main(int argc, char *argv[]) {
     C_Mainwindow *controller = new C_Mainwindow(&app);
     controller->getView()->show();
 
-
     return app.exec();
 }

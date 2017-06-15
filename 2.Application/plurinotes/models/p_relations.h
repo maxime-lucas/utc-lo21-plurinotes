@@ -76,6 +76,7 @@ class Relation {
         void setDesc(QString d) {description = d;}
         void setOriented(bool o) {isOriented = o;}
 
+        QString toString() const;
         ~Relation() { if (couples) delete[] couples;}
 };
 
