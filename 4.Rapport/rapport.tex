@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Hello World !"" << std::endl;
 }
 \end{lstlisting}
-\subsubsection{Préambule}
+\subsection{Préambule}
 Bienvenue dans notre rapport de projet concernant la réalisation d'une application permettant une gestion ergonomique de notes diverses : Articles, Multimédias, Tâches, ....\\
 Ce document vous permettra de comprendre nos choix d'architecture, le déroulement du projet, ainsi que les problèmes rencontrés.\\
 Au niveau des ressources, nous avons utilisé : \\
@@ -59,23 +59,23 @@ Au niveau des ressources, nous avons utilisé : \\
 - Draw.io, pour la réalisation des diagrammes UML\\
 - TexMaker, pour la rédaction de ce document
 
-\subsubsection{Groupe de travail}
+\subsection{Groupe de travail}
 Composé de trois étudiants de formations différentes, notre groupe de travail était assez hétérogéne en terme de compétences en C++, en début de projet :\\
 - Yannis Ben Ouaghrem : GI02 - Tronc Commun \\
 - Romain Fayolle : GI02 - DUT Informatique \\
 - Maxime Lucas : GI02 - DUT Informatique
 
-\subsubsection{Dépôt Git}
+\subsection{Dépôt Git}
 Il vous est possible de consulter notre dépôt Git à l'adresse suivante : \\
 \url{https://github.com/maxime-lucas/utc-lo21-plurinotes}
 
 \newpage
 \section{Architecture et Développement}
-\subsection{Modélisation UML}
+\subsection{Modélisation UML (Voir Annexe)}
 
 \textit{NB: Dans l'UML, nous utilisons les types génériques : string, datetime, ... Ce n'est que lors de l'implémentation que nous avons choisi d'utiliser les types propres à Qt (QString, QDateTime,...) \\ Aussi, la modélisation UML étant déjà très lourde, nous avons préféré proposer un diagramme UML très allégé. Pour plus d'informations sur une classe, vous pouvez vous référer à la documentation Doxygen.}
 
-\subsubsection{Package NOTES}
+\subsection{Package NOTES}
 Dès la lecture du sujet, nous avons décidé de modéliser une classe mère \textbf{Notes}, contenant tous les attributs communs à chaque type de note à savoir les \textbf{Articles}, les \textbf{Multimédias} et les \textbf{Tâches}.\\
 Il n'y a aucune fantaisie dans la modélisation de ces classes mis à part le fait que nous utilisons des énumérations pour le \textit{type de multimédia} et le \textit{statut d'une tâche}. \\
 Toutes les notes sont gérées (instanciées et détruites) par un unique \textbf{NoteManager}, se dérivant sous trois formes : \\
@@ -87,25 +87,25 @@ Nous avons préféré utiliser les vecteurs de la bibliothèque standard, plutô
 Aussi, nous n'avons pas choisi d'utiliser le design pattern \textit{Singleton} pour modéliser notre NoteManager (ainsi que les autres managers de l'application) puisque les managers sont uniquement instanciés par l'application principale. Aucune autre classe n'a donc besoin d'y avoir accès directement, ou le cas échéant, par le biais d'accesseurs.\\
 En ce qui concerne les multimédias, nous ne stockons que le nom du fichier ; tous les fichiers multimédia sont stockés au même endroit.
 
-\subsubsection{Package VERSIONS}
+\subsection{Package VERSIONS}
 Au début, nous nous étions penchés sur le design pattern \textit{Memento}. Bien que très simple d'utilisation, notre choix de stockage des données nous a poussé à stocker les versions d'une note, directement dans celle concernée. Nous reviendrons dans la suite de ce rapport sur notre choix de stockage des données.\\
 Une \textbf{Version} est composée d'un attribut \textit{numVersion}, unique pour une note donnée, ainsi que d'un attribut \textit{state} de type \textit{Note*}. Ce dernier s'occupe de garder en mémoire l'état d'une note lorsqu'on a choisi d'en sauvegarder une version.\\
 Une version pourra être rétablie ou supprimée par la note elle-même. Cette opération sera réalisée par le \textit{controller} de l'application (cf. Framework MVC p.\pageref{MVC}).
 
-\subsubsection{Package XMLManager}
+\subsection{Package XMLManager}
 Ce package ne comporte qu'une seule classe : le \textbf{XMLManager}. Il permet de faire le lien entre l'application et un fichier XML permettant de stocker les données.\\
 Nous avons choisi en début d'application d'utiliser les fichiers XML plutôt qu'une base de données pour stocker les données car nous pensions qu'une base de données serait bien trop gourmande pour les besoins de notre application.\\
 Grossière erreur.\\
 En effet, même si Qt a ses propres classes pour le parsing des fichiers XML, il n'en est pas plus simple de créer une telle interface. Avec le XMLManager, il a fallu développer des fonctions de recherche, d'insertion, de suppression, ... alors que nous aurions très bien pu nous débrouiller avec des requêtes SQL qui nous auraient fait économiser de bonnes lignes de codes.\\
 En revanche, malgré son côté robuste, le XMLManager demeure l'une des classes les plus modulaires de notre application. Avec un peu plus de temps, nous pourrions très bien remplacer le système de gestion des données par un SGBD très léger type sqLite, et il n'y aurait pas tant de changement à faire que cela.
 
-\subsubsection{Package RELATIONS}
+\subsection{Package RELATIONS}
 C'est dans ce package que se trouvent toutes les classes permettant de gérer les relations, au sens mathématique du terme, entre les différentes notes de l'application.\\
 Un \textbf{Couple} est composé d'un \textit{id} (unique), d'un \textit{label} (modifiable) et de deux \textit{notes} : noteX et noteY. Comme les couples peuvent appartenir à des relations orientées, il est utile d'orienter aussi le stockage des deux notes contenues dans un couple. En effet, si la relation est non-orientée, alors on ne se préoccupe pas de si la note est noteX ou noteY, alors que si la relation est orientée, l'ordre a un sens.\\
 Ainsi, une \textbf{Relation} est composée d'un \textit{id} (unique), d'un label (modifiable), d'un \textit{ensemble de couples} (vecteur modifiable) ainsi que d'un attribut booléen \textit{isOriented} et un attribut booléen \textit{isReference} qui permettra de savoir si on instancie l'unique relation \textbf{Référence} de l'application.\\
 Les relations sont gérées par un \textbf{RelationManager} qui s'occupera de les instancier, et aussi d'instancier la relation \textbf{Référence}.
 
-\subsubsection{Package CORE}
+\subsection{Package CORE}
 Composé que d'une seule classe, c'est le point d'entrée de toute l'application. En effet, \textbf{PluriNotes} est la classe qui compose tous les managers : \textbf{NoteManager}, \textbf{XMLManager} , \textbf{RelationsManager}, ... et qui permet l'accès à toutes les données. \\
 
 \subsection{Frameworks : Qt et MVC}\label{MVC}
@@ -153,32 +153,32 @@ De plus, le développement des vues reste très propre au framework Qt et ne ren
 
 \newpage
 \section{Modularité et Evolution de l'application}
-\subsubsection{Atout du framework MVC}
+\subsection{Atout du framework MVC}
 Le MVC permet de rendre l'application très évolutive. En effet, un tel framework permet de pouvoir améliorer l'interface graphique sans se soucis de l'impact sur les structures de données. La maintenabilité est donc garantie et est plus aisée.\\
 De plus, il est très facile de récupérer les différents objets via les accesseurs et les méthodes de recherche (via les id par exemple) ce qui permet à chaque instant de pouvoir contrôler l'ensemble de l'application.
 
-\subsubsection{Interface graphique améliorée}
+\subsection{Interface graphique améliorée}
 Nous avons choisi de fournir une interface graphique agréable et ergonomique. Vous avez la possibilité de choisir d'afficher ou non certains onglets, ou de passer d'une vue à l'autre simplement avec le clavier.\\
 L'ajout des éléments tels que les articles, les multimédias, les tâches, les relations, ... peut se faire à l'aide de la barre d'outils, ou directement avec le menu supérieur de la fenêtre.\\
 Sachez que la vue est elle aussi modulable ; par exemple, l'affichage des notes se fait à l'aide d'un widget central, héritant de la classe \textbf{V\_CentralNote}. Nous étions amené à avoir un nouveau type de note, telle qu'une TODO-LIST, nous n'aurions qu'à créer une vue héritant de la classe \textbf{V\_CentralNote} et nous pourrions très aisément adapter cette nouvelle vue dans l'application.
 
-\subsubsection{Affichage et stockage des multimédias}
+\subsection{Affichage et stockage des multimédias}
 Les notes de type multimédia ont demandé un peu de réflexion. Pour enregistrer un nouveau multimédia, il suffit de choisir un fichier situé sur votre ordinateur à l'aide d'une fenêtre dialogue, et lors de l'enregistrement en XML, nous copions au préalable ce fichiers dans un dossier \textbf{Ressources} situé dans l'application. Ceci permet de ne pas perdre la référence vers un fichier si celui-ci venait à être supprimé ou déplacé. Bien entendu, dès lors que ce fichier est supprimé du dossier Ressources, nous perdons toute référence dessus.\\
 Grâce à notre application, il est possible d'afficher un multimédia de type image, et d'afficher le contenu de cette dernière. En revanche, il ne nous est pas possible d'insérer un lecteur vidéo ou un lecteur audio pour les deux autres types de multimédia. Nous nous sommes renseignés sur la question et il semblerait que nous devions importer un module spécial de Qt, qui impliquait certaines directives de compilation et qui aurait rendu l'application beaucoup trop lourde pour très peu d'intéret.\\
 Il n'est pas possible de modifier le fichier pointé par une note de type multimédia ; il faudra supprimer cette note et en recréer une nouvelle.
 
-\subsubsection{Sauvegarde de l'état de l'application}
+\subsection{Sauvegarde de l'état de l'application}
 Pour cette problématique, nous nous sommes un peu écarté du sujet. En effet, nous n'avons pas choisi de sauvegarder l'état de l'application à sa fermeture, mais nous le sauvegardons à chaque manipulation sur les données. Ceci est aisément permis par le framework MVC.\\
 En effet, le controller, dès lors qu'il doit modifier des données et dans les fichiers, et dans la vue, respectera toujours le même mode de fonctionnement :\\
 - Appel de la fonction adéquate dans le XML Manager \\
 - Modification dans les structures de données : Ajout dans un vector, Modification d'un champs, ... \\
 - Rafraichissement des vues impactées par les modifications : On ne rafraichît pas la liste des Relations, si on effectue une modification sur une note.
 
-\subsubsection{Gestion des versions}
+\subsection{Gestion des versions}
 Lorsque l'on modifie un champ d'une note, une version est automatiquement créée avec l'état précédent de la note, dès la confirmation de l'opération. Une note peut avoir un nombre indéterminé de versions. Grâce à l'interface, lors de la sélection d'une précédente version d'une note, il vous est demandé si vous souhaitez restaurer cette version ou la supprimer. Si vous décidez de supprimer cette version, toutes les versions qui auront été créées après celle-ci seront automatiquement supprimée.\\
 Ces manipulations sont réalisées à l'aide du XMLManager (côté stockage) et avec la classe d'application principale (côté structure de données).
 
-\subsubsection{Corbeille et Archivage}
+\subsection{Corbeille et Archivage}
 Par manque de temps, nous n'avons pas pu traiter la problématique de l'archivage des notes dans le cas où ces dernières seraient référencées par des couples, dans des relations.\\
 Cependant, l'état actuel de notre application nous permettrait d'implémenter cette fonctionnalité sans trop de complexité : \\
 - Côté views, nous disposons déjà des widgets nécessaires à l'affichage des notes archivées. \\
@@ -187,7 +187,7 @@ Finalement, il ne manque que quelques algorithmes qui permettent de verrouiller 
 Nous n'avons pas non plus pu traiter la partie liée à la relation "Reference".\\ Cependant, l'ajout d'un champ booléen "isReference" dans la classe relation permettra par la suite de gérer cette fonctionnalité. Ainsi dans les fonctions liées à l'utilisation de la référence, un checking de ce champ pourra faire l'effet d'un verrou sur les actions possibles ou non des relations.\\
 Bien que les relations aient été implémentées, nous n'avons pas eu le temps de réaliser l'affichage des ascendants et des descendants dans la partie droite de l'application. Cette fonctionnalité repose essentilellement sur les algorithmes de parcours de structure de données tels que les graphes, et même si l'analyse ait été faite, l'implémentation n'a pas pu être réalisée dans les temps.
 
-\subsubsection{Axes d'amélioration}
+\subsection{Axes d'amélioration}
 - Au cours de l'évolution de notre projet, nous avons découvert des méthodes plus efficaces à mettre en place sur certaines parties. Par exemple le système de base de données aurait été plus simple avec SQLite qu'avec l'utilisation du XML. \\
 - Enfin, nous n'avons pas assez abusé de la méthode "papier, crayon, action" apprise en IUT. Cette méthode consiste à suffisamment réfléchir sans coder afin que derrière aucun doute ne persiste lors de la phase de développement. En effet nous avons dû revoir plusieurs fois notre architecture pour inclure certaines fonctionalités.\\
 -On peut imaginer une mise en commun des notes avec d'autres utilisateurs via une interface qui irait rechercher les notes dans les différentes BDD XML.
