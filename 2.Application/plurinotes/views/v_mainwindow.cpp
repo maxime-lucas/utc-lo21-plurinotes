@@ -20,6 +20,8 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     move(0,0);
     setStyleSheet("V_Mainwindow { background-color:#FFF;}");
 
+    //ajout des icons
+
     ui->actionArticle->setIcon(QIcon(QPixmap("../plurinotes/ressources/newArticle.png")));
     ui->actionMultimedia->setIcon(QIcon(QPixmap("../plurinotes/ressources/newMultimedia.png")));
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));

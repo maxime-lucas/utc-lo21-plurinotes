@@ -11,8 +11,8 @@ namespace Ui {
 
 class V_Mainwindow;
 /*!
- * \class V_ArticleForm
- * \brief class responsable de l'affichage du formulaire de création d'un article.
+ * \class V_TaskForm
+ * \brief class responsable de l'affichage du formulaire de création d'une tache.
  */
 class V_TaskForm : public QDialog
 {

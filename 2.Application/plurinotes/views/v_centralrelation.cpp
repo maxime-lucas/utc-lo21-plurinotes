@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include <QSignalMapper>
 
+
+
 V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     QWidget(parent),
     ui(new Ui::V_CentralRelation)
@@ -48,7 +50,13 @@ V_CentralView::~V_CentralView()
 {
     delete ui;
 }
-
+/*!
+ * \brief V_Centralrelation::V_Centralrelation
+ * \param r(relation)
+ * \param m(fenetre secondaire)
+ *
+ * Affichage d'une realtion dans la vue principal
+ */
 V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(0,m) {
     this->getUi()->labelType->setText("Type : Relation");
     this->getUi()->labelID->setText(r->getId());
@@ -104,7 +112,14 @@ void V_Centralrelation::editRelation()
        this->getMainwindow()->getController()->editRelation(editRelation);
     }
 }
-
+/*!
+ * \brief V_CentralCouple::V_CentralCouple
+ * \param r(relation)
+ * \param c(couple)
+ * \param m(vue secondaire)
+ *
+ * Affichage d'un couple dans la vue principal
+ */
 V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m){
     this->r = r;
     this->c = c;

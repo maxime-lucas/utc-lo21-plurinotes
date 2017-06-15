@@ -10,9 +10,40 @@
     <text>T1</text>
     <versions/>
    </article>
+   <article>
+    <id>2</id>
+    <title>sdfghjkiolwsxcvbhnj</title>
+    <createdOn>jeu. juin 15 19:38:08 2017</createdOn>
+    <lastModifOn>jeu. juin 15 19:38:31 2017</lastModifOn>
+    <text>qsdfggffdv</text>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <article>
+       <id>2</id>
+       <title>sdfghjkiolwsxcvbhnj</title>
+       <createdOn>jeu. juin 15 19:38:08 2017</createdOn>
+       <lastModifOn>jeu. juin 15 19:38:08 2017</lastModifOn>
+       <text>qsdfg</text>
+      </article>
+     </version>
+    </versions>
+   </article>
   </articles>
   <multimedias/>
-  <tasks/>
+  <tasks>
+   <task>
+    <id>3</id>
+    <title>dfrg</title>
+    <createdOn>jeu. juin 15 19:38:59 2017</createdOn>
+    <lastModifOn>jeu. juin 15 19:38:59 2017</lastModifOn>
+    <action>cfd</action>
+    <priority>35</priority>
+    <deadline>sam. janv. 1 00:00:00 2000</deadline>
+    <status>0</status>
+    <versions/>
+   </task>
+  </tasks>
  </activeNotes>
  <relations/>
  <couples/>
