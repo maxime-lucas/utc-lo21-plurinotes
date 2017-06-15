@@ -51,26 +51,26 @@ class Couple
         void setY(Note* b) {x = b;}
 
         QString generateCoupleId(Note* X, Note* Y);
+        QString toString() const;
 };
 
-class Relation
-{
+class Relation {
     private:
-        QString Id;
+        QString id;
         QString title;
         QString description;
         bool isOriented;
         std::vector<Couple*>* couples;
 
     public:
-        Relation(QString id,QString t,QString d,bool Or):Id(id), title(t),description(d),isOriented(Or),couples(new std::vector<Couple*>){}
-        Relation(QString id,QString t,QString d,bool Or, std::vector<Couple*>* c):Id(id), title(t),description(d),isOriented(Or),couples(c){}
+        Relation(QString i, QString t, QString d, bool iO) : id(i), title(t), description(d), isOriented(iO), couples(new std::vector<Couple*>) {}
+        Relation(QString i, QString t, QString d, bool iO,std::vector<Couple*>*c) : id(i), title(t), description(d), isOriented(iO), couples(c) {}
 
-        std::vector<Couple*>* getCouples() {return couples;}
-        QString getId() const {return Id;}
-        QString getTitle() const {return title;}
-        QString getDesc() const {return description;}
-        bool getOriented() const {return isOriented;}
+        QString getId() const { return id; }
+        QString getTitle() const { return title; }
+        QString getDesc() const { return description; }
+        bool getOriented() const { return isOriented; }
+        std::vector<Couple*>* getCouples() const { return couples; }
 
         void setTitle(QString t) {title = t;}
         void setDesc(QString d) {description = d;}

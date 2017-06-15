@@ -103,7 +103,6 @@ Version* PluriNotes::getNoteVersionByID(QString id, QString numV) {
     for(unsigned int i = 0; i < n->getVersions()->size() ; i++ ) {
         Version *v = n->getVersions()->at(i);
         if(v->getNumVersion() == (unsigned)numV.toInt()) return v;
-
     }
 
     return 0;

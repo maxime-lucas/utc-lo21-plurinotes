@@ -206,6 +206,7 @@ void C_Mainwindow::saveNewTask(Task *t) {
 
 void C_Mainwindow::saveNewRelation(Relation *r) {
     app->getRelationManager()->getTab()->push_back(r);
+    this->getApp()->getXMLManager()->insertIntoRelation(r);
     this->getView()->getRelationView()->refreshRelation();
 
 
@@ -224,9 +225,11 @@ void C_Mainwindow::addCouple(Couple *c,QString rId) {
                     c->getX()
                     );
         relation->getCouples()->push_back(couple);
+        this->getApp()->getXMLManager()->insertIntoRelationCouple(relation,couple);
     }
 
     relation->getCouples()->push_back(c);
+    this->getApp()->getXMLManager()->insertIntoRelationCouple(relation,c);
     this->getView()->getRelationView()->refreshListCouple(rId);
 }
 

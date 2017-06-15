@@ -225,6 +225,46 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     return tab;
 }
 
+std::vector<Relation*> XMLManager::getAllRelations() const {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+    QDomElement relation = relations.firstChildElement("relation");
+
+    std::vector<Relation*> tab;
+
+    for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+
+        std::vector<Couple*> *couplesTab = new std::vector<Couple*>;
+
+        QDomElement id = relation.firstChildElement("id");
+        QDomElement title = relation.firstChildElement("title");
+        QDomElement description = relation.firstChildElement("description");
+        QDomElement isOriented = relation.firstChildElement("isOriented");
+        QDomElement couples = relation.firstChildElement("couples");
+        QDomElement couple = couples.firstChildElement("couple");
+        bool isOrientedR = false;
+        if(isOriented.text()=="TRUE"){isOrientedR = true;}
+
+        for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+            QString coupleId = couple.text();
+            Couple *c = getCoupleById(coupleId);
+            couplesTab->push_back(c);
+        }
+
+        Relation *r = new Relation(
+            id.text(),
+            title.text(),
+            description.text(),
+            isOrientedR,
+            couplesTab
+        );
+
+        tab.push_back(r);
+    }
+
+    return tab;
+}
+
 void XMLManager::insertIntoArticle(Article*a) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -264,7 +304,6 @@ void XMLManager::insertIntoArticle(Article*a) {
 
     stream << newDoc;
 }
-
 
 void XMLManager::insertIntoMultimedia(Multimedia*m) {
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -314,7 +353,6 @@ void XMLManager::insertIntoMultimedia(Multimedia*m) {
 
     stream << newDoc;
 }
-
 
 void XMLManager::insertIntoTask(Task*t) {
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -368,6 +406,92 @@ void XMLManager::insertIntoTask(Task*t) {
     stream << newDoc;
 }
 
+void XMLManager::insertIntoRelation(Relation*r) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+        QDomElement relation = dom->createElement("relation");
+            QDomElement rId = dom->createElement("id");
+                rId.appendChild(dom->createTextNode(r->getId()));
+            QDomElement rTitle = dom->createElement("title");
+                rTitle.appendChild(dom->createTextNode(r->getTitle()));
+            QDomElement rDescription = dom->createElement("description");
+                rDescription.appendChild(dom->createTextNode(r->getDesc()));
+            QDomElement rIsOriented = dom->createElement("isOriented");
+                if( r->getOriented() ) rIsOriented.appendChild(dom->createTextNode("TRUE"));
+                else rIsOriented.appendChild(dom->createTextNode("FALSE"));
+            QDomElement rCouples = dom->createElement("couples");
+
+        relation.appendChild(rId);
+        relation.appendChild(rTitle);
+        relation.appendChild(rDescription);
+        relation.appendChild(rIsOriented);
+        relation.appendChild(rCouples);
+    relations.appendChild(relation);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::insertIntoCouple(Couple*c) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement couples = root.firstChildElement("couples");
+
+        QDomElement couple = dom->createElement("couple");
+            QDomElement cId = dom->createElement("id");
+                cId.appendChild(dom->createTextNode(c->getId()));
+            QDomElement cLabel = dom->createElement("label");
+                cLabel.appendChild(dom->createTextNode(c->getLabel()));
+            QDomElement cNoteX = dom->createElement("noteX");
+                cNoteX.appendChild(dom->createTextNode(c->getX()->getId()));
+            QDomElement cNoteY = dom->createElement("noteY");
+                cNoteY.appendChild(dom->createTextNode(c->getY()->getId()));
+
+        couple.appendChild(cId);
+        couple.appendChild(cLabel);
+        couple.appendChild(cNoteX);
+        couple.appendChild(cNoteY);
+
+    couples.appendChild(couple);
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
 
 void XMLManager::deleteFromArticle(Article *a) {
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -981,5 +1105,52 @@ void XMLManager::deleteRelation(Relation*r) {
 }
 
 XMLManager::~XMLManager() {
+
     doc.close();
+}
+
+Note* XMLManager::getNoteById(QString id) const {
+    std::vector<Article*> articles = getAllActiveArticles();
+    std::vector<Multimedia*> multimedias = getAllActiveMultimedia();
+    std::vector<Task*> tasks = getAllActiveTasks();
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Article* article = articles.at(i);
+        if( article->getId() == id ) return article;
+    }
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Multimedia* multimedia = multimedias.at(i);
+        if( multimedia->getId() == id ) return multimedia;
+    }
+
+    for(unsigned int i = 0 ; i < articles.size() ; i++ ) {
+        Task* task = tasks.at(i);
+        if( task->getId() == id ) return task;
+    }
+
+    return 0;
+}
+
+Couple* XMLManager::getCoupleById(QString id) const {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement couples = root.firstChildElement("couples");
+    QDomElement couple = couples.firstChildElement("couple");
+
+    for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+
+        if(id == couple.firstChildElement("id").text() ) {
+
+            Couple *newC = new Couple(
+                couple.firstChildElement("label").text(),
+                getNoteById(couple.firstChildElement("noteX").text()),
+                getNoteById(couple.firstChildElement("noteY").text())
+            );
+
+            return newC;
+        }
+    }
+
+    return 0;
 }

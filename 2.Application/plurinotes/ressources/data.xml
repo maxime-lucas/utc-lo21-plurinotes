@@ -4,6 +4,7 @@
   <articles>
    <article>
     <id>1</id>
+<<<<<<< HEAD
     <title>	azertyjuk</title>
     <createdOn>jeu. juin 15 01:39:25 2017</createdOn>
     <lastModifOn>jeu. juin 15 01:39:25 2017</lastModifOn>
@@ -53,4 +54,50 @@
    </couples>
   </relation>
  </relations>
+=======
+    <title>Art 1</title>
+    <createdOn>Thu Jun 15 01:39:08 2017</createdOn>
+    <lastModifOn>Thu Jun 15 01:51:30 2017</lastModifOn>
+    <text>Texte 1</text>
+    <versions/>
+   </article>
+   <article>
+    <id>2</id>
+    <title>Art 2</title>
+    <createdOn>Thu Jun 15 01:51:25 2017</createdOn>
+    <lastModifOn>Thu Jun 15 01:51:25 2017</lastModifOn>
+    <text>Texte 2</text>
+    <versions/>
+   </article>
+  </articles>
+  <multimedias/>
+  <tasks/>
+ </activeNotes>
+ <relations>
+  <relation>
+   <id/>
+   <title/>
+   <description/>
+   <isOriented/>
+   <couples>
+    <couple/>
+    <couple/>
+   </couples>
+  </relation>
+ </relations>
+ <couples>
+  <couple>
+   <id>1/2</id>
+   <label>HELLO BOYS</label>
+   <noteX>1</noteX>
+   <noteY>2</noteY>
+  </couple>
+  <couple>
+   <id>1/2</id>
+   <label>HELLO BOYS</label>
+   <noteX>1</noteX>
+   <noteY>2</noteY>
+  </couple>
+ </couples>
+>>>>>>> dev
 </plurinotes>

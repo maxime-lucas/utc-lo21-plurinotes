@@ -23,3 +23,19 @@ void RelationManager::deleteByRelation(Relation* r)
             getTab()->erase(getTab()->begin()+i);
     }
 }
+QString Couple::toString() const {
+
+    QString f;
+        f = "[COUPLE]\n";
+        f += "  id : " + Id + "\n";
+        f += "  label : " + label + "\n";
+        f += "[NOTE_X]\n";
+            f += "\n"+x->toString();
+        f += "[/NOTE_X]\n";
+        f += "[NOTE_Y]\n";
+            f += "\n"+y->toString();
+        f += "[/NOTE_Y]\n";
+        f += "[/COUPLE]\n";
+
+    return f;
+}
