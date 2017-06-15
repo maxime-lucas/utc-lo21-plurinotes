@@ -2,10 +2,55 @@
 <plurinotes>
  <activeNotes>
   <articles>
+   <article>
+    <id>1</id>
+    <title>	azertyjuk</title>
+    <createdOn>jeu. juin 15 01:39:25 2017</createdOn>
+    <lastModifOn>jeu. juin 15 01:39:25 2017</lastModifOn>
+    <text>zaertyu</text>
+    <versions/>
+   </article>
   </articles>
   <multimedias>
+   <multimedia>
+    <id>2</id>
+    <title>zertyuio</title>
+    <createdOn>jeu. juin 15 01:39:33 2017</createdOn>
+    <lastModifOn>jeu. juin 15 01:39:33 2017</lastModifOn>
+    <description>erzt(yuio</description>
+    <fileName>2.</fileName>
+    <type>picture</type>
+    <versions/>
+   </multimedia>
   </multimedias>
   <tasks>
+   <task>
+    <id>3</id>
+    <title>sqdfgh</title>
+    <createdOn>jeu. juin 15 01:39:38 2017</createdOn>
+    <lastModifOn>jeu. juin 15 01:39:38 2017</lastModifOn>
+    <action>esrtyuj</action>
+    <priority>57</priority>
+    <deadline>sam. janv. 1 00:00:00 2000</deadline>
+    <status>0</status>
+    <versions/>
+   </task>
   </tasks>
  </activeNotes>
+ <relations>
+  <relation>
+   <id>1</id>
+   <title>coucou</title>
+   <description>hahahahaha</description>
+   <isoriented>TRUE</isoriented>
+   <couples>
+    <couple>
+     <id>1/2</id>
+     <label>test</label>
+     <x>ijjzeior</x>
+     <y>fezif</y>
+    </couple>
+   </couples>
+  </relation>
+ </relations>
 </plurinotes>

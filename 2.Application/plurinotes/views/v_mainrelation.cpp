@@ -83,7 +83,7 @@ void V_MainView::afficheCouple(QListWidgetItem* c) {
 
     Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
     Couple* couple = this->getController()->getApp()->getCoupleByID(idCouple,relation);
-    V_CentralCouple* V_Centralcouple = new V_CentralCouple(couple,this);
+    V_CentralCouple* V_Centralcouple = new V_CentralCouple(relation,couple,this);
     V_Centralcouple->setIsRelationView(false);
     centralView = V_Centralcouple;
 

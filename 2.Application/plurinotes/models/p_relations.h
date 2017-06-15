@@ -22,6 +22,8 @@ class RelationManager {
         void decCurrentId() {currentId--;}
 
         std::vector<Relation*>* getTab() const { return tab;}
+
+        void deleteByRelation(Relation*);
 };
 
 

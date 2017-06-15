@@ -25,7 +25,6 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
     refreshActiveNotes();
     refreshTask();
     createActions();
-
 }
 
 void C_Mainwindow::createActions()
