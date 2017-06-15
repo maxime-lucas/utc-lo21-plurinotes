@@ -31,6 +31,10 @@ class V_CoupleForm;
 class V_Multiplerelation;
 class V_MainView;
 
+/*!
+ * \class V_Mainwindow
+ * \brief Class gérant la vue principal
+ */
 class V_Mainwindow : public QMainWindow
 {
     Q_OBJECT
@@ -53,6 +57,10 @@ class V_Mainwindow : public QMainWindow
         V_MainView* getRelationView() const {return relationView;}
         QListWidget* getVersions() const { return versions; }
 
+        /*!
+         * \brief init
+         * Initialise la vue principal
+         */
         void init();
 
     private:

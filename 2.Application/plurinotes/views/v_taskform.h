@@ -10,7 +10,10 @@ namespace Ui {
 }
 
 class V_Mainwindow;
-
+/*!
+ * \class V_TaskForm
+ * \brief class responsable de l'affichage du formulaire de création d'une tache.
+ */
 class V_TaskForm : public QDialog
 {
     Q_OBJECT
@@ -25,6 +28,10 @@ private:
     V_Mainwindow * parent;
 
 public slots:
+    /*!
+     * \brief checkFields
+     * Slot qui permet une vérification des paramètres entrés et qui appelle la fonction du controler pour creer une nouvelle tache
+     */
     void checkFields();
 };
 

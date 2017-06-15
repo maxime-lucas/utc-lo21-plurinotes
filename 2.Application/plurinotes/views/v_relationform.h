@@ -9,6 +9,10 @@ class v_relationform;
 }
 
 class V_Mainwindow;
+/*!
+ * \class V_RelationForm
+ * \brief class responsable de l'affichage du formulaire de création d'une relation.
+ */
 
 class V_RelationForm : public QDialog
 {
@@ -24,6 +28,10 @@ private:
     V_Mainwindow *parent;
 
 public slots:
+    /*!
+     * \brief checkFields
+     * Slot qui permet une vérification des paramètres entrés et qui appelle la fonction du controler pour creer une nouvelle relation.
+     */
     void checkFields();
 };
 

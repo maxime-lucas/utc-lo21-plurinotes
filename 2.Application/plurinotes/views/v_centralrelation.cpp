@@ -3,6 +3,8 @@
 #include <QMessageBox>
 #include <QSignalMapper>
 
+
+
 V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     QWidget(parent),
     ui(new Ui::V_CentralRelation)
@@ -19,11 +21,15 @@ void V_CentralView::deleteView() {
     {
         QString id = this->getUi()->labelID->text();
         parentView->getController()->deleteRelationByID(id);
+        parentView->refreshRelation();
+        parentView->setEmptyList();
+
     }
     else if(relationView == false)
     {
         QString id = this->getUi()->labelID->text();
         parentView->getController()->deleteCoupleByID(id);
+        parentView->setEmptyCentralView();
     }
 }
 
@@ -48,7 +54,13 @@ V_CentralView::~V_CentralView()
 {
     delete ui;
 }
-
+/*!
+ * \brief V_Centralrelation::V_Centralrelation
+ * \param r(relation)
+ * \param m(fenetre secondaire)
+ *
+ * Affichage d'une realtion dans la vue principal
+ */
 V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(0,m) {
     this->getUi()->labelType->setText("Type : Relation");
     this->getUi()->labelID->setText(r->getId());
@@ -104,10 +116,17 @@ void V_Centralrelation::editRelation()
        this->getMainwindow()->getController()->editRelation(editRelation);
     }
 }
-
+/*!
+ * \brief V_CentralCouple::V_CentralCouple
+ * \param r(relation)
+ * \param c(couple)
+ * \param m(vue secondaire)
+ *
+ * Affichage d'un couple dans la vue principal
+ */
 V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m){
-    this->r = r;
-    this->c = c;
+    r = r;
+    c = c;
 
     this->getUi()->labelType->setText("Type : Couple");
     this->getUi()->labelID->setText(c->getId());
@@ -129,7 +148,7 @@ V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_Centr
         note1 = new QLabel("task "+note->getId()+" : "+note->getTitle());
         }
 
-        Note* n= c->getY();
+        Note* n = c->getY();
         if( typeid(*n) == typeid(Article) ) {
         note2 = new QLabel("Article "+n->getId()+" : "+n->getTitle());
         }

@@ -49,7 +49,13 @@ V_CentralNote::~V_CentralNote()
 {
     delete ui;
 }
-
+/*!
+ * \brief V_CentralArticle::V_CentralArticle
+ * \param a(article)
+ * \param m(Fenetre Principal)
+ *
+ * Affichage d'un article dans la central View
+ */
 V_CentralArticle::V_CentralArticle(Article *a,V_Mainwindow* m) : V_CentralNote(0,m) {
     this->getUi()->labelType->setText("Type : Article");
     this->getUi()->labelID->setText(a->getId());
@@ -83,7 +89,13 @@ void V_CentralArticle::editArticle()
     }
 }
 
-
+/*!
+ * \brief V_CentralMultimedia::V_CentralMultimedia
+ * \param m(multimedia)
+ * \param mw(Fenetre principal)
+ *
+ * Affichage d'un multimedia dans la central View
+ */
 V_CentralMultimedia::V_CentralMultimedia(Multimedia *m, V_Mainwindow*mw) : V_CentralNote(0,mw){
     this->getUi()->labelType->setText("Type : Multimedia/"+m->getTypeToQString());
     this->getUi()->labelID->setText(m->getId());
@@ -116,7 +128,13 @@ V_CentralMultimedia::V_CentralMultimedia(Multimedia *m, V_Mainwindow*mw) : V_Cen
 
     this->getUi()->formWidget->setLayout(formWidgetLayout);
 }
-
+/*!
+ * \brief V_CentralTask::V_CentralTask
+ * \param t(tache)
+ * \param m(fenetre principal)
+ *
+ * Affichage d'une tache dans la vue principal
+ */
 V_CentralTask::V_CentralTask(Task *t, V_Mainwindow*m) : V_CentralNote(0,m){
     this->getUi()->labelType->setText("Type : Task/"+t->getStatusToString());
     this->getUi()->labelID->setText(t->getId());
