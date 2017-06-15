@@ -501,6 +501,37 @@ void XMLManager::deleteFromTask(Task *a) {
 
 }
 
+void XMLManager::deleteFromCouple(Couple *c) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+    QDomElement relation = relations.firstChildElement("relation");
+
+    QDomNodeList nodes = relation.elementsByTagName("relation");
+    for (int i = 0; i < nodes.count(); ++i)
+    {
+        QDomNode node = nodes.at(i);
+        QDomElement child = node.firstChildElement("id");
+        if (child.text() == c->getId())
+        {
+            relation.removeChild(node);
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+
+}
+
 unsigned int XMLManager::getLastId() const {
     unsigned int lastID = 0;
     unsigned int foundID = 0;
