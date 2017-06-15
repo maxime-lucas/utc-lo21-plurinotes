@@ -2,7 +2,10 @@
 #include "p_versions.h"
 
 #include <typeinfo>
-
+/*!
+ * \brief Version::toString
+ * \return renvoie le num de version en string
+ */
 QString Version::toString() const {
     QString f;
         f = "[VERSION]\n";
