@@ -13,6 +13,11 @@ namespace Ui {
     class v_mainrelation;
 }
 
+/*!
+ * \class V_MainView
+ * \brief class responsable de la vue secondaire gérant les notes a partir d'un form.
+ */
+
 class V_MainView : public QWidget {
 
     Q_OBJECT
@@ -23,11 +28,20 @@ public:
 
     C_Mainwindow* getController() const {return controller;}
     Ui::v_mainrelation* getUi() const {return ui;}
-
+    /*!
+     * \brief setEmptyCentralView
+     * Fonction permetant l'initialisation du layout central.
+     */
     void setEmptyCentralView();
-    void refreshCentralRelation(QString);
-    void refreshCentralCouple(QString);
+    /*!
+     * \brief refreshRelation
+     * Fonction qui va rafraichir la liste des relations sur la gauche.
+     */
     void refreshRelation();
+    /*!
+     * \brief refreshListCouple
+     * Fonction qui va rafraichir la liste des couples en fonction de la relation choisie.
+     */
     void refreshListCouple(QString);
 
 private:
@@ -40,7 +54,16 @@ private:
 
 
 public slots:
+    /*!
+     * \brief refreshCouple
+     * Slot permettant l'affichage des couples d'une relation lors du clique sur une relation.
+     * Permets également l'affichage de la relation en vue centrale.
+     */
     void refreshCouple(QListWidgetItem*);
+    /*!
+     * \brief afficheCouple
+     * Slot permettant l'affichage d'un couple en vue centrale lors du clique sur un couple.
+     */
     void afficheCouple(QListWidgetItem*);
 };
 
