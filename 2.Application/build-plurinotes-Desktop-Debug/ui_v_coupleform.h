@@ -47,10 +47,10 @@ public:
     {
         if (v_coupleform->objectName().isEmpty())
             v_coupleform->setObjectName(QString::fromUtf8("v_coupleform"));
-        v_coupleform->resize(400, 190);
+        v_coupleform->resize(400, 213);
         verticalLayoutWidget = new QWidget(v_coupleform);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(10, 10, 381, 171));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 381, 192));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -123,7 +123,7 @@ public:
 
     void retranslateUi(QDialog *v_coupleform)
     {
-        v_coupleform->setWindowTitle(QApplication::translate("v_coupleform", "Dialog", 0, QApplication::UnicodeUTF8));
+        v_coupleform->setWindowTitle(QApplication::translate("v_coupleform", "Couple", 0, QApplication::UnicodeUTF8));
         labelWindowTitle->setText(QApplication::translate("v_coupleform", "Couple", 0, QApplication::UnicodeUTF8));
         labelTitle->setText(QApplication::translate("v_coupleform", "Label", 0, QApplication::UnicodeUTF8));
         labelNote1->setText(QApplication::translate("v_coupleform", "Note1", 0, QApplication::UnicodeUTF8));

@@ -1,10 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <plurinotes>
  <activeNotes>
-  <articles/>
+  <articles>
+   <article>
+    <id>1</id>
+    <title>A1</title>
+    <createdOn>Thu Jun 15 06:35:42 2017</createdOn>
+    <lastModifOn>Thu Jun 15 06:35:42 2017</lastModifOn>
+    <text>T1</text>
+    <versions/>
+   </article>
+   <article>
+    <id>2</id>
+    <title>A2</title>
+    <createdOn>Thu Jun 15 06:35:47 2017</createdOn>
+    <lastModifOn>Thu Jun 15 06:35:47 2017</lastModifOn>
+    <text>T2</text>
+    <versions/>
+   </article>
+  </articles>
   <multimedias/>
   <tasks/>
  </activeNotes>
- <relations/>
- <couples/>
+ <relations>
+  <relation>
+   <id>1</id>
+   <title>R1</title>
+   <description>T1</description>
+   <isOriented>FALSE</isOriented>
+   <couples/>
+  </relation>
+  <relation>
+   <id>2</id>
+   <title>R2</title>
+   <description>T2</description>
+   <isOriented>TRUE</isOriented>
+   <couples/>
+  </relation>
+ </relations>
+ <couples>
+  <couple>
+   <id>1/2</id>
+   <label>C1</label>
+   <noteX>1</noteX>
+   <noteY>2</noteY>
+  </couple>
+ </couples>
 </plurinotes>

@@ -172,6 +172,10 @@
    </property>
   </action>
   <action name="actionCouple">
+   <property name="icon">
+    <iconset>
+     <normaloff>../ressources/newCouple.png</normaloff>../ressources/newCouple.png</iconset>
+   </property>
    <property name="text">
     <string>Couple</string>
    </property>

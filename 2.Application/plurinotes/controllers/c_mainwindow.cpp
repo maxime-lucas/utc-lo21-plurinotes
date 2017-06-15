@@ -216,22 +216,18 @@ void C_Mainwindow::saveNewRelation(Relation *r) {
 void C_Mainwindow::addCouple(Couple *c,QString rId) {
     Relation* relation = app->getRelationByID(rId);
 
-    if(relation->getOriented() == false)
+    if(relation->getOriented() == true)
     {
-        QString id = c->generateCoupleId(c->getY(),c->getX());
+        Couple *existingCouple = app->getXMLManager()->getCoupleById(c->getId());
 
-        Couple* couple = new Couple(
-                    c->getLabel(),
-                    c->getY(),
-                    c->getX()
-                    );
-        relation->getCouples()->push_back(couple);
-        this->getApp()->getXMLManager()->insertIntoRelationCouple(relation,couple);
+        if( existingCouple == 0 ) {
+            this->getApp()->getXMLManager()->insertIntoCouple(c);
+        }
     }
 
-    relation->getCouples()->push_back(c);
+    /*relation->getCouples()->push_back(c);
     this->getApp()->getXMLManager()->insertIntoRelationCouple(relation,c);
-    this->getView()->getRelationView()->refreshListCouple(rId);
+    this->getView()->getRelationView()->refreshListCouple(rId);*/
 }
 
 void C_Mainwindow::editArticle(QString id,Article* newV)

@@ -85,6 +85,9 @@ public:
         actionRelation->setIcon(icon6);
         actionCouple = new QAction(V_Mainwindow);
         actionCouple->setObjectName(QString::fromUtf8("actionCouple"));
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8("../ressources/newCouple.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCouple->setIcon(icon7);
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setEnabled(true);

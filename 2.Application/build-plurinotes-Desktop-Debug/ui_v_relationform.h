@@ -136,7 +136,7 @@ public:
 
     void retranslateUi(QDialog *v_relationform)
     {
-        v_relationform->setWindowTitle(QApplication::translate("v_relationform", "Dialog", 0, QApplication::UnicodeUTF8));
+        v_relationform->setWindowTitle(QApplication::translate("v_relationform", "Relation", 0, QApplication::UnicodeUTF8));
         labelWindowTitle->setText(QApplication::translate("v_relationform", "Relation", 0, QApplication::UnicodeUTF8));
         labelTitle->setText(QApplication::translate("v_relationform", "Title", 0, QApplication::UnicodeUTF8));
         labelDesc->setText(QApplication::translate("v_relationform", "Description", 0, QApplication::UnicodeUTF8));
