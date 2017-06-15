@@ -12,7 +12,7 @@
 
 /*!
  * \class Plurinotes
- *
+ * \brief Class permettant linitialisation de l'application nottamant de tous les managers.
  */
 class PluriNotes {
 
@@ -32,12 +32,37 @@ class PluriNotes {
         DeletedNotesManager* getDeletedNotesManage() const { return deletedNotesManager; }
         RelationManager* getRelationManager() const {return relationManager;}
         XMLManager* getXMLManager() const { return xmlManager; }
+
+        /*!
+         * \brief getNoteByID
+         * \return retourne la note identifié par un ID.
+         */
         Note* getNoteByID(QString);
+
+        /*!
+         * \brief getRelationByID
+         * \return Retourne la relation identifé par un ID.
+         */
         Relation* getRelationByID(QString);
+
+        /*!
+         * \brief getCoupleByID
+         * \return retourne le Couple identifié par un ID dans une relation
+         */
         Couple* getCoupleByID(QString,Relation*);
+
+        /*!
+         * \brief getNoteVersionByID
+         * \return retourne une version d'une Note en fonction de l'ID de la note et du numero de la version
+         */
         Version* getNoteVersionByID(QString,QString);
 
+        /*!
+         * \brief reloadFromDatabase
+         * Cette fonction permet de recuperer les données enregistré dans l'XML
+         */
         void reloadFromDatabase();
+
         static void debug(QString);
 };
 

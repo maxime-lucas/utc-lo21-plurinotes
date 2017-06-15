@@ -2,7 +2,6 @@
 
 #include <typeinfo>
 #include <QSignalMapper>
-#include <QMessageBox>
 
 #include "../models/p_core.h"
 #include "c_mainwindow.h"
@@ -41,7 +40,8 @@ C_Mainwindow::C_Mainwindow(QApplication *q) {
 void C_Mainwindow::createActions()
 {
     view->getUi()->actionShow_Asc_Desc_View->setChecked(true);
-    view->connect(view->getUi()->actionQuit,SIGNAL(triggered()), qapp,SLOT(quit()));
+
+    view->connect(view->getUi()->actionQuit, SIGNAL(triggered()), qapp, SLOT(quit()) );
     view->connect(view->getUi()->actionArticle, SIGNAL(triggered()), view, SLOT(openNewArticle()));
     view->connect(view->getUi()->actionMultimedia,SIGNAL(triggered()),view,SLOT(openNewMultimedia()));
     view->connect(view->getUi()->actionTask,SIGNAL(triggered()),view,SLOT(openNewTask()));
@@ -167,7 +167,7 @@ void C_Mainwindow::refreshTask()
                 max = b->getPriority();
                 indice = j;
             }
-        }
+         }
         if(i!= indice)
         {
             tmp = tasks->at(i);
@@ -261,46 +261,12 @@ void C_Mainwindow::addCouple(Couple *c,QString rId) {
 
         if( existingCouple == 0 ) {
             this->getApp()->getXMLManager()->insertIntoCouple(c);
-        } else {
-            if(!app->getXMLManager()->isCoupleInRelation(relation,existingCouple)) {
-                QString mbText = "There is already a couple between these two notes with the following label : \n\n" + existingCouple->getLabel() + "\n\n What would you like to do ?";
-
-                QMessageBox mb(view);
-                mb.setWindowTitle("What would you like to do ?");
-                mb.setText(mbText);
-                mb.addButton("Keep it",QMessageBox::YesRole);
-                mb.addButton("Override it",QMessageBox::YesRole);
-                mb.addButton("Cancel", QMessageBox::NoRole);
-                mb.exec();
-
-                if(mb.clickedButton()->text() == "Override it") {
-                    app->getXMLManager()->updateCoupleLabelById(existingCouple->getId(),c->getLabel());
-                } else if(mb.clickedButton()->text() == "Cancel"){
-                    return;
-                }
-
-            } else {
-                QMessageBox::information(view,"Couple already in relation", "This relation already has this couple.");
-                return;
-            }
-        }
-
-        Couple *coupleToInsertInRelation = app->getXMLManager()->getCoupleById(c->getId());
-        app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelation);
-
-    } else
-    {
-        Couple *existingCoupleXY = app->getXMLManager()->getCoupleById(c->getId());
-        Couple *existingCoupleYX = app->getXMLManager()->getCoupleById(c->generateCoupleId(c->getY(),c->getX()));
-
-        if( existingCoupleXY == 0 ) {
-            this->getApp()->getXMLManager()->insertIntoCouple(c);
-        }
-
-        if( existingCoupleYX == 0 ) {
-            this->getApp()->getXMLManager()->insertIntoCouple(new Couple(c->getLabel(),c->getY(),c->getX()));
         }
     }
+
+    /*relation->getCouples()->push_back(c);
+    this->getApp()->getXMLManager()->insertIntoRelationCouple(relation,c);
+    this->getView()->getRelationView()->refreshListCouple(rId);*/
 }
 
 /*!
@@ -373,6 +339,8 @@ void C_Mainwindow::editCouple(Couple* c,QString RId)
     couple->setLabel(c->getLabel());
     couple->setX(c->getX());
     couple->setY(c->getY());
+
+
 }
 
 /*!
@@ -381,7 +349,7 @@ void C_Mainwindow::editCouple(Couple* c,QString RId)
  */
 void C_Mainwindow::deleteByID(QString id) {
 
-    // Suppression en base
+    // WIP Suppression en base
     Note* note = app->getNoteByID(id);
 
     if( typeid(*note) == typeid(Article) ) {
@@ -392,8 +360,8 @@ void C_Mainwindow::deleteByID(QString id) {
     if( typeid(*note) == typeid(Multimedia) ) {
         Multimedia* multimedia = new Multimedia(dynamic_cast<Multimedia&>(*note));
         app->getXMLManager()->deleteFromMultimedia(multimedia);
-
         // TODO Suppression du fichier pour les multimédias
+
         QFile file(multimedia->getFileName());
         QFileInfo fileInfo(file.fileName());
         QDir dirToRessources(QDir::currentPath());
@@ -418,6 +386,8 @@ void C_Mainwindow::deleteByID(QString id) {
     refreshActiveNotes();
     refreshTask();
     view->setEmptyCentralNote();
+
+
 }
 
 /*!
@@ -425,7 +395,6 @@ void C_Mainwindow::deleteByID(QString id) {
  * \Restauration d'une note à la version donnée
  */
 void C_Mainwindow::restoreNoteVersion(QString noteID, QString numVersion) {
-
     // XML :
     // - Update de l'état actuel avec la version voulue
     // - Suppression de toutes les versions
