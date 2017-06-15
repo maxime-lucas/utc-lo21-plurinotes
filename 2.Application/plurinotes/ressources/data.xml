@@ -28,7 +28,10 @@
    <title>R1</title>
    <description>T1</description>
    <isOriented>FALSE</isOriented>
-   <couples/>
+   <couples>
+    <couple>1/2</couple>
+    <couple>2/1</couple>
+   </couples>
   </relation>
   <relation>
    <id>2</id>

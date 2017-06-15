@@ -288,18 +288,67 @@ void C_Mainwindow::addCouple(Couple *c,QString rId) {
         Couple *coupleToInsertInRelation = app->getXMLManager()->getCoupleById(c->getId());
         app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelation);
 
-    } else
-    {
+    } else {
         Couple *existingCoupleXY = app->getXMLManager()->getCoupleById(c->getId());
         Couple *existingCoupleYX = app->getXMLManager()->getCoupleById(c->generateCoupleId(c->getY(),c->getX()));
 
         if( existingCoupleXY == 0 ) {
             this->getApp()->getXMLManager()->insertIntoCouple(c);
+        } else {
+            if(!app->getXMLManager()->isCoupleInRelation(relation,existingCoupleXY)) {
+                QString mbText = "There is already a couple between these two notes with the following label : \n\n" + existingCoupleXY->getLabel() + "\n\n What would you like to do ?";
+
+                QMessageBox mb(view);
+                mb.setWindowTitle("What would you like to do ?");
+                mb.setText(mbText);
+                mb.addButton("Keep it",QMessageBox::YesRole);
+                mb.addButton("Override it",QMessageBox::YesRole);
+                mb.addButton("Cancel", QMessageBox::NoRole);
+                mb.exec();
+
+                if(mb.clickedButton()->text() == "Override it") {
+                    app->getXMLManager()->updateCoupleLabelById(existingCoupleXY->getId(),c->getLabel());
+                } else if(mb.clickedButton()->text() == "Cancel"){
+                    return;
+                }
+
+            } else {
+                QMessageBox::information(view,"Couple already in relation", "This relation already has this couple.");
+                return;
+            }
         }
 
         if( existingCoupleYX == 0 ) {
             this->getApp()->getXMLManager()->insertIntoCouple(new Couple(c->getLabel(),c->getY(),c->getX()));
+        } else {
+            if(!app->getXMLManager()->isCoupleInRelation(relation,existingCoupleYX)) {
+                QString mbText = "There is already a couple between these two notes with the following label : \n\n" + existingCoupleYX->getLabel() + "\n\n What would you like to do ?";
+
+                QMessageBox mb(view);
+                mb.setWindowTitle("What would you like to do ?");
+                mb.setText(mbText);
+                mb.addButton("Keep it",QMessageBox::YesRole);
+                mb.addButton("Override it",QMessageBox::YesRole);
+                mb.addButton("Cancel", QMessageBox::NoRole);
+                mb.exec();
+
+                if(mb.clickedButton()->text() == "Override it") {
+                    app->getXMLManager()->updateCoupleLabelById(existingCoupleYX->getId(),c->getLabel());
+                } else if(mb.clickedButton()->text() == "Cancel"){
+                    return;
+                }
+
+            } else {
+                QMessageBox::information(view,"Couple already in relation", "This relation already has this couple.");
+                return;
+            }
         }
+
+        Couple *coupleToInsertInRelationXY = app->getXMLManager()->getCoupleById(c->getId());
+        Couple *coupleToInsertInRelationYX = app->getXMLManager()->getCoupleById(c->generateCoupleId(c->getY(),c->getX()));
+
+        app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelationXY);
+        app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelationYX);
     }
 }
 

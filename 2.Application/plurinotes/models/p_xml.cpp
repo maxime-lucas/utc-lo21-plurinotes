@@ -41,7 +41,7 @@ void XMLManager::resetDocument() {
 
     while(nodes.count() > 0) root.removeChild(nodes.at(0));
 
-        QaDomElement activeNotes = dom->createElement("activeNotes");
+        QDomElement activeNotes = dom->createElement("activeNotes");
             activeNotes.appendChild(dom->createElement("articles"));
             activeNotes.appendChild(dom->createElement("multimedias"));
             activeNotes.appendChild(dom->createElement("tasks"));
