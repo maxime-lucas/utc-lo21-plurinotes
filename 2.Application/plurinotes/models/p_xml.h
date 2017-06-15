@@ -11,6 +11,14 @@
 #include "p_notes.h"
 #include "p_relations.h"
 
+
+
+/*!
+ * \class XMLManager
+ * \brief cette classe gère les fonctions liées à l'utilisation de notre base de donnée en XML
+ *
+ * La classe contient l'ensemble des fonctions permettant les modifications de la BDD mais aussi les fonctions utilitaires sur les autres classes comme la récupération d'un couple par son id
+ */
 class XMLManager : public QWidget {
     private:
     QDomDocument *dom;
@@ -32,26 +40,90 @@ class XMLManager : public QWidget {
     unsigned int getLastId() const;
     unsigned int getLastRelationId() const;
 
-    void insertIntoArticle(Article*);
+    /*!
+     * \brief Insertions
+     */
+        /*!
+         * Insertion d'un article
+         */
+    void insertIntoArticle(Article*);  
+        /*!
+         * Insertion d'une tâche
+         */
     void insertIntoTask(Task*t);
+        /*!
+         * Insertion d'un multimédia
+         */
     void insertIntoMultimedia(Multimedia*);
-    void insertIntoRelation(Relation*);
+        /*!
+         * Insertion d'une relation
+         */
+    void insertIntoRelation(Relation*);    
+        /*!
+         * Insertion d'un couple
+         */
     void insertIntoCouple(Couple*);
+        /*!
+         * Insertion d'un couple dans une relation
+         */
     void insertIntoRelationCouple(Relation*,Couple*);
 
+
+
+    /*!
+     * \brief Suppression
+     */
+        /*!
+         * Suppression d'un article
+         */
     void deleteFromArticle(Article*);
+        /*!
+         * Suppression d'un multimédia
+         */
     void deleteFromMultimedia(Multimedia*);
+        /*!
+         * Suppression d'une tâche
+         */
     void deleteFromTask(Task*t);
+        /*!
+         * Suppression d'un couple
+         */
     void deleteFromCouple(Couple*c);
 
+
+    /*!
+     * \brief Mise à jour
+     */
+        /*!
+         * MAJ d'un article
+         */
     void updateArticle(Article*,Article*);
+        /*!
+         * MAJ d'un multimédia
+         */
     void updateMultimedia(Multimedia*,Multimedia*);
+        /*!
+         * MAJ d'une tâche
+         */
     void updateTask(Task*,Task*);
 
+
+        /*!
+         * Suppression de la version d'une note
+         */
     void deleteNoteVersion(Note*,Version*);
+        /*!
+         * Restauration de la version d'une Note
+         */
     void restoreNoteVersion(Note*,Version*);
 
-    void deleteCouple(Relation*r,Couple*c);
+        /*!
+         * Suppression d'un couple
+         */
+    void deleteCouple(Relation*r,Couple*c);        
+        /*!
+         * Suppression d'une relation
+         */
     void deleteRelation(Relation*r);
 };
 

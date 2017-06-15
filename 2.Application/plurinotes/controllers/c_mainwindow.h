@@ -105,18 +105,26 @@ class C_Mainwindow {
              * Restaure l'état d'une version en supprimant les versions suivantes grâce à l'Id de la version et le numéro de la version
              */
         void restoreNoteVersion(QString,QString);
+
+
+        /*!
+         * \brief Suppression
+         */
             /*!
-             * \brief deleteNoteVersion
              * Supprime une version ainsi que les versions suivantes grâce à l'Id de la version et le numéro de la version
              */
         void deleteNoteVersion(QString,QString);
-
             /*!
-             * \brief deleteByID
              * Supprime une note, peu importe son type, grâce à son Id
              */
         void deleteByID(QString);
+            /*!
+             * Supprime une relation grâce à son Id
+             */
         void deleteRelationByID(QString);
+            /*!
+             * Supprime un couple grâce à son Id
+             */
         void deleteCoupleByID(QString);
 };
 

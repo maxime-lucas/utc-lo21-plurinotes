@@ -76,12 +76,6 @@ class DeletedNotesManager : public NotesManager {
         ~DeletedNotesManager();
 };
 
-
-/*!
- * \class Version
- * \brief
- *
- */
 class Version;
 
 

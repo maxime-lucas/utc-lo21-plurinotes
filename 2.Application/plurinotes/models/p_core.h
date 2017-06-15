@@ -8,6 +8,12 @@
 #include "p_relations.h"
 #include "p_xml.h"
 
+
+
+/*!
+ * \class Plurinotes
+ *
+ */
 class PluriNotes {
 
     private:

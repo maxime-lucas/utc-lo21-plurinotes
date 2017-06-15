@@ -7,6 +7,12 @@
 
 class Note;
 
+
+/*!
+ * \class Version
+ * \brief Classe gérant la partie version des notes
+ *
+ */
 class Version
 {
     private:
