@@ -33,10 +33,10 @@ class XMLManager : public QWidget {
     std::vector<Article*> getAllActiveArticles() const;
     std::vector<Multimedia*> getAllActiveMultimedia() const;
     std::vector<Task*> getAllActiveTasks() const;
+    std::vector<Relation*>getAllRelations() const;
     Couple* getCoupleById(QString) const;
     Note* getNoteById(QString) const;
     Relation* getRelationByID(QString) const;
-    std::vector<Relation*>getAllRelations() const;
     unsigned int getLastId() const;
     unsigned int getLastRelationId() const;
     bool isCoupleInRelation(Relation*,Couple*) const;
