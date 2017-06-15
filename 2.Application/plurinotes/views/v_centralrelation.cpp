@@ -10,12 +10,22 @@ V_CentralView::V_CentralView(QWidget *parent, V_MainView *m) :
     parentView = m;
     ui->setupUi(this);
 
-    //parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteView()));
+    parentView->connect(ui->btnDelete, SIGNAL(clicked()), this, SLOT(deleteView()));
     parentView->connect(ui->btnEdit, SIGNAL(clicked()), this, SLOT(editView()));
 }
 
 void V_CentralView::deleteView() {
-    //parentView->getController()->deleteByID(this->ui->labelID->text());
+    if(relationView == true)
+    {
+        QString id = this->getUi()->labelID->text();
+        Relation* relation = this->getMainwindow()->getController()->getApp()->getRelationByID(id);
+        this->getMainwindow()->getController()->getApp()->getRelationManager()->deleteByRelation(relation);
+        this->getMainwindow()->getController()->getApp()->getXMLManager()->deleteRelation(relation);
+    }
+    else if(relationView == false)
+    {
+
+    }
 }
 
 void V_CentralView::editView()
@@ -95,7 +105,7 @@ void V_Centralrelation::editRelation()
     }
 }
 
-V_CentralCouple::V_CentralCouple(Couple *c,V_MainView* m) : V_CentralView(0,m), c(c){
+V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m), r(r), c(c){
     this->getUi()->labelType->setText("Type : Couple");
     this->getUi()->labelID->setText(c->getId());
     this->getUi()->textTitle->setText(c->getLabel());
@@ -150,7 +160,7 @@ void V_CentralCouple::editCouple()
             c->getY()
             );
 
-        //this->getMainwindow()->getController()->editCouple(editCouple,r);
+        this->getMainwindow()->getController()->editCouple(editCouple,r->getId());
     }
 }
 

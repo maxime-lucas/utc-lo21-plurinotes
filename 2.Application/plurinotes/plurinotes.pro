@@ -7,7 +7,6 @@ HEADERS += \
     models/p_notes.h \
     models/p_versions.h \
     models/p_relations.h \
-    models/notesexception.h \
     models/p_core.h \
     models/operatorsoverloading.h \
     models/p_xml.h \

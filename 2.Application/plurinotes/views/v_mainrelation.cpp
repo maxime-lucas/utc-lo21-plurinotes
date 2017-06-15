@@ -21,7 +21,6 @@ V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     centralView->setLayout(centralViewLayout);
 
     centralRLayout = new QHBoxLayout;
-    //centralView->setFixedWidth(580);
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
@@ -34,15 +33,15 @@ V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
         item->setText("Relation "+r->getId()+" : "+r->getTitle());
 
         ui->listRelation->addItem(item);
+
     }
+
     this->connect(ui->listRelation,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(refreshCouple(QListWidgetItem*)));
 }
 
 void V_MainView::refreshCouple(QListWidgetItem* id) {
 
     while(ui->listWidget->count()>0) ui->listWidget->takeItem(0);
-
-
 
     QString idRelation = id->data(Qt::UserRole).toString();
     Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
@@ -83,7 +82,7 @@ void V_MainView::afficheCouple(QListWidgetItem* c) {
 
     Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
     Couple* couple = this->getController()->getApp()->getCoupleByID(idCouple,relation);
-    V_CentralCouple* V_Centralcouple = new V_CentralCouple(couple,this);
+    V_CentralCouple* V_Centralcouple = new V_CentralCouple(relation,couple,this);
     V_Centralcouple->setIsRelationView(false);
     centralView = V_Centralcouple;
 

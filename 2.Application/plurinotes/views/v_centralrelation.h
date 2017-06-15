@@ -62,7 +62,7 @@ class V_CentralCouple : public V_CentralView {
     Q_OBJECT
 
 public:
-    V_CentralCouple(Couple*,V_MainView*);
+    V_CentralCouple(Relation*,Couple*,V_MainView*);
     ~V_CentralCouple();
     void editCouple();
 private:
@@ -70,6 +70,7 @@ private:
     QLabel* note1;
     QLabel* note2;
     Couple* c;
+    Relation* r;
 
 };
 

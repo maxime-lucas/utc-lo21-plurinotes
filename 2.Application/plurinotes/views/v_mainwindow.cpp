@@ -25,8 +25,15 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
     ui->actionRelation->setIcon(QIcon(QPixmap("../plurinotes/ressources/newRelation.png")));
     ui->actionShow_Asc_Desc_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/asc_desc.png")));
+    ui->actionShow_Relations_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/1_2.png")));
 
     ui->actionShow_Asc_Desc_View->setChecked(true);
+    ui->actionArticle->setVisible(true);
+    ui->actionMultimedia->setVisible(true);
+    ui->actionTask->setVisible(true);
+    ui->actionShow_Asc_Desc_View->setVisible(true);
+
+    ui->actionRelation->setVisible(false);
     init();
     this->connect(versions, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(restoreVersion(QListWidgetItem*)));
 }
@@ -244,7 +251,12 @@ void V_Mainwindow::toggleRelationsView() {
         centralSecondLayout->addWidget(relationView);
         centralWidget()->setLayout(centralSecondLayout);
 
+        ui->actionArticle->setVisible(false);
+        ui->actionMultimedia->setVisible(false);
+        ui->actionTask->setVisible(false);
+        ui->actionShow_Asc_Desc_View->setVisible(false);
 
+        ui->actionRelation->setVisible(true);
     } else {
         // Remise à 0 du GridLayout
         QLayoutItem* item;
@@ -259,6 +271,13 @@ void V_Mainwindow::toggleRelationsView() {
 
         controller->refreshActiveNotes();
         controller->refreshTask();
+
+        ui->actionArticle->setVisible(true);
+        ui->actionMultimedia->setVisible(true);
+        ui->actionTask->setVisible(true);
+        ui->actionShow_Asc_Desc_View->setVisible(true);
+
+        ui->actionRelation->setVisible(false);
     }
 
 }
@@ -320,7 +339,7 @@ void V_Mainwindow::init() {
     centralNoteLayout->addWidget(beginningTitle);
 
     centralNote->setLayout(centralNoteLayout);
-    centralNote->setFixedWidth(580);
+    centralNote->setFixedWidth(560);
 
     // BOTTOM WIDGET INIT
 

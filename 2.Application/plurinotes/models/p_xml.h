@@ -19,6 +19,10 @@ class XMLManager : public QWidget {
 
     public:
     XMLManager(const QString &);
+    ~XMLManager();
+    void resetDocument();
+
+
     std::vector<Article*> getAllActiveArticles() const;
     std::vector<Multimedia*> getAllActiveMultimedia() const;
     std::vector<Task*> getAllActiveTasks() const;
@@ -46,7 +50,8 @@ class XMLManager : public QWidget {
     void deleteNoteVersion(Note*,Version*);
     void restoreNoteVersion(Note*,Version*);
 
-    ~XMLManager();
+    void deleteCouple(Relation*r,Couple*c);
+    void deleteRelation(Relation*r);
 };
 
 #endif // P_XML

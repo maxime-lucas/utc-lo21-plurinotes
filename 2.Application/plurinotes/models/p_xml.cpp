@@ -26,6 +26,36 @@ XMLManager::XMLManager(const QString &path ) : QWidget()  {
     doc.close();
 }
 
+void XMLManager::resetDocument() {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+
+    QDomNodeList nodes = root.childNodes();
+
+    while(nodes.count() > 0) root.removeChild(nodes.at(0));
+
+        QDomElement activeNotes = dom->createElement("activeNotes");
+            activeNotes.appendChild(dom->createElement("articles"));
+            activeNotes.appendChild(dom->createElement("multimedias"));
+            activeNotes.appendChild(dom->createElement("tasks"));
+
+    root.appendChild(activeNotes);
+    root.appendChild(dom->createElement("relations"));
+    root.appendChild(dom->createElement("couples"));
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
 std::vector<Article*> XMLManager::getAllActiveArticles() const {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1062,6 +1092,76 @@ void XMLManager::restoreNoteVersion(Note*n,Version*v) {
                     }
                 }
             }
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::deleteCouple(Relation*r,Couple*c) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QDomNodeList nodes = relations.elementsByTagName("relation");
+
+    for (int i = 0; i < nodes.count(); ++i)
+    {
+        QDomNode node = nodes.at(i);
+        QDomElement child = node.firstChildElement("id");
+        if (child.text() == r->getId())
+        {
+            QDomElement couples = node.firstChildElement("couples");
+            QDomNodeList nodes2 = couples.elementsByTagName("couple");
+            for(i = 0; i < nodes2.count(); i ++)
+            {
+                QDomNode node2 = nodes2.at(i);
+                QDomElement child2 = node2.firstChildElement("id");
+                if(child2.text() == c->getId())
+                    couples.removeChild(node2);
+            }
+
+        }
+    }
+
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::deleteRelation(Relation*r) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QDomNodeList nodes = relations.elementsByTagName("relation");
+
+    for (int i = 0; i < nodes.count(); ++i)
+    {
+        QDomNode node = nodes.at(i);
+        QDomElement child = node.firstChildElement("id");
+        if (child.text() == r->getId())
+        {
+            relations.removeChild(node);
         }
     }
 
