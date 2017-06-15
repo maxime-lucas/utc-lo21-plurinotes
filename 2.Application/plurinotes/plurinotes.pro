@@ -8,7 +8,6 @@ HEADERS += \
     models/p_versions.h \
     models/p_relations.h \
     models/p_core.h \
-    models/operatorsoverloading.h \
     models/p_xml.h \
     views/v_mainwindow.h \
     views/v_multiplenotes.h \
