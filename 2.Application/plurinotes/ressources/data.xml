@@ -23,15 +23,6 @@
   <tasks/>
  </activeNotes>
  <relations>
-  <relation>
-   <id>1</id>
-   <title>Titre de la relation</title>
-   <description>Une relation au pif</description>
-   <isOriented>FALSE</isOriented>
-   <couples>
-    <couple>1/2</couple>
-   </couples>
-  </relation>
  </relations>
  <couples/>
 </plurinotes>
