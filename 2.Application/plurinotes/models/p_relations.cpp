@@ -10,10 +10,21 @@ RelationManager::~RelationManager() {
     if (tab) delete[] tab;
 }
 
+
+/*!
+ * \brief Couple::generateCoupleId
+ * \param X la note 1
+ * \param Y la note 2
+ * \return un id unique sous la forme "id1 / id2"
+ */
 QString Couple::generateCoupleId(Note* X, Note* Y){
     return (X->getId()+"/"+Y->getId());
 }
 
+/*!
+ * \brief RelationManager::deleteByRelation
+ * Supprime une relation
+ */
 void RelationManager::deleteByRelation(Relation* r)
 {
     for(unsigned int i = 0;i < getTab()->size(); i ++)
