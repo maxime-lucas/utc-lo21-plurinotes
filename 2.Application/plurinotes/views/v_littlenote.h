@@ -9,6 +9,10 @@
 #include <QLabel>
 #include <QLayout>
 
+/*!
+ * \clas V_Littlenote
+ * \brief class responsable de l'affichage du bouton représentant les notes dans le menu de gauche.
+ */
 class V_Littlenote : public QPushButton {
 
         private:
@@ -21,6 +25,10 @@ class V_Littlenote : public QPushButton {
         V_Littlenote(QWidget*p=0,QString = "",enum eTypeNote =article);
 };
 
+/*!
+ * \clas V_Littletask
+ * \brief class responsable de l'affichage du bouton représentant les taches dans le menu de gauche.
+ */
 class V_Littletask : public QPushButton {
 private:
     QLabel* labelTitle;

@@ -11,6 +11,11 @@ class v_coupleform;
 class V_Mainwindow;
 class Relation;
 
+/*!
+ * \class V_ArticleForm
+ * \brief class responsable de l'affichage du formulaire de création d'un couple.
+ */
+
 class V_CoupleForm : public QDialog
 {
     Q_OBJECT
@@ -26,6 +31,10 @@ private:
     Relation* r;
 
 public slots:
+    /*!
+     * \brief checkFields
+     * Slot qui permet une vérification des paramètres entrés et qui appelle la fonction du controler pour creer un nouveau couple
+     */
     void checkFields();
 };
 

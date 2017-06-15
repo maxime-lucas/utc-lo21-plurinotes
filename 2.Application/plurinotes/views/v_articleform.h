@@ -10,6 +10,11 @@ class V_ArticleForm;
 
 class V_Mainwindow;
 
+/*!
+ * \class V_ArticleForm
+ * \brief class responsable de l'affichage du formulaire de création d'un article.
+ */
+
 class V_ArticleForm : public QDialog
 {
     Q_OBJECT
@@ -24,6 +29,10 @@ private:
     V_Mainwindow *parent;
 
 public slots:
+    /*!
+     * \brief checkFields
+     * Slot qui permet une vérification des paramètres entrés et qui appelle la fonction du controler pour creer un nouvel article
+     */
     void checkFields();
 };
 

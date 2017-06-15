@@ -75,13 +75,19 @@ public:
         actionShow_Relations_View = new QAction(V_Mainwindow);
         actionShow_Relations_View->setObjectName(QStringLiteral("actionShow_Relations_View"));
         actionShow_Relations_View->setCheckable(true);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("../ressources/1_2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionShow_Relations_View->setIcon(icon5);
         actionRelation = new QAction(V_Mainwindow);
         actionRelation->setObjectName(QStringLiteral("actionRelation"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("../ressources/newRelation.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionRelation->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral("../ressources/newRelation.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionRelation->setIcon(icon6);
         actionCouple = new QAction(V_Mainwindow);
         actionCouple->setObjectName(QStringLiteral("actionCouple"));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral("../ressources/newCouple.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionCouple->setIcon(icon7);
         centralwidget = new QWidget(V_Mainwindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setEnabled(true);
@@ -114,14 +120,11 @@ public:
         menuView->addAction(actionShow_Asc_Desc_View);
         menuView->addAction(actionShow_Relations_View);
         toolBar->addAction(actionArticle);
-        toolBar->addSeparator();
         toolBar->addAction(actionMultimedia);
-        toolBar->addSeparator();
         toolBar->addAction(actionTask);
-        toolBar->addSeparator();
         toolBar->addAction(actionRelation);
-        toolBar->addSeparator();
         toolBar->addAction(actionShow_Asc_Desc_View);
+        toolBar->addAction(actionShow_Relations_View);
 
         retranslateUi(V_Mainwindow);
 

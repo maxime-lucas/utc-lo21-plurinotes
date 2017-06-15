@@ -82,7 +82,7 @@ public:
     V_CentralMultimedia(Multimedia*,V_Mainwindow*);
     ~V_CentralMultimedia();
     /*!
-     * \brief editArticle
+     * \brief editMultimedia
      *  Fonction chargée de récupérer les nouvelles données et de les envoyer au contrôler pour une édition de cette note.
      */
     void editMultimedia();
@@ -107,7 +107,7 @@ class V_CentralTask : public V_CentralNote {
     V_CentralTask(Task*,V_Mainwindow*);
     ~V_CentralTask();
     /*!
-     * \brief editArticle
+     * \brief editTask
      *  Fonction chargée de récupérer les nouvelles données et de les envoyer au contrôler pour une édition de cette note.
      */
     void editTask();
