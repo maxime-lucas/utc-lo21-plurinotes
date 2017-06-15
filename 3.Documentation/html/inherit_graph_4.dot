@@ -3,5 +3,11 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node1 [label="NotesException",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_notes_exception.html"];
+  Node1 [label="NotesManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_notes_manager.html"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ActiveNotesManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_active_notes_manager.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ArchivedNotesManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_archived_notes_manager.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DeletedNotesManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_deleted_notes_manager.html"];
 }

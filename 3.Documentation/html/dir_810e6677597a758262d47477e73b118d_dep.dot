@@ -1,0 +1,8 @@
+digraph "views" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_810e6677597a758262d47477e73b118d [shape=box, label="views", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_810e6677597a758262d47477e73b118d.html"];
+  dir_87b6ed4386158a4d6cd0ecd5fb5bd5c2 [shape=box label="controllers" URL="dir_87b6ed4386158a4d6cd0ecd5fb5bd5c2.html"];
+  dir_810e6677597a758262d47477e73b118d->dir_87b6ed4386158a4d6cd0ecd5fb5bd5c2 [headlabel="2", labeldistance=1.5 headhref="dir_000002_000000.html"];
+}

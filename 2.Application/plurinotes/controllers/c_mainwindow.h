@@ -1,23 +1,42 @@
 #ifndef C_MAINWINDOW
 #define C_MAINWINDOW
 
+/*!
+ * \file c_mainwindow.h
+ * \brief Header pour le controller principal de l'application
+ * \author FAYAX
+ * \version 1.0
+ */
+
 #include "views/v_mainwindow.h"
 #include "models/p_core.h"
 
 class V_Mainwindow;
 
+
+/*!
+ * \class C_Mainwindow
+ * \brief Classe représentant le controller principal de l'application
+ *
+ * Cette classe s'occupe de faire le lien entre le model (ensemble de classes représentant les données du XML et stockées en mémoire) et la view
+ */
+
 class C_Mainwindow {
 
     private:
         QApplication* qapp;
-        V_Mainwindow* view; // view
-        PluriNotes* app; // model
-
-        QAction* newAct;
-        QAction* exitAct;
+        V_Mainwindow* view; /*!< View */
+        PluriNotes* app; /*!< Model*/
 
     public:
-        C_Mainwindow(QApplication*);
+        /*!
+         * \brief Constructeur
+         *
+         * Constructeur de la classe C_Mainwindow
+         *
+         * \param app : Object QApplication créé dans la fonction main()
+         */
+        C_Mainwindow(QApplication* app);
 
         V_Mainwindow* getView() const { return view; }
         PluriNotes* getApp() const { return app; }
