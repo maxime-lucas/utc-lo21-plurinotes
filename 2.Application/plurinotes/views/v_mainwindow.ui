@@ -80,6 +80,7 @@
    <addaction name="actionTask"/>
    <addaction name="actionRelation"/>
    <addaction name="actionShow_Asc_Desc_View"/>
+   <addaction name="actionShow_Relations_View"/>
   </widget>
   <action name="actionQuit">
    <property name="text">
@@ -146,6 +147,10 @@
   <action name="actionShow_Relations_View">
    <property name="checkable">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../ressources/1_2.png</normaloff>../ressources/1_2.png</iconset>
    </property>
    <property name="text">
     <string>Show Relations View</string>

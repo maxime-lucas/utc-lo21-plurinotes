@@ -26,6 +26,35 @@ XMLManager::XMLManager(const QString &path ) : QWidget()  {
     doc.close();
 }
 
+void XMLManager::resetDocument() {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+
+    QDomNodeList nodes = root.childNodes();
+    for (int i = 0; i < nodes.count(); i) root.removeChild(nodes.at(i));
+
+        QDomElement activeNotes = dom->createElement("activeNotes");
+            activeNotes.appendChild(dom->createElement("articles"));
+            activeNotes.appendChild(dom->createElement("multimedias"));
+            activeNotes.appendChild(dom->createElement("tasks"));
+
+    root.appendChild(activeNotes);
+    root.appendChild(dom->createElement("relations"));
+    root.appendChild(dom->createElement("couples"));
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
 std::vector<Article*> XMLManager::getAllActiveArticles() const {
 
     QDomElement root = dom->firstChildElement("plurinotes");

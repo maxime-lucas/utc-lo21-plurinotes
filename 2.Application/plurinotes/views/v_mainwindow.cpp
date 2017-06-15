@@ -25,6 +25,7 @@ V_Mainwindow::V_Mainwindow(QWidget *parent, C_Mainwindow*c) :
     ui->actionTask->setIcon(QIcon(QPixmap("../plurinotes/ressources/newTask.png")));
     ui->actionRelation->setIcon(QIcon(QPixmap("../plurinotes/ressources/newRelation.png")));
     ui->actionShow_Asc_Desc_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/asc_desc.png")));
+    ui->actionShow_Relations_View->setIcon(QIcon(QPixmap("../plurinotes/ressources/1_2.png")));
 
     ui->actionShow_Asc_Desc_View->setChecked(true);
     ui->actionArticle->setVisible(true);
