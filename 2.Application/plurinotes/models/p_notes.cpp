@@ -6,10 +6,16 @@ Article::~Article() {}
 Multimedia::~Multimedia() {}
 Task::~Task() {}
 
+/*!
+ * \brief NotesManager::NotesManager
+ * Initialisation du vecteur de Note*.
+ */
 NotesManager::NotesManager() {
     tab = new std::vector<Note*>;
 }
-NotesManager::~NotesManager() {}
+NotesManager::~NotesManager() {
+    if (tab) delete[] tab;
+}
 
 ActiveNotesManager::ActiveNotesManager() : NotesManager() {}
 ActiveNotesManager::~ActiveNotesManager() {}
@@ -19,6 +25,11 @@ ArchivedNotesManager::~ArchivedNotesManager() {}
 
 DeletedNotesManager::DeletedNotesManager() : NotesManager() {}
 DeletedNotesManager::~DeletedNotesManager() {}
+
+/*!
+ * \brief Article::toString
+ * \return Fonction permettant de transformer un objet Article en chaine de caractère en suivant un modèle spécifique.
+ */
 
 QString Article::toString() const {
 
@@ -42,6 +53,10 @@ QString Article::toString() const {
     return f;
 }
 
+/*!
+ * \brief Multimedia::toString
+ * \return Fonction permettant de transformer un objet Multimédia en chaine de caractère en suivant un modèle spécifique.
+ */
 QString Multimedia::toString() const {
 
     QString f;
@@ -66,6 +81,10 @@ QString Multimedia::toString() const {
     return f;
 }
 
+/*!
+ * \brief Task::toString
+ * \return Fonction permettant de transformer un objet Tache en chaine de caractère en suivant un modèle spécifique.
+ */
 QString Task::toString() const {
 
     QString f;

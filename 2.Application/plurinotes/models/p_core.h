@@ -12,7 +12,7 @@
 
 /*!
  * \class Plurinotes
- * \brief Class permettant linitialisation de l'application nottamant de tous les managers.
+ * \brief Class permettant l'initialisation de l'application notamment de tous les managers.
  */
 class PluriNotes {
 
