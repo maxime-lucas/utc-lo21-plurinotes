@@ -64,7 +64,7 @@ void C_Mainwindow::refreshActiveNotes() {
     QLayoutItem* item;
     while ( ( item = view->getActiveNotes()->getGridLayout()->takeAt( 0 ) ) != NULL )
     {
-        delete item->widget();
+        item->widget();
         delete item;
     }
 
@@ -601,4 +601,5 @@ void C_Mainwindow::deleteRelationByID(QString id) {
 
     view->getRelationView()->refreshRelation();
     view->getRelationView()->setEmptyCentralView();
+    view->getRelationView()->getUi()->listWidget->clear();
 }
