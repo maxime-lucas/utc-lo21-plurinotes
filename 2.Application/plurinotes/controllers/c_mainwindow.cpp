@@ -578,8 +578,25 @@ void C_Mainwindow::deleteNoteVersion(QString noteID, QString numVersion) {
  * Suppression d'un couple par son Id
  */
 void C_Mainwindow::deleteCoupleByID(QString id) {
-    Couple *c = app->getXMLManager()->getCoupleById(id);
-    PluriNotes::debug(c->toString());
+
+    for(unsigned int i = 0; i < app->getRelationManager()->getTab()->size(); i ++)
+       {
+        Relation* relation = app->getRelationManager()->getTab()->at(i);
+        for(unsigned int j = 0; j < relation->getCouples()->size() ; j ++)
+        {
+            Couple* couple = relation->getCouples()->at(i);
+            if(id == couple->getId())
+            {
+                relation->getCouples()->erase(relation->getCouples()->begin()+i);
+                 app->getXMLManager()->deleteCouple(relation,couple);
+                 app->getXMLManager()->deleteFromCouple(couple);
+                 view->getRelationView()->refreshListCouple(relation->getId());
+            }
+
+        }
+    }
+
+
 }
 
 /*!

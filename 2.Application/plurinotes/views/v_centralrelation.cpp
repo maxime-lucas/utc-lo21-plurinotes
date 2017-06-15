@@ -20,6 +20,8 @@ void V_CentralView::deleteView() {
     if(relationView == true)
     {
         QString id = this->getUi()->labelID->text();
+        Relation* relation = parentView->getController()->getApp()->getRelationByID(id);
+        parentView->getController()->getApp()->getRelationManager()->deleteByRelation(relation);
         parentView->getController()->deleteRelationByID(id);
         parentView->refreshRelation();
         parentView->setEmptyList();

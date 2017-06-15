@@ -64,37 +64,8 @@
    </task>
   </tasks>
  </activeNotes>
- <relations>
-  <relation>
-   <id>1</id>
-   <title>qsdfg</title>
-   <description>sqdfg</description>
-   <isOriented>TRUE</isOriented>
-   <couples/>
-  </relation>
-  <relation>
-   <id>2</id>
-   <title>azert</title>
-   <description>zqesrgfth</description>
-   <isOriented>TRUE</isOriented>
-   <couples>
-    <couple>1/3</couple>
-   </couples>
-  </relation>
- </relations>
+ <relations/>
  <couples>
-  <couple>
-   <id>1/2</id>
-   <label>zaerfg</label>
-   <noteX>1</noteX>
-   <noteY>2</noteY>
-  </couple>
-  <couple>
-   <id>1/3</id>
-   <label>azer</label>
-   <noteX>1</noteX>
-   <noteY>3</noteY>
-  </couple>
   <couple>
    <id>3/1</id>
    <label>sazerty</label>
