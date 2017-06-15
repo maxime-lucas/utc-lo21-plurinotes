@@ -6,34 +6,22 @@
 #include "models/p_core.h"
 
 PluriNotes::PluriNotes() {
-    activeNotesManager = 0;
-    deletedNotesManager = 0;
-    archivedNotesManager = 0;
-    relationManager = 0;
-    xmlManager = 0;
+    activeNotesManager = new ActiveNotesManager;
+    relationManager = new RelationManager;
+    xmlManager = new XMLManager("../plurinotes/ressources/data.xml");
 
     reloadFromDatabase();
 }
 
 PluriNotes::~PluriNotes() {
-    delete activeNotesManager;
-    delete archivedNotesManager;
-    delete deletedNotesManager;
-    delete relationManager;
+    //delete activeNotesManager;
+    //delete relationManager;
 }
 
 void PluriNotes::reloadFromDatabase() {
-    if(activeNotesManager != 0) delete activeNotesManager;
-    if(deletedNotesManager != 0) delete deletedNotesManager;
-    if(archivedNotesManager != 0) delete archivedNotesManager;
-    if(relationManager != 0) delete relationManager;
-    if(xmlManager != 0) delete xmlManager;
 
-    activeNotesManager = new ActiveNotesManager();
-    deletedNotesManager = new DeletedNotesManager();
-    archivedNotesManager = new ArchivedNotesManager();
-    relationManager = new RelationManager();
-    xmlManager = new XMLManager("../plurinotes/ressources/data.xml");
+    activeNotesManager->getTab()->clear();
+    relationManager->getTab()->clear();
 
     // Récupération des articles actifs
     std::vector<Article*> activeArticle = xmlManager->getAllActiveArticles();
