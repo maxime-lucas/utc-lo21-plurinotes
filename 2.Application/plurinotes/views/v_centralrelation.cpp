@@ -21,11 +21,15 @@ void V_CentralView::deleteView() {
     {
         QString id = this->getUi()->labelID->text();
         parentView->getController()->deleteRelationByID(id);
+        parentView->refreshRelation();
+        parentView->setEmptyList();
+
     }
     else if(relationView == false)
     {
         QString id = this->getUi()->labelID->text();
         parentView->getController()->deleteCoupleByID(id);
+        parentView->setEmptyCentralView();
     }
 }
 
@@ -121,8 +125,8 @@ void V_Centralrelation::editRelation()
  * Affichage d'un couple dans la vue principal
  */
 V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m){
-    this->r = r;
-    this->c = c;
+    r = r;
+    c = c;
 
     this->getUi()->labelType->setText("Type : Couple");
     this->getUi()->labelID->setText(c->getId());
@@ -144,7 +148,7 @@ V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_Centr
         note1 = new QLabel("task "+note->getId()+" : "+note->getTitle());
         }
 
-        Note* n= c->getY();
+        Note* n = c->getY();
         if( typeid(*n) == typeid(Article) ) {
         note2 = new QLabel("Article "+n->getId()+" : "+n->getTitle());
         }

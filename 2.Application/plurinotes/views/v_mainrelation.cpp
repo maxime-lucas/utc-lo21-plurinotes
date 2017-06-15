@@ -155,6 +155,10 @@ void V_MainView::refreshListCouple(QString id)
     }
 }
 
+void V_MainView::setEmptyList() {
+    ui->listWidget->clear();
+}
+
 
 V_MainView::~V_MainView()
 {

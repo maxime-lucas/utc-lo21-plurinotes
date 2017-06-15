@@ -4,47 +4,108 @@
   <articles>
    <article>
     <id>1</id>
-    <title>A1</title>
-    <createdOn>Thu Jun 15 18:45:58 2017</createdOn>
-    <lastModifOn>Thu Jun 15 18:46:20 2017</lastModifOn>
-    <text>T1</text>
+    <title>Article 1</title>
+    <createdOn>jeu. juin 15 20:07:27 2017</createdOn>
+    <lastModifOn>jeu. juin 15 20:07:27 2017</lastModifOn>
+    <text>Article 1 fkeozpkfoepzf</text>
     <versions/>
    </article>
-   <article>
+  </articles>
+  <multimedias>
+   <multimedia>
     <id>2</id>
-    <title>sdfghjkiolwsxcvbhnj</title>
-    <createdOn>jeu. juin 15 19:38:08 2017</createdOn>
-    <lastModifOn>jeu. juin 15 19:38:31 2017</lastModifOn>
-    <text>qsdfggffdv</text>
+    <title>Photo de ta vie </title>
+    <createdOn>jeu. juin 15 20:07:54 2017</createdOn>
+    <lastModifOn>jeu. juin 15 20:09:20 2017</lastModifOn>
+    <description>petit description</description>
+    <fileName>2.jpg</fileName>
+    <type>picture</type>
     <versions>
      <version>
       <numVersion>1</numVersion>
-      <article>
+      <multimedia>
        <id>2</id>
-       <title>sdfghjkiolwsxcvbhnj</title>
-       <createdOn>jeu. juin 15 19:38:08 2017</createdOn>
-       <lastModifOn>jeu. juin 15 19:38:08 2017</lastModifOn>
-       <text>qsdfg</text>
-      </article>
+       <title>Photo de ta vie </title>
+       <createdOn>jeu. juin 15 20:07:54 2017</createdOn>
+       <lastModifOn>jeu. juin 15 20:07:54 2017</lastModifOn>
+       <description/>
+       <fileName>2.jpg</fileName>
+       <type>picture</type>
+      </multimedia>
      </version>
     </versions>
-   </article>
-  </articles>
-  <multimedias/>
+   </multimedia>
+  </multimedias>
   <tasks>
    <task>
     <id>3</id>
-    <title>dfrg</title>
-    <createdOn>jeu. juin 15 19:38:59 2017</createdOn>
-    <lastModifOn>jeu. juin 15 19:38:59 2017</lastModifOn>
-    <action>cfd</action>
-    <priority>35</priority>
-    <deadline>sam. janv. 1 00:00:00 2000</deadline>
-    <status>0</status>
-    <versions/>
+    <title>Finir LO21</title>
+    <createdOn>jeu. juin 15 20:08:37 2017</createdOn>
+    <lastModifOn>jeu. juin 15 20:08:56 2017</lastModifOn>
+    <action>Finir LO21 parce que c'est bien en fait </action>
+    <priority>99</priority>
+    <deadline>jeu. juin 15 20:08:56 2017</deadline>
+    <status>1</status>
+    <versions>
+     <version>
+      <numVersion>1</numVersion>
+      <task>
+       <id>3</id>
+       <title>Finir LO21</title>
+       <createdOn>jeu. juin 15 20:08:37 2017</createdOn>
+       <lastModifOn>jeu. juin 15 20:08:37 2017</lastModifOn>
+       <action>zer</action>
+       <priority>99</priority>
+       <deadline>jeu. juin 15 23:59:00 2017</deadline>
+       <status>0</status>
+      </task>
+     </version>
+    </versions>
    </task>
   </tasks>
  </activeNotes>
- <relations/>
- <couples/>
+ <relations>
+  <relation>
+   <id>1</id>
+   <title>qsdfg</title>
+   <description>sqdfg</description>
+   <isOriented>TRUE</isOriented>
+   <couples/>
+  </relation>
+  <relation>
+   <id>2</id>
+   <title>azert</title>
+   <description>zqesrgfth</description>
+   <isOriented>TRUE</isOriented>
+   <couples>
+    <couple>1/3</couple>
+   </couples>
+  </relation>
+ </relations>
+ <couples>
+  <couple>
+   <id>1/2</id>
+   <label>zaerfg</label>
+   <noteX>1</noteX>
+   <noteY>2</noteY>
+  </couple>
+  <couple>
+   <id>1/3</id>
+   <label>azer</label>
+   <noteX>1</noteX>
+   <noteY>3</noteY>
+  </couple>
+  <couple>
+   <id>3/1</id>
+   <label>sazerty</label>
+   <noteX>3</noteX>
+   <noteY>1</noteY>
+  </couple>
+  <couple>
+   <id>2/1</id>
+   <label>zaergt</label>
+   <noteX>2</noteX>
+   <noteY>1</noteY>
+  </couple>
+ </couples>
 </plurinotes>

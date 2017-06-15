@@ -43,6 +43,11 @@ public:
      * Fonction qui va rafraichir la liste des couples en fonction de la relation choisie.
      */
     void refreshListCouple(QString);
+    /*!
+     * \brief setEmptyList
+     * Fonction qui remettre a zero la liste des couples.
+     */
+    void setEmptyList();
 
 private:
     Ui::v_mainrelation* ui;
