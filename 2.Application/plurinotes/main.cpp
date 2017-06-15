@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 
     //controller->getApp()->getXMLManager()->insertIntoCouple(c1);
     //controller->getApp()->getXMLManager()->insertIntoRelation(r);
-    controller->getApp()->getXMLManager()->insertIntoRelationCouple(r1,c1);
-
+    //controller->getApp()->getXMLManager()->insertIntoRelationCouple(r1,c1);
+    controller->getApp()->getXMLManager()->deleteFromCouple(c1);
     return app.exec();
 }

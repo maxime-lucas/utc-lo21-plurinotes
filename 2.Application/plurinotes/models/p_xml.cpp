@@ -602,17 +602,16 @@ void XMLManager::deleteFromTask(Task *a) {
 void XMLManager::deleteFromCouple(Couple *c) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
-    QDomElement relations = root.firstChildElement("relations");
-    QDomElement relation = relations.firstChildElement("relation");
+    QDomElement couples = root.firstChildElement("couples");
+    QDomNodeList nodes = couples.elementsByTagName("couple");
 
-    QDomNodeList nodes = relation.elementsByTagName("relation");
     for (int i = 0; i < nodes.count(); ++i)
     {
         QDomNode node = nodes.at(i);
         QDomElement child = node.firstChildElement("id");
         if (child.text() == c->getId())
         {
-            relation.removeChild(node);
+            couples.removeChild(node);
         }
     }
 
