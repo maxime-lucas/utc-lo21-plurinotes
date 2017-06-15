@@ -1445,6 +1445,7 @@ void XMLManager::updateCoupleLabelById(QString id,QString newLabel) {
 }
 
 bool XMLManager::isCoupleInRelation(Relation *r, Couple *c) const {
+
     QDomElement relation = dom->firstChildElement("plurinotes").firstChildElement("relations").firstChildElement("relation");
 
     for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
@@ -1459,4 +1460,3 @@ bool XMLManager::isCoupleInRelation(Relation *r, Couple *c) const {
 
     return false;
 }
-

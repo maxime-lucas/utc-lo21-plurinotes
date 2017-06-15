@@ -350,6 +350,17 @@ void C_Mainwindow::addCouple(Couple *c,QString rId) {
         app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelationXY);
         app->getXMLManager()->insertIntoRelationCouple(relation,coupleToInsertInRelationYX);
     }
+
+    //Suppression dans les relations actives (côté vue)
+    relation->getCouples()->clear();
+
+    Relation* r = app->getXMLManager()->getRelationByID(relation->getId());
+    std::vector<Couple*> *couples = r->getCouples();
+
+    for(unsigned int i = 0; i < couples->size() ; i++ )
+        relation->getCouples()->push_back(couples->at(i));
+
+    view->getRelationView()->refreshListCouple(relation->getId());
 }
 
 /*!
