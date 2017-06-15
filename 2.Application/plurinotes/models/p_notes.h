@@ -6,10 +6,26 @@
 #include <QString>
 #include <QDateTime>
 
+
+/*!
+ * \file p_notes.h
+ * \brief Gestion des notes de tous types
+ * \author FAYAX
+ * \version 1.0
+ */
+
+
 class Note;
 class Article;
 class Multimedia;
 class Task;
+
+
+/*!
+ * \class NotesManager
+ * \brief Classe mère des NotesManager, qui permet de gérer les différents états des notes par héritage
+ *
+ */
 
 class NotesManager {
 
@@ -25,26 +41,55 @@ class NotesManager {
 
 };
 
+
+/*!
+ * \class ActiveNotesManager
+ * \brief Classe Manager pour les Notes actives
+ *
+ */
 class ActiveNotesManager : public NotesManager {
     public:
         ActiveNotesManager();
         ~ActiveNotesManager();
 };
 
+/*!
+ * \class ArchivedNotesManager
+ * \brief Classe Manager pour les notes archivées
+ *
+ */
 class ArchivedNotesManager : public NotesManager {
     public:
         ArchivedNotesManager();
         ~ArchivedNotesManager();
 };
 
+
+/*!
+ * \class DeletedNotesManager
+ * \brief Classe Manager pour les notes supprimées
+ *
+ */
 class DeletedNotesManager : public NotesManager {
     public:
         DeletedNotesManager();
         ~DeletedNotesManager();
 };
 
+
+/*!
+ * \class Version
+ * \brief
+ *
+ */
 class Version;
 
+
+/*!
+ * \class Note
+ * \brief Classe mère des notes, qui reprend les attributs & méthodes communs
+ * Classe principale des notes, elle permet de définir l'ensemble des parties communes aux types de notes, le reste se faisant par héritage
+ */
 class Note {
 
     protected:
@@ -78,6 +123,11 @@ class Note {
 
 };
 
+/*!
+ * \class Article
+ * \brief Classe héritée de Note
+ * Les articles sont des notes avec champs texte
+ */
 class Article : public Note {
     protected :
         QString text;
@@ -90,6 +140,12 @@ class Article : public Note {
         void setText(QString t) { text = t; }
         QString toString() const;
 };
+
+/*!
+ * \class Multimédia
+ * \brief Classe héritée de Note
+ * Les multimédias sont des notes avec une description et un type de contenu multimédia
+ */
 
 class Multimedia : public Note {
     protected :
@@ -112,6 +168,11 @@ class Multimedia : public Note {
         QString toString() const;
 };
 
+/*!
+ * \class Tâche
+ * \brief Classe héritée de Note
+ * Les tâches sont des notes avec une action, une priorité et des dates indicatives
+ */
 
 class Task : public Note {
     protected :
