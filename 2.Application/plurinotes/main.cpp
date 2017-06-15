@@ -10,11 +10,13 @@ int main(int argc, char *argv[]) {
     QApplication app(argc,argv);
     C_Mainwindow *controller = new C_Mainwindow(&app);
 
-    //controller->getView()->show();
+    // controller->getView()->show();
 
-    Couple *c1 = controller->getApp()->getXMLManager()->getCoupleById("1/2");
-
-    PluriNotes::debug(c1->toString());
+    // TESTS
+    Note *n1 = controller->getApp()->getXMLManager()->getNoteById("1");
+    Note *n2 = controller->getApp()->getXMLManager()->getNoteById("2");
+    Couple *c1 = new Couple("HELLO BOYS",n1,n2);
+    controller->getApp()->getXMLManager()->insertIntoCouple(c1);
 
     return app.exec();
 }

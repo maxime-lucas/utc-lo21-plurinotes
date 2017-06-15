@@ -402,9 +402,26 @@ void XMLManager::insertIntoRelation(Relation*r) {
     stream << newDoc;
 }
 
-void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
+void XMLManager::insertIntoCouple(Couple*c) {
     QDomElement root = dom->firstChildElement("plurinotes");
-    QDomElement relations = root.firstChildElement("relations");
+    QDomElement couples = root.firstChildElement("couples");
+
+        QDomElement couple = dom->createElement("couple");
+            QDomElement cId = dom->createElement("id");
+                cId.appendChild(dom->createTextNode(c->getId()));
+            QDomElement cLabel = dom->createElement("label");
+                cLabel.appendChild(dom->createTextNode(c->getLabel()));
+            QDomElement cNoteX = dom->createElement("noteX");
+                cNoteX.appendChild(dom->createTextNode(c->getX()->getId()));
+            QDomElement cNoteY = dom->createElement("noteY");
+                cNoteY.appendChild(dom->createTextNode(c->getY()->getId()));
+
+        couple.appendChild(cId);
+        couple.appendChild(cLabel);
+        couple.appendChild(cNoteX);
+        couple.appendChild(cNoteY);
+
+    couples.appendChild(couple);
 
     QString newDoc = dom->toString();
 
@@ -417,6 +434,23 @@ void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
     QTextStream stream(&doc);
 
     stream << newDoc;
+}
+
+void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
+    /*QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;*/
 }
 
 void XMLManager::deleteFromArticle(Article *a) {
