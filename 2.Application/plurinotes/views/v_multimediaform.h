@@ -9,6 +9,11 @@ namespace Ui {
 class V_MultimediaForm;
 }
 
+/*!
+ * \class V_ArticleForm
+ * \brief class responsable de l'affichage du formulaire de création d'un Multimedia.
+ */
+
 class V_Mainwindow;
 
 class V_MultimediaForm : public QDialog
@@ -25,7 +30,15 @@ private:
     V_Mainwindow *parent;
 
 public slots:
+    /*!
+     * \brief checkFields
+     * Slot qui permet une vérification des paramètres entrés et qui appelle la fonction du controler pour creer d'une nouvelle note Multimedia.
+     */
     void checkFields();
+    /*!
+     * \brief openFile
+     * Slot permetant d'ouvrir l'interface d'ajout de fichier.
+     */
     void openFile();
 };
 

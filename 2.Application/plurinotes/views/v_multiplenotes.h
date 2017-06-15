@@ -7,7 +7,11 @@
 namespace Ui {
     class v_multiplenotes;
 }
-
+/*!
+ * \class V_Multiplenotes
+ * \brief class gérant l'affichage des différentes littlenote
+ * Fait appel a v_multiplenotes.ui
+ */
 class V_Multiplenotes : public QWidget
 {
     Q_OBJECT

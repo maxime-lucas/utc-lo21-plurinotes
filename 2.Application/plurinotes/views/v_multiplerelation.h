@@ -7,6 +7,12 @@ namespace Ui {
     class v_multiplerelation;
 }
 
+
+/*!
+ * \class V_Multiplerelation
+ * \brief class gérant l'affichage des différentes relations/couples
+ * Fait appel a v_multiplerelation.ui
+ */
 class V_Multiplerelation : public QWidget {
 
     Q_OBJECT
