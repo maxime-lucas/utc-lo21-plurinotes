@@ -7,7 +7,10 @@
 #include "p_core.h"
 #include "p_versions.h"
 
-
+/*!
+ * \brief XMLManager::XMLManager
+ * Constructeur du XMLManager
+ */
 XMLManager::XMLManager(const QString &path ) : QWidget()  {
     dom = new QDomDocument("XMLManagerDom");
     pathToFile = path;
@@ -26,6 +29,10 @@ XMLManager::XMLManager(const QString &path ) : QWidget()  {
     doc.close();
 }
 
+/*!
+ * \brief XMLManager::resetDocument
+ * vide le XML et le remet à zéro
+ */
 void XMLManager::resetDocument() {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -34,7 +41,7 @@ void XMLManager::resetDocument() {
 
     while(nodes.count() > 0) root.removeChild(nodes.at(0));
 
-        QDomElement activeNotes = dom->createElement("activeNotes");
+        QaDomElement activeNotes = dom->createElement("activeNotes");
             activeNotes.appendChild(dom->createElement("articles"));
             activeNotes.appendChild(dom->createElement("multimedias"));
             activeNotes.appendChild(dom->createElement("tasks"));
@@ -56,6 +63,11 @@ void XMLManager::resetDocument() {
     stream << newDoc;
 }
 
+
+/*!
+ * \brief XMLManager::getAllActiveArticles
+ * \return tout les Articles actifs
+ */
 std::vector<Article*> XMLManager::getAllActiveArticles() const {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -108,6 +120,10 @@ std::vector<Article*> XMLManager::getAllActiveArticles() const {
     return tab;
 }
 
+/*!
+ * \brief XMLManager::getAllActiveMultimedia
+ * \return tous les multimédias actifs
+ */
 std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -173,6 +189,10 @@ std::vector<Multimedia*> XMLManager::getAllActiveMultimedia() const {
     return tab;
 }
 
+/*!
+ * \brief XMLManager::getAllActiveTasks
+ * \return toutes les tâches actives
+ */
 std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -255,6 +275,10 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     return tab;
 }
 
+/*!
+ * \brief XMLManager::getAllRelations
+ * \return toutes les relations
+ */
 std::vector<Relation*> XMLManager::getAllRelations() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement relations = root.firstChildElement("relations");
@@ -295,6 +319,10 @@ std::vector<Relation*> XMLManager::getAllRelations() const {
     return tab;
 }
 
+/*!
+ * \brief XMLManager::insertIntoArticle
+ * insère un article dans le XML
+ */
 void XMLManager::insertIntoArticle(Article*a) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -335,6 +363,11 @@ void XMLManager::insertIntoArticle(Article*a) {
     stream << newDoc;
 }
 
+
+/*!
+ * \brief XMLManager::insertIntoMultimedia
+ * Insère un multimédia dans le XML
+ */
 void XMLManager::insertIntoMultimedia(Multimedia*m) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -384,6 +417,10 @@ void XMLManager::insertIntoMultimedia(Multimedia*m) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::insertIntoTask
+ * insère une tâche dans le XML
+ */
 void XMLManager::insertIntoTask(Task*t) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -436,6 +473,10 @@ void XMLManager::insertIntoTask(Task*t) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::insertIntoRelation
+ * Insère une relation dans le XML
+ */
 void XMLManager::insertIntoRelation(Relation*r) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement relations = root.firstChildElement("relations");
@@ -472,6 +513,10 @@ void XMLManager::insertIntoRelation(Relation*r) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::insertIntoCouple
+ * Insère un couple dans le XML
+ */
 void XMLManager::insertIntoCouple(Couple*c) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement couples = root.firstChildElement("couples");
@@ -506,6 +551,10 @@ void XMLManager::insertIntoCouple(Couple*c) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::insertIntoRelationCouple
+ * Insère un couple dans une relation
+ */
 void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement relations = root.firstChildElement("relations");
@@ -537,6 +586,10 @@ void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::deleteFromArticle
+ * Supprime l'article du XML
+ */
 void XMLManager::deleteFromArticle(Article *a) {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
@@ -567,6 +620,10 @@ void XMLManager::deleteFromArticle(Article *a) {
 
 }
 
+/*!
+ * \brief XMLManager::deleteFromMultimedia
+ * Supprime le multimédia du XML
+ */
 void XMLManager::deleteFromMultimedia(Multimedia *a) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -598,6 +655,10 @@ void XMLManager::deleteFromMultimedia(Multimedia *a) {
 
 }
 
+/*!
+ * \brief XMLManager::deleteFromTask
+ * Supprime la tâche du XML
+ */
 void XMLManager::deleteFromTask(Task *a) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -629,6 +690,10 @@ void XMLManager::deleteFromTask(Task *a) {
 
 }
 
+/*!
+ * \brief XMLManager::deleteFromCouple
+ * Supprime le couple du XML
+ */
 void XMLManager::deleteFromCouple(Couple *c) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -659,6 +724,10 @@ void XMLManager::deleteFromCouple(Couple *c) {
 
 }
 
+/*!
+ * \brief XMLManager::getLastId
+ * Renvoie le dernier Id stocké
+ */
 unsigned int XMLManager::getLastId() const {
     unsigned int lastID = 0;
     unsigned int foundID = 0;
@@ -721,6 +790,12 @@ unsigned int XMLManager::getLastId() const {
     return lastID;
 }
 
+/*!
+ * \brief XMLManager::updateArticle
+ * \param oldA
+ * \param newA
+ * MAJ d'un article
+ */
 void XMLManager::updateArticle(Article* oldA,Article* newA) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -784,6 +859,12 @@ void XMLManager::updateArticle(Article* oldA,Article* newA) {
 
 }
 
+/*!
+ * \brief XMLManager::updateMultimedia
+ * \param oldA
+ * \param newA
+ * MAJ d'un multimédia
+ */
 void XMLManager::updateMultimedia(Multimedia* oldA,Multimedia* newA) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -856,6 +937,12 @@ void XMLManager::updateMultimedia(Multimedia* oldA,Multimedia* newA) {
 
 }
 
+/*!
+ * \brief XMLManager::updateTask
+ * \param oldA
+ * \param newA
+ * MAJ d'une tâche
+ */
 void XMLManager::updateTask(Task* oldA,Task* newA) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -943,6 +1030,12 @@ void XMLManager::updateTask(Task* oldA,Task* newA) {
 
 }
 
+/*!
+ * \brief XMLManager::deleteNoteVersion
+ * \param n
+ * \param v
+ * Supprime la version v d'une note n
+ */
 void XMLManager::deleteNoteVersion(Note*n,Version*v) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -998,6 +1091,12 @@ void XMLManager::deleteNoteVersion(Note*n,Version*v) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::restoreNoteVersion
+ * \param n
+ * \param v
+ * Restaure la version v d'une note n
+ */
 void XMLManager::restoreNoteVersion(Note*n,Version*v) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1108,6 +1207,12 @@ void XMLManager::restoreNoteVersion(Note*n,Version*v) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::deleteCouple
+ * \param r
+ * \param c
+ * Supprime le couple c de la relation r
+ */
 void XMLManager::deleteCouple(Relation*r,Couple*c) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1148,6 +1253,11 @@ void XMLManager::deleteCouple(Relation*r,Couple*c) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::deleteRelation
+ * \param r
+ * Supprime la relation r
+ */
 void XMLManager::deleteRelation(Relation*r) {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1178,11 +1288,20 @@ void XMLManager::deleteRelation(Relation*r) {
     stream << newDoc;
 }
 
+/*!
+ * \brief XMLManager::~XMLManager
+ * Ferme le document ouvert
+ */
 XMLManager::~XMLManager() {
 
     doc.close();
 }
 
+/*!
+ * \brief XMLManager::getNoteById
+ * \param id
+ * \return la note liée à l'id
+ */
 Note* XMLManager::getNoteById(QString id) const {
     std::vector<Article*> articles = getAllActiveArticles();
     std::vector<Multimedia*> multimedias = getAllActiveMultimedia();
@@ -1206,6 +1325,11 @@ Note* XMLManager::getNoteById(QString id) const {
     return 0;
 }
 
+/*!
+ * \brief XMLManager::getCoupleById
+ * \param id
+ * \return le couple lié à l'id
+ */
 Couple* XMLManager::getCoupleById(QString id) const {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1229,6 +1353,11 @@ Couple* XMLManager::getCoupleById(QString id) const {
     return 0;
 }
 
+/*!
+ * \brief XMLManager::getRelationByID
+ * \param id
+ * \return la relation liée à l'id
+ */
 Relation* XMLManager::getRelationByID(QString id) const {
 
     QDomElement root = dom->firstChildElement("plurinotes");
@@ -1268,6 +1397,10 @@ Relation* XMLManager::getRelationByID(QString id) const {
     return 0;
 }
 
+/*!
+ * \brief XMLManager::getLastRelationId
+ * \return l'id de la dernière relation ajoutée (pour pouvoir créer uen nouvelle relation et lui assigner un id unique)
+ */
 unsigned int XMLManager::getLastRelationId() const {
     unsigned int lastID = 0;
     unsigned int foundID = 0;
