@@ -45,11 +45,20 @@
     <couple>3/2</couple>
    </couples>
   </relation>
+  <relation>
+   <id>2</id>
+   <title>R2</title>
+   <description>T2</description>
+   <isOriented>TRUE</isOriented>
+   <couples>
+    <couple>1/2</couple>
+   </couples>
+  </relation>
  </relations>
  <couples>
   <couple>
    <id>1/2</id>
-   <label>L1</label>
+   <label>LOL</label>
    <noteX>1</noteX>
    <noteY>2</noteY>
   </couple>

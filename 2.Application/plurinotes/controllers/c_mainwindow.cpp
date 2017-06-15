@@ -352,13 +352,11 @@ void C_Mainwindow::addCouple(Couple *c,QString rId) {
     }
 
     //Suppression dans les relations actives (côté vue)
-    relation->getCouples()->clear();
+    app->getRelationManager()->getTab()->clear();
+    std::vector<Relation*> relations = app->getXMLManager()->getAllRelations();
 
-    Relation* r = app->getXMLManager()->getRelationByID(relation->getId());
-    std::vector<Couple*> *couples = r->getCouples();
-
-    for(unsigned int i = 0; i < couples->size() ; i++ )
-        relation->getCouples()->push_back(couples->at(i));
+    for(unsigned int i = 0; i < relations.size() ; i++ )
+        app->getRelationManager()->getTab()->push_back(relations.at(i));
 
     view->getRelationView()->refreshListCouple(relation->getId());
 }
