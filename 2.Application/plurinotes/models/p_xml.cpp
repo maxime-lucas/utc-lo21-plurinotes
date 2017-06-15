@@ -1078,6 +1078,76 @@ void XMLManager::restoreNoteVersion(Note*n,Version*v) {
     stream << newDoc;
 }
 
+void XMLManager::deleteCouple(Relation*r,Couple*c) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QDomNodeList nodes = relations.elementsByTagName("relation");
+
+    for (int i = 0; i < nodes.count(); ++i)
+    {
+        QDomNode node = nodes.at(i);
+        QDomElement child = node.firstChildElement("id");
+        if (child.text() == r->getId())
+        {
+            QDomElement couples = node.firstChildElement("couples");
+            QDomNodeList nodes2 = couples.elementsByTagName("couple");
+            for(i = 0; i < nodes2.count(); i ++)
+            {
+                QDomNode node2 = nodes2.at(i);
+                QDomElement child2 = node2.firstChildElement("id");
+                if(child2.text() == c->getId())
+                    couples.removeChild(node2);
+            }
+
+        }
+    }
+
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
+void XMLManager::deleteRelation(Relation*r) {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+    QDomNodeList nodes = relations.elementsByTagName("relation");
+
+    for (int i = 0; i < nodes.count(); ++i)
+    {
+        QDomNode node = nodes.at(i);
+        QDomElement child = node.firstChildElement("id");
+        if (child.text() == r->getId())
+        {
+            relations.removeChild(node);
+        }
+    }
+
+    QString newDoc = dom->toString();
+
+    QFile doc(pathToFile);
+    if(!doc.open(QIODevice::ReadWrite | QIODevice::Truncate | QIODevice::Text)) {
+         QMessageBox::warning(this,"Erreur a l'ouverture du document XML","Le document XML n'a pas pu etre ouvert. Verifiez que le nom est le bon et que le document est bien place");
+         return;
+    }
+
+    QTextStream stream(&doc);
+
+    stream << newDoc;
+}
+
 XMLManager::~XMLManager() {
 
     doc.close();

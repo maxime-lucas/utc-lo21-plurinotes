@@ -46,6 +46,9 @@ class XMLManager : public QWidget {
     void deleteNoteVersion(Note*,Version*);
     void restoreNoteVersion(Note*,Version*);
 
+    void deleteCouple(Relation*r,Couple*c);
+    void deleteRelation(Relation*r);
+
     ~XMLManager();
 };
 
