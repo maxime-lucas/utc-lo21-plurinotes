@@ -13,10 +13,15 @@ int main(int argc, char *argv[]) {
     // controller->getView()->show();
 
     // TESTS
+
     Note *n1 = controller->getApp()->getXMLManager()->getNoteById("1");
     Note *n2 = controller->getApp()->getXMLManager()->getNoteById("2");
-    Couple *c1 = new Couple("HELLO BOYS",n1,n2);
-    controller->getApp()->getXMLManager()->insertIntoCouple(c1);
+    Couple *c1 = new Couple("HI", n1,n2);
+    Relation *r1 = new Relation("1","Titre de la relation","Une relation au pif",false);
+
+    //controller->getApp()->getXMLManager()->insertIntoCouple(c1);
+    //controller->getApp()->getXMLManager()->insertIntoRelation(r);
+    controller->getApp()->getXMLManager()->insertIntoRelationCouple(r1,c1);
 
     return app.exec();
 }

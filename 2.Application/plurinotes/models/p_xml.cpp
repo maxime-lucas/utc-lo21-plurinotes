@@ -477,8 +477,22 @@ void XMLManager::insertIntoCouple(Couple*c) {
 }
 
 void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
-    /*QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement relations = root.firstChildElement("relations");
+    QDomElement relation = relations.firstChildElement("relation");
+
+    for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+
+        if(relation.firstChildElement("id").text() == r->getId() ) {
+            QDomElement couples = relation.firstChildElement("couples");
+
+                QDomElement couple = dom->createElement("couple");
+                    couple.appendChild(dom->createTextNode(c->getId()));
+
+            couples.appendChild(couple);
+        }
+
+    }
 
     QString newDoc = dom->toString();
 
@@ -490,7 +504,7 @@ void XMLManager::insertIntoRelationCouple(Relation*r,Couple*c) {
 
     QTextStream stream(&doc);
 
-    stream << newDoc;*/
+    stream << newDoc;
 }
 
 void XMLManager::deleteFromArticle(Article *a) {

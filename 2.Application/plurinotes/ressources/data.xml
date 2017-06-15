@@ -24,26 +24,19 @@
  </activeNotes>
  <relations>
   <relation>
-   <id/>
-   <title/>
-   <description/>
-   <isOriented/>
+   <id>1</id>
+   <title>Titre de la relation</title>
+   <description>Une relation au pif</description>
+   <isOriented>FALSE</isOriented>
    <couples>
-    <couple/>
-    <couple/>
+    <couple>1/2</couple>
    </couples>
   </relation>
  </relations>
  <couples>
   <couple>
    <id>1/2</id>
-   <label>HELLO BOYS</label>
-   <noteX>1</noteX>
-   <noteY>2</noteY>
-  </couple>
-  <couple>
-   <id>1/2</id>
-   <label>HELLO BOYS</label>
+   <label>HI</label>
    <noteX>1</noteX>
    <noteY>2</noteY>
   </couple>
