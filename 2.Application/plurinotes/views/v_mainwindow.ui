@@ -76,13 +76,9 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionArticle"/>
-   <addaction name="separator"/>
    <addaction name="actionMultimedia"/>
-   <addaction name="separator"/>
    <addaction name="actionTask"/>
-   <addaction name="separator"/>
    <addaction name="actionRelation"/>
-   <addaction name="separator"/>
    <addaction name="actionShow_Asc_Desc_View"/>
   </widget>
   <action name="actionQuit">

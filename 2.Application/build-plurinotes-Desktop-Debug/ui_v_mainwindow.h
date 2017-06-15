@@ -114,13 +114,9 @@ public:
         menuView->addAction(actionShow_Asc_Desc_View);
         menuView->addAction(actionShow_Relations_View);
         toolBar->addAction(actionArticle);
-        toolBar->addSeparator();
         toolBar->addAction(actionMultimedia);
-        toolBar->addSeparator();
         toolBar->addAction(actionTask);
-        toolBar->addSeparator();
         toolBar->addAction(actionRelation);
-        toolBar->addSeparator();
         toolBar->addAction(actionShow_Asc_Desc_View);
 
         retranslateUi(V_Mainwindow);
