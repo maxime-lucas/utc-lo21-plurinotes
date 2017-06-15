@@ -41,5 +41,11 @@
    <noteX>1</noteX>
    <noteY>2</noteY>
   </couple>
+  <couple>
+   <id>1/2</id>
+   <label>HELLO BOYS</label>
+   <noteX>1</noteX>
+   <noteY>2</noteY>
+  </couple>
  </couples>
 </plurinotes>

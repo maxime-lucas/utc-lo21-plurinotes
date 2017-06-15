@@ -24,6 +24,7 @@ class XMLManager : public QWidget {
     std::vector<Task*> getAllActiveTasks() const;
     Couple* getCoupleById(QString) const;
     Note* getNoteById(QString) const;
+    std::vector<Relation*>getAllRelations() const;
     unsigned int getLastId() const;
 
     void insertIntoArticle(Article*);
