@@ -31,7 +31,8 @@ void XMLManager::resetDocument() {
     QDomElement root = dom->firstChildElement("plurinotes");
 
     QDomNodeList nodes = root.childNodes();
-    for (int i = 0; i < nodes.count(); i) root.removeChild(nodes.at(i));
+
+    while(nodes.count() > 0) root.removeChild(nodes.at(0));
 
         QDomElement activeNotes = dom->createElement("activeNotes");
             activeNotes.appendChild(dom->createElement("articles"));
