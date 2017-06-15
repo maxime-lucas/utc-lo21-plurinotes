@@ -22,20 +22,19 @@ class V_CentralView : public QWidget {
 
     Q_OBJECT
 
+    private:
+        Ui::V_CentralRelation *ui;
+        V_MainView *parentView;
+        bool relationView;
+
     public:
         explicit V_CentralView(QWidget *parent = 0,V_MainView *m = 0);
         Ui::V_CentralRelation* getUi() const { return ui; }
         V_MainView* getMainwindow() const { return parentView; }
         bool isRelationView() const { return relationView; }
-
         void setIsRelationView(bool v) {relationView = v; }
 
         virtual ~V_CentralView() = 0;
-
-    private:
-        Ui::V_CentralRelation *ui;
-        V_MainView *parentView;
-        bool relationView;
 
     public slots:
         void deleteView();

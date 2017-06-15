@@ -55,6 +55,13 @@ void PluriNotes::reloadFromDatabase() {
         Task *t = activeTasks[i];
         activeNotesManager->getTab()->push_back(t);
     }
+
+    // Récupération des relations
+    std::vector<Relation*> relations = xmlManager->getAllRelations();
+    for(unsigned int i = 0; i < relations.size() ; i++ ) {
+        Relation *r = relations[i];
+        relationManager->getTab()->push_back(r);
+    }
 }
 
 Note* PluriNotes::getNoteByID(QString id) {

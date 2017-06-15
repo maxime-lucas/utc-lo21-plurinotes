@@ -14,7 +14,7 @@ V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
 
     centralView = new QWidget;
     QVBoxLayout *centralViewLayout = new QVBoxLayout;
-    QLabel *beginningTitle = new QLabel("Select a relation in the left tab");
+    QLabel *beginningTitle = new QLabel("Select a relation in the left tab or simply Create one");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
     centralViewLayout->addWidget(beginningTitle);
     centralView->setFixedWidth(560);
@@ -24,19 +24,7 @@ V_MainView::V_MainView(QWidget *parent, C_Mainwindow* c) :
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
-    for(unsigned int i = 0; i < controller->getApp()->getRelationManager()->getTab()->size(); i ++)
-    {
-        Relation* r = controller->getApp()->getRelationManager()->getTab()->at(i);
-
-        QListWidgetItem * item = new QListWidgetItem;
-        item->setData(Qt::UserRole,r->getId());
-        item->setText("Relation "+r->getId()+" : "+r->getTitle());
-
-        ui->listRelation->addItem(item);
-
-    }
-
-    this->connect(ui->listRelation,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(refreshCouple(QListWidgetItem*)));
+    refreshRelation();
 }
 
 void V_MainView::refreshCouple(QListWidgetItem* id) {
@@ -65,7 +53,6 @@ void V_MainView::refreshCouple(QListWidgetItem* id) {
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
 
-
     refreshListCouple(id->data(Qt::UserRole).toString());
 
     this->connect(ui->listWidget,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(afficheCouple(QListWidgetItem*)));
@@ -82,6 +69,7 @@ void V_MainView::afficheCouple(QListWidgetItem* c) {
 
     Relation* relation = this->getController()->getApp()->getRelationByID(idRelation);
     Couple* couple = this->getController()->getApp()->getCoupleByID(idCouple,relation);
+
     V_CentralCouple* V_Centralcouple = new V_CentralCouple(relation,couple,this);
     V_Centralcouple->setIsRelationView(false);
     centralView = V_Centralcouple;
@@ -99,8 +87,6 @@ void V_MainView::afficheCouple(QListWidgetItem* c) {
     centralView->setFixedWidth(580);
     centralRLayout->addWidget(centralView);
     ui->formWidget->setLayout(centralRLayout);
-
-
 }
 
 void V_MainView::refreshRelation()
@@ -117,6 +103,38 @@ void V_MainView::refreshRelation()
 
         ui->listRelation->addItem(item);
     }
+
+    this->connect(ui->listRelation,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(refreshCouple(QListWidgetItem*)));
+}
+
+void V_MainView::setEmptyCentralView() {
+    if(centralView != NULL && ( typeid(*centralView) == typeid(V_CentralCouple))) {
+        delete &(dynamic_cast<V_CentralCouple&>(*centralView));
+    } else if(centralView != NULL && ( typeid(*centralView) == typeid(V_Centralrelation))) {
+        delete &(dynamic_cast<V_Centralrelation&>(*centralView));
+    }
+
+    centralView = new QWidget;
+    QVBoxLayout *centralViewLayout = new QVBoxLayout;
+    QLabel *beginningTitle = new QLabel("Select a relation in the left tab or simply Create one");
+    beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
+    centralViewLayout->addWidget(beginningTitle);
+    centralView->setFixedWidth(560);
+    centralView->setLayout(centralViewLayout);
+
+    QLayoutItem* item = centralRLayout->takeAt(0);
+    while ( item != NULL )
+    {
+        delete item->widget();
+        delete item;
+        item = nullptr;
+    }
+
+    delete centralRLayout;
+    centralRLayout = new QHBoxLayout;
+    centralView->setFixedWidth(580);
+    centralRLayout->addWidget(centralView);
+    ui->formWidget->setLayout(centralRLayout);
 }
 
 void V_MainView::refreshListCouple(QString id)

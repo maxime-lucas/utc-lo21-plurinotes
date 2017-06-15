@@ -13,6 +13,7 @@
 #include "ui_v_taskform.h"
 #include "ui_v_multiplenotes.h"
 #include "ui_v_multiplerelation.h"
+#include "ui_v_mainrelation.h"
 
 C_Mainwindow::C_Mainwindow(QApplication *q) {
 
@@ -414,4 +415,26 @@ void C_Mainwindow::deleteNoteVersion(QString noteID, QString numVersion) {
     refreshActiveNotes();
     refreshTask();
     view->refreshVersions(noteID);
+}
+
+void C_Mainwindow::deleteCoupleByID(QString id) {
+    Couple *c = app->getXMLManager()->getCoupleById(id);
+    PluriNotes::debug(c->toString());
+}
+
+void C_Mainwindow::deleteRelationByID(QString id) {
+    Relation *r = app->getXMLManager()->getRelationByID(id);
+
+    // Suppression en base
+    app->getXMLManager()->deleteRelation(r);
+
+    //Suppression dans les relations actives (côté vue)
+    for(unsigned int i = 0; i < app->getRelationManager()->getTab()->size() ; i++ )
+    {
+        Relation *rel = app->getRelationManager()->getTab()->at(i);
+        if( rel->getId() == r->getId() ) app->getRelationManager()->getTab()->erase(app->getRelationManager()->getTab()->begin() + i);
+    }
+
+    view->getRelationView()->refreshRelation();
+    view->getRelationView()->setEmptyCentralView();
 }

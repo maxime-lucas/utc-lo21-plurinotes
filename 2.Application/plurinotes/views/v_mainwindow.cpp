@@ -333,7 +333,7 @@ void V_Mainwindow::init() {
     centralNote = new QWidget;
     centralNoteLayout = new QVBoxLayout;
 
-    QLabel *beginningTitle = new QLabel("Select a note in the left tab");
+    QLabel *beginningTitle = new QLabel("Select a note in the left tab or simply Create one");
     beginningTitle->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
     centralNoteLayout->addWidget(beginningTitle);

@@ -177,7 +177,7 @@ std::vector<Task*> XMLManager::getAllActiveTasks() const {
     QDomElement root = dom->firstChildElement("plurinotes");
     QDomElement activeNotes = root.firstChildElement("activeNotes");
     QDomElement tasks = activeNotes.firstChildElement("tasks");
-    QDomElement task = tasks.firstChildElement("task");    
+    QDomElement task = tasks.firstChildElement("task");
     unsigned int priority;
     TaskStatus status;
     QString createdOn,lastModifOn,deadline;
@@ -1228,3 +1228,59 @@ Couple* XMLManager::getCoupleById(QString id) const {
 
     return 0;
 }
+
+Relation* XMLManager::getRelationByID(QString id) const {
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+    QDomElement relation = relations.firstChildElement("relation");
+    std::vector<Couple*>* couplesTab = new std::vector<Couple*>;
+
+    for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+
+        if(id == relation.firstChildElement("id").text() ) {
+
+            QDomElement couples = relation.firstChildElement("couples");
+            QDomElement couple = couples.firstChildElement("couple");
+
+            for(;!couple.isNull(); couple = couple.nextSiblingElement("couple")) {
+                QString coupleID = couple.text();
+                Couple *c = getCoupleById(coupleID);
+                couplesTab->push_back(c);
+            }
+
+            bool isO;
+            if(relation.firstChildElement("isOriented").text()=="TRUE") isO = true;
+            else isO = false;
+
+            Relation* newR = new Relation(
+                relation.firstChildElement("id").text(),
+                relation.firstChildElement("title").text(),
+                relation.firstChildElement("description").text(),
+                isO,
+                couplesTab
+            );
+
+            return newR;
+        }
+    }
+
+    return 0;
+}
+
+unsigned int XMLManager::getLastRelationId() const {
+    unsigned int lastID = 0;
+    unsigned int foundID = 0;
+
+    QDomElement root = dom->firstChildElement("plurinotes");
+    QDomElement relations = root.firstChildElement("relations");
+
+        QDomElement relation = relations.firstChildElement("relation");
+        for(;!relation.isNull(); relation = relation.nextSiblingElement("relation")) {
+            foundID = relation.firstChildElement("id").text().toInt(0,10);
+            if(foundID > lastID) lastID = foundID;
+        }
+
+    return lastID;
+}
+

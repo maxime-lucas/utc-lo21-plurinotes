@@ -18,13 +18,12 @@ void V_CentralView::deleteView() {
     if(relationView == true)
     {
         QString id = this->getUi()->labelID->text();
-        Relation* relation = this->getMainwindow()->getController()->getApp()->getRelationByID(id);
-        this->getMainwindow()->getController()->getApp()->getRelationManager()->deleteByRelation(relation);
-        this->getMainwindow()->getController()->getApp()->getXMLManager()->deleteRelation(relation);
+        parentView->getController()->deleteRelationByID(id);
     }
     else if(relationView == false)
     {
-
+        QString id = this->getUi()->labelID->text();
+        parentView->getController()->deleteCoupleByID(id);
     }
 }
 
@@ -75,6 +74,7 @@ V_Centralrelation::V_Centralrelation(Relation *r,V_MainView* m) : V_CentralView(
 
     QSignalMapper* signalmapper = new QSignalMapper(this);
     this->connect(signalmapper, SIGNAL(mapped(QString)),this->getMainwindow()->getController()->getView(), SLOT(openNewCouple(QString)));
+
     signalmapper->setMapping(addCouple,r->getId());
     this->getMainwindow()->connect(addCouple, SIGNAL(clicked()), signalmapper, SLOT(map()));
 }
@@ -105,7 +105,10 @@ void V_Centralrelation::editRelation()
     }
 }
 
-V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m), r(r), c(c){
+V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_CentralView(0,m){
+    this->r = r;
+    this->c = c;
+
     this->getUi()->labelType->setText("Type : Couple");
     this->getUi()->labelID->setText(c->getId());
     this->getUi()->textTitle->setText(c->getLabel());
@@ -114,8 +117,6 @@ V_CentralCouple::V_CentralCouple(Relation *r, Couple *c,V_MainView* m) : V_Centr
     label->setText(c->getLabel());
 
     QFormLayout *formWidgetLayout = new QFormLayout();
-
-
 
         Note* note = c->getX();
         if( typeid(*note) == typeid(Article) ) {

@@ -46,6 +46,8 @@ class C_Mainwindow {
         void createMenus();
         void refreshActiveNotes();
         void refreshTask();
+        void refreshRelations();
+        void refreshCouples();
 
         void saveNewArticle(Article*);
         void saveNewMultimedia(Multimedia*);
@@ -63,6 +65,8 @@ class C_Mainwindow {
         void deleteNoteVersion(QString,QString);
 
         void deleteByID(QString);
+        void deleteRelationByID(QString);
+        void deleteCoupleByID(QString);
 };
 
 #endif // C_MAINWINDOW

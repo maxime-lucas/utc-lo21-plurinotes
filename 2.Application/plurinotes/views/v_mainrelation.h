@@ -25,6 +25,8 @@ public:
     Ui::v_mainrelation* getUi() const {return ui;}
 
     void setEmptyCentralView();
+    void refreshCentralRelation(QString);
+    void refreshCentralCouple(QString);
     void refreshRelation();
     void refreshListCouple(QString);
 

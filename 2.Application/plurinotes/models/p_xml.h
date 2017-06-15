@@ -22,14 +22,15 @@ class XMLManager : public QWidget {
     ~XMLManager();
     void resetDocument();
 
-
     std::vector<Article*> getAllActiveArticles() const;
     std::vector<Multimedia*> getAllActiveMultimedia() const;
     std::vector<Task*> getAllActiveTasks() const;
     Couple* getCoupleById(QString) const;
     Note* getNoteById(QString) const;
+    Relation* getRelationByID(QString) const;
     std::vector<Relation*>getAllRelations() const;
     unsigned int getLastId() const;
+    unsigned int getLastRelationId() const;
 
     void insertIntoArticle(Article*);
     void insertIntoTask(Task*t);
