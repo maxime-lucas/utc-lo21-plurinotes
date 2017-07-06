@@ -1,0 +1,18 @@
+digraph "/home/maxime/Documents/Scolarité/P17/LO21/Projet/utc-lo21-plurinotes/2.Application/plurinotes" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_4932e59ca78e712eac00bf650cd3ff53 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="2.Application" fontname="Helvetica", fontsize="10", URL="dir_4932e59ca78e712eac00bf650cd3ff53.html"]
+  subgraph clusterdir_7c78a16d15fcec54b825b3aa51231ae2 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_7c78a16d15fcec54b825b3aa51231ae2.html"];
+    dir_7c78a16d15fcec54b825b3aa51231ae2 [shape=plaintext label="plurinotes"];
+    dir_cdc47baf63085f7782e180c4e944bef5 [shape=box label="controllers" color="black" fillcolor="white" style="filled" URL="dir_cdc47baf63085f7782e180c4e944bef5.html"];
+    dir_60e591bbed2aa01e13b2832ce20c0520 [shape=box label="models" color="black" fillcolor="white" style="filled" URL="dir_60e591bbed2aa01e13b2832ce20c0520.html"];
+    dir_29bf0f6f8001111f65cc31ec03879120 [shape=box label="views" color="black" fillcolor="white" style="filled" URL="dir_29bf0f6f8001111f65cc31ec03879120.html"];
+  }
+  }
+  dir_29bf0f6f8001111f65cc31ec03879120->dir_cdc47baf63085f7782e180c4e944bef5 [headlabel="2", labeldistance=1.5 headhref="dir_000004_000002.html"];
+  dir_29bf0f6f8001111f65cc31ec03879120->dir_60e591bbed2aa01e13b2832ce20c0520 [headlabel="3", labeldistance=1.5 headhref="dir_000004_000003.html"];
+  dir_7c78a16d15fcec54b825b3aa51231ae2->dir_cdc47baf63085f7782e180c4e944bef5 [headlabel="3", labeldistance=1.5 headhref="dir_000001_000002.html"];
+}

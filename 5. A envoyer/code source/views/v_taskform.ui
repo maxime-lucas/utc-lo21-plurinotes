@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>V_TaskForm</class>
+ <widget class="QDialog" name="V_TaskForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>423</width>
+    <height>333</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>401</width>
+     <height>316</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="1" column="0" colspan="2">
+       <widget class="QLabel" name="labelWindowTitle">
+        <property name="font">
+         <font>
+          <pointsize>36</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Task</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="iDLabel">
+        <property name="text">
+         <string>ID :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="iDLineEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="titleLabel">
+        <property name="text">
+         <string>Title :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="titleLineEdit"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="actionLabel">
+        <property name="text">
+         <string>Action :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="actionLineEdit"/>
+      </item>
+      <item row="10" column="1">
+       <layout class="QHBoxLayout" name="priorityLayout">
+        <item>
+         <widget class="QSlider" name="prioritySlider">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLCDNumber" name="lcdNumber"/>
+        </item>
+       </layout>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="priorityLabel">
+        <property name="text">
+         <string>Priority :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QRadioButton" name="yesBtn">
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="noBtn">
+          <property name="text">
+           <string>No</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="8" column="1">
+       <widget class="QDateTimeEdit" name="toBeDoneOnDateTimeEdit">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="toBeDoneOnLabel_2">
+        <property name="text">
+         <string>to be done on :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Add Deadline ?</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnCancel">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSave">
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

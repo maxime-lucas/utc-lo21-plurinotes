@@ -1,0 +1,10 @@
+digraph "/home/maxime/Documents/Scolarité/P17/LO21/Projet/utc-lo21-plurinotes/2.Application" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_4932e59ca78e712eac00bf650cd3ff53 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_4932e59ca78e712eac00bf650cd3ff53.html"];
+    dir_4932e59ca78e712eac00bf650cd3ff53 [shape=plaintext label="2.Application"];
+    dir_7c78a16d15fcec54b825b3aa51231ae2 [shape=box label="plurinotes" color="red" fillcolor="white" style="filled" URL="dir_7c78a16d15fcec54b825b3aa51231ae2.html"];
+  }
+}
